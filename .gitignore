@@ -73,3 +73,7 @@ Assets/Scenes/Forest_EnvironmentSample/
 Assets/Scenes/RestoreBackups/
 Assets/Scenes/_Recovery_*
 Assets/_TerrainAutoUpgrade/
+
+# Snapshot/vendor content not suitable for the public repo
+Blueprints/
+Assets/Shaders/BotD/
