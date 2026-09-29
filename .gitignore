@@ -64,3 +64,12 @@ Assets/TempDragonRework/
 *.presavebak
 .DS_Store
 Thumbs.db
+
+# Additional generated/third-party Unity content
+Assets/Optimization/
+Assets/Player/
+Assets/ThirdParty/
+Assets/Scenes/Forest_EnvironmentSample/
+Assets/Scenes/RestoreBackups/
+Assets/Scenes/_Recovery_*
+Assets/_TerrainAutoUpgrade/
