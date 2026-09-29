@@ -77,3 +77,10 @@ Assets/_TerrainAutoUpgrade/
 # Snapshot/vendor content not suitable for the public repo
 Blueprints/
 Assets/Shaders/BotD/
+
+# Directly extracted MM map/object source data (kept local)
+Assets/World/*/Objects/
+Assets/World/*/Data/
+Assets/World/*/*.obj
+Assets/World/*/*.obj.meta
+*.presavebak.meta
