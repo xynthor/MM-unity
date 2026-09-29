@@ -82,7 +82,7 @@ public static class MMEnrothOuterGridSeamRecovery {
     [MenuItem("MMUnity/World/Lock 15 Outer Tiles to Canonical World")]
     public static void Run() {
         var sc=SceneManager.GetActiveScene();
-        if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity")
+        if(sc.path!="Assets/Scenes/World/Enroth.unity")
             throw new Exception("Open saved linked Enroth first, active="+sc.path);
         grid=new Cell[6,5];int count=0;maxCorrection=0f;
         foreach(var root in sc.GetRootGameObjects())

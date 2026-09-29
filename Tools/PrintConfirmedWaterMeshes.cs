@@ -1,7 +1,7 @@
 using System;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;
 internal class CommandScript:IRunCommand{
  public void Execute(ExecutionResult result){
-  foreach(var sn in new[]{"FreeHaven_SourceGrid","MireOfTheDamned_SourceGrid","FrozenHighlands_SourceGrid"}){
+  foreach(var sn in new[]{"FreeHaven","MireOfTheDamned","FrozenHighlands"}){
    var s=EditorSceneManager.OpenScene("Assets/Scenes/"+sn+".unity",OpenSceneMode.Single);
    var r=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<MeshRenderer>(true)).FirstOrDefault(x=>x.name=="Internal Water - Smooth");
    if(!r){result.Log(sn+" NO Internal Water");continue;}

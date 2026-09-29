@@ -9,10 +9,10 @@ using System.Collections.Generic;
 public static class MMCactusScaleTextureRepairAndDragonRealism
 {
     static readonly (string key,string scene)[] CactusZones={
-        ("Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity"),
-        ("Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity"),
-        ("ParadiseValley","Assets/Scenes/ParadiseValley_SourceGrid.unity"),
-        ("HermitsIsle","Assets/Scenes/HermitsIsle_SourceGrid.unity")
+        ("Blackshire","Assets/Scenes/Regions/Blackshire.unity"),
+        ("Dragonsand","Assets/Scenes/Regions/Dragonsand.unity"),
+        ("ParadiseValley","Assets/Scenes/Regions/ParadiseValley.unity"),
+        ("HermitsIsle","Assets/Scenes/Regions/HermitsIsle.unity")
     };
     static readonly HashSet<string> Containers=new HashSet<string>(StringComparer.OrdinalIgnoreCase){
         "Desert Vegetation - Randomized Supplement",
@@ -176,7 +176,7 @@ public static class MMCactusScaleTextureRepairAndDragonRealism
     [MenuItem("MMUnity/Environment/Add Subtle Dragon Isle Realism")]
     public static void AddDragonRealism()
     {
-        const string scene="Assets/Scenes/DragonIsle_Reference.unity";
+        const string scene="Assets/Scenes/Regions/DragonIsle.unity";
         var sc=EditorSceneManager.OpenScene(scene,OpenSceneMode.Single);
         var root=sc.GetRootGameObjects().FirstOrDefault(g=>g.GetComponentInChildren<Terrain>(true));
         if(!root)throw new Exception("Dragon Isle root missing");
@@ -262,7 +262,7 @@ public static class MMCactusScaleTextureRepairAndDragonRealism
             lines.Add($"{z.key},{mfs.Length},{noTex},{big},0,0");
         }
         {
-            var sc=EditorSceneManager.OpenScene("Assets/Scenes/DragonIsle_Reference.unity",OpenSceneMode.Single);
+            var sc=EditorSceneManager.OpenScene("Assets/Scenes/Regions/DragonIsle.unity",OpenSceneMode.Single);
             var root=sc.GetRootGameObjects().FirstOrDefault(g=>g.GetComponentInChildren<Terrain>(true));
             var add=root.transform.Find("Dragon Isle - Realism Additions");
             int cnt=add?add.childCount:0,invalid=0;

@@ -9,7 +9,7 @@ using System.Globalization;
 
 public static class MMDragonIsleVegetationRepair
 {
-    const string Scene="Assets/Scenes/DragonIsle_Reference.unity";
+    const string Scene="Assets/Scenes/Regions/DragonIsle.unity";
     const string Report="Validation/EnvironmentRealism/dragon_isle_vegetation_repair.csv";
     static string F(float v)=>v.ToString("0.######",CultureInfo.InvariantCulture);
     static Bounds B(GameObject go)

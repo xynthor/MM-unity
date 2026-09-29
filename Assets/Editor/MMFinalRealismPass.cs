@@ -11,20 +11,20 @@ public static class MMFinalRealismPass
 {
     sealed class Z { public string key,display,scene; public Z(string k,string d,string s){key=k;display=d;scene=s;} }
     static readonly Z[] Zones={
-        new Z("NewSorpigal","New Sorpigal","Assets/Scenes/NewSorpigal_OpenWorld.unity"),
-        new Z("CastleIronfist","Castle Ironfist","Assets/Scenes/CastleIronfist_SourceGrid.unity"),
-        new Z("MireOfTheDamned","Mire of the Damned","Assets/Scenes/MireOfTheDamned_SourceGrid.unity"),
-        new Z("Dragonsand","Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity"),
-        new Z("HermitsIsle","Hermit's Isle","Assets/Scenes/HermitsIsle_SourceGrid.unity"),
-        new Z("MistyIslands","Misty Islands","Assets/Scenes/MistyIslands_SourceGrid.unity"),
-        new Z("BootlegBay","Bootleg Bay","Assets/Scenes/BootlegBay_SourceGrid.unity"),
-        new Z("FreeHaven","Free Haven","Assets/Scenes/FreeHaven_SourceGrid.unity"),
-        new Z("Blackshire","Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity"),
-        new Z("ParadiseValley","Paradise Valley","Assets/Scenes/ParadiseValley_SourceGrid.unity"),
-        new Z("EelInfestedWaters","Eel Infested Waters","Assets/Scenes/EelInfestedWaters_SourceGrid.unity"),        new Z("SilverCove","Silver Cove","Assets/Scenes/SilverCove_SourceGrid.unity"),
-        new Z("FrozenHighlands","White Cap / Frozen Highlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity"),
-        new Z("Kriegspire","Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity"),
-        new Z("SweetWater","Sweet Water","Assets/Scenes/SweetWater_SourceGrid.unity")};
+        new Z("NewSorpigal","New Sorpigal","Assets/Scenes/Regions/NewSorpigal.unity"),
+        new Z("CastleIronfist","Castle Ironfist","Assets/Scenes/Regions/CastleIronfist.unity"),
+        new Z("MireOfTheDamned","Mire of the Damned","Assets/Scenes/Regions/MireOfTheDamned.unity"),
+        new Z("Dragonsand","Dragonsand","Assets/Scenes/Regions/Dragonsand.unity"),
+        new Z("HermitsIsle","Hermit's Isle","Assets/Scenes/Regions/HermitsIsle.unity"),
+        new Z("MistyIslands","Misty Islands","Assets/Scenes/Regions/MistyIslands.unity"),
+        new Z("BootlegBay","Bootleg Bay","Assets/Scenes/Regions/BootlegBay.unity"),
+        new Z("FreeHaven","Free Haven","Assets/Scenes/Regions/FreeHaven.unity"),
+        new Z("Blackshire","Blackshire","Assets/Scenes/Regions/Blackshire.unity"),
+        new Z("ParadiseValley","Paradise Valley","Assets/Scenes/Regions/ParadiseValley.unity"),
+        new Z("EelInfestedWaters","Eel Infested Waters","Assets/Scenes/Regions/EelInfestedWaters.unity"),        new Z("SilverCove","Silver Cove","Assets/Scenes/Regions/SilverCove.unity"),
+        new Z("FrozenHighlands","White Cap / Frozen Highlands","Assets/Scenes/Regions/FrozenHighlands.unity"),
+        new Z("Kriegspire","Kriegspire","Assets/Scenes/Regions/Kriegspire.unity"),
+        new Z("SweetWater","Sweet Water","Assets/Scenes/Regions/SweetWater.unity")};
     const int N=128; const float Cell=4f;
 
     [MenuItem("MMUnity/Final Realism Pass")]
@@ -391,7 +391,7 @@ public static class MMFinalRealismPass
 
     static Material FormMaterial(bool snow)
     {
-        string dir="Assets/Materials/SourceGridTerrain";Directory.CreateDirectory(dir);string path=dir+(snow?"/FinalSnowMountain.mat":"/FinalDesertMountain.mat");
+        string dir="Assets/Materials/Terrain";Directory.CreateDirectory(dir);string path=dir+(snow?"/FinalSnowMountain.mat":"/FinalDesertMountain.mat");
         var m=AssetDatabase.LoadAssetAtPath<Material>(path);var sh=Shader.Find("Standard");if(!m){m=new Material(sh);AssetDatabase.CreateAsset(m,path);}else m.shader=sh;
         string tex=snow?"Assets/Environment/TerrainForms/SnowMountain/a bit Lighter.tif":"Assets/Environment/PolyHaven/Textures/coast_sand_02/coast_sand_02_diff_1k.jpg";m.SetTexture("_MainTex",AssetDatabase.LoadAssetAtPath<Texture2D>(tex));
         if(snow){var n=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Environment/TerrainForms/SnowMountain/Normal Map.tif");if(n){m.SetTexture("_BumpMap",n);m.EnableKeyword("_NORMALMAP");}}else m.color=new Color(.86f,.75f,.53f);
@@ -410,7 +410,7 @@ public static class MMFinalRealismPass
     }
     static Material MakeCC0PlantMaterial(string assetName,string suffix,string diff,string normal,string alpha=null)
     {
-        string dir="Assets/Materials/SourceGridTerrain";Directory.CreateDirectory(dir);string path=$"{dir}/CC0_{assetName}_{suffix}.mat";
+        string dir="Assets/Materials/Terrain";Directory.CreateDirectory(dir);string path=$"{dir}/CC0_{assetName}_{suffix}.mat";
         var m=AssetDatabase.LoadAssetAtPath<Material>(path);var sh=Shader.Find("Standard");if(!m){m=new Material(sh);AssetDatabase.CreateAsset(m,path);}else m.shader=sh;
         var d=AssetDatabase.LoadAssetAtPath<Texture2D>(diff);var n=AssetDatabase.LoadAssetAtPath<Texture2D>(normal);if(d)m.SetTexture("_MainTex",d);if(n){m.SetTexture("_BumpMap",n);m.EnableKeyword("_NORMALMAP");}
         if(!string.IsNullOrEmpty(alpha)){var a=AssetDatabase.LoadAssetAtPath<Texture2D>(alpha);m.SetFloat("_Mode",1f);m.SetFloat("_Cutoff",.32f);m.SetOverrideTag("RenderType","TransparentCutout");m.EnableKeyword("_ALPHATEST_ON");m.renderQueue=2450;if(m.HasProperty("_Cull"))m.SetInt("_Cull",0);}
@@ -438,7 +438,7 @@ public static class MMFinalRealismPass
     }
     static Material CC0PineMaterial(bool twig)
     {
-        string dir="Assets/Materials/SourceGridTerrain";Directory.CreateDirectory(dir);string path=dir+(twig?"/CC0_PineTwig.mat":"/CC0_PineBark.mat");
+        string dir="Assets/Materials/Terrain";Directory.CreateDirectory(dir);string path=dir+(twig?"/CC0_PineTwig.mat":"/CC0_PineBark.mat");
         var m=AssetDatabase.LoadAssetAtPath<Material>(path);var sh=Shader.Find("Standard");if(!m){m=new Material(sh);AssetDatabase.CreateAsset(m,path);}else m.shader=sh;
         string b="Assets/Environment/PolyHaven/Models/pine_sapling_small/";
         var d=AssetDatabase.LoadAssetAtPath<Texture2D>(b+(twig?"pine_sapling_small_twig_diff_1k.png":"pine_sapling_small_bark_diff_1k.png"));
@@ -449,7 +449,7 @@ public static class MMFinalRealismPass
     }
     static Material CC0ShrubMaterial()
     {
-        string path="Assets/Materials/SourceGridTerrain/CC0_Shrub02.mat";var m=AssetDatabase.LoadAssetAtPath<Material>(path);var sh=Shader.Find("Standard");if(!m){m=new Material(sh);AssetDatabase.CreateAsset(m,path);}else m.shader=sh;
+        string path="Assets/Materials/Terrain/CC0_Shrub02.mat";var m=AssetDatabase.LoadAssetAtPath<Material>(path);var sh=Shader.Find("Standard");if(!m){m=new Material(sh);AssetDatabase.CreateAsset(m,path);}else m.shader=sh;
         string b="Assets/Environment/PolyHaven/Models/shrub_02/";var d=AssetDatabase.LoadAssetAtPath<Texture2D>(b+"shrub_02_rgba_1k.png");var n=AssetDatabase.LoadAssetAtPath<Texture2D>(b+"shrub_02_nor_gl_1k.exr");if(d)m.SetTexture("_MainTex",d);if(n){m.SetTexture("_BumpMap",n);m.EnableKeyword("_NORMALMAP");}m.SetFloat("_Mode",1f);m.SetFloat("_Cutoff",.30f);m.SetOverrideTag("RenderType","TransparentCutout");m.EnableKeyword("_ALPHATEST_ON");m.renderQueue=2450;if(m.HasProperty("_Cull"))m.SetInt("_Cull",0);if(m.HasProperty("_Glossiness"))m.SetFloat("_Glossiness",.05f);EditorUtility.SetDirty(m);return m;
     }
     static void ApplyCC0PineMaterials(GameObject go)

@@ -10,11 +10,11 @@ public static class MMWestNorthVegetationFamilyAudit
 {
     class Z{public string key,scene;public Z(string k,string s){key=k;scene=s;}}
     static readonly Z[] Zones={
-        new Z("SweetWater","Assets/Scenes/SweetWater_SourceGrid.unity"),
-        new Z("Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity"),
-        new Z("FrozenHighlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity"),
-        new Z("ParadiseValley","Assets/Scenes/ParadiseValley_SourceGrid.unity"),
-        new Z("HermitsIsle","Assets/Scenes/HermitsIsle_SourceGrid.unity")
+        new Z("SweetWater","Assets/Scenes/Regions/SweetWater.unity"),
+        new Z("Kriegspire","Assets/Scenes/Regions/Kriegspire.unity"),
+        new Z("FrozenHighlands","Assets/Scenes/Regions/FrozenHighlands.unity"),
+        new Z("ParadiseValley","Assets/Scenes/Regions/ParadiseValley.unity"),
+        new Z("HermitsIsle","Assets/Scenes/Regions/HermitsIsle.unity")
     };
     [MenuItem("MMUnity/Validation/West North Vegetation Families")]
     public static void Run()

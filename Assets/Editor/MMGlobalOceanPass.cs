@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 public static class MMGlobalOceanPass
 {
-    const string ScenePath="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string ScenePath="Assets/Scenes/World/Enroth.unity";
     const float InnerX=1280f, InnerZ=768f;
     const float OuterX=2304f, OuterZ=1792f;
     const float Step=32f;

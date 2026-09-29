@@ -9,8 +9,8 @@ using System.Globalization;
 
 public static class MMDragonIsleValidation
 {
-    const string Standalone="Assets/Scenes/DragonIsle_Reference.unity";
-    const string Linked="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string Standalone="Assets/Scenes/Regions/DragonIsle.unity";
+    const string Linked="Assets/Scenes/World/Enroth.unity";
     const string Report="Validation/EnvironmentRealism/dragon_isle_validation.csv";
     static string F(float v)=>v.ToString("0.######",CultureInfo.InvariantCulture);
 

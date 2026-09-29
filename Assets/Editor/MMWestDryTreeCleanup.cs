@@ -9,9 +9,9 @@ using System.Globalization;
 
 public static class MMWestDryTreeCleanup
 {
-    const string Paradise="Assets/Scenes/ParadiseValley_SourceGrid.unity";
-    const string Bootleg="Assets/Scenes/BootlegBay_SourceGrid.unity";
-    const string Linked="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string Paradise="Assets/Scenes/Regions/ParadiseValley.unity";
+    const string Bootleg="Assets/Scenes/Regions/BootlegBay.unity";
+    const string Linked="Assets/Scenes/World/Enroth.unity";
     const string Report="Validation/EnvironmentRealism/paradise_dead_tree_cleanup.csv";
     const string BootlegReport="Validation/EnvironmentRealism/bootleg_dead_tree_cleanup.csv";
 

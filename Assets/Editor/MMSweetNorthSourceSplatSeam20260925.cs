@@ -19,7 +19,7 @@ internal static class MMSweetNorthSourceSplatSeam20260925 {
    const string backup=@"C:\MMUnityPort\Backups\BeforeAdaptiveNorthToePolish_20260925\manifest.json";
    if(!File.Exists(backup))throw new Exception("Pre-change terrain backup missing");
    var scene=SceneManager.GetActiveScene();
-   if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||scene.isDirty)
+   if(scene.path!="Assets/Scenes/World/Enroth.unity"||scene.isDirty)
     throw new Exception("Saved linked world required");
    var src=AssetDatabase.LoadAssetAtPath<TerrainData>(
      "Assets/World/SweetWater/Generated/SweetWaterTerrain.asset");

@@ -14,7 +14,7 @@ public static class MMContinueAudit
         AuditWorldSourceExact.Run();
         CaptureAuditScreens.Run();
         AssetDatabase.SaveAssets();
-        var p="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+        var p="Assets/Scenes/World/Enroth.unity";
         if(File.Exists(Path.GetFullPath(p))) EditorSceneManager.OpenScene(p,OpenSceneMode.Single);
         Debug.Log("MM_CONTINUE_AUDIT_FIX_SCREENS_DONE");
     }

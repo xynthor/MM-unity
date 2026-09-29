@@ -31,7 +31,7 @@ public static class MMLinkedTreeImpostors20260928
  }
  public static void Apply()
  {
-  var scene=SceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||scene.isDirty||EditorApplication.isPlaying)throw new Exception("Saved linked Edit Mode scene required");
+  var scene=SceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/World/Enroth.unity"||scene.isDirty||EditorApplication.isPlaying)throw new Exception("Saved linked Edit Mode scene required");
   if(!File.Exists("Backups/BeforeFarTreeImpostors_20260928/manifest.json"))throw new Exception("Backup required");
   if(!AssetDatabase.IsValidFolder(Root))AssetDatabase.CreateFolder("Assets/World/WorldExtensions/Generated","LinkedTreeImpostors");
   var groups=scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<LODGroup>(true)).Where(g=>g.transform.Find("Linked distance LOD 2")&&g.GetComponent<MeshFilter>()).ToArray();

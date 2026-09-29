@@ -11,8 +11,8 @@ public static class MMFinalizeDragonIsleCanonicalTerrain
 {
     const string PREVIEW="Assets/TempDragonTemplate/DragonIsleReferenceTerrain_PREVIEW.asset";
     const string FINAL="Assets/World/DragonIsle/Generated/DragonIsleReferenceTerrain_Final.asset";
-    const string STANDALONE="Assets/Scenes/DragonIsle_Reference.unity";
-    const string LINKED="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string STANDALONE="Assets/Scenes/Regions/DragonIsle.unity";
+    const string LINKED="Assets/Scenes/World/Enroth.unity";
 
     [MenuItem("MMUnity/Dragon Isle/Finalize Canonical Terrain Asset")]
     public static void Run(){

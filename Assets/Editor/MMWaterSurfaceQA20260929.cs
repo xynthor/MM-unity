@@ -12,7 +12,7 @@ public static class MMWaterSurfaceQA20260929
  {
   if(tag.Any(c=>!char.IsLetterOrDigit(c)&&c!='_'))throw new Exception("Invalid capture tag");
   var scene=SceneManager.GetActiveScene();
-  if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity")throw new Exception("Linked scene required");
+  if(scene.path!="Assets/Scenes/World/Enroth.unity")throw new Exception("Linked scene required");
   string folder="Validation/EdgeGrid20260923/WaterQA20260929/"+tag;
   Directory.CreateDirectory(folder);
   var lights=scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Light>(true)).Where(l=>l.type==LightType.Directional).ToArray();

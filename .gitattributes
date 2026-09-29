@@ -8,5 +8,5 @@
 *.unity text eol=lf
 *.prefab text eol=lf
 *.mat text eol=lf
-Assets/Scenes/Enroth_Linked_OpenWorld.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/World/Enroth.unity filter=lfs diff=lfs merge=lfs -text
 Assets/World/WorldExtensions/Generated/LinkedJacarandaRepair/JacarandaNear.asset filter=lfs diff=lfs merge=lfs -text

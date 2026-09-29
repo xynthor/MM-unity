@@ -15,7 +15,7 @@ internal static class MMNorthC1RebuildQueued20260925 {
   File.Delete(V+"RUN_NORTH_C1_REBUILD.flag");
   try{
    var sc=SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked scene must be active and clean");
    if(!File.Exists(@"C:\MMUnityPort\Backups\BeforeLinkedNorthC1Finalizer_20260925\manifest.json"))
     throw new Exception("Immutable C1 scene/assets snapshot missing");

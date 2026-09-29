@@ -23,7 +23,7 @@ public static class MMGlobalPerformanceAudit
             StartAudit();
         }
     }
-    const string RestoreScene = "Assets/Scenes/NewSorpigal_OpenWorld.unity";
+    const string RestoreScene = "Assets/Scenes/Regions/NewSorpigal.unity";
     static string[] scenes;
     static int index;
     static StringBuilder sceneCsv;

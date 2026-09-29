@@ -14,10 +14,10 @@ internal class CommandScript:IRunCommand{
  }
  public void Execute(ExecutionResult result){
   Directory.CreateDirectory(Out);
-  Cap("FreeHaven_SourceGrid",25.1f,-5.7f,55f,"FreeHaven");
-  Cap("MireOfTheDamned_SourceGrid",29.7f,130.6f,80f,"Mire");
-  Cap("FrozenHighlands_SourceGrid",-158.56f,21.78f,45f,"WhiteCap");
-  var s=EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+  Cap("FreeHaven",25.1f,-5.7f,55f,"FreeHaven");
+  Cap("MireOfTheDamned",29.7f,130.6f,80f,"Mire");
+  Cap("FrozenHighlands",-158.56f,21.78f,45f,"WhiteCap");
+  var s=EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
   var go=new GameObject("__LinkedOverview");SceneManager.MoveGameObjectToScene(go,s);var c=go.AddComponent<Camera>();c.clearFlags=CameraClearFlags.Skybox;c.farClipPlane=5000;c.orthographic=true;c.orthographicSize=1100;c.transform.position=new Vector3(-256,2400,256);c.transform.rotation=Quaternion.Euler(90,0,0);
   MMSequentialEvidence.Render(c,Out+"/Linked_after_water_fix.png",1400,900);UnityEngine.Object.DestroyImmediate(go);
   result.Log("After canal + linked water captures written");

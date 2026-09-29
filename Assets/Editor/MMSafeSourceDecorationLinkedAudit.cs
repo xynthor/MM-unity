@@ -15,7 +15,7 @@ public static class MMSafeSourceDecorationLinkedAudit
     public static void Run()
     {
         Directory.CreateDirectory("Validation/SourceDecoration3D/Production");
-        var sc=EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+        var sc=EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
         var world=sc.GetRootGameObjects().FirstOrDefault(g=>g.name=="ENROTH - LINKED SOURCE REGIONS");
         if(!world)throw new System.Exception("WORLD_ROOT_MISSING");
         var preview=world.transform.Find("EDITOR LAYOUT - 15 MM6 REGIONS + DRAGON ISLE");

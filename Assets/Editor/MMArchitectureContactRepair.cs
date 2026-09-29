@@ -14,10 +14,10 @@ public static class MMArchitectureContactRepair
         public T(string z,string s,string l,string n){zone=z;scene=s;linked=l;name=n;}
     }
     static readonly T[] Targets={
-        new T("Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity","Dragonsand - LINKED REFERENCE","014_M013_obelisk_granite"),
-        new T("Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity","Kriegspire - LINKED REFERENCE","020_M019_c5front")
+        new T("Dragonsand","Assets/Scenes/Regions/Dragonsand.unity","Dragonsand - LINKED REFERENCE","014_M013_obelisk_granite"),
+        new T("Kriegspire","Assets/Scenes/Regions/Kriegspire.unity","Kriegspire - LINKED REFERENCE","020_M019_c5front")
     };
-    const string LinkedScene="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string LinkedScene="Assets/Scenes/World/Enroth.unity";
     const string Report="Validation/EnvironmentRealism/architecture_contact_repair.csv";
 
     static Bounds BoundsOf(GameObject go)

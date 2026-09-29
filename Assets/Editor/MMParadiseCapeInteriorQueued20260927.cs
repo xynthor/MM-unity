@@ -15,7 +15,7 @@ internal static class MMParadiseCapeInteriorQueued20260927 {
   File.Delete(flag);
   try{
    var sc=SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked world must be active");
    MMParadiseCapeReferenceLandRecover20260927.Apply();
    BuildEnrothLinkedOpenWorld.Build();

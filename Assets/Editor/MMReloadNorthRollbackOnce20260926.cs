@@ -18,7 +18,7 @@ internal static class MMReloadNorthRollbackOnce20260926 {
     AssetDatabase.ImportAsset("Assets/World/WorldExtensions/Generated/LinkedSourceTransitions/"+n+"_LinkedNorthProfile.asset",
       ImportAssetOptions.ForceSynchronousImport|ImportAssetOptions.ForceUpdate);
    }
-   EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+   EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
    MMReference20260925VisualQAOnce.RunFinalQA();
    File.WriteAllText(V+"reload_north_rollback_runtime_20260926.txt","PASS forced terrain asset reload and fresh render\n");
   }catch(System.Exception e){

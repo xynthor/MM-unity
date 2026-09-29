@@ -39,7 +39,7 @@ public static class MMLinkedArchitectureEarclip20260928
     public static void Apply()
     {
         var scene=SceneManager.GetActiveScene();
-        if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||scene.isDirty||EditorApplication.isPlaying)throw new Exception("Saved linked scene required");
+        if(scene.path!="Assets/Scenes/World/Enroth.unity"||scene.isDirty||EditorApplication.isPlaying)throw new Exception("Saved linked scene required");
         var replacements=new Dictionary<Mesh,Mesh>();var report=new List<string>();
         foreach(var e in Read())
         {

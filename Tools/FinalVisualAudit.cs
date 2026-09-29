@@ -1,7 +1,7 @@
 using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine.SceneManagement;
 internal class CommandScript:IRunCommand{
  public void Execute(ExecutionResult result){
-  var s=SceneManager.GetActiveScene(); if(s.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity") throw new Exception("Linked world not active");
+  var s=SceneManager.GetActiveScene(); if(s.path!="Assets/Scenes/World/Enroth.unity") throw new Exception("Linked world not active");
   Directory.CreateDirectory("Validation/FinalWorld");
   var go=new GameObject("__FinalVisualAudit");SceneManager.MoveGameObjectToScene(go,s);
   try{

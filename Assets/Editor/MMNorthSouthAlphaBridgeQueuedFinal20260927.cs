@@ -16,7 +16,7 @@ internal static class MMNorthSouthAlphaBridgeQueuedFinal20260927 {
   File.Delete(flag);
   try{
    var s=SceneManager.GetActiveScene();
-   if(s.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||s.isDirty)
+   if(s.path!="Assets/Scenes/World/Enroth.unity"||s.isDirty)
     throw new Exception("Saved linked world required");
    MMNorthSouthAlphaBridge20260926.Apply();
    foreach(var t in UnityEngine.Object.FindObjectsByType<Terrain>(UnityEngine.FindObjectsSortMode.None))t.Flush();

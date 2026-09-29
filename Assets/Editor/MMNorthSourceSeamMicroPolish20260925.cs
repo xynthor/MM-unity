@@ -26,7 +26,7 @@ public static class MMNorthSourceSeamMicroPolish20260925 {
  [MenuItem("MMUnity/Reference 2026/Micro-polish North Source Seam Pits")]
  public static void Apply(){
   if(!File.Exists(Backup))throw new Exception("Verified current-terrain backup missing");
-  if(SceneManager.GetActiveScene().path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity" ||
+  if(SceneManager.GetActiveScene().path!="Assets/Scenes/World/Enroth.unity" ||
     SceneManager.GetActiveScene().isDirty)throw new Exception("Saved linked scene required");
   var terrains=new List<TerrainData>();var candidate=new List<float[,]>();
   var lines=new List<string>();const float H=320f;

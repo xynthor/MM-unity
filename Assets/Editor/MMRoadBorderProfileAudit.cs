@@ -7,10 +7,10 @@ using System.Collections.Generic;
 public static class MMRoadBorderProfileAudit
 {
     class Q{public string k,s;public Q(string a,string b){k=a;s=b;}}
-    static Q PV=new Q("ParadiseValley","Assets/Scenes/ParadiseValley_SourceGrid.unity");
-    static Q BS=new Q("Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity");
-    static Q FH=new Q("FrozenHighlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity");
-    static Q SC=new Q("SilverCove","Assets/Scenes/SilverCove_SourceGrid.unity");
+    static Q PV=new Q("ParadiseValley","Assets/Scenes/Regions/ParadiseValley.unity");
+    static Q BS=new Q("Blackshire","Assets/Scenes/Regions/Blackshire.unity");
+    static Q FH=new Q("FrozenHighlands","Assets/Scenes/Regions/FrozenHighlands.unity");
+    static Q SC=new Q("SilverCove","Assets/Scenes/Regions/SilverCove.unity");
     static bool Road(byte[] t,byte[] g,byte[] s,int x,int y){byte r=t[y*128+x],f=s[r],q=g[r];return (f&8)!=0||(q>=8&&q<255);}
     static void Load(Q q,out Terrain tr,out byte[] t,out byte[] g,out byte[] s,out byte[] h)
     {

@@ -1,10 +1,10 @@
 using System;using System.IO;using System.Linq;using System.Collections.Generic;using System.Security.Cryptography;using System.Text;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;using UnityEngine.SceneManagement;
 internal class CommandScript:IRunCommand{
- const string ScenePath="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+ const string ScenePath="Assets/Scenes/World/Enroth.unity";
  public void Execute(ExecutionResult result){
   var sc=EditorSceneManager.OpenScene(ScenePath,OpenSceneMode.Single);
   string pre=TransformHash(sc); int disabled=0, unified=0;
-  var mat=AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/SourceGridTerrain/UnifiedEnrothWater.mat");
+  var mat=AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/Terrain/UnifiedEnrothWater.mat");
   foreach(var root in sc.GetRootGameObjects()){
    foreach(var region in root.GetComponentsInChildren<Transform>(true).Where(t=>t.parent!=null && t.name.Contains("LINKED")).ToArray()){
     var rs=region.GetComponentsInChildren<MeshRenderer>(true);

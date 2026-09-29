@@ -89,7 +89,7 @@ public static class MMParadiseInteriorForest20260927 {
   if(EditorApplication.timeSinceStartup<next)return;
   next=EditorApplication.timeSinceStartup+4;
   var sc=SceneManager.GetActiveScene();
-  if(sc.isDirty||sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity")return;
+  if(sc.isDirty||sc.path!="Assets/Scenes/World/Enroth.unity")return;
   File.Delete(Flag);
   try{
    Apply();

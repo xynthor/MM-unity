@@ -13,7 +13,7 @@ internal static class MMNorthBasemapDistance5000Test20260927 {
   string f=V+"RUN_NORTH_BASEMAP_5000_TEST.flag";
   if(!File.Exists(f))return; File.Delete(f);
   var sc=SceneManager.GetActiveScene();
-  if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+  if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
    throw new Exception("Saved linked world required");
   int changed=0;
   foreach(var t in UnityEngine.Object.FindObjectsByType<Terrain>(UnityEngine.FindObjectsSortMode.None)){

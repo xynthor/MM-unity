@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public static class MMSorpigalOnlyRepair
 {
     const int N=128;
-    const string ScenePath="Assets/Scenes/NewSorpigal_OpenWorld.unity";
+    const string ScenePath="Assets/Scenes/Regions/NewSorpigal.unity";
     const string DataDir="Assets/World/NewSorpigal/Data";
     const string AuditDir="Validation/SorpigalOnlyRepair";
 
@@ -398,7 +398,7 @@ public static class MMSorpigalOnlyRepair
         cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.08f,.11f,.12f);cam.farClipPlane=1200f;
         var rt=new RenderTexture(1024,1024,24);cam.targetTexture=rt;cam.Render();RenderTexture.active=rt;
         var tex=new Texture2D(1024,1024,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,1024,1024),0,0);tex.Apply();
-        File.WriteAllBytes("C:/MMUnityPort/Validation/AuditScreens/NewSorpigal_OpenWorld.png",tex.EncodeToPNG());
+        File.WriteAllBytes("C:/MMUnityPort/Validation/AuditScreens/NewSorpigal.png",tex.EncodeToPNG());
         RenderTexture.active=null;cam.targetTexture=null;UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(tex);UnityEngine.Object.DestroyImmediate(go);
     }
 

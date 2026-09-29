@@ -15,24 +15,24 @@ public static class MMGlobalVegetationContactRepair
         public Z(string k,string s,string l){key=k;scene=s;linked=l;}
     }
     static readonly Z[] Zones={
-        new Z("NewSorpigal","Assets/Scenes/NewSorpigal_OpenWorld.unity","New Sorpigal - LINKED REFERENCE"),
-        new Z("CastleIronfist","Assets/Scenes/CastleIronfist_SourceGrid.unity","Castle Ironfist - LINKED ADJUSTABLE"),
-        new Z("MireOfTheDamned","Assets/Scenes/MireOfTheDamned_SourceGrid.unity","Mire of the Damned - LINKED REFERENCE"),
-        new Z("Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity","Dragonsand - LINKED REFERENCE"),
-        new Z("HermitsIsle","Assets/Scenes/HermitsIsle_SourceGrid.unity","Hermits Isle - LINKED REFERENCE"),
-        new Z("MistyIslands","Assets/Scenes/MistyIslands_SourceGrid.unity","Misty Islands - LINKED REFERENCE"),
-        new Z("BootlegBay","Assets/Scenes/BootlegBay_SourceGrid.unity","Bootleg Bay - LINKED REFERENCE"),
-        new Z("FreeHaven","Assets/Scenes/FreeHaven_SourceGrid.unity","Free Haven - LINKED REFERENCE"),
-        new Z("Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity","Blackshire - LINKED REFERENCE"),
-        new Z("ParadiseValley","Assets/Scenes/ParadiseValley_SourceGrid.unity","Paradise Valley - LINKED REFERENCE"),
-        new Z("EelInfestedWaters","Assets/Scenes/EelInfestedWaters_SourceGrid.unity","Eel Infested Waters - LINKED REFERENCE"),
-        new Z("SilverCove","Assets/Scenes/SilverCove_SourceGrid.unity","Silver Cove - LINKED REFERENCE"),
-        new Z("FrozenHighlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity","White Cap / Frozen Highlands - LINKED REFERENCE"),
-        new Z("Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity","Kriegspire - LINKED REFERENCE"),
-        new Z("SweetWater","Assets/Scenes/SweetWater_SourceGrid.unity","Sweet Water - LINKED REFERENCE")
+        new Z("NewSorpigal","Assets/Scenes/Regions/NewSorpigal.unity","New Sorpigal - LINKED REFERENCE"),
+        new Z("CastleIronfist","Assets/Scenes/Regions/CastleIronfist.unity","Castle Ironfist - LINKED ADJUSTABLE"),
+        new Z("MireOfTheDamned","Assets/Scenes/Regions/MireOfTheDamned.unity","Mire of the Damned - LINKED REFERENCE"),
+        new Z("Dragonsand","Assets/Scenes/Regions/Dragonsand.unity","Dragonsand - LINKED REFERENCE"),
+        new Z("HermitsIsle","Assets/Scenes/Regions/HermitsIsle.unity","Hermits Isle - LINKED REFERENCE"),
+        new Z("MistyIslands","Assets/Scenes/Regions/MistyIslands.unity","Misty Islands - LINKED REFERENCE"),
+        new Z("BootlegBay","Assets/Scenes/Regions/BootlegBay.unity","Bootleg Bay - LINKED REFERENCE"),
+        new Z("FreeHaven","Assets/Scenes/Regions/FreeHaven.unity","Free Haven - LINKED REFERENCE"),
+        new Z("Blackshire","Assets/Scenes/Regions/Blackshire.unity","Blackshire - LINKED REFERENCE"),
+        new Z("ParadiseValley","Assets/Scenes/Regions/ParadiseValley.unity","Paradise Valley - LINKED REFERENCE"),
+        new Z("EelInfestedWaters","Assets/Scenes/Regions/EelInfestedWaters.unity","Eel Infested Waters - LINKED REFERENCE"),
+        new Z("SilverCove","Assets/Scenes/Regions/SilverCove.unity","Silver Cove - LINKED REFERENCE"),
+        new Z("FrozenHighlands","Assets/Scenes/Regions/FrozenHighlands.unity","White Cap / Frozen Highlands - LINKED REFERENCE"),
+        new Z("Kriegspire","Assets/Scenes/Regions/Kriegspire.unity","Kriegspire - LINKED REFERENCE"),
+        new Z("SweetWater","Assets/Scenes/Regions/SweetWater.unity","Sweet Water - LINKED REFERENCE")
     };
     const string Audit="Validation/Everything_Audit_Details.csv";
-    const string Linked="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string Linked="Assets/Scenes/World/Enroth.unity";
     const string Report="Validation/EnvironmentRealism/global_vegetation_contact_repair.csv";
 
     class Target { public string zone,name; public float oldAuditGap; public bool remove; }

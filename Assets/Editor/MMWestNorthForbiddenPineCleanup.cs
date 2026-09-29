@@ -12,12 +12,12 @@ public static class MMWestNorthForbiddenPineCleanup
 {
     class Z{public string key,scene,linked;public Z(string k,string s,string l){key=k;scene=s;linked=l;}}
     static readonly Z[] Zones={
-        new Z("SweetWater","Assets/Scenes/SweetWater_SourceGrid.unity","Sweet Water - LINKED REFERENCE"),
-        new Z("Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity","Kriegspire - LINKED REFERENCE"),
-        new Z("FrozenHighlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity","White Cap / Frozen Highlands - LINKED REFERENCE")
+        new Z("SweetWater","Assets/Scenes/Regions/SweetWater.unity","Sweet Water - LINKED REFERENCE"),
+        new Z("Kriegspire","Assets/Scenes/Regions/Kriegspire.unity","Kriegspire - LINKED REFERENCE"),
+        new Z("FrozenHighlands","Assets/Scenes/Regions/FrozenHighlands.unity","White Cap / Frozen Highlands - LINKED REFERENCE")
     };
     static readonly string[] Containers={"Vegetation - Source Anchored Final","Realistic Ecosystem Supplementary"};
-    const string LinkedScene="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string LinkedScene="Assets/Scenes/World/Enroth.unity";
     const string Report="Validation/EnvironmentRealism/west_north_forbidden_pine_cleanup.csv";
 
     [MenuItem("MMUnity/Environment/Cleanup West North Forbidden Pines")]

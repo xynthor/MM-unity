@@ -21,7 +21,7 @@ public static class MMNorthSeamIdentityProbe20260927 {
   var outp=new StringBuilder();
   try{
    var sc=SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked scene required");
    var names=new[]{"SweetWater","Kriegspire","FrozenHighlands","SilverCove"};
    foreach(var n in names){

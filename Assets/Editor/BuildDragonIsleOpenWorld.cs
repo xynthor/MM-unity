@@ -10,7 +10,7 @@ using System.Linq;
 
 public static class BuildDragonIsleOpenWorld
 {
-    const string ScenePath="Assets/Scenes/DragonIsle_Reference.unity";
+    const string ScenePath="Assets/Scenes/Regions/DragonIsle.unity";
     const string Gen="Assets/World/DragonIsle/Generated";
     const string Mat="Assets/Materials/DragonIsle";
     const float Size=512f, BaseY=-24f, Height=320f, WaterY=.12f;
@@ -21,7 +21,7 @@ public static class BuildDragonIsleOpenWorld
     {
         Directory.CreateDirectory("Assets/Scenes"); Directory.CreateDirectory(Gen); Directory.CreateDirectory(Mat);
         var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
-        scene.name="DragonIsle_Reference";
+        scene.name="DragonIsle";
         var root=new GameObject("Dragon Isle - Open World 1x1 Reference");
         var terrain=BuildTerrain(root.transform);
         BuildWater(root.transform);
@@ -104,7 +104,7 @@ public static class BuildDragonIsleOpenWorld
             else {float d=Mathf.Clamp01((Mathf.PerlinNoise(u*5f+7,v*5f+9)-.36f)*.62f);a[y,x,0]=.74f-d*.45f;a[y,x,2]=.26f+d*.35f;a[y,x,3]=d*.10f;}
         }
         td.SetAlphamaps(0,0,a);
-        var go=Terrain.CreateTerrainGameObject(td);go.name="Terrain_DragonIsle_Reference_1x1";go.transform.SetParent(parent);go.transform.position=new Vector3(-256f,BaseY,-256f);
+        var go=Terrain.CreateTerrainGameObject(td);go.name="Terrain_DragonIsle_1x1";go.transform.SetParent(parent);go.transform.position=new Vector3(-256f,BaseY,-256f);
         var t=go.GetComponent<Terrain>();t.drawInstanced=true;t.heightmapPixelError=1.5f;t.basemapDistance=1500f;return t;
     }
 
@@ -190,6 +190,6 @@ public static class BuildDragonIsleOpenWorld
     static void RenderPreview(Scene scene)
     {
         Directory.CreateDirectory("Preview");var go=new GameObject("__DragonPreview");SceneManager.MoveGameObjectToScene(go,scene);var cam=go.AddComponent<Camera>();cam.orthographic=true;cam.orthographicSize=285f;cam.transform.position=new Vector3(0,700,0);cam.transform.rotation=Quaternion.Euler(90,0,0);cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.08f,.22f,.28f);cam.farClipPlane=1200f;
-        var rt=new RenderTexture(768,768,24);cam.targetTexture=rt;cam.Render();RenderTexture.active=rt;var tex=new Texture2D(768,768,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,768,768),0,0);tex.Apply();File.WriteAllBytes("C:/MMUnityPort/Preview/DragonIsle_Reference.png",tex.EncodeToPNG());RenderTexture.active=null;cam.targetTexture=null;UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(tex);UnityEngine.Object.DestroyImmediate(go);
+        var rt=new RenderTexture(768,768,24);cam.targetTexture=rt;cam.Render();RenderTexture.active=rt;var tex=new Texture2D(768,768,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,768,768),0,0);tex.Apply();File.WriteAllBytes("C:/MMUnityPort/Preview/DragonIsle.png",tex.EncodeToPNG());RenderTexture.active=null;cam.targetTexture=null;UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(tex);UnityEngine.Object.DestroyImmediate(go);
     }
 }

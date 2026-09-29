@@ -17,20 +17,20 @@ public static class MMWorldPolishPass
     }
 
     static readonly Zone[] Zones={
-        new Zone("NewSorpigal","New Sorpigal","Assets/Scenes/NewSorpigal_OpenWorld.unity"),
-        new Zone("CastleIronfist","Castle Ironfist","Assets/Scenes/CastleIronfist_SourceGrid.unity"),
-        new Zone("MireOfTheDamned","Mire of the Damned","Assets/Scenes/MireOfTheDamned_SourceGrid.unity"),
-        new Zone("Dragonsand","Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity"),
-        new Zone("HermitsIsle","Hermit's Isle","Assets/Scenes/HermitsIsle_SourceGrid.unity"),
-        new Zone("MistyIslands","Misty Islands","Assets/Scenes/MistyIslands_SourceGrid.unity"),
-        new Zone("BootlegBay","Bootleg Bay","Assets/Scenes/BootlegBay_SourceGrid.unity"),
-        new Zone("FreeHaven","Free Haven","Assets/Scenes/FreeHaven_SourceGrid.unity"),        new Zone("Blackshire","Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity"),
-        new Zone("ParadiseValley","Paradise Valley","Assets/Scenes/ParadiseValley_SourceGrid.unity"),
-        new Zone("EelInfestedWaters","Eel Infested Waters","Assets/Scenes/EelInfestedWaters_SourceGrid.unity"),
-        new Zone("SilverCove","Silver Cove","Assets/Scenes/SilverCove_SourceGrid.unity"),
-        new Zone("FrozenHighlands","White Cap / Frozen Highlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity"),
-        new Zone("Kriegspire","Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity"),
-        new Zone("SweetWater","Sweet Water","Assets/Scenes/SweetWater_SourceGrid.unity")
+        new Zone("NewSorpigal","New Sorpigal","Assets/Scenes/Regions/NewSorpigal.unity"),
+        new Zone("CastleIronfist","Castle Ironfist","Assets/Scenes/Regions/CastleIronfist.unity"),
+        new Zone("MireOfTheDamned","Mire of the Damned","Assets/Scenes/Regions/MireOfTheDamned.unity"),
+        new Zone("Dragonsand","Dragonsand","Assets/Scenes/Regions/Dragonsand.unity"),
+        new Zone("HermitsIsle","Hermit's Isle","Assets/Scenes/Regions/HermitsIsle.unity"),
+        new Zone("MistyIslands","Misty Islands","Assets/Scenes/Regions/MistyIslands.unity"),
+        new Zone("BootlegBay","Bootleg Bay","Assets/Scenes/Regions/BootlegBay.unity"),
+        new Zone("FreeHaven","Free Haven","Assets/Scenes/Regions/FreeHaven.unity"),        new Zone("Blackshire","Blackshire","Assets/Scenes/Regions/Blackshire.unity"),
+        new Zone("ParadiseValley","Paradise Valley","Assets/Scenes/Regions/ParadiseValley.unity"),
+        new Zone("EelInfestedWaters","Eel Infested Waters","Assets/Scenes/Regions/EelInfestedWaters.unity"),
+        new Zone("SilverCove","Silver Cove","Assets/Scenes/Regions/SilverCove.unity"),
+        new Zone("FrozenHighlands","White Cap / Frozen Highlands","Assets/Scenes/Regions/FrozenHighlands.unity"),
+        new Zone("Kriegspire","Kriegspire","Assets/Scenes/Regions/Kriegspire.unity"),
+        new Zone("SweetWater","Sweet Water","Assets/Scenes/Regions/SweetWater.unity")
     };
 
     const int N=128;
@@ -353,7 +353,7 @@ public static class MMWorldPolishPass
     }
     static Material FallbackMaterial(bool wood)
     {
-        string dir="Assets/Materials/SourceGridTerrain"; Directory.CreateDirectory(dir);
+        string dir="Assets/Materials/Terrain"; Directory.CreateDirectory(dir);
         string path=dir+(wood?"/ObjectFallbackWood.mat":"/ObjectFallbackStone.mat");
         var m=AssetDatabase.LoadAssetAtPath<Material>(path); var sh=Shader.Find("Standard");
         if(!m){m=new Material(sh);AssetDatabase.CreateAsset(m,path);} else m.shader=sh;
@@ -398,8 +398,8 @@ public static class MMWorldPolishPass
         string[] mats={
             "Assets/Environment/WinterVegetation/Materials/WinterTree5.mat",
             "Assets/Environment/WinterVegetation/Materials/WinterTree8.mat",
-            "Assets/Materials/SourceGridTerrain/RealPineFoliage.mat",
-            "Assets/Materials/SourceGridTerrain/RealPineBark.mat"
+            "Assets/Materials/Terrain/RealPineFoliage.mat",
+            "Assets/Materials/Terrain/RealPineBark.mat"
         };
         foreach(string p in mats)
         {

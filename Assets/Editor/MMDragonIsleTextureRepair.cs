@@ -71,8 +71,8 @@ public static class MMDragonIsleTextureRepair
     {
         Directory.CreateDirectory("Validation/CactusDragonAudit");
         var rows=new List<string>{"scope,rock_objects,rock_renderers,total_active_renderers,textureless_active_renderers"};
-        int a=ApplyToScene("Assets/Scenes/DragonIsle_Reference.unity",false,rows);
-        int b=ApplyToScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",true,rows);
+        int a=ApplyToScene("Assets/Scenes/Regions/DragonIsle.unity",false,rows);
+        int b=ApplyToScene("Assets/Scenes/World/Enroth.unity",true,rows);
         File.WriteAllLines("Validation/CactusDragonAudit/dragon_texture_repair.csv",rows);
         AssetDatabase.SaveAssets();
         Debug.Log($"DRAGON_TEXTURE_REPAIR_DONE standaloneBad={a} linkedBad={b}");

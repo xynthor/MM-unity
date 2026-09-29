@@ -24,7 +24,7 @@ public static class MMLinkedSnowMaterial20260928 {
   if(!File.Exists(path))File.WriteAllBytes(path,data);
  }
  public static void Apply(Scene scene){
-  if(scene.name!="Enroth_Linked_OpenWorld")throw new Exception("Linked world required");
+  if(scene.name!="Enroth")throw new Exception("Linked world required");
   if(!AssetDatabase.IsValidFolder(Root))AssetDatabase.CreateFolder("Assets/World/WorldExtensions/Generated","LinkedSnow02");
   foreach(var suffix in new[]{"diff","nor_gl","rough"})Download(suffix);
   foreach(var suffix in new[]{"diff","nor_gl","rough"}){

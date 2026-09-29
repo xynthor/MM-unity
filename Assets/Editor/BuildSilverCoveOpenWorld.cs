@@ -12,7 +12,7 @@ using System.Globalization;
 
 public static class BuildSilverCoveOpenWorld
 {
-    const string ScenePath = "Assets/Scenes/SilverCove_SourceGrid.unity";
+    const string ScenePath = "Assets/Scenes/Regions/SilverCove.unity";
     const float WorldScale = 1f;
     const float Cell = 4f * WorldScale;
     const float TerrainSize = 128f * Cell;
@@ -45,7 +45,7 @@ public static class BuildSilverCoveOpenWorld
         var buildingMats = CreateBuildingMaterials();
         var env = CreateEnvironmentAssets();
         var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-        scene.name = "SilverCove_SourceGrid";
+        scene.name = "SilverCove";
 
         var root = new GameObject("Silver Cove - Open World 1x1");
         var terrain = BuildTerrain(root.transform, env);
@@ -1074,7 +1074,7 @@ public static class BuildSilverCoveOpenWorld
         var tex=new Texture2D(1280,720,TextureFormat.RGB24,false);
         tex.ReadPixels(new Rect(0,0,1280,720),0,0);
         tex.Apply();
-        string previewPath="C:/MMUnityPort/Preview/SilverCove_OpenWorld.png";
+        string previewPath="C:/MMUnityPort/Preview/SilverCove.png";
         File.WriteAllBytes(previewPath,tex.EncodeToPNG());
         RenderTexture.active=null;
         cam.targetTexture=null;

@@ -90,7 +90,7 @@ public static class MMSevenCropBuiltInAudit {
     }
    }
   }
-  bool pass=scene.path=="Assets/Scenes/Enroth_Linked_OpenWorld.unity"&&
+  bool pass=scene.path=="Assets/Scenes/World/Enroth.unity"&&
     t.Length==30&&grid.Count==30&&dups==0&&badSize==0&&badPlace==0&&
     seams==49&&worst<=.10f;
   return (pass?"PASS":"FAIL")+" scene="+scene.path+

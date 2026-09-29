@@ -10,7 +10,7 @@ using System.Collections.Generic;
 // The canonical Paradise Valley scene and TerrainData are read-only.
 public static class MMParadiseReferenceCanopy20260925 {
  const string V="Validation/EdgeGrid20260923/";
- const string ScenePath="Assets/Scenes/ParadiseValley_West.unity";
+ const string ScenePath="Assets/Scenes/Extensions/ParadiseValley_West.unity";
  const string Group="Map-Traced Western Paradise Forest 20260925";
  const string Backup=@"C:\MMUnityPort\Backups\BeforeParadiseWestReferenceCanopy_20260925\manifest.json";
  static Color32[] Read(string p){
@@ -34,7 +34,7 @@ public static class MMParadiseReferenceCanopy20260925 {
  public static void Apply(){
   if(!File.Exists(Backup))throw new Exception("Verified backup manifest is required");
   var active=SceneManager.GetActiveScene();
-  if(active.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||active.isDirty)
+  if(active.path!="Assets/Scenes/World/Enroth.unity"||active.isDirty)
    throw new Exception("Saved linked world must be active");
   var forest=Read(V+"ReferenceBiomeCandidates_20260925/ParadiseValley_West_ReferenceBiomes.png");
   var land=Read(V+"ReferenceMasks/ParadiseValley_West.png");

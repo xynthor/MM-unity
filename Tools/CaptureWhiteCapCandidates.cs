@@ -1,7 +1,7 @@
 using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor.SceneManagement;
 internal class CommandScript:IRunCommand{
  void Cap(float cx,float cz,float span,string tag){
-  var s=EditorSceneManager.OpenScene("Assets/Scenes/FrozenHighlands_SourceGrid.unity",OpenSceneMode.Single);
+  var s=EditorSceneManager.OpenScene("Assets/Scenes/Regions/FrozenHighlands.unity",OpenSceneMode.Single);
   var terr=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).Single();
   float gy=terr.SampleHeight(new Vector3(cx,0,cz))+terr.transform.position.y;
   Directory.CreateDirectory("Validation/CanalApproval_20260920");

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 public static class MMSorpigalTreeUpgrade
 {
-    const string ScenePath="Assets/Scenes/NewSorpigal_OpenWorld.unity";
+    const string ScenePath="Assets/Scenes/Regions/NewSorpigal.unity";
     const string MatDir="Assets/Materials/RealisticWorld/Sorpigal/Trees";
 
     sealed class Spec

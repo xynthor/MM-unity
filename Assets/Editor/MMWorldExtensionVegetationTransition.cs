@@ -14,19 +14,19 @@ public static class MMWorldExtensionVegetationTransition {
   public V(string t,string s,Side d){target=t;source=s;side=d;}
  }
  static readonly V[] Vals={
-  new V("SweetWater_North","SweetWater_SourceGrid",Side.North),
-  new V("Kriegspire_North","Kriegspire_SourceGrid",Side.North),
-  new V("FrozenHighlands_North","FrozenHighlands_SourceGrid",Side.North),
-  new V("SilverCove_North","SilverCove_SourceGrid",Side.North),
-  new V("EelInfestedWaters_North","EelInfestedWaters_SourceGrid",Side.North),
-  new V("ParadiseValley_West","ParadiseValley_SourceGrid",Side.West),
-  new V("HermitsIsle_West","HermitsIsle_SourceGrid",Side.West),
-  new V("HermitsIsle_South","HermitsIsle_SourceGrid",Side.South),
-  new V("Dragonsand_South","Dragonsand_SourceGrid",Side.South),
-  new V("MireOfTheDamned_South","MireOfTheDamned_SourceGrid",Side.South),
-  new V("CastleIronfist_South","CastleIronfist_SourceGrid",Side.South),
-  new V("ArchipelagoOfTheAncients","NewSorpigal_OpenWorld",Side.South),
-  new V("DragonIsle_South","SweetWater_SourceGrid",Side.West)
+  new V("SweetWater_North","SweetWater",Side.North),
+  new V("Kriegspire_North","Kriegspire",Side.North),
+  new V("FrozenHighlands_North","FrozenHighlands",Side.North),
+  new V("SilverCove_North","SilverCove",Side.North),
+  new V("EelInfestedWaters_North","EelInfestedWaters",Side.North),
+  new V("ParadiseValley_West","ParadiseValley",Side.West),
+  new V("HermitsIsle_West","HermitsIsle",Side.West),
+  new V("HermitsIsle_South","HermitsIsle",Side.South),
+  new V("Dragonsand_South","Dragonsand",Side.South),
+  new V("MireOfTheDamned_South","MireOfTheDamned",Side.South),
+  new V("CastleIronfist_South","CastleIronfist",Side.South),
+  new V("ArchipelagoOfTheAncients","NewSorpigal",Side.South),
+  new V("DragonIsle_South","SweetWater",Side.West)
  };
  const float Band=64f;
  static bool IsVegRoot(Transform t){

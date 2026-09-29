@@ -10,7 +10,7 @@ using System.Collections.Generic;
 public static class MMStandaloneRegionRig {
  static readonly string[] Scenes={
   "SweetWater_North","Kriegspire_North","FrozenHighlands_North","SilverCove_North",
-  "EelInfestedWaters_North","ParadiseValley_West","HermitsIsle_West","Southwest_Ocean",
+  "EelInfestedWaters_North","ParadiseValley_West","HermitsIsle_West","SouthwestOcean",
   "HermitsIsle_South","Dragonsand_South","MireOfTheDamned_South","CastleIronfist_South",
   "ArchipelagoOfTheAncients","DragonIsle_North","DragonIsle_South"
  };
@@ -44,7 +44,7 @@ public static class MMStandaloneRegionRig {
   var terrain=root.GetComponentInChildren<Terrain>(true);
   if(!terrain)throw new Exception("Standalone terrain missing "+scenePath);
   RemoveExisting(root);
-  var source=EditorSceneManager.OpenScene("Assets/Scenes/NewSorpigal_OpenWorld.unity",OpenSceneMode.Additive);
+  var source=EditorSceneManager.OpenScene("Assets/Scenes/Regions/NewSorpigal.unity",OpenSceneMode.Additive);
   var sroot=source.GetRootGameObjects().FirstOrDefault(g=>
    g.name.IndexOf("Open World",StringComparison.OrdinalIgnoreCase)>=0);
   var srcCtrl=sroot?sroot.GetComponentInChildren<MMThirdPersonController>(true):null;

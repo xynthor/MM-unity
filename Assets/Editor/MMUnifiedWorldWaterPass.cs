@@ -11,24 +11,24 @@ public static class MMUnifiedWorldWaterPass
 {
     sealed class Z { public string key,scene; public Z(string k,string s){key=k;scene=s;} }
     static readonly Z[] Zones={
-        new Z("NewSorpigal","Assets/Scenes/NewSorpigal_OpenWorld.unity"),
-        new Z("CastleIronfist","Assets/Scenes/CastleIronfist_SourceGrid.unity"),
-        new Z("MireOfTheDamned","Assets/Scenes/MireOfTheDamned_SourceGrid.unity"),
-        new Z("Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity"),
-        new Z("HermitsIsle","Assets/Scenes/HermitsIsle_SourceGrid.unity"),
-        new Z("MistyIslands","Assets/Scenes/MistyIslands_SourceGrid.unity"),
-        new Z("BootlegBay","Assets/Scenes/BootlegBay_SourceGrid.unity"),
-        new Z("FreeHaven","Assets/Scenes/FreeHaven_SourceGrid.unity"),
-        new Z("Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity"),
-        new Z("ParadiseValley","Assets/Scenes/ParadiseValley_SourceGrid.unity"),        new Z("EelInfestedWaters","Assets/Scenes/EelInfestedWaters_SourceGrid.unity"),
-        new Z("SilverCove","Assets/Scenes/SilverCove_SourceGrid.unity"),
-        new Z("FrozenHighlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity"),
-        new Z("Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity"),
-        new Z("SweetWater","Assets/Scenes/SweetWater_SourceGrid.unity")};
+        new Z("NewSorpigal","Assets/Scenes/Regions/NewSorpigal.unity"),
+        new Z("CastleIronfist","Assets/Scenes/Regions/CastleIronfist.unity"),
+        new Z("MireOfTheDamned","Assets/Scenes/Regions/MireOfTheDamned.unity"),
+        new Z("Dragonsand","Assets/Scenes/Regions/Dragonsand.unity"),
+        new Z("HermitsIsle","Assets/Scenes/Regions/HermitsIsle.unity"),
+        new Z("MistyIslands","Assets/Scenes/Regions/MistyIslands.unity"),
+        new Z("BootlegBay","Assets/Scenes/Regions/BootlegBay.unity"),
+        new Z("FreeHaven","Assets/Scenes/Regions/FreeHaven.unity"),
+        new Z("Blackshire","Assets/Scenes/Regions/Blackshire.unity"),
+        new Z("ParadiseValley","Assets/Scenes/Regions/ParadiseValley.unity"),        new Z("EelInfestedWaters","Assets/Scenes/Regions/EelInfestedWaters.unity"),
+        new Z("SilverCove","Assets/Scenes/Regions/SilverCove.unity"),
+        new Z("FrozenHighlands","Assets/Scenes/Regions/FrozenHighlands.unity"),
+        new Z("Kriegspire","Assets/Scenes/Regions/Kriegspire.unity"),
+        new Z("SweetWater","Assets/Scenes/Regions/SweetWater.unity")};
 
     public static Material SharedWaterMaterial()
     {
-        string path="Assets/Materials/SourceGridTerrain/UnifiedEnrothWater.mat";
+        string path="Assets/Materials/Terrain/UnifiedEnrothWater.mat";
         var m=AssetDatabase.LoadAssetAtPath<Material>(path);
         var sh=Shader.Find("MMUnity/EnrothMasterWater") ?? Shader.Find("Standard");
         if(!m){m=new Material(sh);AssetDatabase.CreateAsset(m,path);} else m.shader=sh;
@@ -102,7 +102,7 @@ public static class MMUnifiedWorldWaterPass
 
     static int ApplyLinked(Material mat)
     {
-        const string path="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+        const string path="Assets/Scenes/World/Enroth.unity";
         if(!File.Exists(path))return 0;
         var sc=EditorSceneManager.OpenScene(path,OpenSceneMode.Single);var root=WorldRoot(sc);if(!root)return 0;int n=0;        foreach(var r in root.GetComponentsInChildren<Renderer>(true))
         {

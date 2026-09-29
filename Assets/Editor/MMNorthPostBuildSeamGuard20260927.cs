@@ -37,7 +37,7 @@ internal static class MMNorthPostBuildSeamGuard20260927 {
   due=EditorApplication.timeSinceStartup+4.0;
   if(EditorApplication.isCompiling||EditorApplication.isUpdating)return;
   var sc=SceneManager.GetActiveScene();
-  if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)return;
+  if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)return;
   try{
    bool bad;string audit=Inspect(out bad);
    if(bad){

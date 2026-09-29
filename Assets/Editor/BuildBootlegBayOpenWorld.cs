@@ -12,7 +12,7 @@ using System.Globalization;
 
 public static class BuildBootlegBayOpenWorld
 {
-    const string ScenePath = "Assets/Scenes/BootlegBay_SourceGrid.unity";
+    const string ScenePath = "Assets/Scenes/Regions/BootlegBay.unity";
     const float WorldScale = 1f;
     const float Cell = 4f * WorldScale;
     const float TerrainSize = 128f * Cell;
@@ -45,7 +45,7 @@ public static class BuildBootlegBayOpenWorld
         var buildingMats = CreateBuildingMaterials();
         var env = CreateEnvironmentAssets();
         var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-        scene.name = "BootlegBay_SourceGrid";
+        scene.name = "BootlegBay";
 
         var root = new GameObject("Bootleg Bay - Open World 1x1");
         var terrain = BuildTerrain(root.transform, env);
@@ -1108,7 +1108,7 @@ public static class BuildBootlegBayOpenWorld
         var tex=new Texture2D(1280,720,TextureFormat.RGB24,false);
         tex.ReadPixels(new Rect(0,0,1280,720),0,0);
         tex.Apply();
-        string previewPath="C:/MMUnityPort/Preview/BootlegBay_OpenWorld.png";
+        string previewPath="C:/MMUnityPort/Preview/BootlegBay.png";
         File.WriteAllBytes(previewPath,tex.EncodeToPNG());
         RenderTexture.active=null;
         cam.targetTexture=null;

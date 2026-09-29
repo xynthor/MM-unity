@@ -24,10 +24,10 @@ internal static class MMParadiseSouthEarthQueued20260926 {
   File.Delete(Flag);
   try{
    if(string.IsNullOrEmpty(sc.path)){
-    EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+    EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
     sc=SceneManager.GetActiveScene();
    }
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity")
+   if(sc.path!="Assets/Scenes/World/Enroth.unity")
     throw new Exception("Saved linked Enroth scene required");
    MMParadiseSouthPhotoEarth20260926.Apply();
    BuildEnrothLinkedOpenWorld.Build();

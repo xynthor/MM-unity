@@ -23,8 +23,8 @@ internal static class MMDragonSouthReferenceBiomePolishQueued20260927 {
   try{
    var sc=SceneManager.GetActiveScene();
    if(string.IsNullOrEmpty(sc.path)&&!sc.isDirty)
-    sc=EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+    sc=EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked scene required");
    MMDragonSouthReferenceBiomePolish20260927.Apply();
    BuildEnrothLinkedOpenWorld.Build();

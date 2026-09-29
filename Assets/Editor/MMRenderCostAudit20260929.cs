@@ -12,7 +12,7 @@ public static class MMRenderCostAudit20260929
  static string Category(MeshRenderer r,Mesh mesh){string p=PathOf(r.transform).ToLowerInvariant();if(r.sharedMaterials.Any(m=>m&&m.shader.name.ToLowerInvariant().Contains("water")))return "water";if(p.Contains("vegetation")||p.Contains("tree")||p.Contains("pine")||p.Contains("searsia")||p.Contains("jacaranda"))return "trees";if(p.Contains("bridge"))return "bridges";if(p.Contains("wall"))return "walls";if(AssetDatabase.GetAssetPath(mesh).Contains("/Objects/")||p.Contains("building"))return "houses";return "props";}
  public static void Run()
  {
-  var scene=SceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||EditorApplication.isPlaying)throw new Exception("Linked Edit Mode scene required");
+  var scene=SceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/World/Enroth.unity"||EditorApplication.isPlaying)throw new Exception("Linked Edit Mode scene required");
   Vector3 target=new Vector3(948,15,-602),position=target+new Vector3(-45,32,-60);Quaternion rotation=Quaternion.LookRotation(target-position);
   var player=scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<MMThirdPersonController>(true)).First(p=>p.gameObject.activeInHierarchy);
   float fov=player.playerCamera.fieldOfView,far=player.playerCamera.farClipPlane;

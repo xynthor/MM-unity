@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 internal class CommandScript : IRunCommand {
  public void Execute(ExecutionResult result) {
   var s=SceneManager.GetActiveScene();
-  if(s.path!="Assets/Scenes/NewSorpigal_OpenWorld.unity"||s.isDirty||EditorApplication.isPlaying)throw new Exception("Requires clean Sorpigal");
-  var tag="water_cleanup_"+DateTime.Now.ToString("yyyyMMdd_HHmmss");var dir="Backups/"+tag;Directory.CreateDirectory(dir);File.Copy(s.path,dir+"/NewSorpigal_OpenWorld.unity");
+  if(s.path!="Assets/Scenes/Regions/NewSorpigal.unity"||s.isDirty||EditorApplication.isPlaying)throw new Exception("Requires clean Sorpigal");
+  var tag="water_cleanup_"+DateTime.Now.ToString("yyyyMMdd_HHmmss");var dir="Backups/"+tag;Directory.CreateDirectory(dir);File.Copy(s.path,dir+"/NewSorpigal.unity");
   var ts=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).ToArray();
   var before=ts.ToDictionary(t=>GlobalObjectId.GetGlobalObjectIdSlow(t).ToString(),t=>t.position);
   File.WriteAllLines(dir+"/positions.csv",before.Select(k=>k.Key+","+k.Value.x.ToString("R",System.Globalization.CultureInfo.InvariantCulture)+","+k.Value.z.ToString("R",System.Globalization.CultureInfo.InvariantCulture)));

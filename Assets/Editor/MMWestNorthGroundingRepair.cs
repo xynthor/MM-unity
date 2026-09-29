@@ -15,16 +15,16 @@ public static class MMWestNorthGroundingRepair
         public Z(string k,string s,string l){key=k;scene=s;linked=l;}
     }
     static readonly Z[] Zones={
-        new Z("SweetWater","Assets/Scenes/SweetWater_SourceGrid.unity","Sweet Water - LINKED REFERENCE"),
-        new Z("Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity","Kriegspire - LINKED REFERENCE"),
-        new Z("FrozenHighlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity","White Cap / Frozen Highlands - LINKED REFERENCE"),
-        new Z("ParadiseValley","Assets/Scenes/ParadiseValley_SourceGrid.unity","Paradise Valley - LINKED REFERENCE"),
-        new Z("Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity","Blackshire - LINKED REFERENCE"),
-        new Z("Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity","Dragonsand - LINKED REFERENCE"),
-        new Z("HermitsIsle","Assets/Scenes/HermitsIsle_SourceGrid.unity","Hermits Isle - LINKED REFERENCE")
+        new Z("SweetWater","Assets/Scenes/Regions/SweetWater.unity","Sweet Water - LINKED REFERENCE"),
+        new Z("Kriegspire","Assets/Scenes/Regions/Kriegspire.unity","Kriegspire - LINKED REFERENCE"),
+        new Z("FrozenHighlands","Assets/Scenes/Regions/FrozenHighlands.unity","White Cap / Frozen Highlands - LINKED REFERENCE"),
+        new Z("ParadiseValley","Assets/Scenes/Regions/ParadiseValley.unity","Paradise Valley - LINKED REFERENCE"),
+        new Z("Blackshire","Assets/Scenes/Regions/Blackshire.unity","Blackshire - LINKED REFERENCE"),
+        new Z("Dragonsand","Assets/Scenes/Regions/Dragonsand.unity","Dragonsand - LINKED REFERENCE"),
+        new Z("HermitsIsle","Assets/Scenes/Regions/HermitsIsle.unity","Hermits Isle - LINKED REFERENCE")
     };
     const string Audit="Validation/Everything_Audit_Details.csv";
-    const string Linked="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string Linked="Assets/Scenes/World/Enroth.unity";
     const string Report="Validation/EnvironmentRealism/west_north_grounding_repair.csv";
 
     class Target { public string zone,name; public float oldAuditGap; }

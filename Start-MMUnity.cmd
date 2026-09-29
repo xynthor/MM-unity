@@ -13,6 +13,6 @@ if not exist "%UNITY_EXE%" (
  pause
  exit /b 1
 )
-echo Opening MMUnityPort with complete Windows environment...
+echo Opening MM Unity with complete Windows environment...
 start "" "%UNITY_EXE%" -projectPath "%~dp0" -acceptSoftwareTermsForThisRunOnly
 endlocal

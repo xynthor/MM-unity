@@ -10,7 +10,7 @@ public static class MMNorthRendererMatch20260927 {
  const string V="Validation/EdgeGrid20260923/";
  public static void Apply(){
   var sc=SceneManager.GetActiveScene();
-  if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity")
+  if(sc.path!="Assets/Scenes/World/Enroth.unity")
    throw new Exception("Linked world required for north renderer match");
   var ts=sc.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).ToArray();
   var names=new[]{"SweetWater","Kriegspire","FrozenHighlands","SilverCove"};

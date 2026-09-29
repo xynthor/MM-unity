@@ -113,7 +113,7 @@ public static class MMReferenceParadiseAndNorthernGeology20260925 {
    " maxHeightChangeM="+maxMove.ToString("F3")+" sideEdgeErrorM="+maxBorder.ToString("F6");
  }
  static string AddMappedNorthernPond(){
-  const string scenePath="Assets/Scenes/Kriegspire_North.unity";
+  const string scenePath="Assets/Scenes/Extensions/Kriegspire_North.unity";
   const string meshPath=G+"Kriegspire_North_ReferenceCraterPond.asset";
   if(AssetDatabase.LoadAssetAtPath<Mesh>(meshPath))
    throw new Exception("Reference water mesh already exists; prevent duplicate pass");
@@ -129,7 +129,7 @@ public static class MMReferenceParadiseAndNorthernGeology20260925 {
     throw new Exception("Reference pond already in generated northern scene");
    var terrain=root.GetComponentInChildren<Terrain>(true);
    if(!terrain||terrain.terrainData!=source)throw new Exception("Unexpected Kriegspire standalone TerrainData");
-   var material=AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/SourceGridTerrain/UnifiedEnrothWater.mat");
+   var material=AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/Terrain/UnifiedEnrothWater.mat");
    if(!material||!material.shader||!material.shader.isSupported)
     throw new Exception("Native source water material unavailable");
    const int cx=189,cz=331,rays=96;
@@ -182,7 +182,7 @@ public static class MMReferenceParadiseAndNorthernGeology20260925 {
   if(File.Exists(V+"paradise_north_geo_pass_runtime.txt"))
    throw new Exception("Reference geology already applied; do not double-add heights");
   var active=SceneManager.GetActiveScene();
-  if(active.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||active.isDirty)
+  if(active.path!="Assets/Scenes/World/Enroth.unity"||active.isDirty)
    throw new Exception("Saved linked scene must be active");
   if(AssetDatabase.LoadAssetAtPath<Mesh>(G+"Kriegspire_North_ReferenceCraterPond.asset"))
    throw new Exception("Crater water previously generated");

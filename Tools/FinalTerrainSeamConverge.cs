@@ -4,7 +4,7 @@ internal class CommandScript:IRunCommand{
  float C(float oldW,float n){return oldW<W?Mathf.Min(n,W-.001f):Mathf.Max(n,W+.001f);}
  public void Execute(ExecutionResult result){
   for(int i=0;i<SceneManager.sceneCount;i++)if(SceneManager.GetSceneAt(i).isDirty)throw new Exception("Unsaved scene");
-  var s=EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);var ts=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).ToArray();var touched=new HashSet<TerrainData>();
+  var s=EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);var ts=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).ToArray();var touched=new HashSet<TerrainData>();
   for(int iter=0;iter<20;iter++){
    foreach(var a in ts)foreach(var b in ts){if(a==b)continue;var pa=a.transform.position;var pb=b.transform.position;var sz=a.terrainData.size;bool east=Mathf.Abs(pa.x+sz.x-pb.x)<.01f&&Mathf.Abs(pa.z-pb.z)<.01f;bool north=Mathf.Abs(pa.z+sz.z-pb.z)<.01f&&Mathf.Abs(pa.x-pb.x)<.01f;if(!east&&!north)continue;var ad=a.terrainData;var bd=b.terrainData;int n=ad.heightmapResolution;var ah=ad.GetHeights(0,0,n,n);var bh=bd.GetHeights(0,0,n,n);for(int i=0;i<n;i++){int ax=east?n-1:i,az=east?i:n-1,bx=east?0:i,bz=east?i:0;float wa=pa.y+ah[az,ax]*ad.size.y,wb=pb.y+bh[bz,bx]*bd.size.y;float target=(wa+wb)*.5f;ah[az,ax]=(C(wa,target)-pa.y)/ad.size.y;bh[bz,bx]=(C(wb,target)-pb.y)/bd.size.y;}ad.SetHeights(0,0,ah);bd.SetHeights(0,0,bh);touched.Add(ad);touched.Add(bd);}
   }

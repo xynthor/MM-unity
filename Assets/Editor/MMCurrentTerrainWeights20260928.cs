@@ -11,7 +11,7 @@ public static class MMCurrentTerrainWeights20260928
     public static void Apply()
     {
         var scene = SceneManager.GetActiveScene();
-        if (scene.path != "Assets/Scenes/Enroth_Linked_OpenWorld.unity" || scene.isDirty || EditorApplication.isPlaying)
+        if (scene.path != "Assets/Scenes/World/Enroth.unity" || scene.isDirty || EditorApplication.isPlaying)
             throw new InvalidOperationException("Requires saved linked scene in Edit Mode.");
         if (!File.Exists("Backups/ResumeManualPreservation_20260928_231458/manifest.json"))
             throw new InvalidOperationException("Current manual baseline backup missing.");

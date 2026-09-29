@@ -12,7 +12,7 @@ using System.Globalization;
 
 public static class BuildBlackshireOpenWorld
 {
-    const string ScenePath = "Assets/Scenes/Blackshire_SourceGrid.unity";
+    const string ScenePath = "Assets/Scenes/Regions/Blackshire.unity";
     const float WorldScale = 1f;
     const float Cell = 4f * WorldScale;
     const float TerrainSize = 128f * Cell;
@@ -45,7 +45,7 @@ public static class BuildBlackshireOpenWorld
         var buildingMats = CreateBuildingMaterials();
         var env = CreateEnvironmentAssets();
         var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-        scene.name = "Blackshire_SourceGrid";
+        scene.name = "Blackshire";
 
         var root = new GameObject("Blackshire - Open World 1x1");
         var terrain = BuildTerrain(root.transform, env);
@@ -1074,7 +1074,7 @@ public static class BuildBlackshireOpenWorld
         var tex=new Texture2D(1280,720,TextureFormat.RGB24,false);
         tex.ReadPixels(new Rect(0,0,1280,720),0,0);
         tex.Apply();
-        string previewPath="C:/MMUnityPort/Preview/Blackshire_OpenWorld.png";
+        string previewPath="C:/MMUnityPort/Preview/Blackshire.png";
         File.WriteAllBytes(previewPath,tex.EncodeToPNG());
         RenderTexture.active=null;
         cam.targetTexture=null;

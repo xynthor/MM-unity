@@ -18,10 +18,10 @@ internal static class MMParadisePhotoForestGroundQueued20260926 {
   try{
    var sc=SceneManager.GetActiveScene();
    if(string.IsNullOrEmpty(sc.path)&&!sc.isDirty){
-    EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+    EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
     sc=SceneManager.GetActiveScene();
    }
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked Enroth world must be active");
    MMParadisePhotoForestGround20260926.Apply();
    BuildEnrothLinkedOpenWorld.Build();

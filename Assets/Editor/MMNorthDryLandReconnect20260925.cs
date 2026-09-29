@@ -26,7 +26,7 @@ public static class MMNorthDryLandReconnect20260925 {
  public static void Apply(){
   if(!File.Exists(Backup))throw new Exception("Pre-change asset backup required");
   var sc=SceneManager.GetActiveScene();
-  if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+  if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
    throw new Exception("Saved linked world must be active");
   var tdList=new List<TerrainData>();var heights=new List<float[,]>();
   var lines=new List<string>();

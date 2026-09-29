@@ -26,10 +26,10 @@ internal static class MMLinkedNorthProfileQueued20260925{
   try{
    var sc=SceneManager.GetActiveScene();
    if(string.IsNullOrEmpty(sc.path)&&!sc.isDirty){
-    EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+    EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
     sc=SceneManager.GetActiveScene();
    }
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked scene required before rebuilding");
    if(!File.Exists(@"C:\MMUnityPort\Backups\BeforeLinkedOnlyNorthCliffProfile_20260925\manifest.json"))
     throw new Exception("Immutable linked-scene backup not found");
@@ -73,7 +73,7 @@ internal static class MMLinkedNorthProfileQueued20260925{
    }
    if(northLOD!=4)throw new Exception("Expected exactly 4 generated northern linked terrains, got "+northLOD);
    var live=SceneManager.GetActiveScene();
-   if(live.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity")
+   if(live.path!="Assets/Scenes/World/Enroth.unity")
     throw new Exception("North LOD correction did not target saved linked world");
    EditorSceneManager.MarkSceneDirty(live);
    if(!EditorSceneManager.SaveScene(live,live.path))

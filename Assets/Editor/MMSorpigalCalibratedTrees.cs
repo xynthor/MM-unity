@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 // Sorpigal vegetation only. No import hooks and no calls to legacy pipelines.
 public static class MMSorpigalCalibratedTrees
 {
-    const string ScenePath="Assets/Scenes/NewSorpigal_OpenWorld.unity";
+    const string ScenePath="Assets/Scenes/Regions/NewSorpigal.unity";
     const string MatDir="Assets/Environment/ValidatedTrees/Materials";
     [Serializable] public class Entry { public string id,path,modelSHA256,importerSHA256,evidence; public float rotationX; public bool visuallyReviewed; }
     [Serializable] public class Catalogue { public Entry[] entries; }
@@ -86,7 +86,7 @@ public static class MMSorpigalCalibratedTrees
         var wrapperSet=new HashSet<Transform>(wrappers);var fixedBefore=Snapshot(sc,wrapperSet);
         string stamp=DateTime.Now.ToString("yyyyMMdd_HHmmss");string output=MMSequentialEvidence.Output+"/trees_"+stamp;
         string backup="Backups/SorpigalTrees_"+stamp;Directory.CreateDirectory(backup);Directory.CreateDirectory(output);Directory.CreateDirectory(MatDir);AssetDatabase.Refresh();
-        File.Copy(ScenePath,backup+"/NewSorpigal_OpenWorld.unity");
+        File.Copy(ScenePath,backup+"/NewSorpigal.unity");
         if(Directory.Exists(MatDir))foreach(var f in Directory.GetFiles(MatDir))File.Copy(f,backup+"/"+System.IO.Path.GetFileName(f));
         File.WriteAllLines(output+"/fixed_before.csv",new[]{"id,x,z"}.Concat(fixedBefore.Select(k=>$"{k.Key},{k.Value.x:R},{k.Value.y:R}")));
         var rows=new List<string>{"anchor,species,rotation_x,ground_gap,source,x,z"};

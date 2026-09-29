@@ -36,7 +36,7 @@ public static class MMReferenceDetailPerspectiveQA20260925 {
  }
  public static void CaptureAll(){
   var active=SceneManager.GetActiveScene();
-  if(active.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||active.isDirty)
+  if(active.path!="Assets/Scenes/World/Enroth.unity"||active.isDirty)
    throw new Exception("Saved linked scene must be active for reference QA");
   var volcano=Find("Kriegspire_NorthTerrain");
   var north=Find("SweetWater_NorthTerrain");

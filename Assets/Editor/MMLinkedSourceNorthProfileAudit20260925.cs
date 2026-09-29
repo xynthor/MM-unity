@@ -18,7 +18,7 @@ internal static class MMLinkedSourceNorthProfileAudit20260925 {
   var lines=new List<string>();
   try{
    var sc=SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked scene is required for linked source QA");
    var ts=sc.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).ToArray();
    if(ts.Length!=30)throw new Exception("Incorrect linked count "+ts.Length);

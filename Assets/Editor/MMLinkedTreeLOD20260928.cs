@@ -20,7 +20,7 @@ public static class MMLinkedTreeLOD20260928 {
   AssetDatabase.CreateAsset(mesh,path);return mesh;
  }
  public static void Apply(Scene scene) {
-  if(scene.name!="Enroth_Linked_OpenWorld"||!File.Exists("Backups/BeforeLinkedTreeLOD_20260928/manifest.json"))throw new Exception("Linked world and backup required");
+  if(scene.name!="Enroth"||!File.Exists("Backups/BeforeLinkedTreeLOD_20260928/manifest.json"))throw new Exception("Linked world and backup required");
   if(!AssetDatabase.IsValidFolder(Root))AssetDatabase.CreateFolder("Assets/World/WorldExtensions/Generated","LinkedTreeLOD");
   var candidates=scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<MeshFilter>(true)).Where(f=>f.sharedMesh&&!f.GetComponentInParent<LODGroup>()).Where(f=>{
    var n=f.sharedMesh.name.ToLowerInvariant();return n.Contains("searsia")||n.Contains("jacaranda")||n.Contains("island_tree");

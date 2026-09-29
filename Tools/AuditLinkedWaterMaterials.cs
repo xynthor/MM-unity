@@ -1,7 +1,7 @@
 using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;
 internal class CommandScript:IRunCommand{
  public void Execute(ExecutionResult result){
-  var sc=EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+  var sc=EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
   var rs=sc.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Renderer>(true));
   var lines=new List<string>{"region\tpath\trenderer\tactive\tenabled\tmaterial\tmatPath\tshader\tcolor"};
   foreach(var r in rs){

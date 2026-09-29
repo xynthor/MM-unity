@@ -16,7 +16,7 @@ internal static class MMNorthBasemapDistanceDiagnosticOnce20260926 {
   File.Delete(flag);
   try{
    var sc=SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked world required for basemap diagnostic");
    var terrains=sc.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).ToArray();
    var prior=terrains.ToDictionary(t=>t,t=>t.basemapDistance);

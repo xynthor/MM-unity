@@ -48,7 +48,7 @@ public static class MMWorldExtensionInternalSeamLock {
  public static void Apply(){
   var rows=new List<string>();
   rows.Add(SymmetricVertical("FrozenHighlands_North","SilverCove_North",8));
-  rows.Add(CopyRightToLeft("Southwest_Ocean","HermitsIsle_South",8));
+  rows.Add(CopyRightToLeft("SouthwestOcean","HermitsIsle_South",8));
   AssetDatabase.SaveAssets();
   Directory.CreateDirectory("Validation/EdgeGrid20260923");
   File.WriteAllLines("Validation/EdgeGrid20260923/internal_extension_seam_lock.csv",rows);

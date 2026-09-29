@@ -51,7 +51,7 @@ public static class MMLinkedSurfaceInputs20260928 {
  }
  public static void Apply(Scene scene){
   if(File.Exists("Validation/EdgeGrid20260923/MANUAL_LINKED_WORLD_PROTECTED.txt"))throw new Exception("Current linked terrain contains protected manual corrections. Regeneration from upstream sources is blocked; normalize current weights in place instead.");
-  if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"&&scene.name!="Enroth_Linked_OpenWorld")throw new Exception("Linked world only");
+  if(scene.path!="Assets/Scenes/World/Enroth.unity"&&scene.name!="Enroth")throw new Exception("Linked world only");
   if(!File.Exists("Backups/BeforeLinkedSurfaceInputs_20260928_0010/manifest.json"))throw new Exception("Surface rollback missing");
   Folder(Root+"/Terrain");Folder(Root+"/Layers");Folder(Root+"/Textures");
   string mapPath="Validation/EdgeGrid20260923/Takeover_SurfaceSources.tsv";

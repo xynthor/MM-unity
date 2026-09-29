@@ -20,7 +20,7 @@ public static class MMLinkedRuntimeSmoke20260928 {
  static readonly Vector3[] Targets={new Vector3(948,15,-602),new Vector3(-896,50,746),new Vector3(-896,50,790),new Vector3(-1522,15,-71),new Vector3(-1442,16,94),new Vector3(-1632,20,606),new Vector3(-1536,20,786),new Vector3(0,20,0)};
  static MMLinkedRuntimeSmoke20260928(){EditorApplication.playModeStateChanged+=Mode;EditorApplication.update+=Tick;}
  public static void Start(){
-  if(EditorApplication.isPlaying||SceneManager.GetActiveScene().path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||SceneManager.GetActiveScene().isDirty)throw new Exception("Saved linked world in Edit Mode required.");
+  if(EditorApplication.isPlaying||SceneManager.GetActiveScene().path!="Assets/Scenes/World/Enroth.unity"||SceneManager.GetActiveScene().isDirty)throw new Exception("Saved linked world in Edit Mode required.");
   Directory.CreateDirectory(Out);SessionState.SetBool(Key,true);EditorApplication.isPlaying=true;
  }
  static void Mode(PlayModeStateChange mode){

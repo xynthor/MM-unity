@@ -22,7 +22,7 @@ public static class MMSweetWaterNorthReferenceFoot20260925{
  public static void Apply(){
   if(!File.Exists(Backup))throw new Exception("Generated north terrain backup missing");
   var sc=SceneManager.GetActiveScene();
-  if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+  if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
    throw new Exception("Saved linked scene required");
   var td=AssetDatabase.LoadAssetAtPath<TerrainData>(P);
   if(!td||td.heightmapResolution!=513||td.alphamapResolution!=512)

@@ -16,7 +16,7 @@ internal static class MMNorthVerticalStripeRepairOnce20260927 {
    if(!File.Exists(@"C:\MMUnityPort\Backups\BeforeNorthVerticalStripeRemoval_20260927\manifest.json"))
     throw new Exception("Restore point missing");
    var sc=SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked scene required");
    var a=AssetDatabase.LoadAssetAtPath<TerrainData>(
     "Assets/World/WorldExtensions/Generated/LinkedSourceTransitions/SweetWater_LinkedNorthProfile.asset");

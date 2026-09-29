@@ -12,7 +12,7 @@ public static class MMWorldExtensionBuilder
     const float SIZE=512f, TERRAIN_Y=-24f, TERRAIN_H=320f, WATER=.10f;
     const string OUT_SCENES="Assets/Scenes/";
     const string OUT_WORLD="Assets/World/WorldExtensions/Generated/";
-    const string WATER_MAT="Assets/Materials/SourceGridTerrain/UnifiedEnrothWater.mat";
+    const string WATER_MAT="Assets/Materials/Terrain/UnifiedEnrothWater.mat";
 
     enum Mode { North, West, South, Archipelago }
     enum Theme { OceanCoast, SnowMountains, SnowCoast, GreenCliffs, HermitCliffs, SoutheastIslands, OpenOcean }
@@ -27,19 +27,19 @@ public static class MMWorldExtensionBuilder
     static readonly string[] SouthExtensionNames={"HermitsIsle_South","Dragonsand_South","MireOfTheDamned_South","CastleIronfist_South"};
 
     static readonly Spec[] SPECS={
-        new Spec{id="Sweet Water North",scene="SweetWater_North",source="Assets/Scenes/SweetWater_SourceGrid.unity",mode=Mode.North,theme=Theme.SnowMountains,col=0,row=3},
-        new Spec{id="Kriegspire North",scene="Kriegspire_North",source="Assets/Scenes/Kriegspire_SourceGrid.unity",mode=Mode.North,theme=Theme.SnowMountains,col=1,row=3},
-        new Spec{id="Frozen Highlands North",scene="FrozenHighlands_North",source="Assets/Scenes/FrozenHighlands_SourceGrid.unity",mode=Mode.North,theme=Theme.SnowCoast,col=2,row=3},
-        new Spec{id="Silver Cove North",scene="SilverCove_North",source="Assets/Scenes/SilverCove_SourceGrid.unity",mode=Mode.North,theme=Theme.SnowCoast,col=3,row=3},
-        new Spec{id="Eel Infested North",scene="EelInfestedWaters_North",source="Assets/Scenes/EelInfestedWaters_SourceGrid.unity",mode=Mode.North,theme=Theme.OpenOcean,col=4,row=3},
-        new Spec{id="Paradise Valley West",scene="ParadiseValley_West",source="Assets/Scenes/ParadiseValley_SourceGrid.unity",mode=Mode.West,theme=Theme.GreenCliffs,col=-1,row=1},
-        new Spec{id="Hermits Isle West",scene="HermitsIsle_West",source="Assets/Scenes/HermitsIsle_SourceGrid.unity",mode=Mode.West,theme=Theme.OpenOcean,col=-1,row=0},
-        new Spec{id="Southwest Ocean",scene="Southwest_Ocean",source="Assets/Scenes/HermitsIsle_West.unity",mode=Mode.South,theme=Theme.OpenOcean,col=-1,row=-1},
-        new Spec{id="Hermits Isle South",scene="HermitsIsle_South",source="Assets/Scenes/HermitsIsle_SourceGrid.unity",mode=Mode.South,theme=Theme.OpenOcean,col=0,row=-1},
-        new Spec{id="Dragonsand South",scene="Dragonsand_South",source="Assets/Scenes/Dragonsand_SourceGrid.unity",mode=Mode.South,theme=Theme.OpenOcean,col=1,row=-1},
-        new Spec{id="Mire of the Damned South",scene="MireOfTheDamned_South",source="Assets/Scenes/MireOfTheDamned_SourceGrid.unity",mode=Mode.South,theme=Theme.OpenOcean,col=2,row=-1},
-        new Spec{id="Castle Ironfist South",scene="CastleIronfist_South",source="Assets/Scenes/CastleIronfist_SourceGrid.unity",mode=Mode.South,theme=Theme.OpenOcean,col=3,row=-1},
-        new Spec{id="Archipelago of the Ancients",scene="ArchipelagoOfTheAncients",source="Assets/Scenes/NewSorpigal_OpenWorld.unity",mode=Mode.Archipelago,theme=Theme.SoutheastIslands,col=4,row=-1},
+        new Spec{id="Sweet Water North",scene="SweetWater_North",source="Assets/Scenes/Regions/SweetWater.unity",mode=Mode.North,theme=Theme.SnowMountains,col=0,row=3},
+        new Spec{id="Kriegspire North",scene="Kriegspire_North",source="Assets/Scenes/Regions/Kriegspire.unity",mode=Mode.North,theme=Theme.SnowMountains,col=1,row=3},
+        new Spec{id="Frozen Highlands North",scene="FrozenHighlands_North",source="Assets/Scenes/Regions/FrozenHighlands.unity",mode=Mode.North,theme=Theme.SnowCoast,col=2,row=3},
+        new Spec{id="Silver Cove North",scene="SilverCove_North",source="Assets/Scenes/Regions/SilverCove.unity",mode=Mode.North,theme=Theme.SnowCoast,col=3,row=3},
+        new Spec{id="Eel Infested North",scene="EelInfestedWaters_North",source="Assets/Scenes/Regions/EelInfestedWaters.unity",mode=Mode.North,theme=Theme.OpenOcean,col=4,row=3},
+        new Spec{id="Paradise Valley West",scene="ParadiseValley_West",source="Assets/Scenes/Regions/ParadiseValley.unity",mode=Mode.West,theme=Theme.GreenCliffs,col=-1,row=1},
+        new Spec{id="Hermits Isle West",scene="HermitsIsle_West",source="Assets/Scenes/Regions/HermitsIsle.unity",mode=Mode.West,theme=Theme.OpenOcean,col=-1,row=0},
+        new Spec{id="Southwest Ocean",scene="SouthwestOcean",source="Assets/Scenes/Extensions/HermitsIsle_West.unity",mode=Mode.South,theme=Theme.OpenOcean,col=-1,row=-1},
+        new Spec{id="Hermits Isle South",scene="HermitsIsle_South",source="Assets/Scenes/Regions/HermitsIsle.unity",mode=Mode.South,theme=Theme.OpenOcean,col=0,row=-1},
+        new Spec{id="Dragonsand South",scene="Dragonsand_South",source="Assets/Scenes/Regions/Dragonsand.unity",mode=Mode.South,theme=Theme.OpenOcean,col=1,row=-1},
+        new Spec{id="Mire of the Damned South",scene="MireOfTheDamned_South",source="Assets/Scenes/Regions/MireOfTheDamned.unity",mode=Mode.South,theme=Theme.OpenOcean,col=2,row=-1},
+        new Spec{id="Castle Ironfist South",scene="CastleIronfist_South",source="Assets/Scenes/Regions/CastleIronfist.unity",mode=Mode.South,theme=Theme.OpenOcean,col=3,row=-1},
+        new Spec{id="Archipelago of the Ancients",scene="ArchipelagoOfTheAncients",source="Assets/Scenes/Regions/NewSorpigal.unity",mode=Mode.Archipelago,theme=Theme.SoutheastIslands,col=4,row=-1},
     };
 
     sealed class RefData {
@@ -495,8 +495,8 @@ public static class MMWorldExtensionBuilder
         StitchHorizontal("HermitsIsle_West","ParadiseValley_West",report,24);
         for(int i=0;i<3;i++)StitchVertical(SouthExtensionNames[i],SouthExtensionNames[i+1],report,8);
         StitchVertical("CastleIronfist_South","ArchipelagoOfTheAncients",report,8);
-        StitchVertical("Southwest_Ocean","HermitsIsle_South",report,8);
-        StitchHorizontal("Southwest_Ocean","HermitsIsle_West",report,8);
+        StitchVertical("SouthwestOcean","HermitsIsle_South",report,8);
+        StitchHorizontal("SouthwestOcean","HermitsIsle_West",report,8);
         MMReferenceNorthSeamLock.Apply(report);
         AssetDatabase.SaveAssets();
     }
@@ -505,9 +505,9 @@ public static class MMWorldExtensionBuilder
     public static void BuildOceanCornersOnly(){
         Directory.CreateDirectory("Validation/EdgeGrid20260923");
         var report=new List<string>{"scene,col,row,mode,theme,land_pct,seam_error_before_lock_m,terrain_asset"};
-        BuildOne(SPECS.First(s=>s.scene=="Southwest_Ocean"),report);
-        StitchVertical("Southwest_Ocean","HermitsIsle_South",report,8);
-        StitchHorizontal("Southwest_Ocean","HermitsIsle_West",report,8);
+        BuildOne(SPECS.First(s=>s.scene=="SouthwestOcean"),report);
+        StitchVertical("SouthwestOcean","HermitsIsle_South",report,8);
+        StitchHorizontal("SouthwestOcean","HermitsIsle_West",report,8);
         File.WriteAllLines("Validation/EdgeGrid20260923/southwest_ocean.csv",report);
         AssetDatabase.SaveAssets();AssetDatabase.Refresh();
         Debug.Log("ENROTH_SW_OCEAN_DONE count=1");

@@ -8,10 +8,10 @@ using System.Linq;
 public static class MMDragonSouthTerrainRenderMatch {
  [MenuItem("MMUnity/World/Match Dragon South Renderer To Sweet Water")]
  public static void Apply(){
-  var target=EditorSceneManager.OpenScene("Assets/Scenes/DragonIsle_South.unity",OpenSceneMode.Single);
+  var target=EditorSceneManager.OpenScene("Assets/Scenes/Extensions/DragonIsle_South.unity",OpenSceneMode.Single);
   var tr=target.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).FirstOrDefault();
   if(!tr)throw new Exception("Dragon South terrain component missing");
-  var src=EditorSceneManager.OpenScene("Assets/Scenes/SweetWater_SourceGrid.unity",OpenSceneMode.Additive);
+  var src=EditorSceneManager.OpenScene("Assets/Scenes/Regions/SweetWater.unity",OpenSceneMode.Additive);
   var sr=src.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).FirstOrDefault();
   if(!sr)throw new Exception("Sweet Water terrain component missing");
   tr.heightmapPixelError=sr.heightmapPixelError;

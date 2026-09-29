@@ -13,21 +13,21 @@ public static class MMEcotoneSeamPass
     sealed class I { public TerrainData td; public string path; }
 
     static readonly Z[] Zones={
-        new Z("SweetWater","Assets/Scenes/SweetWater_SourceGrid.unity"),
-        new Z("Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity"),
-        new Z("FrozenHighlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity"),
-        new Z("SilverCove","Assets/Scenes/SilverCove_SourceGrid.unity"),
-        new Z("EelInfestedWaters","Assets/Scenes/EelInfestedWaters_SourceGrid.unity"),
-        new Z("ParadiseValley","Assets/Scenes/ParadiseValley_SourceGrid.unity"),
-        new Z("Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity"),
-        new Z("FreeHaven","Assets/Scenes/FreeHaven_SourceGrid.unity"),
-        new Z("BootlegBay","Assets/Scenes/BootlegBay_SourceGrid.unity"),
-        new Z("MistyIslands","Assets/Scenes/MistyIslands_SourceGrid.unity"),
-        new Z("HermitsIsle","Assets/Scenes/HermitsIsle_SourceGrid.unity"),
-        new Z("Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity"),
-        new Z("MireOfTheDamned","Assets/Scenes/MireOfTheDamned_SourceGrid.unity"),
-        new Z("CastleIronfist","Assets/Scenes/CastleIronfist_SourceGrid.unity"),
-        new Z("NewSorpigal","Assets/Scenes/NewSorpigal_OpenWorld.unity")};
+        new Z("SweetWater","Assets/Scenes/Regions/SweetWater.unity"),
+        new Z("Kriegspire","Assets/Scenes/Regions/Kriegspire.unity"),
+        new Z("FrozenHighlands","Assets/Scenes/Regions/FrozenHighlands.unity"),
+        new Z("SilverCove","Assets/Scenes/Regions/SilverCove.unity"),
+        new Z("EelInfestedWaters","Assets/Scenes/Regions/EelInfestedWaters.unity"),
+        new Z("ParadiseValley","Assets/Scenes/Regions/ParadiseValley.unity"),
+        new Z("Blackshire","Assets/Scenes/Regions/Blackshire.unity"),
+        new Z("FreeHaven","Assets/Scenes/Regions/FreeHaven.unity"),
+        new Z("BootlegBay","Assets/Scenes/Regions/BootlegBay.unity"),
+        new Z("MistyIslands","Assets/Scenes/Regions/MistyIslands.unity"),
+        new Z("HermitsIsle","Assets/Scenes/Regions/HermitsIsle.unity"),
+        new Z("Dragonsand","Assets/Scenes/Regions/Dragonsand.unity"),
+        new Z("MireOfTheDamned","Assets/Scenes/Regions/MireOfTheDamned.unity"),
+        new Z("CastleIronfist","Assets/Scenes/Regions/CastleIronfist.unity"),
+        new Z("NewSorpigal","Assets/Scenes/Regions/NewSorpigal.unity")};
     static readonly P[] Pairs={
         new P("SweetWater","Kriegspire",true),new P("Kriegspire","FrozenHighlands",true),
         new P("FrozenHighlands","SilverCove",true),new P("SilverCove","EelInfestedWaters",true),

@@ -6,57 +6,57 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Enroth_Linked_OpenWorld.unity
+    path: Assets/Scenes/World/Enroth.unity
     guid: 78106867b6683584699f49cc46b01f1b
   - enabled: 1
-    path: Assets/Scenes/SweetWater_SourceGrid.unity
+    path: Assets/Scenes/Regions/SweetWater.unity
     guid: 2cabbf89910beff4c80a725bcbe7cea8
   - enabled: 1
-    path: Assets/Scenes/Kriegspire_SourceGrid.unity
+    path: Assets/Scenes/Regions/Kriegspire.unity
     guid: 169fa767d1db82a4b9f4e036bd8cc156
   - enabled: 1
-    path: Assets/Scenes/FrozenHighlands_SourceGrid.unity
+    path: Assets/Scenes/Regions/FrozenHighlands.unity
     guid: dd040c7998bd1d147ba1966c12bc0e5f
   - enabled: 1
-    path: Assets/Scenes/SilverCove_SourceGrid.unity
+    path: Assets/Scenes/Regions/SilverCove.unity
     guid: 4dd2f15ff4bd0e14b961089915d96940
   - enabled: 1
-    path: Assets/Scenes/EelInfestedWaters_SourceGrid.unity
+    path: Assets/Scenes/Regions/EelInfestedWaters.unity
     guid: 1946e62838d8c6b4c8027bfadbb4f087
   - enabled: 1
-    path: Assets/Scenes/ParadiseValley_SourceGrid.unity
+    path: Assets/Scenes/Regions/ParadiseValley.unity
     guid: ebae9a58c8364904098935803803ba19
   - enabled: 1
-    path: Assets/Scenes/Blackshire_SourceGrid.unity
+    path: Assets/Scenes/Regions/Blackshire.unity
     guid: 8b4948adbadc93e429ddd14d9d91f950
   - enabled: 1
-    path: Assets/Scenes/FreeHaven_SourceGrid.unity
+    path: Assets/Scenes/Regions/FreeHaven.unity
     guid: e1d19bc3fef6d6e47a658ba7441f42a0
   - enabled: 1
-    path: Assets/Scenes/BootlegBay_SourceGrid.unity
+    path: Assets/Scenes/Regions/BootlegBay.unity
     guid: fe1e70adabdaad24d8ea7423209ddffb
   - enabled: 1
-    path: Assets/Scenes/MistyIslands_SourceGrid.unity
+    path: Assets/Scenes/Regions/MistyIslands.unity
     guid: 155f72b20e15665418a35897a28821bb
   - enabled: 1
-    path: Assets/Scenes/HermitsIsle_SourceGrid.unity
+    path: Assets/Scenes/Regions/HermitsIsle.unity
     guid: d507d1a6f06071648b4275c69ed3f931
   - enabled: 1
-    path: Assets/Scenes/Dragonsand_SourceGrid.unity
+    path: Assets/Scenes/Regions/Dragonsand.unity
     guid: 66331308135348a46862385fbb6c5bcc
   - enabled: 1
-    path: Assets/Scenes/MireOfTheDamned_SourceGrid.unity
+    path: Assets/Scenes/Regions/MireOfTheDamned.unity
     guid: f6db7cf86bde0764d92f315d4927e467
   - enabled: 1
-    path: Assets/Scenes/CastleIronfist_SourceGrid.unity
+    path: Assets/Scenes/Regions/CastleIronfist.unity
     guid: e423c5ade3d85254ea13c0303ff0733b
   - enabled: 1
-    path: Assets/Scenes/NewSorpigal_OpenWorld.unity
+    path: Assets/Scenes/Regions/NewSorpigal.unity
     guid: f7561a6ca6ce1184a966e729bc5ba4db
   - enabled: 1
-    path: Assets/Scenes/DragonIsle_North.unity
+    path: Assets/Scenes/Extensions/DragonIsle_North.unity
     guid: dc8e6d0c461acd6459dea63052610193
   - enabled: 1
-    path: Assets/Scenes/DragonIsle_South.unity
+    path: Assets/Scenes/Extensions/DragonIsle_South.unity
     guid: 8859fd73e5a099743a63edd0d808ebc6
   m_configObjects: {}

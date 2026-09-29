@@ -218,8 +218,8 @@ public static class MMDragonReferenceReshape {
   MMDragonWestEdgeJoin.Apply();
    MMReferenceTiledGround.ApplyOne("DragonIsle_North");
    MMReferenceTiledGround.ApplyOne("DragonIsle_South");
-  MMStandaloneRegionRig.EnsureScene("Assets/Scenes/DragonIsle_North.unity");
-  MMStandaloneRegionRig.EnsureScene("Assets/Scenes/DragonIsle_South.unity");
+  MMStandaloneRegionRig.EnsureScene("Assets/Scenes/Extensions/DragonIsle_North.unity");
+  MMStandaloneRegionRig.EnsureScene("Assets/Scenes/Extensions/DragonIsle_South.unity");
   AssetDatabase.SaveAssets();
   Debug.Log("DRAGON_REFERENCE_RESHAPE_DONE "+string.Join(" | ",report));
  }
@@ -246,8 +246,8 @@ public static class MMDragonReferenceReshape {
   MMDragonWestEdgeJoin.Apply();
    MMReferenceTiledGround.ApplyOne("DragonIsle_North");
    MMReferenceTiledGround.ApplyOne("DragonIsle_South");
-  MMStandaloneRegionRig.EnsureScene("Assets/Scenes/DragonIsle_North.unity");
-  MMStandaloneRegionRig.EnsureScene("Assets/Scenes/DragonIsle_South.unity");
+  MMStandaloneRegionRig.EnsureScene("Assets/Scenes/Extensions/DragonIsle_North.unity");
+  MMStandaloneRegionRig.EnsureScene("Assets/Scenes/Extensions/DragonIsle_South.unity");
   AssetDatabase.SaveAssets();
   Directory.CreateDirectory("Validation/EdgeGrid20260923");
   File.WriteAllLines("Validation/EdgeGrid20260923/visible_sweetwater_west_rebuild.txt",report);

@@ -25,7 +25,7 @@ public static class MMFirTargetedOptimizer
     {
         Directory.CreateDirectory("Validation/EnvironmentRealism");
         var sc = SceneManager.GetActiveScene();
-        if (sc.path != "Assets/Scenes/Enroth_Linked_OpenWorld.unity")
+        if (sc.path != "Assets/Scenes/World/Enroth.unity")
             throw new Exception("Expected linked scene open, got: " + sc.path);
 
         string scenePre = TransformHash(sc);

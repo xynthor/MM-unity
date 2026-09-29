@@ -29,11 +29,11 @@ internal static class MMParadiseForestFinishQueued20260926 {
    var sc=SceneManager.GetActiveScene();
    if(string.IsNullOrEmpty(sc.path)&&!sc.isDirty){
     UnityEditor.SceneManagement.EditorSceneManager.OpenScene(
-      "Assets/Scenes/Enroth_Linked_OpenWorld.unity",
+      "Assets/Scenes/World/Enroth.unity",
       UnityEditor.SceneManagement.OpenSceneMode.Single);
     sc=SceneManager.GetActiveScene();
    }
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked Enroth scene required");
    if(!File.Exists(V+"paradise_photo_canopy_finish_20260926.txt"))
     MMParadiseReferenceCanopyFinish20260926.Apply();

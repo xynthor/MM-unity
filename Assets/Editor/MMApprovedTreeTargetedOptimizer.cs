@@ -40,7 +40,7 @@ public static class MMApprovedTreeTargetedOptimizer
     {
         Directory.CreateDirectory("Validation/EnvironmentRealism");
         var sc=SceneManager.GetActiveScene();
-        if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity")
+        if(sc.path!="Assets/Scenes/World/Enroth.unity")
             throw new Exception("Expected linked scene.");
         string pre=TransformHash(sc);
         var replacements=new Dictionary<string,Mesh>();

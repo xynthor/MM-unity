@@ -13,7 +13,7 @@ internal static class MMNorthTerrainOnlyQAOnce20260927 {
  static void Run(){
   if(!File.Exists(Flag))return;File.Delete(Flag);
   var sc=SceneManager.GetActiveScene();
-  if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty){
+  if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty){
    Debug.LogError("North terrain-only QA requires saved linked scene");return;
   }
   var rs=sc.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Renderer>(true)).ToArray();

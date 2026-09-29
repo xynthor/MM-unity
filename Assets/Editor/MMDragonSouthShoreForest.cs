@@ -23,7 +23,7 @@ public static class MMDragonSouthShoreForest {
  }
  [MenuItem("MMUnity/World/Refine Dragon South Sweet Water Shore Woodland")]
  public static void Apply(){
-  var target=EditorSceneManager.OpenScene("Assets/Scenes/DragonIsle_South.unity",OpenSceneMode.Single);
+  var target=EditorSceneManager.OpenScene("Assets/Scenes/Extensions/DragonIsle_South.unity",OpenSceneMode.Single);
   var root=target.GetRootGameObjects().FirstOrDefault(g=>g.name.Contains("Open World"));
   var t=root?root.GetComponentInChildren<Terrain>(true):null;
   if(!t)throw new Exception("Dragon South target terrain missing");
@@ -38,7 +38,7 @@ public static class MMDragonSouthShoreForest {
   var old=root.transform.Find(Group);
   if(old)UnityEngine.Object.DestroyImmediate(old.gameObject);
   var group=new GameObject(Group);group.transform.SetParent(root.transform,false);
-  var source=EditorSceneManager.OpenScene("Assets/Scenes/SweetWater_SourceGrid.unity",OpenSceneMode.Additive);
+  var source=EditorSceneManager.OpenScene("Assets/Scenes/Regions/SweetWater.unity",OpenSceneMode.Additive);
   var sr=source.GetRootGameObjects().First(g=>g.name.Contains("Open World"));
   var trees=sr.GetComponentsInChildren<Transform>(true).Where(v=>
     v.name.StartsWith("SourceTree_",StringComparison.OrdinalIgnoreCase) && MaterialsOK(v.gameObject)).ToArray();

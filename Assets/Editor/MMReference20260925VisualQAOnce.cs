@@ -16,7 +16,7 @@ public static class MMReference20260925VisualQAOnce {
   if(!File.Exists(V+"RUN_REFERENCE_20260925_QA.flag"))return;
   File.Delete(V+"RUN_REFERENCE_20260925_QA.flag");
   try {
-   if(SceneManager.GetActiveScene().path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity" ||
+   if(SceneManager.GetActiveScene().path!="Assets/Scenes/World/Enroth.unity" ||
       SceneManager.GetActiveScene().isDirty)
     throw new Exception("Saved linked world must be the active scene");
    Audit();
@@ -28,7 +28,7 @@ public static class MMReference20260925VisualQAOnce {
   }
  }
  public static void RunFinalQA(){
-  if(SceneManager.GetActiveScene().path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity" ||
+  if(SceneManager.GetActiveScene().path!="Assets/Scenes/World/Enroth.unity" ||
      SceneManager.GetActiveScene().isDirty)
    throw new Exception("Saved linked world required for final render QA");
   Audit();Render();

@@ -6,7 +6,7 @@ using System.Linq;
 
 public static class MMLinkedRuntimeSetup20260928 {
  public static void Apply(Scene scene) {
-  if(scene.name!="Enroth_Linked_OpenWorld")throw new Exception("Linked scene required");
+  if(scene.name!="Enroth")throw new Exception("Linked scene required");
   var roots=scene.GetRootGameObjects();
   var preview=roots.SelectMany(g=>g.GetComponentsInChildren<MMEditorPreviewOnly>(true)).Single();
   var streamer=roots.SelectMany(g=>g.GetComponentsInChildren<MMRegionWorldStreamer>(true)).Single();

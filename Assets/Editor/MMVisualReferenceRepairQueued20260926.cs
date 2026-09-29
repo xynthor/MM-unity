@@ -16,7 +16,7 @@ internal static class MMVisualReferenceRepairQueued20260926 {
   File.Delete(V+"RUN_VISUAL_REFERENCE_REPAIR_20260926.flag");
   try{
    var sc=SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked Unity scene must be active");
    MMNorthSnowReferenceBlend20260926.Apply();
    MMParadiseDragonVisualSeam20260926.Apply();

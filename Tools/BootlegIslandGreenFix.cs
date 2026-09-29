@@ -4,7 +4,7 @@ internal class CommandScript:IRunCommand{
  int SrcIndex(float wx,float wz){int x=Mathf.Clamp(Mathf.RoundToInt(wx/Cell+64f),0,N-1);int y=Mathf.Clamp(Mathf.RoundToInt(64f-wz/Cell),0,N-1);return y*N+x;}
  public void Execute(ExecutionResult result){
   for(int i=0;i<SceneManager.sceneCount;i++)if(SceneManager.GetSceneAt(i).isDirty)throw new Exception("Unsaved scene");
-  string sp="Assets/Scenes/BootlegBay_SourceGrid.unity";var s=EditorSceneManager.OpenScene(sp,OpenSceneMode.Single);
+  string sp="Assets/Scenes/Regions/BootlegBay.unity";var s=EditorSceneManager.OpenScene(sp,OpenSceneMode.Single);
   var t=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).Single();var td=t.terrainData;
   var tiles=File.ReadAllBytes("Assets/World/BootlegBay/Data/tilemap_u8.bin");var sem=File.ReadAllBytes("Assets/World/BootlegBay/Data/tile_semantics_u8.bin");
   bool Land(int idx)=>(sem[tiles[idx]]&1)==0; bool Road(int idx)=>(sem[tiles[idx]]&8)!=0; bool Shore(int idx)=>(sem[tiles[idx]]&2)!=0;

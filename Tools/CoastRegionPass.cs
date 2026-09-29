@@ -19,7 +19,7 @@ internal class CommandScript : IRunCommand {
   string scenePath=File.ReadAllText(Root+"/next.txt").Trim();string key=Path.GetFileNameWithoutExtension(scenePath);string outdir=Root+"/"+key;Directory.CreateDirectory(outdir);
   if(File.Exists(outdir+"/done.txt")){result.Log(key+" already processed");return;}
   // Terrain assets are shared with the linked world: protect both layouts before editing.
-  var linked=SceneManager.GetActiveScene();if(linked.name!="Enroth_Linked_OpenWorld")linked=EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+  var linked=SceneManager.GetActiveScene();if(linked.name!="Enroth")linked=EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
   var linkedMasks=new Dictionary<string,bool[,]>();
   foreach(var t in linked.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true))){var mask=new bool[t.terrainData.heightmapResolution,t.terrainData.heightmapResolution];Protect(mask,t,linked);linkedMasks[AssetDatabase.GetAssetPath(t.terrainData)]=mask;}
   var s=EditorSceneManager.OpenScene(scenePath,OpenSceneMode.Single);var terrain=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).Single();var td=terrain.terrainData;string asset=AssetDatabase.GetAssetPath(td);
@@ -39,7 +39,7 @@ internal class CommandScript : IRunCommand {
   int changed=0,dryChanged=0,maskChanges=0,protectedChanges=0;float maxDelta=0,maxSlopeAfter=0;int bestX=n/2,bestZ=n/2;
   for(int z=0;z<n;z++)for(int x=0;x<n;x++){float a=baseY+original[z,x]*scale,b=baseY+heights[z,x]*scale;if((a<water)!=(b<water))maskChanges++;if(original[z,x]!=heights[z,x]){changed++;if(a>=water)dryChanged++;if(protect[z,x])protectedChanges++;float d=Mathf.Abs(a-b);if(d>maxDelta){maxDelta=d;bestX=x;bestZ=z;}}if(editable[z,x])maxSlopeAfter=Mathf.Max(maxSlopeAfter,Mathf.Abs(heights[z,x]-heights[z,x+1])*scale/step,Mathf.Abs(heights[z,x]-heights[z+1,x])*scale/step);}
   if(dryChanged!=0||maskChanges!=0||protectedChanges!=0||maxSlopeAfter>maxSlopeBefore+.0001f)throw new Exception("Terrain preflight failed");
-  Vector3 view=terrain.transform.position+new Vector3(bestX*step,water-baseY+1,bestZ*step);if(key=="NewSorpigal_OpenWorld")view=new Vector3(50,1,-30);
+  Vector3 view=terrain.transform.position+new Vector3(bestX*step,water-baseY+1,bestZ*step);if(key=="NewSorpigal")view=new Vector3(50,1,-30);
   Capture(s,terrain,outdir+"/before",view);
   try{
    td.SetHeights(0,0,heights);terrain.Flush();long removed=0;foreach(var r in redundant)if(r.enabled){var mesh=r.GetComponent<MeshFilter>()?.sharedMesh;if(mesh)for(int k=0;k<mesh.subMeshCount;k++)removed+=(long)mesh.GetIndexCount(k)/3;r.enabled=false;}

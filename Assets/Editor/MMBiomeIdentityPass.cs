@@ -14,26 +14,26 @@ public static class MMBiomeIdentityPass
         {key=k;scene=s;col=c;row=w;l=L;r=R;u=U;d=D;baseTex=b;dirtTex=di;edge=e;}
     }
     static readonly Z[] Zones={
-        new Z("SweetWater","Assets/Scenes/SweetWater_SourceGrid.unity",0,2,false,true,false,true,"Assets/EnvironmentAssets/Biomes/ash_ground.png","Assets/EnvironmentAssets/UnitySamples/dry_soil_CH.png",.58f),
-        new Z("Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity",1,2,true,true,false,true,"Assets/EnvironmentAssets/Biomes/ash_ground.png","Assets/EnvironmentAssets/Biomes/cold_rock.png",.56f),
-        new Z("FrozenHighlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity",2,2,true,true,false,true,"Assets/EnvironmentAssets/Biomes/snow.png","Assets/EnvironmentAssets/Biomes/cold_rock.png",.68f),
-        new Z("SilverCove","Assets/Scenes/SilverCove_SourceGrid.unity",3,2,true,true,false,true),
-        new Z("EelInfestedWaters","Assets/Scenes/EelInfestedWaters_SourceGrid.unity",4,2,true,false,false,true),
-        new Z("ParadiseValley","Assets/Scenes/ParadiseValley_SourceGrid.unity",0,1,false,true,true,true,"Assets/EnvironmentAssets/UnitySamples/dry_soil_CH.png","Assets/EnvironmentAssets/Biomes/sand.png",.48f),
-        new Z("Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity",1,1,true,true,true,true,"Assets/EnvironmentAssets/Biomes/swamp_ground.png","Assets/EnvironmentAssets/UnitySamples/dry_soil_CH.png",.42f),
-        new Z("FreeHaven","Assets/Scenes/FreeHaven_SourceGrid.unity",2,1,true,true,true,true),
-        new Z("BootlegBay","Assets/Scenes/BootlegBay_SourceGrid.unity",3,1,true,true,true,true),
-        new Z("MistyIslands","Assets/Scenes/MistyIslands_SourceGrid.unity",4,1,true,false,true,true),
-        new Z("HermitsIsle","Assets/Scenes/HermitsIsle_SourceGrid.unity",0,0,false,true,true,false,"Assets/EnvironmentAssets/Biomes/ash_ground.png","Assets/EnvironmentAssets/Biomes/cold_rock.png",.45f),
-        new Z("Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity",1,0,true,true,true,false,"Assets/EnvironmentAssets/Biomes/sand.png","Assets/Environment/PolyHaven/Textures/coast_sand_02/coast_sand_02_diff_1k.jpg",.38f),
-        new Z("MireOfTheDamned","Assets/Scenes/MireOfTheDamned_SourceGrid.unity",2,0,true,true,true,false),
-        new Z("CastleIronfist","Assets/Scenes/CastleIronfist_SourceGrid.unity",3,0,true,true,true,false),
-        new Z("NewSorpigal","Assets/Scenes/NewSorpigal_OpenWorld.unity",4,0,true,false,true,false)
+        new Z("SweetWater","Assets/Scenes/Regions/SweetWater.unity",0,2,false,true,false,true,"Assets/EnvironmentAssets/Biomes/ash_ground.png","Assets/EnvironmentAssets/UnitySamples/dry_soil_CH.png",.58f),
+        new Z("Kriegspire","Assets/Scenes/Regions/Kriegspire.unity",1,2,true,true,false,true,"Assets/EnvironmentAssets/Biomes/ash_ground.png","Assets/EnvironmentAssets/Biomes/cold_rock.png",.56f),
+        new Z("FrozenHighlands","Assets/Scenes/Regions/FrozenHighlands.unity",2,2,true,true,false,true,"Assets/EnvironmentAssets/Biomes/snow.png","Assets/EnvironmentAssets/Biomes/cold_rock.png",.68f),
+        new Z("SilverCove","Assets/Scenes/Regions/SilverCove.unity",3,2,true,true,false,true),
+        new Z("EelInfestedWaters","Assets/Scenes/Regions/EelInfestedWaters.unity",4,2,true,false,false,true),
+        new Z("ParadiseValley","Assets/Scenes/Regions/ParadiseValley.unity",0,1,false,true,true,true,"Assets/EnvironmentAssets/UnitySamples/dry_soil_CH.png","Assets/EnvironmentAssets/Biomes/sand.png",.48f),
+        new Z("Blackshire","Assets/Scenes/Regions/Blackshire.unity",1,1,true,true,true,true,"Assets/EnvironmentAssets/Biomes/swamp_ground.png","Assets/EnvironmentAssets/UnitySamples/dry_soil_CH.png",.42f),
+        new Z("FreeHaven","Assets/Scenes/Regions/FreeHaven.unity",2,1,true,true,true,true),
+        new Z("BootlegBay","Assets/Scenes/Regions/BootlegBay.unity",3,1,true,true,true,true),
+        new Z("MistyIslands","Assets/Scenes/Regions/MistyIslands.unity",4,1,true,false,true,true),
+        new Z("HermitsIsle","Assets/Scenes/Regions/HermitsIsle.unity",0,0,false,true,true,false,"Assets/EnvironmentAssets/Biomes/ash_ground.png","Assets/EnvironmentAssets/Biomes/cold_rock.png",.45f),
+        new Z("Dragonsand","Assets/Scenes/Regions/Dragonsand.unity",1,0,true,true,true,false,"Assets/EnvironmentAssets/Biomes/sand.png","Assets/Environment/PolyHaven/Textures/coast_sand_02/coast_sand_02_diff_1k.jpg",.38f),
+        new Z("MireOfTheDamned","Assets/Scenes/Regions/MireOfTheDamned.unity",2,0,true,true,true,false),
+        new Z("CastleIronfist","Assets/Scenes/Regions/CastleIronfist.unity",3,0,true,true,true,false),
+        new Z("NewSorpigal","Assets/Scenes/Regions/NewSorpigal.unity",4,0,true,false,true,false)
     };
     const int N=128;
     static TerrainLayer Ecotone()
     {
-        string p="Assets/Materials/SourceGridTerrain/EnrothEcotone.terrainlayer";
+        string p="Assets/Materials/Terrain/EnrothEcotone.terrainlayer";
         var l=AssetDatabase.LoadAssetAtPath<TerrainLayer>(p);
         if(!l){l=new TerrainLayer();AssetDatabase.CreateAsset(l,p);}
         l.diffuseTexture=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Environment/PolyHaven/Textures/rocky_terrain_02/rocky_terrain_02_diff_1k.jpg");

@@ -8,9 +8,9 @@ internal class CommandScript : IRunCommand
 {
  public void Execute(ExecutionResult result) {
   var s=SceneManager.GetActiveScene();
-  if(s.path!="Assets/Scenes/NewSorpigal_OpenWorld.unity"||s.isDirty||EditorApplication.isPlaying)throw new Exception("Requires clean Sorpigal");
+  if(s.path!="Assets/Scenes/Regions/NewSorpigal.unity"||s.isDirty||EditorApplication.isPlaying)throw new Exception("Requires clean Sorpigal");
   string tag="water_compare_"+DateTime.Now.ToString("yyyyMMdd_HHmmss");
-  string backup="Backups/"+tag; Directory.CreateDirectory(backup); File.Copy(s.path,backup+"/NewSorpigal_OpenWorld.unity");
+  string backup="Backups/"+tag; Directory.CreateDirectory(backup); File.Copy(s.path,backup+"/NewSorpigal.unity");
   var ts=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).ToArray();
   var positions=ts.ToDictionary(t=>t.GetEntityId(),t=>t.position);
   File.WriteAllLines(backup+"/positions.csv",ts.Select(t=>t.GetEntityId()+","+t.position.x.ToString("R",System.Globalization.CultureInfo.InvariantCulture)+","+t.position.z.ToString("R",System.Globalization.CultureInfo.InvariantCulture)));

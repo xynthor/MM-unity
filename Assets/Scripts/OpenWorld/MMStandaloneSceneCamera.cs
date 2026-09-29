@@ -13,7 +13,7 @@ public static class MMStandaloneSceneCamera {
  static void OnLoaded(Scene scene,LoadSceneMode mode){Ensure();}
  static void Ensure(){
   var active=SceneManager.GetActiveScene();
-  if(!active.IsValid()||active.name=="Enroth_Linked_OpenWorld")return;
+  if(!active.IsValid()||active.name=="Enroth")return;
   if(Camera.allCamerasCount>0)return;
   Terrain terrain=null;
   foreach(var t in Object.FindObjectsByType<Terrain>(

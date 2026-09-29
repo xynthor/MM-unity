@@ -9,8 +9,8 @@ using System.Collections.Generic;
 
 public static class MMDragonIsleFullRealismPass
 {
-    const string ScenePath="Assets/Scenes/DragonIsle_Reference.unity";
-    const string LinkedPath="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string ScenePath="Assets/Scenes/Regions/DragonIsle.unity";
+    const string LinkedPath="Assets/Scenes/World/Enroth.unity";
     const string GroupName="Dragon Isle - Full Realism";
     const string OldGroupName="Dragon Isle - Realism Additions";
     const string VolcanicLayerPath="Assets/Materials/RealisticWorld/Volcanic.terrainlayer";

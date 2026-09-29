@@ -13,7 +13,7 @@ internal static class MMNorthFlatLightingDiagnosticOnce20260926 {
   string flag=V+"RUN_NORTH_FLAT_LIGHT_DIAG.flag";
   if(!File.Exists(flag))return;File.Delete(flag);
   var sc=SceneManager.GetActiveScene();
-  if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)return;
+  if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)return;
   var lights=sc.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Light>(true)).ToArray();
   var prior=lights.Select(l=>l.enabled).ToArray();
   var mode=RenderSettings.ambientMode;var amb=RenderSettings.ambientLight;bool fog=RenderSettings.fog;

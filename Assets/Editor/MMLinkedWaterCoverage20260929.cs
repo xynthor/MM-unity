@@ -19,7 +19,7 @@ public static class MMLinkedWaterCoverage20260929
  static float Cross(Vector2 a,Vector2 b,Vector2 c){return (b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);}
  static void Read()
  {
-  var scene=SceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||EditorApplication.isPlaying)throw new Exception("Linked Edit Mode scene required");
+  var scene=SceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/World/Enroth.unity"||EditorApplication.isPlaying)throw new Exception("Linked Edit Mode scene required");
   if(scene.GetRootGameObjects().Any(g=>g.name==ObjectName))throw new Exception("Connected water already applied; do not regenerate over new state");
   Directory.CreateDirectory(Folder);wet=new bool[W*H];existing=new bool[W*H];reached=new bool[W*H];
   foreach(var t in Terrain.activeTerrains){var p=t.transform.position;var d=t.terrainData;if(d.heightmapResolution!=513||d.size.x!=512||d.size.z!=512)throw new Exception("Unexpected terrain resolution");var heights=d.GetHeights(0,0,513,513);int ox=Mathf.RoundToInt((p.x-X0)/Step),oz=Mathf.RoundToInt((p.z-Z0)/Step);for(int z=0;z<256;z++)for(int x=0;x<256;x++)wet[(oz+z)*W+ox+x]=p.y+heights[z*2+1,x*2+1]*d.size.y<Level;}
@@ -46,8 +46,8 @@ public static class MMLinkedWaterCoverage20260929
  {
   if(!File.Exists("Backups/BeforeConnectedWater_20260929/manifest.json"))throw new Exception("Verified backup required");
   using(var sha=System.Security.Cryptography.SHA256.Create()){
-   var saved=sha.ComputeHash(File.ReadAllBytes("Assets/Scenes/Enroth_Linked_OpenWorld.unity"));
-   var backedUp=sha.ComputeHash(File.ReadAllBytes("Backups/BeforeConnectedWater_20260929/Enroth_Linked_OpenWorld.unity"));
+   var saved=sha.ComputeHash(File.ReadAllBytes("Assets/Scenes/World/Enroth.unity"));
+   var backedUp=sha.ComputeHash(File.ReadAllBytes("Backups/BeforeConnectedWater_20260929/Enroth.unity"));
    if(!saved.SequenceEqual(backedUp))throw new Exception("Scene changed after backup; inspect and deliberately create a new baseline");
   }
   Read();if(AssetDatabase.LoadAssetAtPath<Mesh>(MeshPath))throw new Exception("Candidate asset already exists");
@@ -61,7 +61,7 @@ public static class MMLinkedWaterCoverage20260929
   Quad(-12000,-12000,12000,Z0);Quad(-12000,Z0+H*Step,12000,12000);Quad(-12000,Z0,X0,Z0+H*Step);Quad(X0+W*Step,Z0,12000,Z0+H*Step);
   void Quad(float x1,float z1,float x2,float z2){int n=vertices.Count;vertices.Add(new Vector3(x1,Level,z1));vertices.Add(new Vector3(x1,Level,z2));vertices.Add(new Vector3(x2,Level,z2));vertices.Add(new Vector3(x2,Level,z1));triangles.AddRange(new[]{n,n+1,n+2,n,n+2,n+3});}
   var mesh=new Mesh{indexFormat=IndexFormat.UInt32,name="Connected sea surface from current wet terrain"};mesh.SetVertices(vertices);mesh.SetTriangles(triangles,0);mesh.RecalculateNormals();mesh.RecalculateBounds();AssetDatabase.CreateAsset(mesh,MeshPath);
-  var go=new GameObject(ObjectName);go.AddComponent<MeshFilter>().sharedMesh=mesh;var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/SourceGridTerrain/EnrothReferenceLinkedWater.mat");renderer.shadowCastingMode=ShadowCastingMode.Off;renderer.receiveShadows=false;
+  var go=new GameObject(ObjectName);go.AddComponent<MeshFilter>().sharedMesh=mesh;var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/Terrain/EnrothReferenceLinkedWater.mat");renderer.shadowCastingMode=ShadowCastingMode.Off;renderer.receiveShadows=false;
   foreach(var old in oldWater)old.enabled=false;
   EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());AssetDatabase.SaveAssets();EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
   File.WriteAllText(Folder+"/Applied.txt","Replaced linked sea-level surfaces="+oldWater.Length+" newTriangles="+(triangles.Count/3)+" rectangles="+rectangles.Count+" seaLevel="+Level+" canonicalWrites=0 terrainWrites=0 elevatedPondsUnchanged=true\n");Debug.Log(File.ReadAllText(Folder+"/Applied.txt"));

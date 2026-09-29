@@ -11,7 +11,7 @@ using System.Text;
 
 public static class MMBlackshireTransitionRepair
 {
-    const string ScenePath="Assets/Scenes/Blackshire_SourceGrid.unity";
+    const string ScenePath="Assets/Scenes/Regions/Blackshire.unity";
     const string Report="Validation/EnvironmentRealism/blackshire_transition_repair.txt";
     const int N=128;
 

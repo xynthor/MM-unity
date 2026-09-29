@@ -13,7 +13,7 @@ internal static class MMNarrowNorthToeRebuildQueued20260925 {
   File.Delete(V+"RUN_NARROW_NORTH_TOE_REBUILD.flag");
   try{
    var s=SceneManager.GetActiveScene();
-   if(s.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||s.isDirty)
+   if(s.path!="Assets/Scenes/World/Enroth.unity"||s.isDirty)
     throw new Exception("Clean saved linked scene required");
    if(!File.Exists(@"C:\MMUnityPort\Backups\BeforeAdaptiveNorthToePolish_20260925\manifest.json"))
     throw new Exception("Latest source/linked scene backup missing");

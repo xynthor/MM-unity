@@ -12,20 +12,20 @@ public static class MMSourceObject3DPass
 {
     sealed class Zone { public string key, display, scene; public Zone(string k,string d,string s){key=k;display=d;scene=s;} }
     static readonly Zone[] Zones={
-        new Zone("NewSorpigal","New Sorpigal","Assets/Scenes/NewSorpigal_OpenWorld.unity"),
-        new Zone("CastleIronfist","Castle Ironfist","Assets/Scenes/CastleIronfist_SourceGrid.unity"),
-        new Zone("MireOfTheDamned","Mire of the Damned","Assets/Scenes/MireOfTheDamned_SourceGrid.unity"),
-        new Zone("Dragonsand","Dragonsand","Assets/Scenes/Dragonsand_SourceGrid.unity"),
-        new Zone("HermitsIsle","Hermit's Isle","Assets/Scenes/HermitsIsle_SourceGrid.unity"),
-        new Zone("MistyIslands","Misty Islands","Assets/Scenes/MistyIslands_SourceGrid.unity"),
-        new Zone("BootlegBay","Bootleg Bay","Assets/Scenes/BootlegBay_SourceGrid.unity"),
-        new Zone("FreeHaven","Free Haven","Assets/Scenes/FreeHaven_SourceGrid.unity"),        new Zone("Blackshire","Blackshire","Assets/Scenes/Blackshire_SourceGrid.unity"),
-        new Zone("ParadiseValley","Paradise Valley","Assets/Scenes/ParadiseValley_SourceGrid.unity"),
-        new Zone("EelInfestedWaters","Eel Infested Waters","Assets/Scenes/EelInfestedWaters_SourceGrid.unity"),
-        new Zone("SilverCove","Silver Cove","Assets/Scenes/SilverCove_SourceGrid.unity"),
-        new Zone("FrozenHighlands","White Cap / Frozen Highlands","Assets/Scenes/FrozenHighlands_SourceGrid.unity"),
-        new Zone("Kriegspire","Kriegspire","Assets/Scenes/Kriegspire_SourceGrid.unity"),
-        new Zone("SweetWater","Sweet Water","Assets/Scenes/SweetWater_SourceGrid.unity")};
+        new Zone("NewSorpigal","New Sorpigal","Assets/Scenes/Regions/NewSorpigal.unity"),
+        new Zone("CastleIronfist","Castle Ironfist","Assets/Scenes/Regions/CastleIronfist.unity"),
+        new Zone("MireOfTheDamned","Mire of the Damned","Assets/Scenes/Regions/MireOfTheDamned.unity"),
+        new Zone("Dragonsand","Dragonsand","Assets/Scenes/Regions/Dragonsand.unity"),
+        new Zone("HermitsIsle","Hermit's Isle","Assets/Scenes/Regions/HermitsIsle.unity"),
+        new Zone("MistyIslands","Misty Islands","Assets/Scenes/Regions/MistyIslands.unity"),
+        new Zone("BootlegBay","Bootleg Bay","Assets/Scenes/Regions/BootlegBay.unity"),
+        new Zone("FreeHaven","Free Haven","Assets/Scenes/Regions/FreeHaven.unity"),        new Zone("Blackshire","Blackshire","Assets/Scenes/Regions/Blackshire.unity"),
+        new Zone("ParadiseValley","Paradise Valley","Assets/Scenes/Regions/ParadiseValley.unity"),
+        new Zone("EelInfestedWaters","Eel Infested Waters","Assets/Scenes/Regions/EelInfestedWaters.unity"),
+        new Zone("SilverCove","Silver Cove","Assets/Scenes/Regions/SilverCove.unity"),
+        new Zone("FrozenHighlands","White Cap / Frozen Highlands","Assets/Scenes/Regions/FrozenHighlands.unity"),
+        new Zone("Kriegspire","Kriegspire","Assets/Scenes/Regions/Kriegspire.unity"),
+        new Zone("SweetWater","Sweet Water","Assets/Scenes/Regions/SweetWater.unity")};
 
     [MenuItem("MMUnity/Replace MM6 Sprites With 3D Objects")]
     public static void ApplyAll()

@@ -7,9 +7,9 @@ using System.IO;
 public static class CaptureAuditScreens
 {
     static readonly string[] Scenes={
-        "NewSorpigal_OpenWorld","CastleIronfist_SourceGrid","MireOfTheDamned_SourceGrid","Dragonsand_SourceGrid","HermitsIsle_SourceGrid",
-        "MistyIslands_SourceGrid","BootlegBay_SourceGrid","FreeHaven_SourceGrid","Blackshire_SourceGrid","ParadiseValley_SourceGrid",
-        "EelInfestedWaters_SourceGrid","SilverCove_SourceGrid","FrozenHighlands_SourceGrid","Kriegspire_SourceGrid","SweetWater_SourceGrid","Enroth_Linked_OpenWorld"};
+        "NewSorpigal","CastleIronfist","MireOfTheDamned","Dragonsand","HermitsIsle",
+        "MistyIslands","BootlegBay","FreeHaven","Blackshire","ParadiseValley",
+        "EelInfestedWaters","SilverCove","FrozenHighlands","Kriegspire","SweetWater","Enroth"};
     [MenuItem("MMUnity/Capture Fresh Audit Screens")]
     public static void Run()
     {
@@ -21,7 +21,7 @@ public static class CaptureAuditScreens
     {
         string path="Assets/Scenes/"+sn+".unity";
         var sc=EditorSceneManager.OpenScene(path,OpenSceneMode.Single);
-        bool linked=sn=="Enroth_Linked_OpenWorld";
+        bool linked=sn=="Enroth";
         var go=new GameObject("__AUDIT_CAMERA"); SceneManager.MoveGameObjectToScene(go,sc);
         var cam=go.AddComponent<Camera>(); cam.orthographic=true; cam.orthographicSize=linked?1100f:300f;
         cam.transform.position=linked?new Vector3(-256f,2400f,256f):new Vector3(0,650,0); cam.transform.rotation=Quaternion.Euler(90,0,0);

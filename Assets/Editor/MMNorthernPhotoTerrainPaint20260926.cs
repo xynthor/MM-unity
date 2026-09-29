@@ -100,7 +100,7 @@ internal static class MMNorthernPhotoTerrainPaintQueued20260926 {
   File.Delete(V+"RUN_NORTH_REFERENCE_PHOTO_DETAIL_20260926.flag");
   try{
    var sc=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked scene required");
    MMNorthernPhotoTerrainPaint20260926.Apply();
    BuildEnrothLinkedOpenWorld.Build();

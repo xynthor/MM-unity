@@ -6,7 +6,7 @@ using System;
 using System.IO;
 
 public static class MMEnrothOverview {
- const string ScenePath="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+ const string ScenePath="Assets/Scenes/World/Enroth.unity";
  const string PreviewPath="Assets/Previews/Enroth_Reference_20260923.png";
 
  [MenuItem("MMUnity/World/Show Enroth Overview",priority=12)]

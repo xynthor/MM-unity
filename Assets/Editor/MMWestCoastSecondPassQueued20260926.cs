@@ -15,7 +15,7 @@ internal static class MMWestCoastSecondPassQueued20260926 {
   File.Delete(V+"RUN_WEST_COAST_SECOND_PASS_20260926.flag");
   try{
    var sc=SceneManager.GetActiveScene();
-   if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+   if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
     throw new Exception("Saved linked Enroth scene required for west source correction");
    MMWestCoastSecondPass20260926.Apply();
    BuildEnrothLinkedOpenWorld.Build();

@@ -31,7 +31,7 @@ public static class MMLinkedFoliageCoverage20260928 {
   return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
  }
  public static void Apply(Scene scene){
-  if(scene.name!="Enroth_Linked_OpenWorld")throw new Exception("Linked scene required");
+  if(scene.name!="Enroth")throw new Exception("Linked scene required");
   if(!File.Exists("Backups/BeforeLinkedRuntimeAndFoliage_20260928/manifest.json"))throw new Exception("Foliage rollback missing");
   Folder(Root+"/Textures");Folder(Root+"/Materials");
   var cache=new Dictionary<Material,Material>();var groups=new HashSet<LODGroup>();int renderers=0;

@@ -47,13 +47,14 @@ public static class MMSequentialEvidence
         var setup = EditorSceneManager.GetSceneManagerSetup();
         var rows = new List<string>{"scene,object_id,path,x,y,z,rotation_x,rotation_y,rotation_z,scale_x,scale_y,scale_z"};
         try {
-            foreach (var path in Directory.GetFiles("Assets/Scenes", "*.unity").Where(p => p.Contains("SourceGrid") || p.EndsWith("NewSorpigal_OpenWorld.unity") || p.EndsWith("Enroth_Linked_OpenWorld.unity"))) {
+            var canonicalScenes = new HashSet<string>(new[]{"Blackshire.unity","BootlegBay.unity","CastleIronfist.unity","DragonIsle.unity","Dragonsand.unity","EelInfestedWaters.unity","FreeHaven.unity","FrozenHighlands.unity","HermitsIsle.unity","Kriegspire.unity","MireOfTheDamned.unity","MistyIslands.unity","NewSorpigal.unity","ParadiseValley.unity","SilverCove.unity","SweetWater.unity","Enroth.unity"});
+            foreach (var path in Directory.GetFiles("Assets/Scenes", "*.unity", SearchOption.AllDirectories).Where(p => canonicalScenes.Contains(Path.GetFileName(p)))) {
                 var sc = EditorSceneManager.OpenScene(path, OpenSceneMode.Single);
                 foreach (var t in sc.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true))) {
                     var p = t.position; var e = t.eulerAngles; var s = t.lossyScale;
                     rows.Add(string.Join(",", Q(path), Q(GlobalObjectId.GetGlobalObjectIdSlow(t).ToString()), Q(PathOf(t)), F(p.x), F(p.y), F(p.z), F(e.x), F(e.y), F(e.z), F(s.x), F(s.y), F(s.z)));
                 }
-                if (path.EndsWith("NewSorpigal_OpenWorld.unity")) CaptureSorpigal(sc, "before");
+                if (path.EndsWith("NewSorpigal.unity")) CaptureSorpigal(sc, "before");
             }
             File.WriteAllLines(Output + "/all_transforms_baseline.csv", rows);
             File.WriteAllText(Output + "/baseline.complete", DateTime.UtcNow.ToString("O"));
@@ -92,7 +93,7 @@ public static class MMSequentialEvidence
     public static void CaptureCurrent()
     {
         Guard();var sc=SceneManager.GetActiveScene();
-        if(sc.path!="Assets/Scenes/NewSorpigal_OpenWorld.unity")throw new Exception("Open Sorpigal first");
+        if(sc.path!="Assets/Scenes/Regions/NewSorpigal.unity")throw new Exception("Open Sorpigal first");
         CaptureSorpigal(sc,"review_"+DateTime.Now.ToString("yyyyMMdd_HHmmss"));
     }
     public static readonly string[] Ids = {"searsia_lucida", "fir_sapling", "island_tree_01", "island_tree_02", "island_tree_03", "jacaranda_tree"};

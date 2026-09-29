@@ -19,7 +19,7 @@ public static class MMNorthFeasibleSlopeRepair20260925 {
  public static void Apply(){
   if(!File.Exists(Backup))throw new Exception("Required backup missing");
   var sc=SceneManager.GetActiveScene();
-  if(sc.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||sc.isDirty)
+  if(sc.path!="Assets/Scenes/World/Enroth.unity"||sc.isDirty)
    throw new Exception("Saved linked world must be active");
   var data=new List<TerrainData>();var candidates=new List<float[,]>();var reports=new List<string>();
   foreach(var name in Names){

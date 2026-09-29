@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 public static class BuildEnrothLinkedOpenWorld
 {
-    const string ScenePath="Assets/Scenes/Enroth_Linked_OpenWorld.unity";
+    const string ScenePath="Assets/Scenes/World/Enroth.unity";
     const float RegionSize=512f;
 
     sealed class Layout
@@ -26,23 +26,23 @@ public static class BuildEnrothLinkedOpenWorld
         // NORTH: Sweet Water | Kriegspire | White Cap | Silver Cove | Eel Infested Waters
         // MIDDLE: Paradise Valley | Blackshire | Free Haven | Bootleg Bay | Misty Islands
         // SOUTH: Hermit's Isle | Dragonsand | Mire of the Damned | Castle Ironfist | New Sorpigal
-        new Layout{id="Sweet Water",scene="SweetWater_SourceGrid",col=0,row=2,right="Kriegspire",down="Paradise Valley"},
-        new Layout{id="Kriegspire",scene="Kriegspire_SourceGrid",col=1,row=2,left="Sweet Water",right="Frozen Highlands",down="Blackshire"},
-        new Layout{id="Frozen Highlands",scene="FrozenHighlands_SourceGrid",col=2,row=2,left="Kriegspire",right="Silver Cove",down="Free Haven"},
-        new Layout{id="Silver Cove",scene="SilverCove_SourceGrid",col=3,row=2,left="Frozen Highlands",right="Eel Infested Waters",down="Bootleg Bay"},
-        new Layout{id="Eel Infested Waters",scene="EelInfestedWaters_SourceGrid",col=4,row=2,left="Silver Cove",down="Misty Islands"},
+        new Layout{id="Sweet Water",scene="SweetWater",col=0,row=2,right="Kriegspire",down="Paradise Valley"},
+        new Layout{id="Kriegspire",scene="Kriegspire",col=1,row=2,left="Sweet Water",right="Frozen Highlands",down="Blackshire"},
+        new Layout{id="Frozen Highlands",scene="FrozenHighlands",col=2,row=2,left="Kriegspire",right="Silver Cove",down="Free Haven"},
+        new Layout{id="Silver Cove",scene="SilverCove",col=3,row=2,left="Frozen Highlands",right="Eel Infested Waters",down="Bootleg Bay"},
+        new Layout{id="Eel Infested Waters",scene="EelInfestedWaters",col=4,row=2,left="Silver Cove",down="Misty Islands"},
 
-        new Layout{id="Paradise Valley",scene="ParadiseValley_SourceGrid",col=0,row=1,right="Blackshire",up="Sweet Water",down="Hermits Isle"},
-        new Layout{id="Blackshire",scene="Blackshire_SourceGrid",col=1,row=1,left="Paradise Valley",right="Free Haven",up="Kriegspire",down="Dragonsand"},
-        new Layout{id="Free Haven",scene="FreeHaven_SourceGrid",col=2,row=1,left="Blackshire",right="Bootleg Bay",up="Frozen Highlands",down="Mire of the Damned"},
-        new Layout{id="Bootleg Bay",scene="BootlegBay_SourceGrid",col=3,row=1,left="Free Haven",right="Misty Islands",up="Silver Cove",down="Castle Ironfist"},
-        new Layout{id="Misty Islands",scene="MistyIslands_SourceGrid",col=4,row=1,left="Bootleg Bay",up="Eel Infested Waters",down="New Sorpigal"},
+        new Layout{id="Paradise Valley",scene="ParadiseValley",col=0,row=1,right="Blackshire",up="Sweet Water",down="Hermits Isle"},
+        new Layout{id="Blackshire",scene="Blackshire",col=1,row=1,left="Paradise Valley",right="Free Haven",up="Kriegspire",down="Dragonsand"},
+        new Layout{id="Free Haven",scene="FreeHaven",col=2,row=1,left="Blackshire",right="Bootleg Bay",up="Frozen Highlands",down="Mire of the Damned"},
+        new Layout{id="Bootleg Bay",scene="BootlegBay",col=3,row=1,left="Free Haven",right="Misty Islands",up="Silver Cove",down="Castle Ironfist"},
+        new Layout{id="Misty Islands",scene="MistyIslands",col=4,row=1,left="Bootleg Bay",up="Eel Infested Waters",down="New Sorpigal"},
 
-        new Layout{id="Hermits Isle",scene="HermitsIsle_SourceGrid",col=0,row=0,right="Dragonsand",up="Paradise Valley"},
-        new Layout{id="Dragonsand",scene="Dragonsand_SourceGrid",col=1,row=0,left="Hermits Isle",right="Mire of the Damned",up="Blackshire"},
-        new Layout{id="Mire of the Damned",scene="MireOfTheDamned_SourceGrid",col=2,row=0,left="Dragonsand",right="Castle Ironfist",up="Free Haven"},
-        new Layout{id="Castle Ironfist",scene="CastleIronfist_SourceGrid",col=3,row=0,left="Mire of the Damned",right="New Sorpigal",up="Bootleg Bay"},
-        new Layout{id="New Sorpigal",scene="NewSorpigal_OpenWorld",col=4,row=0,left="Castle Ironfist",up="Misty Islands"},
+        new Layout{id="Hermits Isle",scene="HermitsIsle",col=0,row=0,right="Dragonsand",up="Paradise Valley"},
+        new Layout{id="Dragonsand",scene="Dragonsand",col=1,row=0,left="Hermits Isle",right="Mire of the Damned",up="Blackshire"},
+        new Layout{id="Mire of the Damned",scene="MireOfTheDamned",col=2,row=0,left="Dragonsand",right="Castle Ironfist",up="Free Haven"},
+        new Layout{id="Castle Ironfist",scene="CastleIronfist",col=3,row=0,left="Mire of the Damned",right="New Sorpigal",up="Bootleg Bay"},
+        new Layout{id="New Sorpigal",scene="NewSorpigal",col=4,row=0,left="Castle Ironfist",up="Misty Islands"},
 
         // The original Dragon Isle is preserved as an untouched reference scene.
         // Two new canonical half-tiles reconstruct its exact original land positions.
@@ -65,7 +65,7 @@ public static class BuildEnrothLinkedOpenWorld
         new VisualEdge{id="Eel Infested North",scene="EelInfestedWaters_North",col=4,row=3},
         new VisualEdge{id="Paradise Valley West",scene="ParadiseValley_West",col=-1,row=1},
         new VisualEdge{id="Hermits Isle West",scene="HermitsIsle_West",col=-1,row=0},
-        new VisualEdge{id="Southwest Ocean",scene="Southwest_Ocean",col=-1,row=-1},
+        new VisualEdge{id="Southwest Ocean",scene="SouthwestOcean",col=-1,row=-1},
         new VisualEdge{id="Hermits Isle South",scene="HermitsIsle_South",col=0,row=-1},
         new VisualEdge{id="Dragonsand South",scene="Dragonsand_South",col=1,row=-1},
         new VisualEdge{id="Mire of the Damned South",scene="MireOfTheDamned_South",col=2,row=-1},
@@ -83,8 +83,8 @@ public static class BuildEnrothLinkedOpenWorld
 
     static string SceneAsset(Layout r)
     {
-        if(r.id=="New Sorpigal") return "Assets/Scenes/NewSorpigal_OpenWorld.unity";
-        if(r.id=="Castle Ironfist") return "Assets/Scenes/CastleIronfist_SourceGrid.unity";
+        if(r.id=="New Sorpigal") return "Assets/Scenes/Regions/NewSorpigal.unity";
+        if(r.id=="Castle Ironfist") return "Assets/Scenes/Regions/CastleIronfist.unity";
         return "Assets/Scenes/"+r.scene+".unity";
     }
 
@@ -114,7 +114,7 @@ public static class BuildEnrothLinkedOpenWorld
         // Both Dragon Isle tiles occupy the northwest 512m grid; never restore the old
         // overlapping hand-placed transform on rebuild.
         var master=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
-        master.name="Enroth_Linked_OpenWorld";
+        master.name="Enroth";
         var root=new GameObject("ENROTH - LINKED SOURCE REGIONS");
         var preview=new GameObject("EDITOR LAYOUT - 15 MM6 REGIONS + DRAGON NORTH/SOUTH + 13 EXTENSION TILES");
         preview.transform.SetParent(root.transform);
@@ -215,7 +215,7 @@ public static class BuildEnrothLinkedOpenWorld
         EditorSceneManager.SetActiveScene(master);
         if(!EditorSceneManager.SaveScene(master,ScenePath))
         {
-            const string staging="Assets/Scenes/Enroth_Linked_OpenWorld_STAGING.unity";
+            const string staging="Assets/Scenes/Enroth_STAGING.unity";
             Debug.LogWarning("LINKED_SAVE_DIRECT_FAILED using staging replacement");
             if(!EditorSceneManager.SaveScene(master,staging)) throw new IOException("Could not save staging linked scene");
             AssetDatabase.SaveAssets();
@@ -308,14 +308,14 @@ public static class BuildEnrothLinkedOpenWorld
     }
 
     static Material ReferenceLinkedWater(){
-        const string referencePath="Assets/Materials/SourceGridTerrain/EnrothReferenceLinkedWater.mat";
+        const string referencePath="Assets/Materials/Terrain/EnrothReferenceLinkedWater.mat";
         var material=AssetDatabase.LoadAssetAtPath<Material>(referencePath);
         var shader=Shader.Find("MMUnity/EnrothReferenceBlueWater");
         if(!shader||!shader.isSupported)
             throw new Exception("Reference-linked deep blue water shader missing");
         if(!material){
             var original=AssetDatabase.LoadAssetAtPath<Material>(
-                "Assets/Materials/SourceGridTerrain/UnifiedEnrothWater.mat");
+                "Assets/Materials/Terrain/UnifiedEnrothWater.mat");
             if(!original)throw new Exception("Original water material missing");
             material=new Material(original){name="EnrothReferenceLinkedWater"};
             material.shader=shader;
@@ -447,10 +447,10 @@ public static class BuildEnrothLinkedOpenWorld
         var rt=new RenderTexture(1400,850,24); cam.targetTexture=rt; cam.Render();
         RenderTexture.active=rt; var tex=new Texture2D(rt.width,rt.height,TextureFormat.RGB24,false);
         tex.ReadPixels(new Rect(0,0,rt.width,rt.height),0,0); tex.Apply();
-        File.WriteAllBytes("C:/MMUnityPort/Preview/Enroth_Linked_OpenWorld.png",tex.EncodeToPNG());
+        File.WriteAllBytes("C:/MMUnityPort/Preview/Enroth.png",tex.EncodeToPNG());
         RenderTexture.active=null; cam.targetTexture=null; UnityEngine.Object.DestroyImmediate(rt);
         UnityEngine.Object.DestroyImmediate(tex); UnityEngine.Object.DestroyImmediate(cgo); UnityEngine.Object.DestroyImmediate(lgo);
-        Debug.Log("LINKED_LAYOUT_PREVIEW C:/MMUnityPort/Preview/Enroth_Linked_OpenWorld.png");
+        Debug.Log("LINKED_LAYOUT_PREVIEW C:/MMUnityPort/Preview/Enroth.png");
     }
 
 

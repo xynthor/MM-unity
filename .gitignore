@@ -84,3 +84,34 @@ Assets/World/*/Data/
 Assets/World/*/*.obj
 Assets/World/*/*.obj.meta
 *.presavebak.meta
+
+# Disposable Unity/sample artifacts
+DisabledScripts/
+Assets/Scenes/AssetLibrary/
+Assets/Scenes/Forest_EnvironmentSample_Profiles/
+Assets/Scenes/HDTemplateDefaultResources/
+Assets/Scenes/__PREVIEW_*.unity
+Assets/Scenes/__PREVIEW_*.unity.meta
+Assets/Scenes/*.brush
+Assets/Scenes/*.brush.meta
+*_preview.png
+
+# Meta files for intentionally excluded asset folders
+Assets/Art.meta
+Assets/EditorDisabled.meta
+Assets/Environment.meta
+Assets/EnvironmentAssets.meta
+Assets/MMOriginal.meta
+Assets/Optimization.meta
+Assets/Optimization 1.meta
+Assets/Player.meta
+Assets/Previews.meta
+Assets/TempDragonRework.meta
+Assets/TempDragonTemplate.meta
+Assets/TerrainDemoScene_HDRP.meta
+Assets/Textures.meta
+Assets/ThirdParty.meta
+Assets/Validation.meta
+Assets/_TerrainAutoUpgrade.meta
+Assets/Scenes/Forest_EnvironmentSample.meta
+Assets/Scenes/RestoreBackups.meta

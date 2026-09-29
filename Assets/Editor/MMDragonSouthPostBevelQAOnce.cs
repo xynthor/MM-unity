@@ -14,7 +14,7 @@ internal static class MMDragonSouthPostBevelQAOnce {
   if(File.Exists(Done)||EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling)return;
   Directory.CreateDirectory(Dir);
   var scene=SceneManager.GetActiveScene();
-  if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"){File.WriteAllText(Done,"SKIPPED active_scene="+scene.path);return;}
+  if(scene.path!="Assets/Scenes/World/Enroth.unity"){File.WriteAllText(Done,"SKIPPED active_scene="+scene.path);return;}
   try{
    var d=AssetDatabase.LoadAssetAtPath<TerrainData>("Assets/World/DragonIsle/Generated/DragonIsleSouthTerrain.asset");
    var s=AssetDatabase.LoadAssetAtPath<TerrainData>("Assets/World/SweetWater/Generated/SweetWaterTerrain.asset");

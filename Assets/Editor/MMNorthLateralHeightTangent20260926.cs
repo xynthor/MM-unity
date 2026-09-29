@@ -28,7 +28,7 @@ public static class MMNorthLateralHeightTangent20260926 {
  public static void Apply(){
   if(!File.Exists(Backup))throw new Exception("Linked source tangent backup missing");
   var scene=SceneManager.GetActiveScene();
-  if(scene.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||scene.isDirty)
+  if(scene.path!="Assets/Scenes/World/Enroth.unity"||scene.isDirty)
     throw new Exception("Saved linked scene required");
   var maps=N.Select(n=>AssetDatabase.LoadAssetAtPath<TerrainData>(
     G+n+"_LinkedNorthProfile.asset")).ToArray();

@@ -8,9 +8,9 @@ internal class CommandScript:IRunCommand{
  public void Execute(ExecutionResult result){
   Directory.CreateDirectory(Out);Directory.CreateDirectory(Backup);
   var specs=new[]{
-   new Spec("FreeHaven_SourceGrid",25.1f,-5.7f,"FreeHaven"),
-   new Spec("MireOfTheDamned_SourceGrid",29.7f,130.6f,"Mire"),
-   new Spec("FrozenHighlands_SourceGrid",-158.56f,21.78f,"WhiteCap")
+   new Spec("FreeHaven",25.1f,-5.7f,"FreeHaven"),
+   new Spec("MireOfTheDamned",29.7f,130.6f,"Mire"),
+   new Spec("FrozenHighlands",-158.56f,21.78f,"WhiteCap")
   };
   var summary=new List<string>{"scene|mesh|waterY|cells|vertsAdded|trisAdded|minx|maxx|minz|maxz|protectedOverlap|terrainChanged"};
   foreach(var sp in specs){

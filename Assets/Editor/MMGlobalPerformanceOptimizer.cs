@@ -17,7 +17,7 @@ public static class MMGlobalPerformanceOptimizer
     const string Root = "C:/MMUnityPort";
     const string OutDir = Root + "/Validation/Optimization";
     const string GenDir = "Assets/Optimization/GeneratedMeshes";
-    const string RestoreScene = "Assets/Scenes/NewSorpigal_OpenWorld.unity";
+    const string RestoreScene = "Assets/Scenes/Regions/NewSorpigal.unity";
     const string Trigger = Root + "/Temp/RUN_GLOBAL_PERF_OPTIMIZER.trigger";
 
     enum Phase { Idle, Collect, MakeReadable, Simplify, RestoreReadable, Replace, Verify, Done }

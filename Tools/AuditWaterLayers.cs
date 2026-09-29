@@ -1,7 +1,7 @@
 using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;
 internal class CommandScript:IRunCommand{
  public void Execute(ExecutionResult result){
-  string[] scenes={"FreeHaven_SourceGrid","MireOfTheDamned_SourceGrid","FrozenHighlands_SourceGrid","BootlegBay_SourceGrid","SilverCove_SourceGrid"};
+  string[] scenes={"FreeHaven","MireOfTheDamned","FrozenHighlands","BootlegBay","SilverCove"};
   Directory.CreateDirectory("Validation/LinkedWaterAudit_20260920");
   var outL=new List<string>{"scene\tname\tenabled\tmesh\tmeshPath\ttris\tminx\tmaxx\tminz\tmaxz\tminy\tmaxy\tmaterial"};
   foreach(var sn in scenes){

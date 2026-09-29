@@ -9,7 +9,7 @@ using System.Collections.Generic;
 // Native source-tree models, placed only inside photographed Paradise woodland.
 public static class MMParadiseReferenceCanopyFinish20260926 {
  const string V="Validation/EdgeGrid20260923/";
- const string Scene="Assets/Scenes/ParadiseValley_West.unity";
+ const string Scene="Assets/Scenes/Extensions/ParadiseValley_West.unity";
  const string Group="Paradise Photo-Verified Tall Woodland 20260926";
  static Color32[] Read(string path){
   var im=new Texture2D(2,2,TextureFormat.RGBA32,false,true);
@@ -31,7 +31,7 @@ public static class MMParadiseReferenceCanopyFinish20260926 {
   if(!File.Exists(@"C:\MMUnityPort\Backups\BeforeNorthAndWestVisualContinuity_20260926\manifest.json"))
    throw new Exception("Reference backup missing");
   var active=SceneManager.GetActiveScene();
-  if(active.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity"||active.isDirty)
+  if(active.path!="Assets/Scenes/World/Enroth.unity"||active.isDirty)
    throw new Exception("Saved linked scene required");
   var forest=Read(V+"ReferenceBiomeCandidates_20260925/ParadiseValley_West_ReferenceBiomes.png");
   var land=Read(V+"ReferenceMasks/ParadiseValley_West.png");

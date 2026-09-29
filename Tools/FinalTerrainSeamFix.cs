@@ -4,7 +4,7 @@ internal class CommandScript:IRunCommand{
  float ClampSide(float oldW,float newW){if(oldW<Water)return Mathf.Min(newW,Water-.001f);return Mathf.Max(newW,Water+.001f);}
  public void Execute(ExecutionResult result){
   for(int i=0;i<SceneManager.sceneCount;i++)if(SceneManager.GetSceneAt(i).isDirty)throw new Exception("Unsaved scene");
-  var s=EditorSceneManager.OpenScene("Assets/Scenes/Enroth_Linked_OpenWorld.unity",OpenSceneMode.Single);
+  var s=EditorSceneManager.OpenScene("Assets/Scenes/World/Enroth.unity",OpenSceneMode.Single);
   var ts=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Terrain>(true)).ToArray();
   var touched=new HashSet<TerrainData>();int pairs=0,samples=0;float beforeMax=0;
   foreach(var a in ts)foreach(var b in ts){if(a==b)continue;var pa=a.transform.position;var pb=b.transform.position;var sa=a.terrainData.size;bool east=Mathf.Abs(pa.x+sa.x-pb.x)<.01f&&Mathf.Abs(pa.z-pb.z)<.01f;bool north=Mathf.Abs(pa.z+sa.z-pb.z)<.01f&&Mathf.Abs(pa.x-pb.x)<.01f;if(!east&&!north)continue;

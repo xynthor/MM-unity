@@ -14,9 +14,9 @@ internal class CommandScript:IRunCommand{
    UnityEngine.Object.DestroyImmediate(go);
  }
  public void Execute(ExecutionResult result){
-   Cap("FreeHaven_SourceGrid",25.1f,-5.7f,55f,"FreeHaven");
-   Cap("MireOfTheDamned_SourceGrid",29.7f,130.6f,80f,"Mire");
-   Cap("FrozenHighlands_SourceGrid",0f,0f,512f,"WhiteCap_full",true);
+   Cap("FreeHaven",25.1f,-5.7f,55f,"FreeHaven");
+   Cap("MireOfTheDamned",29.7f,130.6f,80f,"Mire");
+   Cap("FrozenHighlands",0f,0f,512f,"WhiteCap_full",true);
    result.Log("Canal approval captures written");
  }
 }
