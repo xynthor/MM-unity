@@ -115,3 +115,10 @@ Assets/Validation.meta
 Assets/_TerrainAutoUpgrade.meta
 Assets/Scenes/Forest_EnvironmentSample.meta
 Assets/Scenes/RestoreBackups.meta
+
+# Publicly redistributable MIT dependency required by editor tooling
+!Assets/ThirdParty/
+Assets/ThirdParty/*
+!Assets/ThirdParty.meta
+!Assets/ThirdParty/UnityMeshSimplifier/
+!Assets/ThirdParty/UnityMeshSimplifier/**

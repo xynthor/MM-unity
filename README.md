@@ -74,6 +74,10 @@ In particular, `Preview/` is local QA output. Tools may generate screenshots the
 
 Some development/reference assets are deliberately not redistributed. A clean clone therefore contains the project code, scenes, generated world state, and tracked project assets, but not proprietary original-game source data or unlicensed third-party packs.
 
+## Third-party code
+
+`Assets/ThirdParty/UnityMeshSimplifier/` is included under its MIT license because project editor tooling depends on it. Its original license is included with the source.
+
 ## Git LFS
 
 Large canonical world assets are stored with Git LFS. If a large scene appears as a small text pointer after cloning, run:
