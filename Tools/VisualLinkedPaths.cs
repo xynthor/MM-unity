@@ -1,2 +1,0 @@
-using System;using System.Linq;using UnityEngine;using UnityEditor;using UnityEngine.SceneManagement;
-internal class CommandScript:IRunCommand{string P(Transform t)=>t.parent?P(t.parent)+"/"+t.name:t.name;public void Execute(ExecutionResult result){var ts=SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).ToArray();foreach(var t in ts.Where(t=>t.GetComponent<Terrain>()||t.name=="Eco_GREEN_38_64"))result.Log(P(t));}}

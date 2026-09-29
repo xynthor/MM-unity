@@ -1,2 +1,0 @@
-using System;using System.Linq;using UnityEngine;using UnityEditor;
-internal class CommandScript:IRunCommand{public void Execute(ExecutionResult result){var p=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Environment/PolyHaven/Models/fir_sapling/fir_sapling_1k.fbx");foreach(var r in p.GetComponentsInChildren<Renderer>())result.Log(r.name+" mats="+string.Join(";",r.sharedMaterials.Select(m=>m.name)));}}

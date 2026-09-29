@@ -47,23 +47,42 @@ Open `Assets/Scenes/World/Enroth.unity` and press **Play**.
 
 The Enroth scene is also the first enabled scene in Unity Build Settings.
 
+### Current controls
+
+- **WASD** — move
+- **Mouse** — camera
+- **Shift** — sprint
+- **Left Ctrl** — walk
+- **Space** — jump
+- **Left mouse** — attack combo
+- **Right mouse** — block
+- **F** — heavy attack
+- **E** — kick
+- **R** — cast animation
+- **Q + movement direction** — dodge
+- **Esc** — release the mouse cursor
+
 ## Repository layout
 
 ```text
 Assets/
-  Editor/        Development and world-building tools
+  Editor/
+    Builders/     Region/world builders
+    Core/         Active world-building and repair pipeline
+    Diagnostics/  Audits and validation tools
+    Experiments/  Historical/experimental editor utilities
   Materials/     Project materials and terrain layers
   Prefabs/       Project prefabs
   Scenes/
     World/       Master linked world
     Regions/     Canonical region scenes
     Extensions/  Directional/off-map extensions
-  Scripts/       Runtime code
+  Scripts/       Runtime/gameplay code
   Shaders/       Project shaders
+  ThirdParty/    Redistributable source dependencies and licenses
   World/         Generated world and terrain data
 Packages/        Unity package manifest and lock file
 ProjectSettings/ Unity project configuration
-Tools/           Development/audit utilities
 ```
 
 ## Local-only content
@@ -86,6 +105,8 @@ Large canonical world assets are stored with Git LFS. If a large scene appears a
 git lfs pull
 ```
 
-## Development rule
+## Development notes
 
-Keep generated Unity folders and local diagnostic output out of Git. Commit reproducible source, canonical scenes, project settings, and intentional generated world assets only.
+The large historical one-off repair scripts used during reconstruction are intentionally kept out of the public repository. They are archived locally by the maintainer rather than mixed into the playable project.
+
+Keep generated Unity folders and local diagnostic output out of Git. Commit reproducible source, canonical scenes, project settings, redistributable dependencies, and intentional generated world assets only.
