@@ -86,10 +86,6 @@ You can also build from Unity via **MM Unity → Build → Public Windows x64**.
 - **Space** — jump
 - **Left mouse** — attack combo
 - **Right mouse** — block
-- **F** — heavy attack
-- **E** — kick
-- **R** — cast animation
-- **Q + movement direction** — dodge
 - **Esc** — release the mouse cursor
 
 ## Repository layout
