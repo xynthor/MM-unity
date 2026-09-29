@@ -1,0 +1,43 @@
+    static void PopulateDragonIsle(Transform parent,Terrain t)
+    {
+        var tree=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EnvironmentAssets/PolyHaven/TreeSmall02/GameLOD2/tree_small_02_LOD1.fbx");
+        var pine=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Environment/PolyHaven/Models/pine_sapling_small/pine_sapling_small_1k.fbx");
+        var rockA=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EnvironmentAssets/UnitySamples/Rock_A_01.fbx");
+        var rockB=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EnvironmentAssets/UnitySamples/Rock_A_02.fbx");
+        var veg=new GameObject("Dragon Isle - Forest, Pines and Rocks"); veg.transform.SetParent(parent);
+        int trees=0,rocks=0;
+        for(int iz=2;iz<50;iz++) for(int ix=2;ix<28;ix++)
+        {
+            float u=ix/28f,v=iz/50f, jitter=Mathf.PerlinNoise(ix*1.73f,iz*2.17f);
+            float wx=t.transform.position.x+u*t.terrainData.size.x;
+            float wz=t.transform.position.z+v*t.terrainData.size.z;
+            float wy=t.SampleHeight(new Vector3(wx,0,wz))+t.transform.position.y;
+            bool lake=(u>.38f&&u<.56f&&v>.50f&&v<.62f);
+            bool forest=wy>1.0f && wy<78f && v<.76f && !lake;
+            if(forest && jitter>.32f && (tree||pine))
+            {
+                bool usePine=v>.52f || jitter>.70f;
+                var prefab=usePine&&pine?pine:tree; if(!prefab)prefab=pine;
+                var go=(GameObject)PrefabUtility.InstantiatePrefab(prefab);
+                go.name=usePine?"DragonIsle_Pine":"DragonIsle_Tree"; go.transform.SetParent(veg.transform);
+                float jx=(Mathf.PerlinNoise(ix*4.1f,iz*.7f)-.5f)*20f;
+                float jz=(Mathf.PerlinNoise(ix*.9f,iz*3.7f)-.5f)*20f;
+                float xx=wx+jx,zz=wz+jz;
+                float yy=t.SampleHeight(new Vector3(xx,0,zz))+t.transform.position.y;
+                go.transform.position=new Vector3(xx,yy,zz);
+                go.transform.rotation=Quaternion.Euler(0,jitter*360f,0);
+                ScaleToHeight(go,6.5f+Mathf.PerlinNoise(ix*2.2f,iz*1.4f)*5.5f);
+                AssignDragonTreeMaterials(go,usePine); trees++;
+            }
+            if((rockA||rockB) && wy>22f && jitter>.70f)
+            {
+                var prefab=((ix+iz)&1)==0?rockA:rockB; if(!prefab)prefab=rockA?rockA:rockB;
+                var go=(GameObject)PrefabUtility.InstantiatePrefab(prefab);
+                go.name="DragonIsle_Rock"; go.transform.SetParent(veg.transform);
+                go.transform.position=new Vector3(wx,wy,wz);
+                go.transform.rotation=Quaternion.Euler(0,jitter*360f,0);
+                ScaleToHeight(go,1.3f+jitter*4.0f); rocks++;
+            }
+        }
+        Debug.Log($"DRAGON_ISLE_REFERENCE trees={trees} rocks={rocks}");
+    }

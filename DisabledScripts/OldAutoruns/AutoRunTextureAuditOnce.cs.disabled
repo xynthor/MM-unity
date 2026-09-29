@@ -1,0 +1,29 @@
+using UnityEditor;
+using UnityEngine;
+
+[InitializeOnLoad]
+public static class AutoRunTextureAuditOnce
+{
+    const string Key="MMUnity.TextureAudit.Once.20260916_0215";
+    static AutoRunTextureAuditOnce()
+    {
+        EditorApplication.delayCall += Run;
+    }
+    static void Run()
+    {
+        if(EditorPrefs.GetBool(Key,false)) return;
+        EditorPrefs.SetBool(Key,true);
+        try
+        {
+            Debug.Log("LIVE_TEXTURE_AUDIT_START");
+            AuditOneToOneWorld.Run();
+            AuditTextureWorld.Run();
+            Debug.Log("LIVE_TEXTURE_AUDIT_DONE");
+        }
+        catch(System.Exception ex)
+        {
+            Debug.LogException(ex);
+            EditorPrefs.SetBool(Key,false);
+        }
+    }
+}

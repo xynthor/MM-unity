@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path(r'C:\MMUnityPort\Assets\Editor\BuildNewSorpigalOpenWorld.cs')
+s=p.read_text(encoding='utf-8')
+s=s.replace('''                float bankExtra=Mathf.Lerp(5.5f,10.5f,RiverDownstream01(sy));\n                float outer=halfW+bankExtra;''','''                float wetClear=halfW+.75f;\n                float bankExtra=Mathf.Lerp(5.5f,10.5f,RiverDownstream01(sy));\n                float outer=wetClear+bankExtra;''',1)
+s=s.replace('''                    if(riverD<=halfW)\n                    {\n                        float edge=Mathf.Clamp01(riverD/Mathf.Max(.01f,halfW));\n                        float bed=surface-Mathf.Lerp(RiverDepth(sy),.16f,Mathf.Pow(edge,.80f));''','''                    if(riverD<=wetClear)\n                    {\n                        float edge=Mathf.Clamp01(riverD/Mathf.Max(.01f,wetClear));\n                        float bed=surface-Mathf.Lerp(RiverDepth(sy),.10f,Mathf.Pow(edge,.82f));''',1)
+s=s.replace('Mathf.InverseLerp(halfW,outer,riverD)','Mathf.InverseLerp(wetClear,outer,riverD)',1)
+s=s.replace('float outer=halfW>0f?halfW+Mathf.Lerp(5.5f,10.5f,RiverDownstream01(sy)):0f;','float outer=halfW>0f?halfW+.75f+Mathf.Lerp(5.5f,10.5f,RiverDownstream01(sy)):0f;',1)
+s=s.replace('''        RenderPreview(scene, cityBounds, terrain, water, player);\n        RenderNewSorpigalRiverCheck.RunNow();\n        Debug.Log($"NS_OPENWORLD_DONE scene={ScenePath} scale={WorldScale} terrain={TerrainSize}m player={player.transform.position}");''','''        Vector3 playerPos=player.transform.position;\n        RenderPreview(scene, cityBounds, terrain, water, player);\n        RenderNewSorpigalRiverCheck.RunNow();\n        Debug.Log($"NS_OPENWORLD_DONE scene={ScenePath} scale={WorldScale} terrain={TerrainSize}m player={playerPos}");''',1)
+p.write_text(s,encoding='utf-8')
+print('RIVER_CLEARANCE_AND_FINAL_LOG_PATCHED')

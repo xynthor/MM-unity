@@ -1,0 +1,15 @@
+    static void AssignDragonTreeMaterials(GameObject go,bool pine)
+    {
+        Material bark=AssetDatabase.LoadAssetAtPath<Material>(pine?"Assets/Materials/FrozenHighlands/Environment/PineBark.mat":"Assets/Materials/NewSorpigal/Environment/TreeSmallBark.mat");
+        Material leaves=AssetDatabase.LoadAssetAtPath<Material>(pine?"Assets/Materials/FrozenHighlands/Environment/PineLeaves.mat":"Assets/Materials/NewSorpigal/Environment/TreeSmallLeaves.mat");
+        foreach(var r in go.GetComponentsInChildren<Renderer>(true))
+        {
+            var src=r.sharedMaterials; var dst=new Material[src.Length];
+            for(int i=0;i<src.Length;i++)
+            {
+                string n=src[i]?src[i].name.ToLowerInvariant():"";
+                dst[i]=(n.Contains("leaf")||n.Contains("twig"))?leaves:bark;
+            }
+            r.sharedMaterials=dst; r.shadowCastingMode=ShadowCastingMode.On; r.receiveShadows=true;
+        }
+    }

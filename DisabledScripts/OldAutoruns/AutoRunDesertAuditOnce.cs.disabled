@@ -1,0 +1,27 @@
+using UnityEditor;
+using UnityEngine;
+using System.IO;
+
+[InitializeOnLoad]
+public static class AutoRunDesertAuditOnce
+{
+    const string Flag="C:/MMUnityPort/Validation/DESERT_ASSET_AUDIT_ONCE.txt";
+    static AutoRunDesertAuditOnce()
+    {
+        EditorApplication.delayCall += Run;
+    }
+    static void Run()
+    {
+        if(File.Exists(Flag)) return;
+        try
+        {
+            AuditDesertAssetDetails.Run();
+            File.WriteAllText(Flag,"DONE");
+        }
+        catch(System.Exception e)
+        {
+            File.WriteAllText(Flag,"ERROR\n"+e);
+            Debug.LogException(e);
+        }
+    }
+}

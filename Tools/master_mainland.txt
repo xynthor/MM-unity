@@ -1,0 +1,69 @@
+    static Terrain BuildMainlandTerrain(Transform parent,Terrain[,] src)
+    {
+        float minX=src[0,0].transform.position.x, minZ=src[0,0].transform.position.z;
+        float maxX=src[0,Cols-1].transform.position.x+src[0,Cols-1].terrainData.size.x;
+        float maxZ=src[Rows-1,0].transform.position.z+src[Rows-1,0].terrainData.size.z;
+        float spanX=maxX-minX, spanZ=maxZ-minZ;
+        string path="Assets/World/Enroth/Generated/EnrothFullTerrain.asset";
+        var td=AssetDatabase.LoadAssetAtPath<TerrainData>(path);
+        if(!td){td=new TerrainData();AssetDatabase.CreateAsset(td,path);}
+        td.heightmapResolution=MasterResolution;
+        td.size=new Vector3(spanX+CoastPad*2f,TerrainHeight,spanZ+CoastPad*2f);
+        td.terrainLayers=CreateMasterLayers();
+        var heights=new float[MasterResolution,MasterResolution];
+        for(int y=0;y<MasterResolution;y++) for(int x=0;x<MasterResolution;x++)
+        {
+            float wx=Mathf.Lerp(minX-CoastPad,maxX+CoastPad,x/(float)(MasterResolution-1));
+            float wz=Mathf.Lerp(minZ-CoastPad,maxZ+CoastPad,y/(float)(MasterResolution-1));
+            float nx=(wx-minX)/spanX, nz=(wz-minZ)/spanZ;
+            float cx=Mathf.Clamp(wx,minX,maxX), cz=Mathf.Clamp(wz,minZ,maxZ);
+            float source=SampleGrid(src,cx,cz,minX,minZ);
+            float mask=ContinentMask(nx,nz);
+            float oceanFloor=-8f-(Mathf.PerlinNoise(nx*5.1f+2f,nz*5.3f+9f)*2.2f);
+            float wy=Mathf.Lerp(oceanFloor,source,mask);
+            if(source<OceanY+.18f) wy=Mathf.Min(wy,source);
+            heights[y,x]=Mathf.Clamp01((wy-TerrainBaseY)/TerrainHeight);
+        }
+        td.SetHeights(0,0,heights);
+        td.alphamapResolution=1024;
+        var sourceAlpha=new Dictionary<int,float[,,]>();
+        for(int r=0;r<Rows;r++) for(int c=0;c<Cols;c++)
+            sourceAlpha[r*Cols+c]=src[r,c].terrainData.GetAlphamaps(0,0,src[r,c].terrainData.alphamapWidth,src[r,c].terrainData.alphamapHeight);
+        var alpha=new float[1024,1024,9];
+        for(int y=0;y<1024;y++) for(int x=0;x<1024;x++)
+        {
+            float wx=Mathf.Lerp(minX-CoastPad,maxX+CoastPad,x/1023f);
+            float wz=Mathf.Lerp(minZ-CoastPad,maxZ+CoastPad,y/1023f);
+            float nx=(wx-minX)/spanX,nz=(wz-minZ)/spanZ,mask=ContinentMask(nx,nz);
+            float cx=Mathf.Clamp(wx,minX,maxX),cz=Mathf.Clamp(wz,minZ,maxZ);
+            int c=Mathf.Clamp(Mathf.FloorToInt((cx-minX)/RegionSize),0,Cols-1);
+            int r=Mathf.Clamp(Mathf.FloorToInt((cz-minZ)/RegionSize),0,Rows-1);
+            var sa=sourceAlpha[r*Cols+c];
+            float road=SampleAlpha(src[r,c],sa,cx,cz,2);
+            float rock=SampleAlpha(src[r,c],sa,cx,cz,3);
+            int baseLayer=BiomeLayer(r,c);
+            float coast=Mathf.Clamp01((.70f-mask)/.70f);
+            float roadW=road*.92f*mask;
+            float rockW=Mathf.Clamp01(rock*.78f + coast*.18f)*mask;
+            float sandW=(baseLayer==4?1f:0f)*mask + coast*.65f*mask;
+            float baseW=Mathf.Max(0f,mask-roadW-rockW-sandW*.45f);
+            alpha[y,x,baseLayer]+=baseW;
+            alpha[y,x,4]+=sandW;
+            alpha[y,x,6]+=rockW;
+            alpha[y,x,8]+=roadW;
+            if(mask<.08f) alpha[y,x,4]=1f;
+            float sum=0f;
+            for(int l=0;l<9;l++) sum+=alpha[y,x,l];
+            if(sum<.001f){alpha[y,x,4]=1f;sum=1f;}
+            for(int l=0;l<9;l++) alpha[y,x,l]/=sum;
+        }
+        td.SetAlphamaps(0,0,alpha); EditorUtility.SetDirty(td);
+        var go=Terrain.CreateTerrainGameObject(td);
+        go.name="Enroth - Continuous Authored Mainland"; go.transform.SetParent(parent);
+        go.transform.position=new Vector3(minX-CoastPad,TerrainBaseY,minZ-CoastPad);
+        var terrain=go.GetComponent<Terrain>();
+        terrain.drawInstanced=true; terrain.heightmapPixelError=3f; terrain.basemapDistance=2600f;
+        terrain.detailObjectDistance=240f; terrain.detailObjectDensity=1f;
+        Debug.Log($"ENROTH_MAINLAND size={td.size.x:F0}x{td.size.z:F0} height={TerrainHeight:F0}");
+        return terrain;
+    }

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: River_Real
+  m_Shader: {fileID: 4800000, guid: ec12959d1f9245f4490948f4bcd47a9d, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _WaterMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _DepthMax: 3.5
+    - _Distortion: 0.006
+    - _FoamDepth: 0.075
+    - _FresnelPower: 3.2
+    - _ReflectionStrength: 0.26
+    - _WaveAmp: 0.012
+    - _WaveAmp2: 0.018
+    - _WaveScale: 0.16
+    - _WaveScale2: 0.29
+    - _WaveSpeed: 0.95
+    - _WaveSpeed2: 1.45
+    - _WorldSize: 1536
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DeepColor: {r: 0.015, g: 0.1, b: 0.12, a: 0.94}
+    - _FoamColor: {r: 0.88, g: 0.96, b: 0.94, a: 0.96}
+    - _ReflectionColor: {r: 0.28, g: 0.48, b: 0.62, a: 1}
+    - _ShallowColor: {r: 0.07, g: 0.38, b: 0.37, a: 0.78}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

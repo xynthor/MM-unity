@@ -1,0 +1,28 @@
+using UnityEditor;
+using UnityEngine;
+using System;
+using System.IO;
+
+[InitializeOnLoad]
+public static class AutoRunWorldPolishOnce
+{
+    const string Flag="Validation/WORLD_POLISH_20260916_DONE.txt";
+    const string Fail="Validation/WORLD_POLISH_20260916_FAILED.txt";
+    static AutoRunWorldPolishOnce(){EditorApplication.delayCall+=Run;}
+    static void Run()
+    {
+        if(File.Exists(Flag)||EditorApplication.isCompiling||EditorApplication.isUpdating)return;
+        try
+        {
+            File.Delete(Fail); Debug.Log("WORLD_POLISH_AUTORUN_BEGIN");
+            MMWorldPolishPass.ApplyAll();
+            AuditTextureWorld.Run();
+            CaptureAuditScreens.Run();
+            BuildEnrothLinkedOpenWorld.Build();
+            Directory.CreateDirectory("Validation");
+            File.WriteAllText(Flag,DateTime.Now.ToString("O"));
+            Debug.Log("WORLD_POLISH_AUTORUN_DONE");
+        }
+        catch(Exception e){Directory.CreateDirectory("Validation");File.WriteAllText(Fail,e.ToString());Debug.LogException(e);}
+    }
+}

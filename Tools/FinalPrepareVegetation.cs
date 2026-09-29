@@ -1,0 +1,17 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using UnityEngine.SceneManagement;using UnityMeshSimplifier;
+internal class CommandScript:IRunCommand{
+ public void Execute(ExecutionResult result){string dir="Assets/Environment/FinalWorldVegetation";Directory.CreateDirectory(dir);AssetDatabase.Refresh();var entries=JsonUtility.FromJson<MMSorpigalCalibratedTrees.Catalogue>(File.ReadAllText("Assets/Environment/ValidatedTrees/Calibration.json")).entries;var rows=new List<string>();
+ foreach(string id in new[]{"island_tree_01","island_tree_02","fir_sapling"}){
+  var e=entries.Single(x=>x.id==id);var source=AssetDatabase.LoadAssetAtPath<GameObject>(e.path);var root=new GameObject("Approved_"+id);var go=UnityEngine.Object.Instantiate(source);go.transform.SetParent(root.transform,false);go.transform.localRotation=Quaternion.Euler(e.rotationX,0,0);
+  try{var renderers=go.GetComponentsInChildren<MeshRenderer>(true);if(id=="fir_sapling"){var chosen=renderers.OrderBy(x=>x.name).First();foreach(var r in renderers)r.enabled=r==chosen;var off=chosen.transform.position-root.transform.position;go.transform.position-=new Vector3(off.x,0,off.z);}
+   foreach(var r in renderers.Where(r=>r.enabled)){var mf=r.GetComponent<MeshFilter>();var existing=Directory.GetFiles("Assets/Optimization/GeneratedMeshes","*.asset").FirstOrDefault(p=>Path.GetFileName(p).Contains(mf.sharedMesh.name+"_q"));var mesh=existing!=null?AssetDatabase.LoadAssetAtPath<UnityEngine.Mesh>(existing):mf.sharedMesh;string mp=dir+"/"+id+"_"+mesh.name+".asset";var reduced=AssetDatabase.LoadAssetAtPath<UnityEngine.Mesh>(mp);if(!reduced){var sm=new MeshSimplifier();var opts=SimplificationOptions.Default;opts.PreserveBorderEdges=false;opts.PreserveUVSeamEdges=false;opts.PreserveUVFoldoverEdges=false;sm.SimplificationOptions=opts;sm.Initialize(mesh);long tri=Enumerable.Range(0,mesh.subMeshCount).Sum(k=>(long)mesh.GetIndexCount(k)/3);sm.SimplifyMesh(Mathf.Min(1,6000f/tri));reduced=sm.ToMesh();reduced.name=id+"_Budget6000";AssetDatabase.CreateAsset(reduced,mp);}mf.sharedMesh=reduced;
+    var mats=r.sharedMaterials;for(int k=0;k<mats.Length;k++){string name=mats[k].name;string matpath=dir+"/"+name+".mat";var m=AssetDatabase.LoadAssetAtPath<Material>(matpath);if(!m){var baseMat=AssetDatabase.LoadAssetAtPath<Material>("Assets/Environment/ValidatedTrees/Materials/"+name+".mat");m=new Material(baseMat);m.enableInstancing=true;AssetDatabase.CreateAsset(m,matpath);}if(!m.mainTexture||!m.shader.isSupported)throw new Exception("Invalid approved material");mats[k]=m;}r.sharedMaterials=mats;rows.Add(id+" tris="+Enumerable.Range(0,reduced.subMeshCount).Sum(k=>(long)reduced.GetIndexCount(k)/3));
+   }
+   var b=MMSequentialEvidence.BoundsOf(root);go.transform.localScale/=b.size.y;b=MMSequentialEvidence.BoundsOf(root);go.transform.position-=Vector3.up*b.min.y;
+   foreach(var co in root.GetComponentsInChildren<Collider>(true))UnityEngine.Object.DestroyImmediate(co);
+   var active=root.GetComponentsInChildren<Renderer>().Where(r=>r.enabled).ToArray();var lod=root.AddComponent<LODGroup>();lod.SetLODs(new[]{new LOD(.015f,active)});lod.RecalculateBounds();PrefabUtility.SaveAsPrefabAsset(root,dir+"/"+id+".prefab");
+  }finally{UnityEngine.Object.DestroyImmediate(root);}
+ }
+ File.WriteAllLines("Validation/FinalWorld/approved_mesh_budgets.txt",rows);result.Log(string.Join(";",rows));}
+}
+

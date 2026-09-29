@@ -1,0 +1,23 @@
+using UnityEditor;
+using UnityEngine;
+
+[InitializeOnLoad]
+public static class AutoRunLinkedBuildOnce
+{
+    const string Key = "MMUnity_OrientationFix_20260916_1358";
+    static AutoRunLinkedBuildOnce()
+    {
+        if (SessionState.GetBool(Key, false)) return;
+        SessionState.SetBool(Key, true);
+        EditorApplication.delayCall += Run;
+    }
+    static void Run()
+    {
+        Debug.Log("AUTO_AUDIT_FIX_BEGIN");
+        MMSourceGridExactPostPass.ApplyAll();
+        AuditOneToOneWorld.Run();
+        AuditTextureWorld.Run();
+        BuildEnrothLinkedOpenWorld.Build();
+        Debug.Log("AUTO_AUDIT_FIX_DONE");
+    }
+}

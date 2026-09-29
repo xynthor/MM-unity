@@ -1,0 +1,64 @@
+    static readonly Vector2[] ContinentPoly={
+        new Vector2(.035f,.29f),new Vector2(.075f,.46f),new Vector2(.115f,.65f),
+        new Vector2(.18f,.82f),new Vector2(.30f,.94f),new Vector2(.46f,.985f),
+        new Vector2(.63f,.955f),new Vector2(.78f,.89f),new Vector2(.90f,.77f),
+        new Vector2(.965f,.63f),new Vector2(.95f,.50f),new Vector2(.89f,.39f),
+        new Vector2(.82f,.31f),new Vector2(.76f,.20f),new Vector2(.68f,.105f),
+        new Vector2(.57f,.075f),new Vector2(.48f,.12f),new Vector2(.39f,.105f),
+        new Vector2(.30f,.045f),new Vector2(.20f,.075f),new Vector2(.115f,.16f)
+    };
+    static bool PointInPoly(Vector2 p)
+    {
+        bool inside=false; int j=ContinentPoly.Length-1;
+        for(int i=0;i<ContinentPoly.Length;j=i++)
+        {
+            Vector2 a=ContinentPoly[i],b=ContinentPoly[j];
+            if(((a.y>p.y)!=(b.y>p.y)) && p.x<(b.x-a.x)*(p.y-a.y)/(b.y-a.y)+a.x) inside=!inside;
+        }
+        return inside;
+    }
+    static float DistSeg(Vector2 p,Vector2 a,Vector2 b)
+    {
+        Vector2 ab=b-a; float denom=Mathf.Max(.000001f,Vector2.Dot(ab,ab));
+        float t=Mathf.Clamp01(Vector2.Dot(p-a,ab)/denom);
+        return Vector2.Distance(p,a+ab*t);
+    }
+    static float ContinentMask(float nx,float nz)
+    {
+        Vector2 p=new Vector2(nx,nz); bool inside=PointInPoly(p); float d=99f;
+        for(int i=0;i<ContinentPoly.Length;i++)
+            d=Mathf.Min(d,DistSeg(p,ContinentPoly[i],ContinentPoly[(i+1)%ContinentPoly.Length]));
+        float noise=(Mathf.PerlinNoise(nx*8.7f+3.1f,nz*7.9f+6.2f)-.5f)*.020f;
+        float signed=(inside?d:-d)+noise;
+        return Mathf.SmoothStep(0f,1f,Mathf.InverseLerp(-.015f,.045f,signed));
+    }
+    static TerrainLayer MasterLayer(string name,string texture,float tile)
+    {
+        string path="Assets/World/Enroth/Generated/Master_"+name+".terrainlayer";
+        var l=AssetDatabase.LoadAssetAtPath<TerrainLayer>(path);
+        if(!l){l=new TerrainLayer();AssetDatabase.CreateAsset(l,path);}
+        l.diffuseTexture=AssetDatabase.LoadAssetAtPath<Texture2D>(texture);
+        l.tileSize=new Vector2(tile,tile); l.metallic=0f; l.smoothness=name=="Road"?.18f:.06f;
+        EditorUtility.SetDirty(l); return l;
+    }
+    static TerrainLayer[] CreateMasterLayers()
+    {
+        return new[]{
+            MasterLayer("Temperate","Assets/EnvironmentAssets/Biomes/temperate_grass.png",14f),
+            MasterLayer("Tropical","Assets/EnvironmentAssets/Biomes/tropical_grass.png",13f),
+            MasterLayer("DarkForest","Assets/EnvironmentAssets/Biomes/darkforest_ground.png",12f),
+            MasterLayer("Swamp","Assets/EnvironmentAssets/Biomes/swamp_ground.png",11f),
+            MasterLayer("Sand","Assets/EnvironmentAssets/Biomes/sand.png",12f),
+            MasterLayer("Snow","Assets/EnvironmentAssets/Biomes/snow.png",13f),
+            MasterLayer("Rock","Assets/EnvironmentAssets/UnitySamples/rock_boulder_cracked_c.png",10f),
+            MasterLayer("Ash","Assets/EnvironmentAssets/Biomes/ash_ground.png",11f),
+            MasterLayer("Road","Assets/EnvironmentAssets/UnitySamples/stone_ground_CH.png",8f)
+        };
+    }
+    static int BiomeLayer(int r,int c)
+    {
+        if(r==2&&c==0)return 7; if(r==2&&c==1)return 2; if(r==2&&c==2)return 5; if(r==2&&c==4)return 1;
+        if(r==1&&c==1)return 2; if(r==1&&c==3)return 1; if(r==1&&c==4)return 1;
+        if(r==0&&c==0)return 6; if(r==0&&c==1)return 4; if(r==0&&c==2)return 3;
+        return 0;
+    }

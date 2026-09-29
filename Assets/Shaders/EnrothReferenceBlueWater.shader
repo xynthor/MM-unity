@@ -1,0 +1,141 @@
+Shader "MMUnity/EnrothReferenceBlueWater"
+{
+    Properties
+    {
+        _ShallowColor("Shallow Color", Color)=(0.105,0.29,0.28,0.60)
+        _MidColor("Mid Color", Color)=(0.028,0.13,0.17,0.82)
+        _DeepColor("Deep Color", Color)=(0.006,0.028,0.06,0.98)
+        _FoamColor("Foam Color", Color)=(0.73,0.82,0.76,0.90)
+        _ReflectionColor("Reflection Tint", Color)=(0.22,0.31,0.35,1)
+        _DepthRange("Depth Range", Range(2,40))=18
+        _FoamDepth("Foam Depth", Range(0.05,3))=0.8
+        _WaveAmp("Wave Amplitude", Range(0,0.35))=0.055
+        _WaveAmp2("Wave Amplitude 2", Range(0,0.2))=0.025
+        _WaveScale("Wave Scale", Range(0.01,0.3))=0.065
+        _WaveScale2("Wave Scale 2", Range(0.01,0.4))=0.115
+        _WaveSpeed("Wave Speed", Vector)=(0.42,0.27,0,0)
+        _NormalTex("Water Normal", 2D)="bump" {}
+        _NormalStrength("Normal Strength", Range(0,1.5))=0.55
+        _Distortion("Refraction", Range(0,0.04))=0.010
+        _FresnelPower("Fresnel Power", Range(1,8))=4.2
+        _ReflectionStrength("Reflection Strength", Range(0,1))=0.52
+        _SpecularStrength("Specular Strength", Range(0,1))=0.42
+    }    SubShader
+    {
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
+        GrabPass { "_EnrothWaterGrab" }
+        Pass
+        {
+            ZWrite Off
+            Cull Off
+            Blend SrcAlpha OneMinusSrcAlpha
+            CGPROGRAM
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment frag
+            #pragma multi_compile_fog
+            #include "UnityCG.cginc"
+            #include "Lighting.cginc"
+
+            sampler2D _EnrothWaterGrab;
+            sampler2D _NormalTex;
+            UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
+            fixed4 _ShallowColor,_MidColor,_DeepColor,_FoamColor,_ReflectionColor;
+            float _DepthRange,_FoamDepth,_WaveAmp,_WaveAmp2,_WaveScale,_WaveScale2;
+            float4 _WaveSpeed;
+            float _NormalStrength,_Distortion,_FresnelPower,_ReflectionStrength,_SpecularStrength;
+
+            struct appdata { float4 vertex:POSITION; float3 normal:NORMAL; };
+            struct v2f
+            {
+                float4 pos:SV_POSITION;
+                float4 grab:TEXCOORD0;
+                float4 screen:TEXCOORD1;
+                float3 worldPos:TEXCOORD2;
+                float3 worldNormal:TEXCOORD3;
+                UNITY_FOG_COORDS(4)
+                float eyeDepth:TEXCOORD5;
+            };            v2f vert(appdata v)
+            {
+                v2f o;
+                float3 wp=mul(unity_ObjectToWorld,v.vertex).xyz;
+                float t=_Time.y;
+                float p1=(wp.x*.78+wp.z*.63)*_WaveScale+t*_WaveSpeed.x;
+                float p2=(-wp.x*.46+wp.z*.89)*_WaveScale2-t*_WaveSpeed.y;
+                v.vertex.y+=sin(p1)*_WaveAmp+sin(p2)*_WaveAmp2;
+                wp=mul(unity_ObjectToWorld,v.vertex).xyz;
+
+                float dx=cos(p1)*_WaveAmp*_WaveScale*.78
+                        +cos(p2)*_WaveAmp2*_WaveScale2*(-.46);
+                float dz=cos(p1)*_WaveAmp*_WaveScale*.63
+                        +cos(p2)*_WaveAmp2*_WaveScale2*.89;
+                o.worldNormal=normalize(float3(-dx,1,-dz));
+                o.worldPos=wp;
+                o.pos=UnityObjectToClipPos(v.vertex);
+                o.grab=ComputeGrabScreenPos(o.pos);
+                o.screen=ComputeScreenPos(o.pos);
+                o.eyeDepth=-UnityObjectToViewPos(v.vertex).z;
+                UNITY_TRANSFER_FOG(o,o.pos);
+                return o;
+            }
+
+            fixed4 frag(v2f i):SV_Target
+            {
+                float raw=SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture,UNITY_PROJ_COORD(i.screen));
+                // Orthographic depth is linear; LinearEyeDepth assumes a
+                // perspective projection and made map-view foam cover the sea.
+                float orthoRaw=raw;
+                #if defined(UNITY_REVERSED_Z)
+                orthoRaw=1-orthoRaw;
+                #endif
+                float sceneDepth=lerp(LinearEyeDepth(raw),lerp(_ProjectionParams.y,_ProjectionParams.z,orthoRaw),unity_OrthoParams.w);
+                // clip w is one for orthographic cameras, not surface depth.
+                float surfaceDepth=i.eyeDepth;
+                float depth=max(0,sceneDepth-surfaceDepth);
+                float depth01=saturate(depth/max(_DepthRange,.001));                float t=_Time.y;
+                float2 uv1=i.worldPos.xz*.030+float2(t*.008,t*.004);
+                float2 uv2=float2(-i.worldPos.z,i.worldPos.x)*.021+float2(-t*.005,t*.007);
+                float3 n1=UnpackNormal(tex2D(_NormalTex,uv1));
+                float3 n2=UnpackNormal(tex2D(_NormalTex,uv2));
+                float2 ripple=(n1.xy+n2.xy*.72)*_NormalStrength;
+                float3 n=normalize(i.worldNormal+float3(ripple.x,0,ripple.y));
+
+                float3 viewDir=normalize(_WorldSpaceCameraPos-i.worldPos);
+                float fresnel=pow(1-saturate(dot(n,viewDir)),_FresnelPower);
+
+                float2 suv=i.grab.xy/i.grab.w;
+                float refrScale=_Distortion*(1-depth01*.72);
+                fixed3 refr=tex2D(_EnrothWaterGrab,suv+n.xz*refrScale).rgb;
+
+                float mid01=saturate(depth/max(_DepthRange*.34,.001));
+                fixed4 water=lerp(_ShallowColor,_MidColor,mid01);
+                water=lerp(water,_DeepColor,smoothstep(.22,1,depth01));
+                float absorption=lerp(.89,.98,depth01);
+                water.rgb=lerp(refr,water.rgb,absorption);
+
+                float3 reflDir=reflect(-viewDir,n);
+                fixed4 envRaw=UNITY_SAMPLE_TEXCUBE(unity_SpecCube0,reflDir);
+                fixed3 env=DecodeHDR(envRaw,unity_SpecCube0_HDR);
+                env=lerp(_ReflectionColor.rgb,env,saturate(dot(env,env)*.8));
+                water.rgb=lerp(water.rgb,env,fresnel*_ReflectionStrength);                float3 l=normalize(_WorldSpaceLightPos0.xyz);
+                float3 h=normalize(l+viewDir);
+                float spec=pow(saturate(dot(n,h)),110)*saturate(dot(n,l));
+                water.rgb+=_LightColor0.rgb*spec*_SpecularStrength;
+
+                float shore=1-smoothstep(0,_FoamDepth,depth);
+                float noise=saturate(n1.x*.5+n2.y*.5+.5);
+                float crest=saturate((1-n.y)*7.5-.03);
+                float foam=saturate(shore*(.48+noise*.44)+crest*noise*.16);
+                water.rgb=lerp(water.rgb,_FoamColor.rgb,foam*.78);
+                water.a=saturate(lerp(_ShallowColor.a,_DeepColor.a,depth01)+fresnel*.10+foam*.06);
+                // Depth and reflection now control the ocean colour directly.
+                // The old global darkening compensated for missing depth input.
+
+                UNITY_APPLY_FOG(i.fogCoord,water);
+                return water;
+            }
+            ENDCG
+        }
+    }
+    Fallback "Transparent/Diffuse"
+}

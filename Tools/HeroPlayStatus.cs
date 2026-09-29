@@ -1,0 +1,2 @@
+using UnityEditor;using UnityEngine;
+internal class CommandScript:IRunCommand{public void Execute(ExecutionResult result){result.Log("playing="+EditorApplication.isPlaying+" entering="+EditorApplication.isPlayingOrWillChangePlaymode+" paused="+EditorApplication.isPaused+" armed="+SessionState.GetBool("HeroMcpQA",false)+" time="+Time.time+" window="+(EditorWindow.focusedWindow?EditorWindow.focusedWindow.GetType().Name:"none"));}}

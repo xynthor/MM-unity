@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path(r'C:\MMUnityPort\Assets\Editor\BuildEnrothFullWorld.cs')
+s=p.read_text(encoding='utf-8')
+s=s.replace('const float TerrainBaseY=-28f;','const float TerrainBaseY=-45f;')
+s=s.replace('const float TerrainHeight=300f;','const float TerrainHeight=330f;')
+s=s.replace('new Vector2(.82f,.31f),new Vector2(.76f,.20f),new Vector2(.68f,.105f),','new Vector2(.88f,.36f),new Vector2(.965f,.27f),new Vector2(.985f,.14f),\n        new Vector2(.92f,.055f),new Vector2(.79f,.065f),new Vector2(.68f,.105f),')
+s=s.replace('float oceanFloor=-8f-(Mathf.PerlinNoise(nx*5.1f+2f,nz*5.3f+9f)*2.2f);','float oceanFloor=-36f-(Mathf.PerlinNoise(nx*5.1f+2f,nz*5.3f+9f)*4.5f);')
+s=s.replace('float wy=Mathf.Lerp(-8f,4f+noise,shore);','float wy=Mathf.Lerp(-36f,4f+noise,shore);')
+p.write_text(s,encoding='utf-8')
+print('master coast/seabed patched')

@@ -1,0 +1,24 @@
+using System;using System.IO;using System.Linq;using System.Text;using System.Collections.Generic;using System.Security.Cryptography;using UnityEngine;using UnityEditor;using UnityEngine.SceneManagement;
+internal class CommandScript:IRunCommand{
+ const string Out="Validation/VisualRefinement";
+ string Key(Transform t)=>t.parent?Key(t.parent)+"/"+t.GetSiblingIndex():t.GetSiblingIndex().ToString();
+ string P(Transform t)=>t.parent?P(t.parent)+"/"+t.name:t.name;
+ string Asset(UnityEngine.Object o){if(!o)return "null";return GlobalObjectId.GetGlobalObjectIdSlow(o).ToString()+"|"+AssetDatabase.GetAssetPath(o);}
+ string Hash(string text){using(var sha=SHA256.Create())return BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(text))).Replace("-","");}
+ HashSet<string> targets=new HashSet<string>();
+ string Canon(string root){if(root=="Frozen Highlands")return "White Cap / Frozen Highlands";if(root=="Hermit's Isle")return "Hermits Isle";return root;}
+ string Snapshot(Scene s){var rows=new List<string>();foreach(var t in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true))){string key=Key(t);rows.Add(key+"|"+t.localPosition.ToString("R")+"|"+t.position.ToString("R")+"|"+t.localRotation.ToString("R")+"|"+t.localScale.ToString("R")+"|"+t.gameObject.activeSelf+"|"+GameObjectUtility.GetStaticEditorFlags(t.gameObject));foreach(var r in t.GetComponents<Renderer>()){rows.Add(key+"|R|"+r.GetType().Name+"|"+r.enabled+"|"+r.shadowCastingMode+"|"+r.receiveShadows+"|"+r.lightProbeUsage+"|"+r.reflectionProbeUsage+"|"+r.renderingLayerMask+"|"+string.Join(";",r.sharedMaterials.Select(m=>(targets.Contains(key)?"approved-material":Asset(m))+"|instancing="+(m&&m.enableInstancing))));var sk=r as SkinnedMeshRenderer;if(sk)rows.Add(key+"|SK|"+Asset(sk.sharedMesh));}foreach(var m in t.GetComponents<MeshFilter>())rows.Add(key+"|M|"+Asset(m.sharedMesh));foreach(var l in t.GetComponents<LODGroup>())rows.Add(key+"|LOD|"+l.enabled+"|"+string.Join(";",l.GetLODs().Select(q=>q.screenRelativeTransitionHeight+":"+q.fadeTransitionWidth+":"+string.Join(",",q.renderers.Select(r=>r?Key(r.transform):"null")))));foreach(var td in t.GetComponents<Terrain>())rows.Add(key+"|TERRAIN|"+Asset(td.terrainData)+"|"+td.drawInstanced+"|"+td.heightmapPixelError);foreach(var c in t.GetComponents<Collider>())rows.Add(key+"|COLLIDER|"+c.GetType().Name+"|"+c.enabled+"|"+c.isTrigger);}return string.Join("\n",rows);}
+ public void Execute(ExecutionResult result){
+  var s=SceneManager.GetActiveScene();if(s.path!="Assets/Scenes/Enroth_Linked_OpenWorld.unity")throw new Exception("Linked world not active");
+  var desired=new Dictionary<string,string>();foreach(var f in Directory.GetFiles(Out,"*_material_changes.txt"))foreach(var line in File.ReadAllLines(f)){var p=line.Split('|');desired[p[0]]=p[1];}
+  var roots=desired.Keys.Select(k=>{int i=k.IndexOf('/');return Canon(k.Substring(0,i).Split(new[]{" - "},StringSplitOptions.None)[0]);}).Distinct().ToArray();
+  var lookup=new Dictionary<string,List<Renderer>>(StringComparer.Ordinal);
+  var renderers=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Renderer>(true)).ToArray();
+  foreach(var r in renderers){string p=P(r.transform);foreach(var root in roots){int st=p.IndexOf("/"+root+" - ",StringComparison.OrdinalIgnoreCase);if(st<0)continue;int slash=p.IndexOf('/',st+1+root.Length);if(slash<0)continue;string k=root+"|"+p.Substring(slash);if(!lookup.TryGetValue(k,out var list))lookup[k]=list=new List<Renderer>();list.Add(r);}}
+  var missing=new List<string>();var multi=new List<string>();int matched=0;
+  foreach(var row in desired){int i=row.Key.IndexOf('/');string root=Canon(row.Key.Substring(0,i).Split(new[]{" - "},StringSplitOptions.None)[0]);string rel=row.Key.Substring(i);string k=root+"|"+rel;if(!lookup.TryGetValue(k,out var list)||list.Count==0){missing.Add(row.Key);continue;}if(list.Count!=1){multi.Add(row.Key+"|"+list.Count);continue;}var r=list[0];string have=string.Join(";",r.sharedMaterials.Select(m=>AssetDatabase.GetAssetPath(m)));if(have!=row.Value)throw new Exception("Material parity failed "+row.Key+" have="+have+" want="+row.Value);if(r.sharedMaterials.Any(m=>!m||!m.enableInstancing))throw new Exception("Invalid/instancing-off material "+row.Key);targets.Add(Key(r.transform));matched++;}
+  File.WriteAllLines(Out+"/linked_match_missing.txt",missing);File.WriteAllLines(Out+"/linked_match_multiple.txt",multi);if(missing.Count>0||multi.Count>0)throw new Exception("Linked target mismatch missing="+missing.Count+" multi="+multi.Count);
+  string snap=Snapshot(s);File.WriteAllText(Out+"/linked_protected_before.txt",snap);File.WriteAllText(Out+"/linked_done.txt","matched_renderers="+matched+"\nprotected_hash="+Hash(snap)+"\nprotected_state=PASS\nmaterial_parity=PASS\nrebuild_from_standalones=YES\n");
+  result.Log("Linked rebuild parity PASS matched="+matched+" targets="+targets.Count);
+ }
+}

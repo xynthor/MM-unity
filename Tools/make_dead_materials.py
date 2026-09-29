@@ -1,0 +1,5 @@
+from pathlib import Path
+s=Path('Tools/VisualRefinementMaterials.cs').read_text()
+a=s.index('if(r.name.StartsWith("Pine_A_LOD")');b=s.index('if(r.bounds.size.y<.4f)',a)
+new='''if(r.name.StartsWith("PineDead_")&&r.sharedMaterials.Any(m=>m&&m.name=="TreeLeaves")){var model=AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GetAssetPath(f.sharedMesh).Replace(".FBX",".prefab"));if(!model)throw new Exception("Dead pine reference missing");var source=model.GetComponentsInChildren<Renderer>(true).First(a=>a.name==r.name);var mats=source.sharedMaterials.Select(m=>AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/VisualRefinement/DeadPine_"+(m.name.ToLowerInvariant().Contains("stump")?"Stump":m.name.ToLowerInvariant().Contains("trunk")?"Trunk":"Branches")+".mat")).ToArray();if(mats.Any(m=>!m||!m.mainTexture||!m.enableInstancing)||mats.Length!=f.sharedMesh.subMeshCount)throw new Exception("Dead pine mapping invalid");fixes[r]=mats;materialTargets.Add(Key(r.transform));}continue;'''
+s=s[:a]+new+s[b:];s=s.replace('s.name+"_','s.name+"_dead_');Path('Tools/VisualRefinementDeadPines.cs').write_text(s)

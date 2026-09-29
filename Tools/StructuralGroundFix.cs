@@ -1,0 +1,25 @@
+using System;using System.IO;using System.Linq;using System.Text;using System.Collections.Generic;using System.Security.Cryptography;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine.SceneManagement;
+internal class CommandScript:IRunCommand{
+ const string Out="Validation/StructuralQA",Backup="Backups/StructuralCleanup_20260920";
+ string Key(Transform t)=>t.parent?Key(t.parent)+"/"+t.GetSiblingIndex():t.GetSiblingIndex().ToString();
+ string PathOf(Transform t)=>t.parent?PathOf(t.parent)+"/"+t.name:t.name;
+ string Asset(UnityEngine.Object o){if(!o)return "null";return GlobalObjectId.GetGlobalObjectIdSlow(o).ToString()+"|"+AssetDatabase.GetAssetPath(o);}
+ string Hash(string text){using(var sha=SHA256.Create())return BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(text))).Replace("-","");}
+ HashSet<string> allowed=new HashSet<string>();
+ string Snapshot(Scene s){var rows=new List<string>();foreach(var t in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true))){string key=Key(t);rows.Add(key+"|"+(allowed.Contains(Key(t))?new Vector3(t.localPosition.x,0,t.localPosition.z):t.localPosition).ToString("R")+"|"+new Vector2(t.position.x,t.position.z).ToString("R")+"|"+t.localRotation.ToString("R")+"|"+t.localScale.ToString("R")+"|"+t.gameObject.activeSelf+"|"+GameObjectUtility.GetStaticEditorFlags(t.gameObject));foreach(var r in t.GetComponents<Renderer>()){rows.Add(key+"|R|"+r.GetType().Name+"|"+r.enabled+"|"+r.shadowCastingMode+"|"+r.receiveShadows+"|"+r.lightProbeUsage+"|"+r.reflectionProbeUsage+"|"+r.renderingLayerMask+"|"+string.Join(";",r.sharedMaterials.Select(m=>Asset(m)+"|instancing="+(m&&m.enableInstancing))));var sk=r as SkinnedMeshRenderer;if(sk)rows.Add(key+"|SK|"+Asset(sk.sharedMesh));}foreach(var m in t.GetComponents<MeshFilter>())rows.Add(key+"|M|"+Asset(m.sharedMesh));foreach(var l in t.GetComponents<LODGroup>())rows.Add(key+"|LOD|"+l.enabled+"|"+string.Join(";",l.GetLODs().Select(q=>q.screenRelativeTransitionHeight+":"+q.fadeTransitionWidth+":"+string.Join(",",q.renderers.Select(r=>r?Key(r.transform):"null")))));foreach(var td in t.GetComponents<Terrain>())rows.Add(key+"|TERRAIN|"+Asset(td.terrainData)+"|"+td.drawInstanced+"|"+td.heightmapPixelError);foreach(var c in t.GetComponents<Collider>())rows.Add(key+"|COLLIDER|"+c.GetType().Name+"|"+c.enabled+"|"+c.isTrigger);}return string.Join("\n",rows);}
+
+ public void Execute(ExecutionResult result){
+ for(int i=0;i<SceneManager.sceneCount;i++)if(SceneManager.GetSceneAt(i).isDirty)throw new Exception("Unsaved scene");
+ var report=new List<string>();
+ foreach(var path in Directory.GetFiles("Assets/Scenes","*.unity").Where(p=>!Path.GetFileName(p).StartsWith("_Recovery_")).OrderBy(p=>p.Contains("Enroth_Linked")?1:0).ThenBy(p=>p)){
+ var s=EditorSceneManager.OpenScene(path,OpenSceneMode.Single);var ts=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).ToArray();var terrains=ts.Select(t=>t.GetComponent<Terrain>()).Where(t=>t).ToArray();var moves=new Dictionary<Transform,float>();
+ foreach(var a in ts.Where(t=>t.parent&&(t.parent.name.StartsWith("Vegetation - Source Anchored")||t.parent.name=="Realistic Ecosystem Supplementary"||t.parent.name=="Trees"||t.parent.name=="Forest - Natural Sparse"))){if(!a.gameObject.activeInHierarchy)continue;var approved=a.GetComponentsInChildren<Transform>().FirstOrDefault(t=>t.name.StartsWith("ApprovedReplacement_"));var target=approved?approved:a;if(target.parent&&Vector3.Dot(target.parent.up,Vector3.up)<.99999f)continue;var rs=target.GetComponentsInChildren<Renderer>().Where(r=>r.enabled&&r.gameObject.activeInHierarchy).ToArray();if(rs.Length==0)continue;var p=target.position;var terrain=terrains.FirstOrDefault(t=>p.x>=t.transform.position.x&&p.z>=t.transform.position.z&&p.x<=t.transform.position.x+t.terrainData.size.x&&p.z<=t.transform.position.z+t.terrainData.size.z);if(!terrain)continue;float ground=terrain.SampleHeight(p)+terrain.transform.position.y;float gap=rs.Min(r=>r.bounds.min.y)-ground;if(gap>.15f)moves[target]=gap;
+ }
+ allowed.Clear();foreach(var m in moves)allowed.Add(Key(m.Key));string before=Snapshot(s);var entries=new List<string>();foreach(var m in moves){entries.Add(PathOf(m.Key)+"|lowered="+m.Value+"|xz="+new Vector2(m.Key.position.x,m.Key.position.z));m.Key.position-=Vector3.up*m.Value;}
+ if(Snapshot(s)!=before)throw new Exception("Protected state changed in "+s.name);
+ if(moves.Count>0){string backup=Backup+"/"+Path.GetFileName(path);if(!File.Exists(backup))File.Copy(path,backup);EditorSceneManager.MarkSceneDirty(s);if(!EditorSceneManager.SaveScene(s))throw new Exception("Save failed");s=EditorSceneManager.OpenScene(path,OpenSceneMode.Single);if(Snapshot(s)!=before)throw new Exception("Reload invariant failed");}
+ File.WriteAllLines(Out+"/"+s.name+"_ground_corrections.txt",entries);report.Add(s.name+"|grounded="+moves.Count+"|protected_hash="+Hash(before)+"|preserved=PASS");File.WriteAllLines(Out+"/ground_corrections.txt",report);
+ }
+ result.Log(string.Join("\n",report));
+ }
+}

@@ -1,0 +1,25 @@
+using UnityEditor;
+using UnityEngine;
+using System;
+using System.IO;
+
+[InitializeOnLoad]
+public static class AutoRunCorrectWorldOrientation
+{
+    const string Flag = "Validation/PERIMETER_CORRECT_20260916.done";
+    static AutoRunCorrectWorldOrientation(){ EditorApplication.delayCall += Run; }
+    static void Run()
+    {
+        if(File.Exists(Flag) || EditorApplication.isCompiling || EditorApplication.isUpdating) return;
+        try
+        {
+            Debug.Log("WORLD_ORIENTATION_FIX_BEGIN SweetWater=NW NewSorpigal=SE");
+            MMSourceGridExactPostPass.ApplyAll();
+            BuildEnrothLinkedOpenWorld.Build();
+            Directory.CreateDirectory("Validation");
+            File.WriteAllText(Flag,DateTime.Now.ToString("O"));
+            Debug.Log("WORLD_ORIENTATION_FIX_DONE SweetWater=NW NewSorpigal=SE");
+        }
+        catch(Exception e){ Debug.LogException(e); }
+    }
+}
