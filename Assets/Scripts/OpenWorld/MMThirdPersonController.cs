@@ -81,7 +81,7 @@ public class MMThirdPersonController : MonoBehaviour
         velocity.y = verticalVelocity;
         controller.Move(velocity * Time.deltaTime);
 
-        if (animator)
+        if (animator && animator.runtimeAnimatorController && animator.isActiveAndEnabled)
         {
             float normalized = move.magnitude * (speed / sprintSpeed);
             animator.SetFloat(SpeedHash, normalized, 0.12f, Time.deltaTime);

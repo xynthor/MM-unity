@@ -29,7 +29,7 @@ public class MMHeroCombatController : MonoBehaviour
 
     void Update()
     {
-        if (!animator) return;
+        if (!animator || !animator.runtimeAnimatorController || !animator.isActiveAndEnabled) return;
 
         if (Time.time - lastAttackTime > comboReset)
             comboStep = 0;
@@ -68,16 +68,16 @@ public class MMHeroCombatController : MonoBehaviour
 
     public void PlayHit()
     {
-        if (animator) animator.SetTrigger(HitHash);
+        if (animator && animator.runtimeAnimatorController && animator.isActiveAndEnabled) animator.SetTrigger(HitHash);
     }    public void PlayDeath()
     {
-        if (animator) animator.SetTrigger(DeathHash);
+        if (animator && animator.runtimeAnimatorController && animator.isActiveAndEnabled) animator.SetTrigger(DeathHash);
     }
 
     public void ResetCombat()
     {
         comboStep = 0;
-        if (!animator) return;
+        if (!animator || !animator.runtimeAnimatorController || !animator.isActiveAndEnabled) return;
         animator.ResetTrigger(Attack1Hash);
         animator.ResetTrigger(Attack2Hash);
         animator.ResetTrigger(Attack3Hash);
