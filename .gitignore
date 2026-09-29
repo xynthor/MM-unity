@@ -1,0 +1,66 @@
+# Unity generated/local state
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+MemoryCaptures/
+Recordings/
+
+# IDE/editor generated files
+.vs/
+.idea/
+.gradle/
+*.csproj
+*.sln
+*.unityproj
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# MMUnityPort local/generated/reference data
+Backups/
+Preview/
+Validation/
+Imports/
+Extract/
+TmpExtractTest/
+.mixamo_browser/
+NVIDIA Corporation/
+OpenEnroth/
+openmm/
+Rust/
+mmarch/
+ThirdParty/
+External/
+References/
+UnityProject/
+
+# Do not redistribute proprietary/reference asset packs
+Assets/MMOriginal/
+Assets/TerrainDemoScene_HDRP/
+Assets/Art/
+Assets/Environment/
+Assets/EnvironmentAssets/
+Assets/Textures/
+Assets/Previews/
+Assets/Validation/
+Assets/TempDragonTemplate/
+Assets/TempDragonRework/
+
+# Misc local artifacts
+*.log
+*.bak
+*.presavebak
+.DS_Store
+Thumbs.db
