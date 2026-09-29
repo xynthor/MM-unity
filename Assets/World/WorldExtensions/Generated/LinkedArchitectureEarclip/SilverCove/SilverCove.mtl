@@ -1,0 +1,867 @@
+newmtl 6wtrtyl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/6wtrtyl.bmp
+
+newmtl apothmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/apothmid.bmp
+
+newmtl armormid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/armormid.bmp
+
+newmtl bank
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bank.bmp
+
+newmtl bcsrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bcsrf.bmp
+
+newmtl bdksh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksh16a.bmp
+
+newmtl bdksh32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksh32a.bmp
+
+newmtl bdksh32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksh32b.bmp
+
+newmtl bdksh32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksh32c.bmp
+
+newmtl bdksv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksv16a.bmp
+
+newmtl bdksv16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksv16b.bmp
+
+newmtl bdksv16c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksv16c.bmp
+
+newmtl bdksv32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksv32b.bmp
+
+newmtl bdksv32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bdksv32c.bmp
+
+newmtl bembllg
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bembllg.bmp
+
+newmtl bemdk2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemdk2.bmp
+
+newmtl bemh
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemh.bmp
+
+newmtl bemh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemh16a.bmp
+
+newmtl bemh32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemh32a.bmp
+
+newmtl bemhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemhwal.bmp
+
+newmtl bemhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemhwal1.bmp
+
+newmtl bemob1b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemob1b.bmp
+
+newmtl bemob2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemob2.bmp
+
+newmtl bemob2b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemob2b.bmp
+
+newmtl bemsh16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemsh16b.bmp
+
+newmtl bemstara
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemstara.bmp
+
+newmtl bemstart
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemstart.bmp
+
+newmtl bemstra1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemstra1.bmp
+
+newmtl bemstrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemstrt1.bmp
+
+newmtl bemsv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemsv16a.bmp
+
+newmtl bemsv16c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemsv16c.bmp
+
+newmtl bemsv32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemsv32a.bmp
+
+newmtl bemsv32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemsv32c.bmp
+
+newmtl bemtila
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemtila.bmp
+
+newmtl bemv
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemv.bmp
+
+newmtl bemv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemv16a.bmp
+
+newmtl bemvwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemvwal.bmp
+
+newmtl bemvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bemvwal1.bmp
+
+newmtl blksmmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/blksmmid.bmp
+
+newmtl bmdk16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/bmdk16a.bmp
+
+newmtl cbmxbrck
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/cbmxbrck.bmp
+
+newmtl cbrdbrck
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/cbrdbrck.bmp
+
+newmtl cbsm
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/cbsm.bmp
+
+newmtl cedhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/cedhwal1.bmp
+
+newmtl cedhwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/cedhwal2.bmp
+
+newmtl cedvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/cedvwal1.bmp
+
+newmtl cedvwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/cedvwal2.bmp
+
+newmtl ch2bakb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/ch2bakb.bmp
+
+newmtl ch2frle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/ch2frle.bmp
+
+newmtl ch2frntb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/ch2frntb.bmp
+
+newmtl ch2frre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/ch2frre.bmp
+
+newmtl ch2side
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/ch2side.bmp
+
+newmtl ch2topb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/ch2topb.bmp
+
+newmtl ch2tople
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/ch2tople.bmp
+
+newmtl ch2topre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/ch2topre.bmp
+
+newmtl crdflr3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/crdflr3.bmp
+
+newmtl csbr128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/csbr128.bmp
+
+newmtl cstr128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/cstr128.bmp
+
+newmtl d2ceil1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/d2ceil1.bmp
+
+newmtl d2ceil2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/d2ceil2.bmp
+
+newmtl dknkrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/dknkrf.bmp
+
+newmtl elemerth
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/elemerth.bmp
+
+newmtl gbcnt
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gbcnt.bmp
+
+newmtl gbdor
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gbdor.bmp
+
+newmtl gbend
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gbend.bmp
+
+newmtl gblft
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gblft.bmp
+
+newmtl gblftw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gblftw.bmp
+
+newmtl gbrt
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gbrt.bmp
+
+newmtl gbrtw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gbrtw.bmp
+
+newmtl gbsmdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gbsmdr.bmp
+
+newmtl gbwin
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gbwin.bmp
+
+newmtl glass2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/glass2.bmp
+
+newmtl gset04
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gset04.bmp
+
+newmtl gset05
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/gset05.bmp
+
+newmtl magicmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/magicmid.bmp
+
+newmtl mercmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/mercmid.bmp
+
+newmtl mystrya
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/mystrya.bmp
+
+newmtl plgctr1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/plgctr1.bmp
+
+newmtl plgctr1w
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/plgctr1w.bmp
+
+newmtl plgle1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/plgle1.bmp
+
+newmtl plgle1w
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/plgle1w.bmp
+
+newmtl plgre1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/plgre1.bmp
+
+newmtl plgre1w
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/plgre1w.bmp
+
+newmtl plgsmdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/plgsmdr.bmp
+
+newmtl pxshings
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/pxshings.bmp
+
+newmtl rh128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/rh128.bmp
+
+newmtl rhctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/rhctr.bmp
+
+newmtl rhctrw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/rhctrw.bmp
+
+newmtl rhdr1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/rhdr1.bmp
+
+newmtl rhdr2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/rhdr2.bmp
+
+newmtl rhle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/rhle.bmp
+
+newmtl rhre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/rhre.bmp
+
+newmtl roof
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/roof.bmp
+
+newmtl roof1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/roof1.bmp
+
+newmtl self-all
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/self-all.bmp
+
+newmtl sign11
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/sign11.bmp
+
+newmtl solid10
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/solid10.bmp
+
+newmtl stables
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/stables.bmp
+
+newmtl storemid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/storemid.bmp
+
+newmtl strctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/strctr.bmp
+
+newmtl strdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/strdr.bmp
+
+newmtl strle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/strle.bmp
+
+newmtl strre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/strre.bmp
+
+newmtl strroof1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/strroof1.bmp
+
+newmtl strwin1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/strwin1.bmp
+
+newmtl t1swbd
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/t1swbd.bmp
+
+newmtl t1swbu
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/t1swbu.bmp
+
+newmtl tav128wl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tav128wl.bmp
+
+newmtl tavctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavctr.bmp
+
+newmtl tavldyle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavldyle.bmp
+
+newmtl tavldyre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavldyre.bmp
+
+newmtl tavle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavle.bmp
+
+newmtl tavlgdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavlgdr.bmp
+
+newmtl tavpoor2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavpoor2.bmp
+
+newmtl tavre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavre.bmp
+
+newmtl tavrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavrf.bmp
+
+newmtl tavsmdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavsmdr.bmp
+
+newmtl tavwctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavwctr.bmp
+
+newmtl tavwle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavwle.bmp
+
+newmtl tavwre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tavwre.bmp
+
+newmtl tdoorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/tdoorb.bmp
+
+newmtl trim
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/trim.bmp
+
+newmtl wood013
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/wood013.bmp
+
+newmtl yinlite
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/SilverCove/Bitmaps/yinlite.bmp

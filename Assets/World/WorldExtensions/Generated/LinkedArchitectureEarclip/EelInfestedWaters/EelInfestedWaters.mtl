@@ -1,0 +1,503 @@
+newmtl 6wtrtyl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/6wtrtyl.bmp
+
+newmtl bdksh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bdksh16a.bmp
+
+newmtl bdksh16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bdksh16b.bmp
+
+newmtl bdksv32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bdksv32c.bmp
+
+newmtl bemh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemh16a.bmp
+
+newmtl bemhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemhwal.bmp
+
+newmtl bemob1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemob1.bmp
+
+newmtl bemob1b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemob1b.bmp
+
+newmtl bemob2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemob2.bmp
+
+newmtl bemob2b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemob2b.bmp
+
+newmtl bemstara
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemstara.bmp
+
+newmtl bemstarb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemstarb.bmp
+
+newmtl bemstrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemstrt1.bmp
+
+newmtl bemsv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemsv16a.bmp
+
+newmtl bemsv32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemsv32a.bmp
+
+newmtl bemtila
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemtila.bmp
+
+newmtl bemvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/bemvwal1.bmp
+
+newmtl cedhwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/cedhwal2.bmp
+
+newmtl cedvwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/cedvwal.bmp
+
+newmtl cedvwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/cedvwal2.bmp
+
+newmtl ch2bakb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/ch2bakb.bmp
+
+newmtl ch2frle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/ch2frle.bmp
+
+newmtl ch2frntb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/ch2frntb.bmp
+
+newmtl ch2frre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/ch2frre.bmp
+
+newmtl ch2side
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/ch2side.bmp
+
+newmtl ch2topb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/ch2topb.bmp
+
+newmtl ch2tople
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/ch2tople.bmp
+
+newmtl ch2topre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/ch2topre.bmp
+
+newmtl csbr128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/csbr128.bmp
+
+newmtl d2ceil1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/d2ceil1.bmp
+
+newmtl d2ceil2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/d2ceil2.bmp
+
+newmtl gldorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gldorb.bmp
+
+newmtl gset01
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gset01.bmp
+
+newmtl gset02
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gset02.bmp
+
+newmtl gstmed
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gstmed.bmp
+
+newmtl gstrdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gstrdr.bmp
+
+newmtl gstrle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gstrle.bmp
+
+newmtl gstrre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gstrre.bmp
+
+newmtl gstrsbw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gstrsbw.bmp
+
+newmtl gstrst
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gstrst.bmp
+
+newmtl gstrwn1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/gstrwn1.bmp
+
+newmtl msdor2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/msdor2.bmp
+
+newmtl msdord
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/msdord.bmp
+
+newmtl msroof
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/msroof.bmp
+
+newmtl mswaldc
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/mswaldc.bmp
+
+newmtl mswalld
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/mswalld.bmp
+
+newmtl mswalll
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/mswalll.bmp
+
+newmtl mswallm
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/mswallm.bmp
+
+newmtl mswallr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/mswallr.bmp
+
+newmtl mswinm
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/mswinm.bmp
+
+newmtl mswinm4
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/mswinm4.bmp
+
+newmtl mystrya
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/mystrya.bmp
+
+newmtl plg128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/plg128.bmp
+
+newmtl plruf01
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/plruf01.bmp
+
+newmtl px128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/px128.bmp
+
+newmtl px1ctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/px1ctr.bmp
+
+newmtl px1le
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/px1le.bmp
+
+newmtl px1lew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/px1lew.bmp
+
+newmtl px1re
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/px1re.bmp
+
+newmtl px1rew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/px1rew.bmp
+
+newmtl pxshings
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/pxshings.bmp
+
+newmtl pxsle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/pxsle.bmp
+
+newmtl pxsre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/pxsre.bmp
+
+newmtl pxstrdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/pxstrdr.bmp
+
+newmtl pxstrwde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/pxstrwde.bmp
+
+newmtl rblst
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/rblst.bmp
+
+newmtl roof
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/roof.bmp
+
+newmtl t1c2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/t1c2.bmp
+
+newmtl t1f1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/t1f1.bmp
+
+newmtl tavrich
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/tavrich.bmp
+
+newmtl wood012
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/wood012.bmp
+
+newmtl wood013
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/EelInfestedWaters/Bitmaps/wood013.bmp

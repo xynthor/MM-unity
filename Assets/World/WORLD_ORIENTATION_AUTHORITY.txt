@@ -1,0 +1,6 @@
+ABSOLUTE ENROTH WORLD ORIENTATION. DO NOT REVERSE OR ROTATE THIS MOSAIC.
+NORTH row west->east: Sweet Water | Kriegspire | White Cap / Frozen Highlands | Silver Cove | Eel Infested Waters
+MIDDLE row west->east: Paradise Valley | Blackshire | Free Haven | Bootleg Bay | Misty Islands
+SOUTH row west->east: Hermit's Isle | Dragonsand | Mire of the Damned / Darkmoor | Castle Ironfist | New Sorpigal
+Sweet Water = NORTHWEST. New Sorpigal = SOUTHEAST. Dragon Isle = user's hand-adjusted position northwest of Sweet Water.
+Individual source-grid scenes keep their own source orientation; do not rotate them merely to change world placement.
