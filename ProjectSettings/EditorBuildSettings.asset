@@ -53,4 +53,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Regions/NewSorpigal.unity
     guid: f7561a6ca6ce1184a966e729bc5ba4db
+  - enabled: 1
+    path: Assets/Scenes/Extensions/DragonIsle_North.unity
+    guid: dc8e6d0c461acd6459dea63052610193
+  - enabled: 1
+    path: Assets/Scenes/Extensions/DragonIsle_South.unity
+    guid: 8859fd73e5a099743a63edd0d808ebc6
   m_configObjects: {}

@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -58,6 +59,11 @@ namespace MMUnity.OpenWorld
                 return;
 
             var roots = scene.GetRootGameObjects();
+            bool publicBaseline = !HasPrivateSourceAssets();
+
+            if (publicBaseline && scene.name == "Enroth")
+                DisableSourceSceneStreaming(roots);
+
             int disabledMissingMeshes = 0;
             int repairedMaterialSlots = 0;
             int disabledMissingSkinnedMeshes = 0;
@@ -128,6 +134,39 @@ namespace MMUnity.OpenWorld
                     $"disabled {disabledMissingSkinnedMeshes} unavailable skinned renderers, repaired {repairedMaterialSlots} material slots, " +
                     $"disabled {disabledBrokenAnimators} animators without controllers.");
             }
+        }
+
+        private static bool HasPrivateSourceAssets()
+        {
+            return Directory.Exists(Path.Combine(Application.dataPath, "MMOriginal"))
+                   || Directory.Exists(Path.Combine(Application.dataPath, "EnvironmentAssets"));
+        }
+
+        private static void DisableSourceSceneStreaming(GameObject[] roots)
+        {
+            int disabled = 0;
+
+            foreach (var root in roots)
+            {
+                foreach (var streamer in root.GetComponentsInChildren<global::MMWorldRegionStreamer>(true))
+                {
+                    if (!streamer.enabled)
+                        continue;
+                    streamer.enabled = false;
+                    disabled++;
+                }
+
+                foreach (var streamer in root.GetComponentsInChildren<global::MMRegionWorldStreamer>(true))
+                {
+                    if (!streamer.enabled)
+                        continue;
+                    streamer.enabled = false;
+                    disabled++;
+                }
+            }
+
+            if (disabled > 0)
+                Debug.Log($"MM Public Fallback [Enroth]: disabled {disabled} source-scene streamer(s); using integrated world.");
         }
 
         private static void EnsurePlayerVisual(GameObject player)

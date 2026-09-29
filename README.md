@@ -51,12 +51,31 @@ The Enroth scene is also the first enabled scene in Unity Build Settings.
 
 A clean public clone is designed to enter Play Mode without the maintainer's private/reference asset packs. When optional art is unavailable, the runtime fallback:
 
-- keeps the terrain, linked world, region streaming, cameras and movement/gameplay scripts active;
+- uses the integrated `Enroth` world directly and disables source-scene streaming;
+- keeps terrain, cameras, movement and gameplay scripts active;
 - suppresses renderers whose external meshes are unavailable instead of leaving broken/pink objects;
 - repairs null material slots with a neutral project fallback material;
 - provides a simple built-in capsule visual for the active player when the optional character model is absent.
 
 This is the redistributable public baseline. The maintainer's local project contains additional full-fidelity vegetation, source architecture and character assets that are intentionally not published in this repository.
+
+The region and extension scenes remain in the repository as development/reconstruction sources. They can reference optional local asset packs and are not used by the public standalone build.
+
+## Build a Windows player
+
+On Windows, run:
+
+```text
+Build-Public-Windows.cmd
+```
+
+The public build packages only `Assets/Scenes/World/Enroth.unity` and writes:
+
+```text
+Builds/Windows/MMUnity.exe
+```
+
+You can also build from Unity via **MM Unity → Build → Public Windows x64**.
 
 ### Current controls
 
