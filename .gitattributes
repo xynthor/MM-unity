@@ -10,3 +10,4 @@
 *.mat text eol=lf
 Assets/Scenes/World/Enroth.unity filter=lfs diff=lfs merge=lfs -text
 Assets/World/WorldExtensions/Generated/LinkedJacarandaRepair/JacarandaNear.asset filter=lfs diff=lfs merge=lfs -text
+Assets/World/WorldExtensions/Generated/ParadiseCombinedCanopy20260930/*.asset filter=lfs diff=lfs merge=lfs -text

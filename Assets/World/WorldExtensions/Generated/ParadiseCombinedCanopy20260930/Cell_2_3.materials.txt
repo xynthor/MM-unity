@@ -1,0 +1,5 @@
+Assets/TempDragonTemplate/Mat_TracePine_stump_noDisplacement.mat
+Assets/TempDragonTemplate/Mat_TracePine_trunk_noDisplacement.mat
+Assets/World/WorldExtensions/Generated/LinkedFoliageCoverage/Materials/15f038ef8a413394094edbda7181d31d.mat
+Assets/World/WorldExtensions/Generated/LinkedFoliageCoverage/Materials/a3d7f1aaa757ad848930cdd62e1e9918.mat
+Assets/World/WorldExtensions/Generated/LinkedFoliageCoverage/Materials/ea307bfd77c7fc845aa0cb5f1df4efcf.mat
