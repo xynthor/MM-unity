@@ -37,6 +37,17 @@ public static class MMSafeSourceDecoration3DProduction
     const string Stump="Assets/Art/Environment/Vegetation/Trees/Generic_Stump/Stump_04/Stump_04.prefab";
     const string Barrel="Assets/Environment/PolyHaven/Models/wine_barrel_01/wine_barrel_01_1k.fbx";
     const string Rock="Assets/EnvironmentAssets/Gobkit/Rock002.fbx";
+    const int TileN=128;
+
+    static int SX(float x)=>Mathf.Clamp(Mathf.RoundToInt(x/4f+64f),0,TileN-1);
+    static int SY(float z)=>Mathf.Clamp(Mathf.RoundToInt(64f-z/4f),0,TileN-1);
+    static bool WaterRoad(byte[] tile,byte[] grp,byte[] sem,float x,float z)
+    {
+        int sx=SX(x),sy=SY(z);byte raw=tile[sy*TileN+sx],g=grp[raw],f=sem[raw];
+        return (f&1)!=0||(f&8)!=0||(g>=8&&g<255);
+    }
+    static bool WaterSensitive(string family)=>family=="SHRUB_A"||family=="SHRUB_B"||family=="LOW_PLANT"||
+        family=="SOURCE_TREE"||family=="SOURCE_SNOW_TREE"||family=="CACTUS"||family=="STUMP";
 
     static bool F(string s,out float v)=>float.TryParse(s,NumberStyles.Float,CultureInfo.InvariantCulture,out v);
     static bool Start(string n){n=n.Trim().ToLowerInvariant();return n=="party start"||n.EndsWith(" start");}
@@ -167,7 +178,11 @@ public static class MMSafeSourceDecoration3DProduction
         var group=new GameObject("Source Decorations 3D - OneToOne");
         group.transform.SetParent(root.transform,false);
         int mapped=0,omitted=0,rejected=0;
-        string[] lines=File.ReadAllLines($"Assets/World/{z.key}/Data/decorations.csv");
+        string dataDir=$"Assets/World/{z.key}/Data";
+        var tile=File.ReadAllBytes(dataDir+"/tilemap_u8.bin");
+        var grp=File.ReadAllBytes(dataDir+"/tile_groups_u8.bin");
+        var sem=File.ReadAllBytes(dataDir+"/tile_semantics_u8.bin");
+        string[] lines=File.ReadAllLines(dataDir+"/decorations.csv");
 
         for(int i=1;i<lines.Length;i++)
         {
@@ -180,6 +195,11 @@ public static class MMSafeSourceDecoration3DProduction
             string dom=Dominant(terrain,x,zz);
             var m=Pick(n,dom);
 
+            if(m.path!=null&&WaterSensitive(m.family)&&WaterRoad(tile,grp,sem,x,zz)){
+                omitted++;
+                audit.Add($"{z.key},{idx},{n},{m.family},OMIT_WATER_OR_ROAD,{m.path},{dom},{x:F3},{zz:F3},,,,");
+                continue;
+            }
             if(m.path==null){
                 omitted++;
                 audit.Add($"{z.key},{idx},{n},{m.family},{m.status},,{dom},{x:F3},{zz:F3},,,,");
