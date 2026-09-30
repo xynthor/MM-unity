@@ -25,7 +25,9 @@ public static class MMLinkedFoliageCoverage20260928 {
   var imp=(TextureImporter)AssetImporter.GetAtPath(path);
   imp.textureType=TextureImporterType.Default;imp.alphaSource=TextureImporterAlphaSource.FromInput;
   imp.alphaIsTransparency=true;imp.mipmapEnabled=true;imp.mipMapsPreserveCoverage=true;
-  imp.alphaTestReferenceValue=cutoff;imp.sRGBTexture=AssetDatabase.GetAssetPath(source).ToLowerInvariant().Contains(".srgb.")||GraphicsFormatUtility.IsSRGBFormat(source.graphicsFormat);
+  imp.alphaTestReferenceValue=cutoff;
+  var srcImp=AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(source)) as TextureImporter;
+  imp.sRGBTexture=srcImp!=null?srcImp.sRGBTexture:(AssetDatabase.GetAssetPath(source).ToLowerInvariant().Contains(".srgb.")||GraphicsFormatUtility.IsSRGBFormat(source.graphicsFormat));
   imp.maxTextureSize=Mathf.Max(source.width,source.height);imp.textureCompression=TextureImporterCompression.CompressedHQ;
   imp.anisoLevel=4;imp.SaveAndReimport();
   return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
