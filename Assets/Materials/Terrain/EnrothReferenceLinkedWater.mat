@@ -30,22 +30,22 @@ Material:
     m_Ints: []
     m_Floats:
     - _DepthRange: 18
-    - _Distortion: 0.0025
-    - _FoamDepth: 0.22
+    - _Distortion: 0.0032
+    - _FoamDepth: 0.34
     - _FresnelPower: 4.2
-    - _NormalStrength: 0.18
-    - _ReflectionStrength: 0.42
-    - _SpecularStrength: 0.2
+    - _NormalStrength: 0.26
+    - _ReflectionStrength: 0.48
+    - _SpecularStrength: 0.28
     - _WaveAmp: 0.055
     - _WaveAmp2: 0.025
     - _WaveScale: 0.065
     - _WaveScale2: 0.115
     m_Colors:
-    - _DeepColor: {r: 0.035, g: 0.13, b: 0.18, a: 0.98}
-    - _FoamColor: {r: 0.72, g: 0.85, b: 0.95, a: 0.9}
-    - _MidColor: {r: 0.06, g: 0.2, b: 0.23, a: 0.94}
+    - _DeepColor: {r: 0.028, g: 0.105, b: 0.16, a: 0.99}
+    - _FoamColor: {r: 0.76, g: 0.84, b: 0.82, a: 0.88}
+    - _MidColor: {r: 0.055, g: 0.19, b: 0.23, a: 0.95}
     - _ReflectionColor: {r: 0.26, g: 0.36, b: 0.4, a: 1}
-    - _ShallowColor: {r: 0.12, g: 0.28, b: 0.25, a: 0.82}
+    - _ShallowColor: {r: 0.11, g: 0.31, b: 0.28, a: 0.84}
     - _WaveSpeed: {r: 0.42, g: 0.27, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
