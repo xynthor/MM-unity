@@ -18,7 +18,8 @@ public static class MMEnrothLavaOverlays20261001
 
  struct Vent { public string terrain; public float x,z,rx,rz; public Vent(string t,float X,float Z,float RX,float RZ){terrain=t;x=X;z=Z;rx=RX;rz=RZ;} }
  static readonly Vent[] Vents={
-  new Vent("SweetWater_NorthTerrain",464f,265f,4.8f,4.3f)
+  new Vent("SweetWater_NorthTerrain",464f,265f,4.8f,4.3f),
+  new Vent("Kriegspire_NorthTerrain",189f,331f,7.5f,7.2f)
  };
 
  static Terrain FindTerrain(string n){
