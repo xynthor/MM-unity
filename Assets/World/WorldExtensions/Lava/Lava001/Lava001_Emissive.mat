@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords:
   - _EMISSION
   - _NORMALMAP
+  - _PARALLAXMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
@@ -21,7 +22,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties:
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -46,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4f241aa6c74f3714a8e44c0f554a78b8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 629b69ed36b22dc438c0f5abb764c349, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -68,9 +69,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.34
+    - _Glossiness: 0.26
     - _GlossyReflections: 1
-    - _Metallic: 0.02
+    - _Metallic: 0.01
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.025
@@ -80,7 +81,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1.7, g: 0.72, b: 0.22, a: 1}
+    - _Color: {r: 1.02, g: 0.98, b: 0.94, a: 1}
+    - _EmissionColor: {r: 2.15, g: 0.88, b: 0.28, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
