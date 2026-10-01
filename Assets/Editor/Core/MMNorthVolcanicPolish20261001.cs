@@ -41,8 +41,8 @@ public static class MMNorthVolcanicPolish20261001
   if(q.n=="SweetWater"||q.n=="Kriegspire"){
    int cx=q.n=="Kriegspire"?189:462,cz=q.n=="Kriegspire"?331:263;float rx=q.n=="Kriegspire"?86:62,rz=q.n=="Kriegspire"?74:54;
    for(int z=Mathf.Max(2,cz-(int)rz-20);z<Mathf.Min(H-2,cz+(int)rz+20);z++)for(int x=Mathf.Max(2,cx-(int)rx-20);x<Mathf.Min(W-2,cx+(int)rx+20);x++){
-    float rr=Mathf.Sqrt(Mathf.Pow((x-cx)/rx,2)+Mathf.Pow((z-cz)/rz,2));float ring=S(.28f,.58f,rr)*(1-S(1.02f,1.34f,rr));if(ring<.01f)continue;
-    float land=S(145,170,m[z*513+x].r);if(land<.05f)continue;float goal=Mathf.Lerp(a[z,x,volc],.94f,ring*.92f*land);float del=goal-a[z,x,volc],rest=1-a[z,x,volc];if(del<=0||rest<=.0001f)continue;float nr=1-goal;
+    float rr=Mathf.Sqrt(Mathf.Pow((x-cx)/rx,2)+Mathf.Pow((z-cz)/rz,2));float basin=1-S(.82f,1.34f,rr);if(basin<.01f)continue;
+    float land=S(145,170,m[z*513+x].r);if(land<.05f)continue;float goal=Mathf.Lerp(a[z,x,volc],.96f,basin*.94f*land);float del=goal-a[z,x,volc],rest=1-a[z,x,volc];if(del<=0||rest<=.0001f)continue;float nr=1-goal;
     for(int k=0;k<L;k++)if(k!=volc)a[z,x,k]*=nr/rest;a[z,x,volc]=goal;Norm(a,z,x,L);vent++;
    }
   }
