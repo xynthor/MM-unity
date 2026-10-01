@@ -20,9 +20,12 @@ public static class MMReferenceIceShelf {
  static Material GetIceMaterial(string asset,Color tint,Texture2D tex,float gloss){
   var mat=AssetDatabase.LoadAssetAtPath<Material>(asset);
   if(!mat){
-   var sh=Shader.Find("Standard");
+   var sh=Shader.Find("MMUnity/Iceberg");
    if(!sh||!sh.isSupported)throw new Exception("Supported ice shader unavailable");
    mat=new Material(sh);AssetDatabase.CreateAsset(mat,asset);
+  } else {
+   var sh=Shader.Find("MMUnity/Iceberg");
+   if(sh&&sh.isSupported&&mat.shader!=sh)mat.shader=sh;
   }
   mat.name=Path.GetFileNameWithoutExtension(asset);
   var snow02=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/World/WorldExtensions/Generated/LinkedSnow02/Snow02_SeamlessAlbedoSmoothness.png");
@@ -118,9 +121,13 @@ public static class MMReferenceIceShelf {
    throw new Exception("Invalid approved Voronoi polygons for north tile "+index);
   var verts=new List<Vector3>();var uv=new List<Vector2>();
   var top=new List<int>();var side=new List<int>();
-  count=0;
+  count=0;int sourceIndex=0;
   foreach(var item in pack.floes){
+   int rawIndex=sourceIndex++;
    if(item==null||item.outline==null||item.outline.Length<3)continue;
+   uint selectHash=(uint)unchecked(index*73856093+rawIndex*19349663+83492791);
+   int keepDivisor=index==0?6:(index==1?4:(index==2?5:2));
+   if(selectHash%(uint)keepDivisor!=0)continue;
    var points=(Vector2[])item.outline.Clone();
    int n=points.Length;
    float signedArea=0f;
@@ -133,49 +140,90 @@ public static class MMReferenceIceShelf {
    var center=Vector2.zero;
    foreach(var point in points)center+=point;
    center/=n;
-   // Approved outlines are Voronoi cells and share boundaries. Pull each cell
-   // inward so the shelf reads as separated sea-ice floes, not a tiled plate.
-   int hash=unchecked(index*73856093+count*19349663+83492791);
-   float separationScale=.76f+.08f*((hash&1023)/1023f);
+
+   // Keep the approved reference footprint, but turn each Voronoi cell into
+   // a separated three-dimensional berg instead of a thin white paving slab.
+   int hash=unchecked(index*73856093+rawIndex*19349663+83492791);
+   float h01=(hash&1023)/1023f;
+   float separationScale=.70f+.18f*h01;
    for(int i=0;i<n;i++)points[i]=center+(points[i]-center)*separationScale;
-   float tiltX=(((hash>>10)&255)/255f-.5f)*.018f;
-   float tiltZ=(((hash>>18)&255)/255f-.5f)*.018f;
-   int start=verts.Count;
-   float topY=item.topY,bottomY=item.bottomY;
-   verts.Add(new Vector3(center.x,topY+.01f,center.y));
-   uv.Add(center/22f);
+
+   float meanRadius=0f;
+   for(int i=0;i<n;i++)meanRadius+=(points[i]-center).magnitude;
+   meanRadius/=n;
+   bool tabular=((hash>>11)&3)==0;
+   float rise=tabular?
+     Mathf.Clamp(2.1f+meanRadius*.13f+(((hash>>15)&255)/255f)*1.6f,3.2f,6.0f):
+     Mathf.Clamp(3.4f+meanRadius*.25f+(((hash>>15)&255)/255f)*2.8f,5.2f,11.5f);
+   if(((hash>>20)&7)==0)rise=Mathf.Min(15.0f,rise*1.42f);
+   float rimY=.68f+(((hash>>23)&255)/255f)*.48f;
+   float depth=Mathf.Clamp(2.2f+rise*.68f,3.5f,10.5f);
+   float tiltX=(((hash>>8)&255)/255f-.5f)*.014f;
+   float tiltZ=(((hash>>16)&255)/255f-.5f)*.014f;
+   float innerScale=.28f+.16f*(((hash>>4)&255)/255f);
+
+   int outer=verts.Count;
    for(int i=0;i<n;i++){
     var p=points[i];
-    float py=topY+(p.x-center.x)*tiltX+(p.y-center.y)*tiltZ;
-    verts.Add(new Vector3(p.x,py,p.y));
-    uv.Add(p/22f);
+    float jitter=(((hash+i*97)&255)/255f-.5f)*.16f;
+    float py=rimY+jitter+(p.x-center.x)*tiltX+(p.y-center.y)*tiltZ;
+    verts.Add(new Vector3(p.x,py,p.y));uv.Add(p/10f);
    }
+   int inner=verts.Count;
    for(int i=0;i<n;i++){
-    top.Add(start);top.Add(start+1+(i+1)%n);top.Add(start+1+i);
+    var p=center+(points[i]-center)*innerScale;
+    float jitter=(((hash+i*193+71)&255)/255f-.5f)*.20f;
+    float py=rimY+rise*.58f+jitter+(p.x-center.x)*tiltX+(p.y-center.y)*tiltZ;
+    verts.Add(new Vector3(p.x,py,p.y));uv.Add(p/10f);
    }
+   float apexAngle=(((hash>>5)&1023)/1023f)*Mathf.PI*2f;
+   float apexOffset=meanRadius*(.07f+.09f*(((hash>>19)&255)/255f));
+   var apexPos=center+new Vector2(Mathf.Cos(apexAngle),Mathf.Sin(apexAngle))*apexOffset;
+   int apex=verts.Count;
+   verts.Add(new Vector3(apexPos.x,rimY+rise,apexPos.y));uv.Add(apexPos/10f);
+
+   for(int i=0;i<n;i++){
+    int oi=outer+i,on=outer+(i+1)%n,ii=inner+i,inn=inner+(i+1)%n;
+    top.Add(oi);top.Add(ii);top.Add(on);
+    top.Add(on);top.Add(ii);top.Add(inn);
+    top.Add(apex);top.Add(inn);top.Add(ii);
+   }
+
    int lower=verts.Count;
    for(int i=0;i<n;i++){
-    var p=center+(points[i]-center)*.94f;
-    verts.Add(new Vector3(p.x,bottomY,p.y));
-    uv.Add(new Vector2(i/(float)n,0f));
+    var p=center+(points[i]-center)*(.84f+.05f*(((hash+i*31)&255)/255f));
+    float by=-depth-(((hash+i*53)&127)/127f)*.18f;
+    verts.Add(new Vector3(p.x,by,p.y));uv.Add(new Vector2(i/(float)n,0f));
    }
    for(int i=0;i<n;i++){
-    int p=start+1+i,q=start+1+(i+1)%n,b=lower+i,d=lower+(i+1)%n;
+    int p=outer+i,q=outer+(i+1)%n,b=lower+i,d=lower+(i+1)%n;
     side.Add(p);side.Add(q);side.Add(b);
     side.Add(q);side.Add(d);side.Add(b);
    }
    count++;
   }
-  if(count<10)throw new Exception("No valid approved ice polygons for tile "+index);
-  // The persisted Mesh asset keeps its FracturedIce filename/GUID;
-  // Unity treats a different main-object name as a warning, which makes
-  // the automated repair runner reject an otherwise successful build.
+  if(count<3)throw new Exception("Too few valid iceberg polygons for tile "+index+": "+count);
   var mesh=new Mesh{name=NorthNames[index]+"FracturedIce"};
   mesh.indexFormat=verts.Count>65000?
    UnityEngine.Rendering.IndexFormat.UInt32:UnityEngine.Rendering.IndexFormat.UInt16;
   mesh.SetVertices(verts);mesh.SetUVs(0,uv);mesh.subMeshCount=2;
   mesh.SetTriangles(top,0);mesh.SetTriangles(side,1);
   mesh.RecalculateNormals();mesh.RecalculateBounds();return mesh;
+ }
+ static void OverwriteMeshData(Mesh dst,Mesh src){
+  string keepName=dst.name;
+  dst.Clear();
+  dst.indexFormat=src.indexFormat;
+  dst.vertices=src.vertices;
+  dst.uv=src.uv;
+  dst.subMeshCount=src.subMeshCount;
+  for(int i=0;i<src.subMeshCount;i++)dst.SetTriangles(src.GetTriangles(i),i,true);
+  dst.RecalculateNormals();
+  dst.RecalculateTangents();
+  dst.RecalculateBounds();
+  dst.name=keepName;
+  dst.UploadMeshData(false);
+  EditorUtility.SetDirty(dst);
  }
  public static void DressOne(int index,List<string> report){
   if(index<0||index>3)throw new ArgumentOutOfRangeException("index");
@@ -201,7 +249,7 @@ public static class MMReferenceIceShelf {
   var oldMesh=AssetDatabase.LoadAssetAtPath<Mesh>(meshPath);
   Mesh persisted;
   if(oldMesh){
-   EditorUtility.CopySerialized(generated,oldMesh);
+   OverwriteMeshData(oldMesh,generated);
    oldMesh.name=Path.GetFileNameWithoutExtension(meshPath);
    EditorUtility.SetDirty(oldMesh);persisted=oldMesh;
    UnityEngine.Object.DestroyImmediate(generated);
@@ -225,10 +273,12 @@ public static class MMReferenceIceShelf {
    ",mesh="+meshPath);
  }
  public static void RefreshIceMaterialsOnly(){
-  Directory.CreateDirectory(MaterialRoot);
-  GetIceMaterial(MaterialRoot+"ReferenceIceTop.mat",new Color(.92f,.95f,.98f,1),null,.14f);
-  GetIceMaterial(MaterialRoot+"ReferenceIceSide.mat",new Color(.63f,.74f,.83f,1),null,.22f);
-  AssetDatabase.SaveAssets();AssetDatabase.Refresh();
+  // Shared ice materials are persistent assets. Never rewrite them during
+  // rebuild/QA, because Unity may have them open for import/rendering.
+  var top=AssetDatabase.LoadAssetAtPath<Material>(MaterialRoot+"ReferenceIceTop.mat");
+  var side=AssetDatabase.LoadAssetAtPath<Material>(MaterialRoot+"ReferenceIceSide.mat");
+  if(!top||!side)throw new FileNotFoundException("Reference ice materials missing");
+  Debug.Log("REFERENCE_ICE_MATERIALS_OK");
  }
  public static void RebuildApprovedMeshAssetsOnly(){
   var report=new List<string>();
@@ -237,7 +287,7 @@ public static class MMReferenceIceShelf {
    string meshPath=MeshRoot+NorthNames[i]+"FracturedIce.asset";
    var current=AssetDatabase.LoadAssetAtPath<Mesh>(meshPath);
    if(!current)throw new FileNotFoundException("Current linked ice mesh missing",meshPath);
-   EditorUtility.CopySerialized(generated,current);
+   OverwriteMeshData(current,generated);
    current.name=Path.GetFileNameWithoutExtension(meshPath);
    EditorUtility.SetDirty(current);UnityEngine.Object.DestroyImmediate(generated);
    report.Add(NorthNames[i]+",floe_count="+placed+",triangles="+current.triangles.Length/3);
@@ -249,11 +299,10 @@ public static class MMReferenceIceShelf {
  }
  [MenuItem("MMUnity/World/Add Reference Fractured Northern Ice Shelf")]
  public static void DressNorthAll(){
-  // Current project no longer keeps the four north-extension scenes at their
-  // legacy paths. Update the shared linked-world assets directly instead.
+  // Ice materials are persistent shared assets and must not be rewritten here.
+  // Only rebuild the linked iceberg meshes.
   RebuildApprovedMeshAssetsOnly();
-  RefreshIceMaterialsOnly();
-  Debug.Log("REFERENCE_FRACTURED_ICE_SHELF_COMPLETE current linked assets refreshed");
+  Debug.Log("REFERENCE_FRACTURED_ICE_SHELF_COMPLETE iceberg meshes refreshed");
  }
 }
 
