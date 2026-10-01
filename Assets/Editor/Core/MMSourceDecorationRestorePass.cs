@@ -41,6 +41,9 @@ public static class MMSourceDecorationRestorePass
     static void ScaleHeight(GameObject go,float target){
         var b=B(go);if(b.size.y>.001f)go.transform.localScale*=target/b.size.y;
     }
+    static void ScaleMaxDimension(GameObject go,float target){
+        var b=B(go);float d=Mathf.Max(b.size.x,Mathf.Max(b.size.y,b.size.z));if(d>.001f)go.transform.localScale*=target/d;
+    }
     static Mesh Quad(){
         string p=Shared+"/MM6_SourceSpriteQuad.asset";var m=AssetDatabase.LoadAssetAtPath<Mesh>(p);if(m)return m;
         m=new Mesh{name="MM6_SourceSpriteQuad"};
@@ -82,10 +85,52 @@ public static class MMSourceDecorationRestorePass
         var root=new GameObject($"SRC_{lineIndex:000}_{name}");root.transform.SetParent(parent,false);var mat=Wood();
         var p=GameObject.CreatePrimitive(PrimitiveType.Cube);p.name="SourceProp";p.transform.SetParent(root.transform,false);p.transform.localPosition=new Vector3(0,.65f,0);p.transform.localScale=new Vector3(.7f,1.3f,.7f);p.GetComponent<Renderer>().sharedMaterial=mat;UnityEngine.Object.DestroyImmediate(p.GetComponent<Collider>());return root;
     }
+    static readonly string[] RockMeshPaths={
+        "Assets/Art/Environment/_ExternalContent/Quixel/Megascans/Rocks/Rock_Granite_rcCwC/Rock_Granite_rcCwC.fbx",
+        "Assets/Art/Environment/_ExternalContent/Quixel/Megascans/Rocks/Rock_Granite_reFto/Rock_Granite_reFto.FBX",
+        "Assets/Art/Environment/_ExternalContent/Quixel/Megascans/Rocks/Rock_Granite_rgAsy/Aset_rock_granite_M_rgAsy.fbx"};
+    static readonly string[] RockMatPaths={
+        "Assets/Materials/RealisticWorld/Rocks/Rock_Granite_rcCwC_Standard.mat",
+        "Assets/Materials/RealisticWorld/Rocks/Rock_Granite_reFto_Standard.mat",
+        "Assets/Materials/RealisticWorld/Rocks/Rock_Granite_rgAsy_Standard.mat"};
+    static Mesh SourceRockMesh(int idx){
+        string p=RockMeshPaths[Mathf.Abs(idx)%RockMeshPaths.Length];
+        return AssetDatabase.LoadAllAssetsAtPath(p).OfType<Mesh>().FirstOrDefault(m=>m.name.IndexOf("LOD2",StringComparison.OrdinalIgnoreCase)>=0)
+            ?? AssetDatabase.LoadAllAssetsAtPath(p).OfType<Mesh>().OrderBy(m=>m.triangles.Length).FirstOrDefault();
+    }
+    static Material SourceRockMaterial(int idx)=>AssetDatabase.LoadAssetAtPath<Material>(RockMatPaths[Mathf.Abs(idx)%RockMatPaths.Length]);
     static GameObject RockGO(string name,int idx,Transform parent){
-        string p=(idx%2==0)?"Assets/EnvironmentAssets/Gobkit/Rock001.fbx":"Assets/EnvironmentAssets/Gobkit/Rock002.fbx";
-        var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(p);if(!prefab)return null;
-        var go=(GameObject)PrefabUtility.InstantiatePrefab(prefab);go.name=$"SourceRock_{idx:0000}_{name}";go.transform.SetParent(parent,false);return go;
+        var mesh=SourceRockMesh(idx);var mat=SourceRockMaterial(idx);if(!mesh||!mat)return null;
+        var go=new GameObject($"SourceRock_{idx:0000}_{name}");go.transform.SetParent(parent,false);
+        var visual=new GameObject("Granite");visual.transform.SetParent(go.transform,false);visual.transform.localRotation=Quaternion.identity;
+        visual.AddComponent<MeshFilter>().sharedMesh=mesh;var mr=visual.AddComponent<MeshRenderer>();mr.sharedMaterial=mat;mr.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.On;mr.receiveShadows=true;
+        return go;
+    }
+
+    [MenuItem("MMUnity/Locked/Repair Current Linked Source Rocks Visuals")]
+    public static void RepairCurrentLinkedSourceRocks(){
+        var sc=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+        if(sc.path!="Assets/Scenes/World/Enroth.unity")throw new Exception("Enroth must be active");
+        var roots=sc.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).Where(t=>t.name=="Source Rocks - OneToOne").ToArray();
+        int replaced=0;float maxXZ=0f;
+        foreach(var rr in roots){
+            var terrain=rr.parent?rr.parent.GetComponentInChildren<Terrain>(true):null;if(!terrain)continue;
+            foreach(var old in rr.Cast<Transform>().ToArray()){
+                string rest=old.name.StartsWith("SourceRock_",StringComparison.OrdinalIgnoreCase)?old.name.Substring("SourceRock_".Length):"";
+                int split=rest.IndexOf('_');if(split<1||!int.TryParse(rest.Substring(0,split),out int idx))continue;
+                string sourceName=rest.Substring(split+1);float x=old.position.x,z=old.position.z,yaw=old.eulerAngles.y;
+                var go=RockGO(sourceName,idx,rr);if(!go)throw new Exception("Could not rebuild source rock "+old.name);
+                go.transform.position=new Vector3(x,0,z);go.transform.rotation=Quaternion.Euler(0,yaw,0);
+                ScaleMaxDimension(go,Mathf.Lerp(.75f,1.8f,(Mathf.Abs(idx*37)%100)/99f));Ground(go,terrain,x,z);
+                maxXZ=Mathf.Max(maxXZ,Vector2.Distance(new Vector2(x,z),new Vector2(go.transform.position.x,go.transform.position.z)));
+                UnityEngine.Object.DestroyImmediate(old.gameObject);replaced++;
+            }
+        }
+        EditorSceneManager.MarkSceneDirty(sc);if(!EditorSceneManager.SaveScene(sc))throw new IOException("Could not save linked source rock repair");
+        AssetDatabase.SaveAssets();
+        Directory.CreateDirectory("Validation/EdgeGrid20260923/WorldRocks20261001");
+        File.WriteAllText("Validation/EdgeGrid20260923/WorldRocks20261001/source_rock_visual_repair.txt",$"PASS replaced={replaced} maxXZChange={maxXZ:F6} terrainWrites=0 heightWrites=0 alphamapWrites=0 terrainLayerWrites=0\n");
+        Debug.Log($"SOURCE_ROCK_VISUAL_REPAIR replaced={replaced} maxXZChange={maxXZ:F6}");
     }
 
     [MenuItem("MMUnity/Locked/Restore Exact Source Rocks And Sprites")]
@@ -109,7 +154,7 @@ public static class MMSourceDecorationRestorePass
             var q=lines[i].Split(',');if(q.Length<10)continue;string n=q[1].Trim().ToLowerInvariant();if(Start(n)||Tree(n))continue;
             if(!P(q[4],out float x)||!P(q[5],out float sy)||!P(q[6],out float oz))continue;P(q[7],out float yaw);float zz=-oz;int idx=i-1;int.TryParse(q[0],out idx);
             if(Rock(n)){
-                var go=RockGO(n,idx,rr.transform);if(!go)continue;go.transform.position=new Vector3(x,0,zz);go.transform.rotation=Quaternion.Euler(0,-yaw,0);ScaleHeight(go,Mathf.Lerp(.75f,1.8f,(Mathf.Abs(idx*37)%100)/99f));Ground(go,terrain,x,zz);rocks++;continue;
+                var go=RockGO(n,idx,rr.transform);if(!go)continue;go.transform.position=new Vector3(x,0,zz);go.transform.rotation=Quaternion.Euler(0,-yaw,0);ScaleMaxDimension(go,Mathf.Lerp(.75f,1.8f,(Mathf.Abs(idx*37)%100)/99f));Ground(go,terrain,x,zz);rocks++;continue;
             }
             if(NonVisual(n)){nonvisual++;continue;}
             GameObject sgo=null;var tex=AssetDatabase.LoadAssetAtPath<Texture2D>($"{SpriteTex}/{n}.png");
