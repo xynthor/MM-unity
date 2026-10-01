@@ -1,0 +1,6 @@
+SOURCE: ambientCG Lava001
+URL: https://ambientcg.com/view?id=Lava001
+LICENSE: CC0 1.0 Universal / public domain dedication
+Downloaded: 2026-10-01
+Resolution: 1K JPG PBR set
+Maps kept: Color, Emission, NormalDX, Roughness, Displacement, preview
