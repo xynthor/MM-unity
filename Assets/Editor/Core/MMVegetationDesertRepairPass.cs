@@ -11,6 +11,9 @@ using System.Globalization;
 public static class MMVegetationDesertRepairPass
 {
     const int N=128;
+    // Source vegetation + ecosystem dressing already provide enough desert coverage.
+    // Keep the stochastic fill disabled so repair passes cannot recreate the overfilled carpet.
+    const bool EnableRandomizedDesertSupplement=false;
     const string MatDir="Assets/Materials/RealisticWorld/VegetationRepair";
     sealed class Z{public string key,scene;public Z(string k,string s){key=k;scene=s;}}
     static readonly Z[] Zones={
@@ -358,7 +361,7 @@ public static class MMVegetationDesertRepairPass
         var cells=DesertCells(z.key,tile,grp,sem);
         var old=region.GetComponentsInChildren<Transform>(true).FirstOrDefault(x=>x.name=="Desert Vegetation - Randomized Supplement");
         if(old)UnityEngine.Object.DestroyImmediate(old.gameObject);
-        if(cells.Count==0)return 0;
+        if(!EnableRandomizedDesertSupplement||cells.Count==0)return 0;
 
         var root=new GameObject("Desert Vegetation - Randomized Supplement");root.transform.SetParent(region.transform,false);
         var cactus=LoadGO("Assets/Environment/DesertVegetation/Cactus.fbx");
