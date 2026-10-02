@@ -16,6 +16,7 @@ public static class MMArchipelagoWestEast20261001
  const string Root="Assets/World/WorldExtensions/Generated/ArchipelagoWestEast20261001";
  const string WestAsset=Root+"/ArchipelagoWest_Terrain.asset";
  const string EastAsset=Root+"/ArchipelagoEast_Terrain.asset";
+ const string WaterAsset=Root+"/ArchipelagoConnectedWater.asset";
  const float TerrainY=-24f,TerrainH=320f,Sea=-6.7f,Water=.10f,Scale=1.40f,ZShift=-30f;
  static Vector2[][] shore;
  static Vector3[] islets;
@@ -127,7 +128,7 @@ public static class MMArchipelagoWestEast20261001
   }
   return o;
  }
- static bool[,] NoHoles(){
+ static bool[,] BuildHoles(bool east,float[,] hm){
   int n=512;var holes=new bool[n,n];
   for(int z=0;z<n;z++)for(int x=0;x<n;x++)holes[z,x]=true;
   return holes;
@@ -148,8 +149,22 @@ public static class MMArchipelagoWestEast20261001
   int[] dx={1,-1,0,0},dz={0,0,1,-1};
   while(q.Count>0){var p=q.Dequeue();int nd=coastDist[p.y,p.x]+1;for(int i=0;i<4;i++){int x=p.x+dx[i],z=p.y+dz[i];if(x<0||z<0||x>=W||z>=H||coastDist[z,x]<=nd)continue;coastDist[z,x]=nd;q.Enqueue(new Vector2Int(x,z));}}
   for(int z=0;z<H;z++)for(int x=0;x<W;x++)if(combined[z,x]<=Water+.45f){float u=Smooth(10f,58f,coastDist[z,x]);combined[z,x]=Mathf.Lerp(combined[z,x],-23.5f,u);}
-  for(int z=481;z<513;z++)for(int x=0;x<513;x++){float target=TerrainY+sh[512,x]*TerrainH;float u=Smooth(0,32,512-z);combined[z,x]=Mathf.Lerp(target,combined[z,x],u);}
-  for(int z=0;z<513;z++)for(int x=0;x<32;x++){float target=TerrainY+sh[z,0]*TerrainH;float u=Smooth(0,32,x);combined[z,x]=Mathf.Lerp(target,combined[z,x],u);}
+  // West/north neighbors carry shallow seabed (~-6.5m / ~-5.5m).
+  // Preserve the exact seam sample, then relax toward a stable shallow shelf
+  // before the open-ocean bathymetry deepens. This avoids extruding each
+  // boundary sample across the tile as visible horizontal/vertical streaks.
+  for(int z=0;z<513;z++)for(int x=0;x<256;x++)if(combined[z,x]<=Water+.45f){
+   float edge=TerrainY+sh[z,0]*TerrainH;
+   float shelf=Mathf.Lerp(edge,-6.55f,Smooth(0,12,x));
+   float influence=1f-Smooth(0,256,x);
+   combined[z,x]=Mathf.Lerp(combined[z,x],shelf,influence);
+  }
+  for(int z=257;z<513;z++)for(int x=0;x<513;x++)if(combined[z,x]<=Water+.45f){
+   float d=512-z,edge=TerrainY+sh[512,x]*TerrainH;
+   float shelf=Mathf.Lerp(edge,-5.53f,Smooth(0,12,d));
+   float influence=1f-Smooth(0,256,d);
+   combined[z,x]=Mathf.Lerp(combined[z,x],shelf,influence);
+  }
   for(int z=0;z<513;z++)combined[z,0]=TerrainY+sh[z,0]*TerrainH;
   for(int x=0;x<513;x++)combined[512,x]=TerrainY+sh[512,x]*TerrainH;
  }
@@ -165,6 +180,14 @@ public static class MMArchipelagoWestEast20261001
    float wx=ox+x+.5f,wz=-1280f+z+.5f,sx=256f+(wx-1280f)/Scale,sz=256f+((wz+1024f)-ZShift)/Scale;
    if(sx>=0&&sx<512&&sz>=0&&sz<512){int ix=Mathf.Clamp(Mathf.FloorToInt(sx),0,511),iz=Mathf.Clamp(Mathf.FloorToInt(sz),0,511);for(int k=0;k<L;k++)o[z,x,k]=src[iz,ix,k];}
    else o[z,x,Mathf.Min(5,L-1)]=1f;
+   if(!east&&x<96){
+    float u=Smooth(0,96,x);
+    for(int k=0;k<L;k++)o[z,x,k]=Mathf.Lerp(src[Mathf.Min(511,z),0,k],o[z,x,k],u);
+   }
+   if(!east&&z>415){
+    float u=Smooth(0,96,511-z);
+    for(int k=0;k<L;k++)o[z,x,k]=Mathf.Lerp(src[511,Mathf.Min(511,x),k],o[z,x,k],u);
+   }
   }
   return o;
  }
@@ -188,7 +211,7 @@ public static class MMArchipelagoWestEast20261001
   var water=SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).FirstOrDefault(t=>t.name=="Linked connected sea and existing lowland waters 20260929");
   if(!water)throw new Exception("Global connected water object missing");
   var mf=water.GetComponent<MeshFilter>();if(!mf||!mf.sharedMesh)throw new Exception("Global connected water mesh missing");
-  var mesh=mf.sharedMesh;var ov=mesh.vertices;if(ov.Length%4!=0||mesh.triangles.Length!=ov.Length/4*6)throw new Exception("Unexpected global water mesh topology");
+  var sourceMesh=mf.sharedMesh;var ov=sourceMesh.vertices;if(ov.Length%4!=0||sourceMesh.triangles.Length!=ov.Length/4*6)throw new Exception("Unexpected global water mesh topology");
   var verts=new List<Vector3>();var tris=new List<int>();
   void Quad(float ax,float az,float bx,float bz){if(bx-ax<.001f||bz-az<.001f)return;int n=verts.Count;verts.Add(new Vector3(ax,Water,az));verts.Add(new Vector3(ax,Water,bz));verts.Add(new Vector3(bx,Water,bz));verts.Add(new Vector3(bx,Water,az));tris.AddRange(new[]{n,n+1,n+2,n,n+2,n+3});}
   for(int i=0;i<ov.Length;i+=4){
@@ -204,7 +227,9 @@ public static class MMArchipelagoWestEast20261001
   var active=new Dictionary<long,int>();var rects=new List<Vector4>();
   for(int z=0;z<H;z++){var next=new Dictionary<long,int>();for(int x=0;x<W;){if(!draw[z*W+x]){x++;continue;}int start=x;while(x<W&&draw[z*W+x])x++;long key=((long)start<<32)|(uint)x;if(active.TryGetValue(key,out int idx)){var r=rects[idx];r.w=z+1;rects[idx]=r;next[key]=idx;}else{next[key]=rects.Count;rects.Add(new Vector4(start,z,x,z+1));}}active=next;}
   foreach(var r in rects)Quad(x1+r.x*step,z1+r.y*step,x1+r.z*step,z1+r.w*step);
-  mesh.Clear();mesh.indexFormat=IndexFormat.UInt32;mesh.SetVertices(verts);mesh.SetTriangles(tris,0);mesh.RecalculateNormals();mesh.RecalculateBounds();EditorUtility.SetDirty(mesh);
+  var mesh=AssetDatabase.LoadAssetAtPath<Mesh>(WaterAsset);
+  if(!mesh){mesh=new Mesh();mesh.name="ArchipelagoConnectedWater";AssetDatabase.CreateAsset(mesh,WaterAsset);}
+  mesh.Clear();mesh.indexFormat=IndexFormat.UInt32;mesh.SetVertices(verts);mesh.SetTriangles(tris,0);mesh.RecalculateNormals();mesh.RecalculateBounds();EditorUtility.SetDirty(mesh);mf.sharedMesh=mesh;
  }
  static Vector3 ExpandPos(Vector3 old,Vector3 oldCenter){
   float rx=(old.x-oldCenter.x+145f)/.84f;float rz=(old.z-oldCenter.z)/1.06f;
@@ -224,7 +249,7 @@ public static class MMArchipelagoWestEast20261001
   var wh=SliceHeights(false,combined,out float westLand);var eh=SliceHeights(true,combined,out float eastLand);
   var wd=EnsureData(WestAsset,"ArchipelagoOfTheAncientsWestTerrain",source,wh);var ed=EnsureData(EastAsset,"ArchipelagoOfTheAncientsEastTerrain",source,eh);
   wd.SetAlphamaps(0,0,BuildScaledAlpha(false,source));ed.SetAlphamaps(0,0,BuildScaledAlpha(true,source));
-  wd.SetHoles(0,0,NoHoles());ed.SetHoles(0,0,NoHoles());
+  wd.SetHoles(0,0,BuildHoles(false,wh));ed.SetHoles(0,0,BuildHoles(true,eh));
   var sourceH=source.GetHeights(0,0,513,513);float westSeam=0;
   for(int z=0;z<513;z++)westSeam=Mathf.Max(westSeam,Mathf.Abs((TerrainY+wh[z,0]*TerrainH)-(TerrainY+sourceH[z,0]*TerrainH)));
   for(int x=0;x<513;x++)westSeam=Mathf.Max(westSeam,Mathf.Abs((TerrainY+wh[512,x]*TerrainH)-(TerrainY+sourceH[512,x]*TerrainH)));
