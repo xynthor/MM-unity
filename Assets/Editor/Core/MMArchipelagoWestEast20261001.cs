@@ -43,7 +43,7 @@ public static class MMArchipelagoWestEast20261001
  }
  static float Noise(float x,float z,int i){return Mathf.PerlinNoise((x+4096f+i*73f)*.027f,(z+8192f-i*41f)*.027f)-.5f;}
  static float WorldHeight(float wx,float wz,out float central,out float forest){
-  float gx=wx-1280f,gz=wz+1024f;
+  float gx=wx-768f,gz=wz+1024f;
   var p=new Vector2(gx/Scale,(gz-ZShift)/Scale);
   float raised=0;central=0;forest=0;
   for(int i=0;i<shore.Length;i++){
@@ -74,7 +74,7 @@ public static class MMArchipelagoWestEast20261001
   int n=513;var h=new float[n,n];var old=source.GetHeights(0,0,n,n);var westEdge=new float[n];var northEdge=new float[n];
   for(int z=0;z<n;z++)westEdge[z]=sourceY+old[z,0]*source.size.y;
   for(int x=0;x<n;x++)northEdge[x]=sourceY+old[n-1,x]*source.size.y;
-  float originX=east?1280f:768f,originZ=-1280f;int land=0;seamErr=0;
+  float originX=east?768f:256f,originZ=-1280f;int land=0;seamErr=0;
   float ne=northEdge[n-1];
   for(int z=0;z<n;z++)for(int x=0;x<n;x++){
    float wx=originX+x,wz=originZ+z;float c,f;float y=WorldHeight(wx,wz,out c,out f);
@@ -102,6 +102,17 @@ public static class MMArchipelagoWestEast20261001
   }
   landPct=land*100f/(n*n);return h;
  }
+ static void StitchWestEast(float[,] west,float[,] east){
+  const int band=48;
+  for(int z=0;z<513;z++){
+   float target=west[z,512];
+   float delta=target-east[z,0];
+   for(int x=0;x<=band;x++){
+    float w=1f-Smooth(0,band,x);
+    east[z,x]=Mathf.Clamp01(east[z,x]+delta*w);
+   }
+  }
+ }
  static int ByDiffuse(TerrainData d,string needle){return Array.FindIndex(d.terrainLayers,l=>l&&l.diffuseTexture&&AssetDatabase.GetAssetPath(l.diffuseTexture).IndexOf(needle,StringComparison.OrdinalIgnoreCase)>=0);}
  static int ByName(TerrainData d,string needle){return Array.FindIndex(d.terrainLayers,l=>l&&l.name.IndexOf(needle,StringComparison.OrdinalIgnoreCase)>=0);}
  static float Slope(float[,] h,int x,int z){
@@ -112,7 +123,7 @@ public static class MMArchipelagoWestEast20261001
   int a=512,L=d.alphamapLayers;var o=new float[a,a,L];
   int green=ByDiffuse(d,"ground_grass_fells_mossy"),light=ByDiffuse(d,"LightGreen_blend"),sand=ByDiffuse(d,"coast_sand_02"),volc=ByDiffuse(d,"ash_ground"),arid=ByDiffuse(d,"dry_soil"),snow=ByDiffuse(d,"Snow02_Seamless"),road=ByDiffuse(d,"stone_ground");
   if(green<0)green=0;if(light<0)light=1;if(sand<0)sand=2;if(volc<0)volc=3;if(arid<0)arid=Mathf.Min(5,L-1);
-  float originX=east?1280f:768f,originZ=-1280f;
+  float originX=east?768f:256f,originZ=-1280f;
   for(int z=0;z<a;z++)for(int x=0;x<a;x++){
    int hx=Mathf.RoundToInt((x+.5f)*512f/a),hz=Mathf.RoundToInt((z+.5f)*512f/a);float y=TerrainY+hm[hz,hx]*TerrainH,sl=Slope(hm,hx,hz);
    float wx=originX+(x+.5f)*512f/a,wz=originZ+(z+.5f)*512f/a;float central,forest;WorldHeight(wx,wz,out central,out forest);
@@ -143,7 +154,7 @@ public static class MMArchipelagoWestEast20261001
   const int W=1025,H=513;combined=new float[H,W];coastDist=new int[H,W];
   var sh=source.GetHeights(0,0,513,513);var q=new Queue<Vector2Int>();const int Inf=999999;
   for(int z=0;z<H;z++)for(int x=0;x<W;x++){
-   float wx=768f+x,wz=-1280f+z,sx=256f+(wx-1280f)/Scale,sz=256f+((wz+1024f)-ZShift)/Scale;
+   float wx=256f+x,wz=-1280f+z,sx=256f+(wx-768f)/Scale,sz=256f+((wz+1024f)-ZShift)/Scale;
    float y=(sx>=0&&sx<=512&&sz>=0&&sz<=512)?TerrainY+Bilinear(sh,sx,sz)*TerrainH:Sea;
    combined[z,x]=y;bool land=y>Water+.45f;coastDist[z,x]=land?0:Inf;if(land)q.Enqueue(new Vector2Int(x,z));
   }
@@ -176,9 +187,9 @@ public static class MMArchipelagoWestEast20261001
  }
  static float[,,] BuildScaledAlpha(bool east,TerrainData source){
   int a=512,L=source.alphamapLayers;var src=source.GetAlphamaps(0,0,source.alphamapWidth,source.alphamapHeight);var o=new float[a,a,L];
-  float ox=east?1280f:768f;
+  float ox=east?768f:256f;
   for(int z=0;z<a;z++)for(int x=0;x<a;x++){
-   float wx=ox+x+.5f,wz=-1280f+z+.5f,sx=256f+(wx-1280f)/Scale,sz=256f+((wz+1024f)-ZShift)/Scale;
+   float wx=ox+x+.5f,wz=-1280f+z+.5f,sx=256f+(wx-768f)/Scale,sz=256f+((wz+1024f)-ZShift)/Scale;
    if(sx>=0&&sx<512&&sz>=0&&sz<512){int ix=Mathf.Clamp(Mathf.FloorToInt(sx),0,511),iz=Mathf.Clamp(Mathf.FloorToInt(sz),0,511);for(int k=0;k<L;k++)o[z,x,k]=src[iz,ix,k];}
    else o[z,x,Mathf.Min(5,L-1)]=1f;
    if(!east&&x<96){
@@ -269,14 +280,14 @@ public static class MMArchipelagoWestEast20261001
   var world=west.parent;var oldCenter=west.position;var oldTerrain=west.GetComponentInChildren<Terrain>(true);if(!oldTerrain)throw new Exception("Current Archipelago terrain missing");
   var source=AssetDatabase.LoadAssetAtPath<TerrainData>(SourceAsset);if(!source)throw new Exception("Archipelago source TerrainData missing");
   if(!AssetDatabase.IsValidFolder(Root))AssetDatabase.CreateFolder("Assets/World/WorldExtensions/Generated","ArchipelagoWestEast20261001");
-  BuildScaledSource(source,out var combined,out var coastDist);
-  var wh=SliceHeights(false,combined,out float westLand);var eh=SliceHeights(true,combined,out float eastLand);
+  // Build directly from the authoritative Archipelago reference geometry.
+  // The previous scaled-source path created long wedge/strip artifacts.
+  var wh=BuildHeights(false,source,TerrainY,out float westSeam,out float westLand);
+  var eh=BuildHeights(true,source,TerrainY,out float eastSeam,out float eastLand);
+  StitchWestEast(wh,eh);
   var wd=EnsureData(WestAsset,"ArchipelagoOfTheAncientsWestTerrain",source,wh);var ed=EnsureData(EastAsset,"ArchipelagoOfTheAncientsEastTerrain",source,eh);
-  wd.SetAlphamaps(0,0,BuildScaledAlpha(false,source));ed.SetAlphamaps(0,0,BuildScaledAlpha(true,source));
+  wd.SetAlphamaps(0,0,BuildAlpha(false,source,wh));ed.SetAlphamaps(0,0,BuildAlpha(true,source,eh));
   wd.SetHoles(0,0,BuildHoles(false,wh));ed.SetHoles(0,0,BuildHoles(true,eh));
-  var sourceH=source.GetHeights(0,0,513,513);float westSeam=0;
-  for(int z=0;z<513;z++)westSeam=Mathf.Max(westSeam,Mathf.Abs((TerrainY+wh[z,0]*TerrainH)-(TerrainY+sourceH[z,0]*TerrainH)));
-  for(int x=0;x<513;x++)westSeam=Mathf.Max(westSeam,Mathf.Abs((TerrainY+wh[512,x]*TerrainH)-(TerrainY+sourceH[512,x]*TerrainH)));
   wd.SetBaseMapDirty();ed.SetBaseMapDirty();EditorUtility.SetDirty(wd);EditorUtility.SetDirty(ed);AssetDatabase.SaveAssets();
 
   // Terrain-first pass. The old dressing was authored for the smaller single tile.
@@ -314,7 +325,10 @@ public static class MMArchipelagoWestEast20261001
   // Verify the newly-created West/East join numerically.
   var wa=wd.GetHeights(512,0,1,513);var ea=ed.GetHeights(0,0,1,513);float join=0;
   for(int z=0;z<513;z++)join=Mathf.Max(join,Mathf.Abs((TerrainY+wa[z,0]*TerrainH)-(TerrainY+ea[z,0]*TerrainH)));
-  if(join>.001f||westSeam>.095f)throw new Exception($"Archipelago seam failure external={westSeam} internal={join}");
+  // After the 20261003 west shift, the old source west/north edge is no
+  // longer the final external neighbor target. MMSouthLayoutShift20261003 owns
+  // those new world-grid seams. Keep only the West/East internal seam strict here.
+  if(join>.001f)throw new Exception($"Archipelago internal seam failure internal={join}");
   EditorSceneManager.MarkSceneDirty(s);if(!EditorSceneManager.SaveScene(s))throw new IOException("Could not save West/East Archipelago");
   AssetDatabase.SaveAssets();
   Directory.CreateDirectory("Validation/EdgeGrid20260923/ArchipelagoExpansion20261001");

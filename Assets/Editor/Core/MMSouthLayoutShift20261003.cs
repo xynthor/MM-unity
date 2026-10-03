@@ -33,20 +33,31 @@ public static class MMSouthLayoutShift20261003
         return x*x*(3f-2f*x);
     }
 
-    static TerrainData EnsureMireClone(Terrain terrain)
+    static TerrainData EnsureMistyFromIronfist()
     {
+        const string sourcePath="Assets/World/WorldExtensions/Generated/CastleIronfist_SouthTerrain.asset";
+        var source=AssetDatabase.LoadAssetAtPath<TerrainData>(sourcePath);
+        if(!source)throw new Exception("Castle Ironfist South source TerrainData missing");
+
         if(!AssetDatabase.IsValidFolder(GeneratedRoot))
+            AssetDatabase.CreateFolder("Assets/World/WorldExtensions/Generated","SouthLayoutShift20261003");
+
+        var clone=AssetDatabase.LoadAssetAtPath<TerrainData>(MistTerrainPath);
+        if(!clone)
         {
-            if(!AssetDatabase.IsValidFolder("Assets/World/WorldExtensions/Generated/SouthLayoutShift20261003"))
-                AssetDatabase.CreateFolder("Assets/World/WorldExtensions/Generated","SouthLayoutShift20261003");
+            clone=UnityEngine.Object.Instantiate(source);
+            clone.name="MistyIslandsSouth_Terrain";
+            AssetDatabase.CreateAsset(clone,MistTerrainPath);
         }
 
-        var existing=AssetDatabase.LoadAssetAtPath<TerrainData>(MistTerrainPath);
-        if(existing)return existing;
-
-        var clone=UnityEngine.Object.Instantiate(terrain.terrainData);
-        clone.name="MistyIslandsSouth_Terrain";
-        AssetDatabase.CreateAsset(clone,MistTerrainPath);
+        clone.heightmapResolution=source.heightmapResolution;
+        clone.size=source.size;
+        clone.alphamapResolution=source.alphamapResolution;
+        clone.baseMapResolution=source.baseMapResolution;
+        clone.terrainLayers=source.terrainLayers;
+        clone.SetHeights(0,0,source.GetHeights(0,0,source.heightmapResolution,source.heightmapResolution));
+        clone.SetAlphamaps(0,0,source.GetAlphamaps(0,0,source.alphamapWidth,source.alphamapHeight));
+        EditorUtility.SetDirty(clone);
         return clone;
     }
 
@@ -252,10 +263,10 @@ public static class MMSouthLayoutShift20261003
         var mireSouth=iron.GetComponentInChildren<Terrain>(true);
         if(!mireSouth)throw new Exception("Former Ironfist-South terrain missing");
 
-        var mireClone=EnsureMireClone(mireSouth);
-        mireSouth.terrainData=mireClone;
+        var mistClone=EnsureMistyFromIronfist();
+        mireSouth.terrainData=mistClone;
         var mireCollider=mireSouth.GetComponent<TerrainCollider>();
-        if(mireCollider)mireCollider.terrainData=mireClone;
+        if(mireCollider)mireCollider.terrainData=mistClone;
         mireSouth.name="Terrain_MistyIslands_South";
 
         west.position=new Vector3(512f,west.position.y,-1024f);
