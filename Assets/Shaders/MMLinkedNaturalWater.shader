@@ -40,6 +40,7 @@ Shader "MMUnity/Linked Natural Water"
             sampler2D _EnrothWaterGrab;
             sampler2D _NormalTex;
             UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
+            float4 _CameraDepthTexture_TexelSize;
             fixed4 _ShallowColor,_MidColor,_DeepColor,_FoamColor,_ReflectionColor;
             float _DepthRange,_FoamDepth,_WaveAmp,_WaveAmp2,_WaveScale,_WaveScale2;
             float4 _WaveSpeed;
@@ -80,19 +81,44 @@ Shader "MMUnity/Linked Natural Water"
                 return o;
             }
 
-            fixed4 frag(v2f i):SV_Target
+            float SceneEyeDepthFromRaw(float raw)
             {
-                float raw=SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture,UNITY_PROJ_COORD(i.screen));
-                // Orthographic depth is linear; LinearEyeDepth assumes a
-                // perspective projection and made map-view foam cover the sea.
                 float orthoRaw=raw;
                 #if defined(UNITY_REVERSED_Z)
                 orthoRaw=1-orthoRaw;
                 #endif
-                float sceneDepth=lerp(LinearEyeDepth(raw),lerp(_ProjectionParams.y,_ProjectionParams.z,orthoRaw),unity_OrthoParams.w);
-                // clip w is one for orthographic cameras, not surface depth.
+                return lerp(LinearEyeDepth(raw),lerp(_ProjectionParams.y,_ProjectionParams.z,orthoRaw),unity_OrthoParams.w);
+            }
+
+            float WaterDepthAt(float2 uv,float surfaceDepth)
+            {
+                float raw=SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture,uv);
+                return max(0,SceneEyeDepthFromRaw(raw)-surfaceDepth);
+            }
+
+            fixed4 frag(v2f i):SV_Target
+            {
                 float surfaceDepth=i.eyeDepth;
-                float depth=max(0,sceneDepth-surfaceDepth);
+                float2 depthUv=i.screen.xy/max(i.screen.w,.0001);
+                float centerDepth=WaterDepthAt(depthUv,surfaceDepth);
+
+                // Far-water depth discontinuities can occur where a finite
+                // source terrain ends below a continuous ocean. Softly borrow
+                // nearby shallower depth only at those abrupt distant edges.
+                float2 tap=_CameraDepthTexture_TexelSize.xy*6.0;
+                float cap=max(_DepthRange,.001);
+                float d0=min(centerDepth,cap);
+                float dl=min(WaterDepthAt(depthUv-float2(tap.x,0),surfaceDepth),cap);
+                float dr=min(WaterDepthAt(depthUv+float2(tap.x,0),surfaceDepth),cap);
+                float dd=min(WaterDepthAt(depthUv-float2(0,tap.y),surfaceDepth),cap);
+                float du=min(WaterDepthAt(depthUv+float2(0,tap.y),surfaceDepth),cap);
+                float nearDepth=min(min(dl,dr),min(dd,du));
+                float edgeGap=max(0,d0-nearDepth);
+                float edgeMask=smoothstep(_DepthRange*.12,_DepthRange*.55,edgeGap);
+                float viewDistance=distance(_WorldSpaceCameraPos,i.worldPos);
+                float farMask=lerp(smoothstep(110,260,viewDistance),.65,unity_OrthoParams.w);
+                float softened=lerp(nearDepth,d0,.45);
+                float depth=lerp(d0,softened,edgeMask*farMask*.88);
                 float depth01=saturate(depth/max(_DepthRange,.001));                float t=_Time.y;
                 float2 uv1=i.worldPos.xz*.110+float2(t*.008,t*.004);
                 float2 uv2=float2(i.worldPos.x*.3907-i.worldPos.z*.9205,
