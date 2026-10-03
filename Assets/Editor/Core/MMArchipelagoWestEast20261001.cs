@@ -17,6 +17,7 @@ public static class MMArchipelagoWestEast20261001
  const string WestAsset=Root+"/ArchipelagoWest_Terrain.asset";
  const string EastAsset=Root+"/ArchipelagoEast_Terrain.asset";
  const string WaterAsset=Root+"/ArchipelagoConnectedWater.asset";
+ const string BaseWaterAsset="Assets/World/WorldExtensions/Generated/LinkedConnectedWater20260929.asset";
  const float TerrainY=-24f,TerrainH=320f,Sea=-6.7f,Water=.10f,Scale=1.40f,ZShift=-30f;
  static Vector2[][] shore;
  static Vector3[] islets;
@@ -207,11 +208,17 @@ public static class MMArchipelagoWestEast20261001
  }
  static float Ground(Terrain t,float x,float z){return t.SampleHeight(new Vector3(x,0,z))+t.transform.position.y;}
  static void PatchGlobalWater(Terrain west,Terrain east){
-  const float x1=768f,x2=1792f,z1=-1280f,z2=-768f,step=2f;
+  // South-layout correction: the two Archipelago quadrants now occupy
+  // x=256..1280 instead of x=768..1792.
+  const float x1=256f,x2=1280f,z1=-1280f,z2=-768f,step=2f;
   var water=SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).FirstOrDefault(t=>t.name=="Linked connected sea and existing lowland waters 20260929");
   if(!water)throw new Exception("Global connected water object missing");
   var mf=water.GetComponent<MeshFilter>();if(!mf||!mf.sharedMesh)throw new Exception("Global connected water mesh missing");
-  var sourceMesh=mf.sharedMesh;var ov=sourceMesh.vertices;if(ov.Length%4!=0||sourceMesh.triangles.Length!=ov.Length/4*6)throw new Exception("Unexpected global water mesh topology");
+  // Always rebuild from the clean connected-water baseline so repeated
+  // scoped Archipelago moves never compound old cutouts/patches.
+  var sourceMesh=AssetDatabase.LoadAssetAtPath<Mesh>(BaseWaterAsset);
+  if(!sourceMesh)throw new Exception("Base connected water mesh missing");
+  var ov=sourceMesh.vertices;if(ov.Length%4!=0||sourceMesh.triangles.Length!=ov.Length/4*6)throw new Exception("Unexpected global water mesh topology");
   var verts=new List<Vector3>();var tris=new List<int>();
   void Quad(float ax,float az,float bx,float bz){if(bx-ax<.001f||bz-az<.001f)return;int n=verts.Count;verts.Add(new Vector3(ax,Water,az));verts.Add(new Vector3(ax,Water,bz));verts.Add(new Vector3(bx,Water,bz));verts.Add(new Vector3(bx,Water,az));tris.AddRange(new[]{n,n+1,n+2,n,n+2,n+3});}
   for(int i=0;i<ov.Length;i+=4){
@@ -222,7 +229,7 @@ public static class MMArchipelagoWestEast20261001
    Quad(ax,az,ix1,bz);Quad(ix2,az,bx,bz);Quad(ix1,az,ix2,iz1);Quad(ix1,iz2,ix2,bz);
   }
   const int W=512,H=256;var wet=new bool[W*H];var draw=new bool[W*H];
-  for(int z=0;z<H;z++)for(int x=0;x<W;x++){float wx=x1+(x+.5f)*step,wz=z1+(z+.5f)*step;var t=wx<1280f?west:east;wet[z*W+x]=Ground(t,wx,wz)<Water;draw[z*W+x]=wet[z*W+x];}
+  for(int z=0;z<H;z++)for(int x=0;x<W;x++){float wx=x1+(x+.5f)*step,wz=z1+(z+.5f)*step;var t=wx<768f?west:east;wet[z*W+x]=Ground(t,wx,wz)<Water;draw[z*W+x]=wet[z*W+x];}
   for(int z=0;z<H;z++)for(int x=0;x<W;x++)if(wet[z*W+x])for(int dz=-1;dz<=1;dz++)for(int dx=-1;dx<=1;dx++){int xx=x+dx,zz=z+dz;if(xx>=0&&zz>=0&&xx<W&&zz<H&&!wet[zz*W+xx])draw[zz*W+xx]=true;}
   var active=new Dictionary<long,int>();var rects=new List<Vector4>();
   for(int z=0;z<H;z++){var next=new Dictionary<long,int>();for(int x=0;x<W;){if(!draw[z*W+x]){x++;continue;}int start=x;while(x<W&&draw[z*W+x])x++;long key=((long)start<<32)|(uint)x;if(active.TryGetValue(key,out int idx)){var r=rects[idx];r.w=z+1;rects[idx]=r;next[key]=idx;}else{next[key]=rects.Count;rects.Add(new Vector4(start,z,x,z+1));}}active=next;}
@@ -233,8 +240,25 @@ public static class MMArchipelagoWestEast20261001
  }
  static Vector3 ExpandPos(Vector3 old,Vector3 oldCenter){
   float rx=(old.x-oldCenter.x+145f)/.84f;float rz=(old.z-oldCenter.z)/1.06f;
-  return new Vector3(1280f+rx*Scale,old.y,-1024f+rz*Scale+ZShift);
+  return new Vector3(768f+rx*Scale,old.y,-1024f+rz*Scale+ZShift);
  }
+ public static void PatchCurrentWaterOnly(){
+  var s=SceneManager.GetActiveScene();
+  if(s.path!=ScenePath)s=EditorSceneManager.OpenScene(ScenePath,OpenSceneMode.Single);
+  var all=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).ToArray();
+  var wr=all.FirstOrDefault(t=>t.name=="Archipelago of the Ancients West - LINKED EXTENSION");
+  var er=all.FirstOrDefault(t=>t.name=="Archipelago of the Ancients East - LINKED EXTENSION");
+  if(!wr||!er)throw new Exception("Shifted Archipelago roots missing");
+  var wt=wr.GetComponentInChildren<Terrain>(true);
+  var et=er.GetComponentInChildren<Terrain>(true);
+  if(!wt||!et)throw new Exception("Shifted Archipelago terrains missing");
+  PatchGlobalWater(wt,et);
+  EditorSceneManager.MarkSceneDirty(s);
+  if(!EditorSceneManager.SaveScene(s))throw new IOException("Could not save Archipelago water-only patch");
+  AssetDatabase.SaveAssets();
+  Debug.Log("ARCHIPELAGO_WATER_ONLY_PATCH_DONE");
+ }
+
  public static void Run(){
   LoadReferenceGeometry();
   var s=EditorSceneManager.OpenScene(ScenePath,OpenSceneMode.Single);
@@ -270,7 +294,7 @@ public static class MMArchipelagoWestEast20261001
 
   var existingEast=world.Cast<Transform>().FirstOrDefault(t=>t.name=="Archipelago of the Ancients East - LINKED EXTENSION");
   if(existingEast)UnityEngine.Object.DestroyImmediate(existingEast.gameObject);
-  var eastRoot=new GameObject("Archipelago of the Ancients East - LINKED EXTENSION");eastRoot.transform.SetParent(world,false);eastRoot.transform.position=new Vector3(1536,0,-1024);
+  var eastRoot=new GameObject("Archipelago of the Ancients East - LINKED EXTENSION");eastRoot.transform.SetParent(world,false);eastRoot.transform.position=new Vector3(1024,0,-1024);
   var etg=Terrain.CreateTerrainGameObject(ed);etg.name="Terrain_ArchipelagoOfTheAncientsEast";etg.transform.SetParent(eastRoot.transform,false);etg.transform.localPosition=new Vector3(-256,TerrainY,-256);
   var eastTerrain=etg.GetComponent<Terrain>();eastTerrain.drawInstanced=true;eastTerrain.heightmapPixelError=5;eastTerrain.basemapDistance=1000;
   // Keep the single coherent linked-water system. Patch only the expanded
@@ -283,9 +307,9 @@ public static class MMArchipelagoWestEast20261001
 
   // Move the standalone player/camera with the enlarged island layout.
   var player=west.Find("Player - Third Person");var camera=west.Find("Player Camera");
-  if(!alreadySplit&&player){var np=ExpandPos(player.position,oldCenter);var tt=np.x<1280?oldTerrain:eastTerrain;np.y=Ground(tt,np.x,np.z)+1.35f;player.SetParent(np.x<1280?west:eastRoot.transform,true);player.position=np;}
-  if(!alreadySplit&&camera){var np=ExpandPos(camera.position,oldCenter);var tt=np.x<1280?oldTerrain:eastTerrain;np.y=Mathf.Max(np.y,Ground(tt,np.x,np.z)+5f);camera.SetParent(np.x<1280?west:eastRoot.transform,true);camera.position=np;}
-  if(world.name.Contains("13 EXTENSION TILES"))world.name=world.name.Replace("13 EXTENSION TILES","14 EXTENSION TILES");
+  if(!alreadySplit&&player){var np=ExpandPos(player.position,oldCenter);var tt=np.x<768?oldTerrain:eastTerrain;np.y=Ground(tt,np.x,np.z)+1.35f;player.SetParent(np.x<768?west:eastRoot.transform,true);player.position=np;}
+  if(!alreadySplit&&camera){var np=ExpandPos(camera.position,oldCenter);var tt=np.x<768?oldTerrain:eastTerrain;np.y=Mathf.Max(np.y,Ground(tt,np.x,np.z)+5f);camera.SetParent(np.x<768?west:eastRoot.transform,true);camera.position=np;}
+  if(world.name.Contains("12 EXTENSION TILES"))world.name=world.name.Replace("12 EXTENSION TILES","13 EXTENSION TILES");
 
   // Verify the newly-created West/East join numerically.
   var wa=wd.GetHeights(512,0,1,513);var ea=ed.GetHeights(0,0,1,513);float join=0;

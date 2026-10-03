@@ -68,9 +68,11 @@ public static class BuildEnrothLinkedOpenWorld
         new VisualEdge{id="Southwest Ocean",scene="SouthwestOcean",col=-1,row=-1},
         new VisualEdge{id="Hermits Isle South",scene="HermitsIsle_South",col=0,row=-1},
         new VisualEdge{id="Dragonsand South",scene="Dragonsand_South",col=1,row=-1},
-        new VisualEdge{id="Mire of the Damned South",scene="MireOfTheDamned_South",col=2,row=-1},
-        new VisualEdge{id="Castle Ironfist South",scene="CastleIronfist_South",col=3,row=-1},
-        new VisualEdge{id="Archipelago of the Ancients",scene="ArchipelagoOfTheAncients",col=4,row=-1},
+        // South layout correction 20261003:
+        // remove the old south filler, move former Ironfist-South into that slot,
+        // rename it Misty Islands South, then move the expanded Archipelago one full tile west.
+        new VisualEdge{id="Misty Islands South",scene="CastleIronfist_South",col=2,row=-1},
+        new VisualEdge{id="Archipelago of the Ancients",scene="ArchipelagoOfTheAncients",col=3,row=-1},
     };
 
     static MMRegionWorldStreamer.Region[] Regions()
@@ -116,7 +118,7 @@ public static class BuildEnrothLinkedOpenWorld
         var master=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
         master.name="Enroth";
         var root=new GameObject("ENROTH - LINKED SOURCE REGIONS");
-        var preview=new GameObject("EDITOR LAYOUT - 15 MM6 REGIONS + DRAGON NORTH/SOUTH + 13 EXTENSION TILES");
+        var preview=new GameObject("EDITOR LAYOUT - 15 MM6 REGIONS + DRAGON NORTH/SOUTH + 12 EXTENSION TILES");
         preview.transform.SetParent(root.transform);
         preview.AddComponent<MMEditorPreviewOnly>();
 
@@ -161,7 +163,8 @@ public static class BuildEnrothLinkedOpenWorld
             string path="Assets/Scenes/"+e.scene+".unity";
             if(!File.Exists(Path.GetFullPath(path))) throw new FileNotFoundException("Edge scene missing",path);
             var sc=EditorSceneManager.OpenScene(path,OpenSceneMode.Additive);
-            var rr=FindRegionRoot(sc,e.id);
+            string sourceId=e.id=="Misty Islands South"?"Castle Ironfist South":e.id;
+            var rr=FindRegionRoot(sc,sourceId);
             Vector3 pos=new Vector3((e.col-2)*RegionSize,0f,(e.row-1)*RegionSize);
             CloneRegion(rr,master,preview.transform,pos,e.id+" - LINKED EXTENSION");
             var edgeLinked=preview.transform.GetChild(preview.transform.childCount-1);

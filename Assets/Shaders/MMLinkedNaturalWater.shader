@@ -165,8 +165,17 @@ Shader "MMUnity/Linked Natural Water"
                 float foam=saturate(shore*noise*.48);
                 water.rgb=lerp(water.rgb,_FoamColor.rgb,foam*.50);
                 water.a=saturate(lerp(_ShallowColor.a,_DeepColor.a,depth01)+fresnel*.10+foam*.06);
-                // Depth and reflection now control the ocean colour directly.
-                // The old global darkening compensated for missing depth input.
+
+                // World-map / top-down views must read as one connected ocean.
+                // Keep a narrow shallow-water cue near coasts, but suppress the
+                // large depth/bathymetry colour blocks that expose terrain-tile
+                // boundaries when viewed orthographically from above.
+                float overview=unity_OrthoParams.w;
+                float overviewDepth=saturate(depth/4.0);
+                fixed3 overviewDeep=lerp(_MidColor.rgb,_DeepColor.rgb,.58);
+                fixed3 overviewColor=lerp(_ShallowColor.rgb,overviewDeep,smoothstep(.08,1.0,overviewDepth));
+                water.rgb=lerp(water.rgb,overviewColor,overview*.96);
+                water.a=lerp(water.a,.985,overview*.98);
 
                 UNITY_APPLY_FOG(i.fogCoord,water);
                 return water;
