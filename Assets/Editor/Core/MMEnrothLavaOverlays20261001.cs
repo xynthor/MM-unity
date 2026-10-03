@@ -18,8 +18,8 @@ public static class MMEnrothLavaOverlays20261001
 
  struct Vent { public string terrain; public float x,z,rx,rz; public Vent(string t,float X,float Z,float RX,float RZ){terrain=t;x=X;z=Z;rx=RX;rz=RZ;} }
  static readonly Vent[] Vents={
-  new Vent("SweetWater_NorthTerrain",464f,265f,4.8f,4.3f),
-  new Vent("Kriegspire_NorthTerrain",189f,331f,7.5f,7.2f)
+  new Vent("SweetWater_NorthTerrain",464f,265f,9.5f,7.8f),
+  new Vent("Kriegspire_NorthTerrain",189f,331f,14.0f,11.5f)
  };
 
  static Terrain FindTerrain(string n){
@@ -40,9 +40,16 @@ public static class MMEnrothLavaOverlays20261001
    }
    for(int iz=0;iz<n;iz++)for(int ix=0;ix<n;ix++){
     float fx=((ix+.5f)/n)*2f-1f,fz=((iz+.5f)/n)*2f-1f;
-    float noise=Mathf.PerlinNoise(ix*.19f+11.3f,iz*.21f+5.7f);
-    float edge=.96f+(noise-.5f)*.08f;
-    if(fx*fx+fz*fz>edge*edge)continue;
+    float noise=Mathf.PerlinNoise(ix*.17f+11.3f,iz*.18f+5.7f);
+    float ang=Mathf.Atan2(fz,fx);
+    float wobble=.10f*Mathf.Sin(ang*3f+v.x*.011f)+.065f*Mathf.Sin(ang*5f+v.z*.017f);
+    float edge=.88f+wobble+(noise-.5f)*.22f;
+    float rr=Mathf.Sqrt(fx*fx+fz*fz);
+    // Two small outward tongues stop the pool reading as a perfect disc.
+    float tongue1=Mathf.Exp(-Mathf.Pow(Mathf.DeltaAngle(ang*Mathf.Rad2Deg,22f)/18f,2f))*Mathf.Max(0f,fx)*.16f;
+    float tongue2=Mathf.Exp(-Mathf.Pow(Mathf.DeltaAngle(ang*Mathf.Rad2Deg,-132f)/22f,2f))*Mathf.Max(0f,-fx)*.12f;
+    edge+=tongue1+tongue2;
+    if(rr>edge)continue;
     int a=start+iz*(n+1)+ix,b=a+1,c=a+(n+1),d=c+1;
     tris.Add(a);tris.Add(b);tris.Add(c);tris.Add(b);tris.Add(d);tris.Add(c);
     tris.Add(a);tris.Add(c);tris.Add(b);tris.Add(b);tris.Add(c);tris.Add(d);accepted+=2;
