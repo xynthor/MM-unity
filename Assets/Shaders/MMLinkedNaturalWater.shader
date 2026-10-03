@@ -1,4 +1,4 @@
-Shader "MMUnity/Linked Natural Water"
+﻿Shader "MMUnity/Linked Natural Water"
 {
     Properties
     {
@@ -170,11 +170,20 @@ Shader "MMUnity/Linked Natural Water"
                 // Keep a narrow shallow-water cue near coasts, but suppress the
                 // large depth/bathymetry colour blocks that expose terrain-tile
                 // boundaries when viewed orthographically from above.
-                float overview=unity_OrthoParams.w;
-                float overviewDepth=saturate(depth/4.0);
+                // Treat steep/high perspective cameras like map views too.
+                // This prevents seabed/tile depth differences from reading as
+                // rectangular water colour blocks in aerial Scene/Game views.
+                float cameraAboveWater=max(0,_WorldSpaceCameraPos.y-i.worldPos.y);
+                float topDown=smoothstep(.52,.88,abs(viewDir.y));
+                float aerial=smoothstep(90,260,cameraAboveWater);
+                float overview=max(unity_OrthoParams.w,aerial);
+
+                // In overview mode only the shallow coastal shelf affects colour.
+                // Beyond ~2 m all water converges to the same ocean family.
+                float overviewDepth=saturate(depth/2.0);
                 fixed3 overviewDeep=lerp(_MidColor.rgb,_DeepColor.rgb,.58);
                 fixed3 overviewColor=lerp(_ShallowColor.rgb,overviewDeep,smoothstep(.08,1.0,overviewDepth));
-                water.rgb=lerp(water.rgb,overviewColor,overview*.96);
+                water.rgb=lerp(water.rgb,overviewColor,overview);
                 water.a=lerp(water.a,.985,overview*.98);
 
                 UNITY_APPLY_FOG(i.fogCoord,water);
@@ -185,3 +194,5 @@ Shader "MMUnity/Linked Natural Water"
     }
     Fallback "Transparent/Diffuse"
 }
+
+
