@@ -8,6 +8,8 @@ using UnityEngine;
 public static class MMNorthMaterialEcotone20261002
 {
     const string GeneratedRoot = "Assets/World/WorldExtensions/Generated";
+    const string NorthReferenceRoot = GeneratedRoot + "/NorthReference20261001";
+    const string LinkedSurfaceTerrainRoot = GeneratedRoot + "/LinkedSurfaceInputs/Terrain";
     const int SouthBand = 64;
     const int LateralBand = 48;
 
@@ -134,13 +136,36 @@ public static class MMNorthMaterialEcotone20261002
     static TerrainData LoadNorth(string region)
     {
         return AssetDatabase.LoadAssetAtPath<TerrainData>(
-            GeneratedRoot + "/" + region + "_NorthTerrain.asset");
+            NorthReferenceRoot + "/" + region + "_NorthTerrain.asset");
+    }
+
+    static TerrainData LoadNamedLinkedSurface(string dataName)
+    {
+        TerrainData found = null;
+
+        foreach (string guid in AssetDatabase.FindAssets(
+            "t:TerrainData",
+            new[] { LinkedSurfaceTerrainRoot }))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            TerrainData data = AssetDatabase.LoadAssetAtPath<TerrainData>(path);
+
+            if (!data || data.name != dataName)
+                continue;
+
+            if (found)
+                throw new InvalidOperationException(
+                    "Multiple linked-surface TerrainData assets named " + dataName);
+
+            found = data;
+        }
+
+        return found;
     }
 
     static TerrainData LoadSouth(string region)
     {
-        return AssetDatabase.LoadAssetAtPath<TerrainData>(
-            GeneratedRoot + "/LinkedSourceTransitions/" + region + "_LinkedNorthProfile.asset");
+        return LoadNamedLinkedSurface(region + "_LinkedNorthProfile");
     }
 
     [MenuItem("MM/World/North/Apply Material Ecotones 20261002")]
