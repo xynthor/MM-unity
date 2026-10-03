@@ -391,9 +391,12 @@ public static class MMHeroSetup
         AssetDatabase.DeleteAsset(ControllerPath);
         var ac = AnimatorController.CreateAnimatorControllerAtPath(ControllerPath);
         ac.AddParameter("Speed", AnimatorControllerParameterType.Float);
+        ac.AddParameter("MoveX", AnimatorControllerParameterType.Float);
+        ac.AddParameter("MoveY", AnimatorControllerParameterType.Float);
+        ac.AddParameter("VerticalSpeed", AnimatorControllerParameterType.Float);
         ac.AddParameter("Grounded", AnimatorControllerParameterType.Bool);
         ac.AddParameter("Block", AnimatorControllerParameterType.Bool);
-        foreach (string p in new[]{"Jump","Attack1","Attack2","Attack3","HeavyAttack","Kick",
+        foreach (string p in new[]{"Attack1","Attack2","Attack3","HeavyAttack","Kick",
                                    "DodgeForward","DodgeBackward","DodgeLeft","DodgeRight","Hit","Death","Cast"})
             AddTrigger(ac,p);
 
@@ -406,10 +409,63 @@ public static class MMHeroSetup
             blendParameter="Speed", useAutomaticThresholds=false
         };
         AssetDatabase.AddObjectToAsset(blend, ac);
+
+        var walkDirectional = new BlendTree {
+            name="HeroWalkDirectional",
+            blendType=BlendTreeType.SimpleDirectional2D,
+            blendParameter="MoveX",
+            blendParameterY="MoveY",
+            useAutomaticThresholds=false
+        };
+        AssetDatabase.AddObjectToAsset(walkDirectional, ac);
+        walkDirectional.AddChild(Clip("Locomotion Pack","walking"), new Vector2(0f,1f));
+        walkDirectional.AddChild(Clip("Locomotion Pack","left strafe walking"), new Vector2(-1f,0f));
+        walkDirectional.AddChild(Clip("Locomotion Pack","right strafe walking"), new Vector2(1f,0f));
+        walkDirectional.AddChild(Clip("Pro Melee Axe Pack","standing walk back"), new Vector2(0f,-1f));
+
+        var runDirectional = new BlendTree {
+            name="HeroRunDirectional",
+            blendType=BlendTreeType.SimpleDirectional2D,
+            blendParameter="MoveX",
+            blendParameterY="MoveY",
+            useAutomaticThresholds=false
+        };
+        AssetDatabase.AddObjectToAsset(runDirectional, ac);
+        runDirectional.AddChild(Clip("Locomotion Pack","running"), new Vector2(0f,1f));
+        runDirectional.AddChild(Clip("Locomotion Pack","left strafe"), new Vector2(-1f,0f));
+        runDirectional.AddChild(Clip("Locomotion Pack","right strafe"), new Vector2(1f,0f));
+        runDirectional.AddChild(Clip("Pro Melee Axe Pack","standing run back"), new Vector2(0f,-1f));
+
         blend.AddChild(Clip("Locomotion Pack","idle"),0f);
-        blend.AddChild(Clip("Locomotion Pack","walking"),0.42f);
-        blend.AddChild(Clip("Locomotion Pack","running"),0.78f);
-        locomotion.motion = blend;        AddAction(sm,"Jump",Clip("Locomotion Pack","jump"),"Jump",0.90f);
+        blend.AddChild(walkDirectional,0.42f);
+        blend.AddChild(runDirectional,0.78f);
+        locomotion.motion = blend;
+
+        var air = sm.AddState("Air");
+        var airBlend = new BlendTree {
+            name="HeroAir",
+            blendType=BlendTreeType.Simple1D,
+            blendParameter="VerticalSpeed",
+            useAutomaticThresholds=false
+        };
+        AssetDatabase.AddObjectToAsset(airBlend, ac);
+        airBlend.AddChild(Clip("Action Adventure Pack","falling idle"),-4f);
+        airBlend.AddChild(Clip("Locomotion Pack","jump"),4f);
+        air.motion = airBlend;
+
+        var toAir = locomotion.AddTransition(air);
+        toAir.hasExitTime = false;
+        toAir.duration = 0.03f;
+        toAir.AddCondition(AnimatorConditionMode.IfNot,0f,"Grounded");
+
+        var fromAir = air.AddTransition(locomotion);
+        fromAir.hasExitTime = false;
+        fromAir.duration = 0.10f;
+        fromAir.AddCondition(AnimatorConditionMode.If,0f,"Grounded");
+
+        var controllerLayers = ac.layers;
+        controllerLayers[0].iKPass = true;
+        ac.layers = controllerLayers;
         AddAction(sm,"Attack 1",Clip("Pro Melee Axe Pack","standing melee attack horizontal"),"Attack1");
         AddAction(sm,"Attack 2",Clip("Pro Melee Axe Pack","standing melee attack backhand"),"Attack2");
         AddAction(sm,"Attack 3",Clip("Pro Melee Axe Pack","standing melee attack downward"),"Attack3");

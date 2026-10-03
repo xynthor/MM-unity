@@ -8,7 +8,6 @@ public class MMHeroCombatController : MonoBehaviour
     int comboStep;
     float lastAttackTime;
 
-    static readonly int JumpHash = Animator.StringToHash("Jump");
     static readonly int Attack1Hash = Animator.StringToHash("Attack1");
     static readonly int Attack2Hash = Animator.StringToHash("Attack2");
     static readonly int Attack3Hash = Animator.StringToHash("Attack3");
@@ -49,9 +48,6 @@ public class MMHeroCombatController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
             animator.SetTrigger(CastHash);
-
-        if (Input.GetButtonDown("Jump"))
-            animator.SetTrigger(JumpHash);
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

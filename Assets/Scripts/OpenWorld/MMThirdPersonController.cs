@@ -58,13 +58,18 @@ public class MMThirdPersonController : MonoBehaviour
 #endif
 
     static readonly int SpeedHash = Animator.StringToHash("Speed");
+    static readonly int MoveXHash = Animator.StringToHash("MoveX");
+    static readonly int MoveYHash = Animator.StringToHash("MoveY");
+    static readonly int VerticalSpeedHash = Animator.StringToHash("VerticalSpeed");
     static readonly int GroundedHash = Animator.StringToHash("Grounded");
 
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        if (!animator) animator = GetComponentInChildren<Animator>();
         if (!playerCamera) playerCamera = Camera.main;
         targetCameraDistance = Mathf.Clamp(cameraDistance, minCameraDistance, maxCameraDistance);
+        EnsureFootIK();
 
         if (playerCamera)
         {
@@ -246,8 +251,30 @@ public class MMThirdPersonController : MonoBehaviour
             ? Mathf.Clamp01(planarVelocity.magnitude / sprintSpeed)
             : 0f;
 
+        Vector3 localVelocity = transform.InverseTransformDirection(planarVelocity);
+        float planarSpeed = planarVelocity.magnitude;
+        float moveX = planarSpeed > 0.05f ? localVelocity.x / planarSpeed : 0f;
+        float moveY = planarSpeed > 0.05f ? localVelocity.z / planarSpeed : 0f;
+
         animator.SetFloat(SpeedHash, normalizedSpeed, 0.10f, Time.deltaTime);
+        animator.SetFloat(MoveXHash, moveX, 0.08f, Time.deltaTime);
+        animator.SetFloat(MoveYHash, moveY, 0.08f, Time.deltaTime);
+        animator.SetFloat(VerticalSpeedHash, verticalVelocity, 0.06f, Time.deltaTime);
         animator.SetBool(GroundedHash, grounded);
+    }
+
+    void EnsureFootIK()
+    {
+        if (!animator || !animator.isHuman)
+            return;
+
+        var footIK = animator.GetComponent<MMHeroFootIK>();
+        if (!footIK)
+            footIK = animator.gameObject.AddComponent<MMHeroFootIK>();
+
+        footIK.animator = animator;
+        footIK.characterRoot = transform;
+        footIK.characterController = controller;
     }
 
 #if UNITY_EDITOR
