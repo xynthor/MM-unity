@@ -17,6 +17,11 @@ public class MMThirdPersonController : MonoBehaviour
     public float rotationSpeed = 12f;
     public float rotationSmoothTime = 0.085f;
 
+    [Header("Turn Anticipation")]
+    public float turnAnticipationAngle = 65f;
+    public float turnAnticipationMaxSpeed = 0.35f;
+    public float turnAnticipationCooldown = 0.55f;
+
     [Header("Jump / Gravity")]
     public float jumpHeight = 1.4f;
     public float gravity = -24f;
@@ -48,6 +53,7 @@ public class MMThirdPersonController : MonoBehaviour
     float lastGroundedTime = -100f;
     float lastJumpPressedTime = -100f;
     float targetCameraDistance;
+    float nextTurnAnticipationTime;
 
 #if UNITY_EDITOR
     bool editorTestOverride;
@@ -62,6 +68,8 @@ public class MMThirdPersonController : MonoBehaviour
     static readonly int MoveYHash = Animator.StringToHash("MoveY");
     static readonly int VerticalSpeedHash = Animator.StringToHash("VerticalSpeed");
     static readonly int GroundedHash = Animator.StringToHash("Grounded");
+    static readonly int TurnLeftHash = Animator.StringToHash("TurnLeft");
+    static readonly int TurnRightHash = Animator.StringToHash("TurnRight");
 
     void Awake()
     {
@@ -122,6 +130,8 @@ public class MMThirdPersonController : MonoBehaviour
 
         Vector3 desiredDirection = camForward * input.y + camRight * input.x;
         if (desiredDirection.sqrMagnitude > 1f) desiredDirection.Normalize();
+
+        TryTurnAnticipation(desiredDirection, input.magnitude, groundedBeforeMove);
 
         bool sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         bool walk = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
@@ -240,6 +250,28 @@ public class MMThirdPersonController : MonoBehaviour
                 targetRotation,
                 blend);
         }
+    }
+
+    void TryTurnAnticipation(Vector3 desiredDirection, float inputAmount, bool grounded)
+    {
+        if (!grounded ||
+            inputAmount < 0.20f ||
+            desiredDirection.sqrMagnitude < 0.001f ||
+            planarVelocity.magnitude > turnAnticipationMaxSpeed ||
+            Time.time < nextTurnAnticipationTime ||
+            !animator ||
+            !animator.runtimeAnimatorController ||
+            !animator.isActiveAndEnabled)
+            return;
+
+        float angle = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
+        if (Mathf.Abs(angle) < turnAnticipationAngle)
+            return;
+
+        animator.ResetTrigger(TurnLeftHash);
+        animator.ResetTrigger(TurnRightHash);
+        animator.SetTrigger(angle < 0f ? TurnLeftHash : TurnRightHash);
+        nextTurnAnticipationTime = Time.time + turnAnticipationCooldown;
     }
 
     void UpdateAnimator(bool grounded)

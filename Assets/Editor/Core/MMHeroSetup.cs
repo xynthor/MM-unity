@@ -388,8 +388,30 @@ public static class MMHeroSetup
 
     static void BuildController()
     {
-        AssetDatabase.DeleteAsset(ControllerPath);
-        var ac = AnimatorController.CreateAnimatorControllerAtPath(ControllerPath);
+        var ac = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
+        if (!ac)
+        {
+            ac = AnimatorController.CreateAnimatorControllerAtPath(ControllerPath);
+        }
+        else
+        {
+            // Rebuild in place so open-scene Animator references never drop while
+            // iterating the generated controller.
+            var existingRoot = ac.layers[0].stateMachine;
+            existingRoot.states = Array.Empty<ChildAnimatorState>();
+            existingRoot.stateMachines = Array.Empty<ChildAnimatorStateMachine>();
+            existingRoot.anyStateTransitions = Array.Empty<AnimatorStateTransition>();
+            existingRoot.entryTransitions = Array.Empty<AnimatorTransition>();
+            existingRoot.defaultState = null;
+
+            foreach (var objectToRemove in AssetDatabase.LoadAllAssetsAtPath(ControllerPath)
+                         .Where(o => o is AnimatorState || o is BlendTree)
+                         .ToArray())
+                UnityEngine.Object.DestroyImmediate(objectToRemove, true);
+
+            ac.parameters = Array.Empty<AnimatorControllerParameter>();
+        }
+
         ac.AddParameter("Speed", AnimatorControllerParameterType.Float);
         ac.AddParameter("MoveX", AnimatorControllerParameterType.Float);
         ac.AddParameter("MoveY", AnimatorControllerParameterType.Float);
@@ -397,7 +419,8 @@ public static class MMHeroSetup
         ac.AddParameter("Grounded", AnimatorControllerParameterType.Bool);
         ac.AddParameter("Block", AnimatorControllerParameterType.Bool);
         foreach (string p in new[]{"Attack1","Attack2","Attack3","HeavyAttack","Kick",
-                                   "DodgeForward","DodgeBackward","DodgeLeft","DodgeRight","Hit","Death","Cast"})
+                                   "DodgeForward","DodgeBackward","DodgeLeft","DodgeRight","Hit","Death","Cast",
+                                   "TurnLeft","TurnRight"})
             AddTrigger(ac,p);
 
         var sm = ac.layers[0].stateMachine;
@@ -462,6 +485,30 @@ public static class MMHeroSetup
         fromAir.hasExitTime = false;
         fromAir.duration = 0.10f;
         fromAir.AddCondition(AnimatorConditionMode.If,0f,"Grounded");
+
+        var turnLeft = sm.AddState("Turn Left");
+        turnLeft.motion = Clip("Locomotion Pack","left turn 90");
+        turnLeft.speed = 1.45f;
+        var toTurnLeft = locomotion.AddTransition(turnLeft);
+        toTurnLeft.hasExitTime = false;
+        toTurnLeft.duration = 0.04f;
+        toTurnLeft.AddCondition(AnimatorConditionMode.If,0f,"TurnLeft");
+        var fromTurnLeft = turnLeft.AddTransition(locomotion);
+        fromTurnLeft.hasExitTime = true;
+        fromTurnLeft.exitTime = 0.72f;
+        fromTurnLeft.duration = 0.08f;
+
+        var turnRight = sm.AddState("Turn Right");
+        turnRight.motion = Clip("Locomotion Pack","right turn 90");
+        turnRight.speed = 1.45f;
+        var toTurnRight = locomotion.AddTransition(turnRight);
+        toTurnRight.hasExitTime = false;
+        toTurnRight.duration = 0.04f;
+        toTurnRight.AddCondition(AnimatorConditionMode.If,0f,"TurnRight");
+        var fromTurnRight = turnRight.AddTransition(locomotion);
+        fromTurnRight.hasExitTime = true;
+        fromTurnRight.exitTime = 0.72f;
+        fromTurnRight.duration = 0.08f;
 
         var controllerLayers = ac.layers;
         controllerLayers[0].iKPass = true;
