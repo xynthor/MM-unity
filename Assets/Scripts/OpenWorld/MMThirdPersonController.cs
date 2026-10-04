@@ -17,6 +17,10 @@ public class MMThirdPersonController : MonoBehaviour
     public float rotationSpeed = 12f;
     public float rotationSmoothTime = 0.085f;
 
+    [Header("Traversal Slopes")]
+    public float terrainSlopeLimit = 52f;
+    public float structureSlopeLimit = 56f;
+
     [Header("Turn Anticipation")]
     public float turnAnticipationAngle = 65f;
     public float turnAnticipationMaxSpeed = 0.35f;
@@ -47,6 +51,9 @@ public class MMThirdPersonController : MonoBehaviour
     public float cameraSmoothTime = 0.055f;
     public float cameraCollisionRadius = 0.28f;
     public float cameraCollisionPadding = 0.18f;
+    public float cameraCollisionMinDistance = 0.12f;
+    public float cameraHidePlayerDistance = 0.70f;
+    public float cameraNearClip = 0.08f;
     public float cameraLookAhead = 0.12f;
 
     [Header("Camera Feel")]
@@ -67,6 +74,7 @@ public class MMThirdPersonController : MonoBehaviour
     float nextRunStopTime;
     float nextHardLandingTime;
     float baseCameraFov;
+    Renderer[] visualRenderers;
 
 #if UNITY_EDITOR
     bool editorTestOverride;
@@ -92,13 +100,17 @@ public class MMThirdPersonController : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        controller.slopeLimit = Mathf.Max(controller.slopeLimit, structureSlopeLimit);
         if (!animator) animator = GetComponentInChildren<Animator>();
         if (!playerCamera) playerCamera = Camera.main;
+        if (!visualRoot && animator) visualRoot = animator.transform;
+        visualRenderers = visualRoot ? visualRoot.GetComponentsInChildren<Renderer>(true) : new Renderer[0];
         targetCameraDistance = Mathf.Clamp(cameraDistance, minCameraDistance, maxCameraDistance);
         EnsureFootIK();
 
         if (playerCamera)
         {
+            playerCamera.nearClipPlane = Mathf.Min(playerCamera.nearClipPlane, cameraNearClip);
             baseCameraFov = playerCamera.fieldOfView;
             yaw = playerCamera.transform.eulerAngles.y;
             float cameraPitch = playerCamera.transform.eulerAngles.x;
@@ -164,6 +176,7 @@ public class MMThirdPersonController : MonoBehaviour
 #endif
         float maxSpeed = walk ? walkSpeed : (sprint ? sprintSpeed : runSpeed);
         Vector3 desiredVelocity = desiredDirection * (maxSpeed * input.magnitude);
+        ConstrainSteepSlope(ref desiredVelocity);
 
         float control = groundedBeforeMove ? 1f : airControl;
         float rate = desiredVelocity.sqrMagnitude > planarVelocity.sqrMagnitude ? acceleration : deceleration;
@@ -263,15 +276,42 @@ public class MMThirdPersonController : MonoBehaviour
 
             if (nearest < castDistance)
                 desired = focus + castDirection * Mathf.Max(
-                    minCameraDistance * 0.35f,
+                    cameraCollisionMinDistance,
                     nearest - cameraCollisionPadding);
         }
 
-        playerCamera.transform.position = Vector3.SmoothDamp(
+        Vector3 cameraPosition = Vector3.SmoothDamp(
             playerCamera.transform.position,
             desired,
             ref cameraVelocity,
             cameraSmoothTime);
+
+        // SmoothDamp can sweep through a wall even when the collision target
+        // itself is valid. Reject a penetrated intermediate point immediately.
+        if (IsCameraPositionBlocked(cameraPosition))
+        {
+            cameraVelocity = Vector3.zero;
+            cameraPosition = desired;
+
+            // Extremely tight interiors can begin the orbit ray inside nearby
+            // geometry. Walk the fallback toward the focus until a clear point
+            // is found rather than rendering from inside the wall.
+            if (IsCameraPositionBlocked(cameraPosition))
+            {
+                for (int i = 1; i <= 8; i++)
+                {
+                    Vector3 candidate = Vector3.Lerp(desired, focus, i / 8f);
+                    if (!IsCameraPositionBlocked(candidate))
+                    {
+                        cameraPosition = candidate;
+                        break;
+                    }
+                }
+            }
+        }
+
+        playerCamera.transform.position = cameraPosition;
+        UpdateNearCameraVisibility(focus);
 
         Vector3 look = focus - playerCamera.transform.position;
         if (look.sqrMagnitude > 0.0001f)
@@ -283,6 +323,127 @@ public class MMThirdPersonController : MonoBehaviour
                 targetRotation,
                 blend);
         }
+    }
+
+    bool IsCameraPositionBlocked(Vector3 position)
+    {
+        float radius = Mathf.Max(0.05f, cameraCollisionRadius * 0.35f);
+        Collider[] overlaps = Physics.OverlapSphere(
+            position,
+            radius,
+            ~0,
+            QueryTriggerInteraction.Ignore);
+
+        foreach (Collider c in overlaps)
+        {
+            if (!c) continue;
+            Transform ct = c.transform;
+            if (ct == transform || ct.IsChildOf(transform)) continue;
+            return true;
+        }
+
+        return false;
+    }
+
+    void UpdateNearCameraVisibility(Vector3 focus)
+    {
+        if (visualRenderers == null || visualRenderers.Length == 0 || !playerCamera)
+            return;
+
+        bool hide = Vector3.Distance(playerCamera.transform.position, focus) < cameraHidePlayerDistance;
+        foreach (Renderer r in visualRenderers)
+            if (r) r.forceRenderingOff = hide;
+    }
+
+    void OnDisable()
+    {
+        if (visualRenderers == null) return;
+        foreach (Renderer r in visualRenderers)
+            if (r) r.forceRenderingOff = false;
+    }
+
+    void ConstrainSteepSlope(ref Vector3 desiredVelocity)
+    {
+        if (desiredVelocity.sqrMagnitude < 0.0001f)
+            return;
+
+        Vector3 travel = desiredVelocity.normalized;
+        Vector3 currentNormal;
+        Vector3 aheadNormal;
+        bool currentHit = TrySampleGroundNormal(transform.position, out currentNormal);
+        bool aheadHit = TrySampleGroundNormal(
+            transform.position + travel * Mathf.Max(0.35f, controller.radius * 1.8f),
+            out aheadNormal);
+
+        Vector3 steepNormal = Vector3.up;
+        float steepAngle = 0f;
+
+        if (currentHit)
+        {
+            float angle = Vector3.Angle(currentNormal, Vector3.up);
+            if (angle > steepAngle)
+            {
+                steepAngle = angle;
+                steepNormal = currentNormal;
+            }
+        }
+
+        if (aheadHit)
+        {
+            float angle = Vector3.Angle(aheadNormal, Vector3.up);
+            if (angle > steepAngle)
+            {
+                steepAngle = angle;
+                steepNormal = aheadNormal;
+            }
+        }
+
+        if (steepAngle <= terrainSlopeLimit + 0.5f)
+            return;
+
+        Vector3 uphill = new Vector3(-steepNormal.x, 0f, -steepNormal.z);
+        if (uphill.sqrMagnitude < 0.0001f)
+            return;
+        uphill.Normalize();
+
+        float desiredUphill = Vector3.Dot(desiredVelocity, uphill);
+        if (desiredUphill > 0f)
+            desiredVelocity -= uphill * desiredUphill;
+
+        float carriedUphill = Vector3.Dot(planarVelocity, uphill);
+        if (carriedUphill > 0f)
+            planarVelocity -= uphill * carriedUphill;
+    }
+
+    bool TrySampleGroundNormal(Vector3 samplePosition, out Vector3 normal)
+    {
+        normal = Vector3.up;
+        Vector3 origin = samplePosition + Vector3.up * 1.15f;
+        RaycastHit[] hits = Physics.RaycastAll(
+            origin,
+            Vector3.down,
+            2.8f,
+            ~0,
+            QueryTriggerInteraction.Ignore);
+
+        bool found = false;
+        float bestDistance = float.MaxValue;
+
+        foreach (RaycastHit hit in hits)
+        {
+            if (!hit.collider) continue;
+            Transform ht = hit.collider.transform;
+            if (ht == transform || ht.IsChildOf(transform)) continue;
+            if (!(hit.collider is TerrainCollider)) continue;
+            if (hit.normal.y <= 0.01f) continue;
+            if (hit.distance >= bestDistance) continue;
+
+            bestDistance = hit.distance;
+            normal = hit.normal;
+            found = true;
+        }
+
+        return found;
     }
 
     void TryTurnAnticipation(Vector3 desiredDirection, float inputAmount, bool grounded)
