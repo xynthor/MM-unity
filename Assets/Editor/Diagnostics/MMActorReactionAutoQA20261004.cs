@@ -10,6 +10,7 @@ public static class MMActorReactionAutoQA20261004
     const string Trigger = Root + "/run_actor_reaction.flag";
     const string Result = Root + "/actor_reaction.txt";
     const string Error = Root + "/actor_reaction_error.txt";
+    const string SessionKey = "MMActorReactionAutoQA20261004";
 
     [InitializeOnLoadMethod]
     static void Initialize()
@@ -33,6 +34,7 @@ public static class MMActorReactionAutoQA20261004
             if (File.Exists(Result)) File.Delete(Result);
             if (File.Exists(Error)) File.Delete(Error);
             File.Delete(Trigger);
+            SessionState.SetBool(SessionKey, true);
             EditorApplication.isPlaying = true;
         }
         catch (Exception e)
@@ -43,6 +45,15 @@ public static class MMActorReactionAutoQA20261004
 
     static void ModeChanged(PlayModeStateChange state)
     {
+        if (!SessionState.GetBool(SessionKey, false))
+            return;
+
+        if (state == PlayModeStateChange.EnteredEditMode)
+        {
+            SessionState.SetBool(SessionKey, false);
+            return;
+        }
+
         if (state != PlayModeStateChange.EnteredPlayMode)
             return;
 
