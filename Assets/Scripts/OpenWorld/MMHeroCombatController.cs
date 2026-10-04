@@ -8,6 +8,9 @@ public class MMHeroCombatController : MonoBehaviour
     public Animator animator;
     public float comboReset = 0.85f;
 
+    [Header("Input")]
+    public KeyCode kickKey = KeyCode.C;
+
     [Header("Melee Hit Detection")]
     public Transform hitOrigin;
     public LayerMask damageMask = ~0;
@@ -78,7 +81,7 @@ public class MMHeroCombatController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
             TriggerHeavyAttack();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(kickKey))
             TriggerKick();
 
         if (Input.GetKeyDown(KeyCode.R))
