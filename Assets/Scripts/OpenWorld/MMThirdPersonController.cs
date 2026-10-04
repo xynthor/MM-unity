@@ -43,6 +43,10 @@ public class MMThirdPersonController : MonoBehaviour
     public float cameraCollisionPadding = 0.18f;
     public float cameraLookAhead = 0.12f;
 
+    [Header("Camera Feel")]
+    public float sprintFovBonus = 4.0f;
+    public float fovResponse = 5.0f;
+
     CharacterController controller;
     Vector3 planarVelocity;
     Vector3 cameraVelocity;
@@ -54,6 +58,7 @@ public class MMThirdPersonController : MonoBehaviour
     float lastJumpPressedTime = -100f;
     float targetCameraDistance;
     float nextTurnAnticipationTime;
+    float baseCameraFov;
 
 #if UNITY_EDITOR
     bool editorTestOverride;
@@ -81,6 +86,7 @@ public class MMThirdPersonController : MonoBehaviour
 
         if (playerCamera)
         {
+            baseCameraFov = playerCamera.fieldOfView;
             yaw = playerCamera.transform.eulerAngles.y;
             float cameraPitch = playerCamera.transform.eulerAngles.x;
             pitch = cameraPitch > 180f ? cameraPitch - 360f : cameraPitch;
@@ -198,6 +204,14 @@ public class MMThirdPersonController : MonoBehaviour
                 targetCameraDistance - scroll * cameraZoomSpeed,
                 minCameraDistance,
                 maxCameraDistance);
+
+        float speed01 = sprintSpeed > 0.001f
+            ? Mathf.Clamp01(planarVelocity.magnitude / sprintSpeed)
+            : 0f;
+        float sprintBlend = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.62f, 1f, speed01));
+        float targetFov = baseCameraFov + sprintFovBonus * sprintBlend;
+        float fovK = 1f - Mathf.Exp(-Mathf.Max(0.1f, fovResponse) * Time.deltaTime);
+        playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, targetFov, fovK);
 
         Vector3 lookAhead = planarVelocity * cameraLookAhead;
         lookAhead.y = 0f;
