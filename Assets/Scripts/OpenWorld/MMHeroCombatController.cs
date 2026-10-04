@@ -36,7 +36,10 @@ public class MMHeroCombatController : MonoBehaviour
 
     int comboStep;
     float lastAttackTime;
+    bool isBlocking;
     readonly Collider[] hitBuffer = new Collider[32];
+
+    public bool IsBlocking => isBlocking;
 
 #if UNITY_EDITOR
     int editorMeleeSwingCount;
@@ -76,7 +79,7 @@ public class MMHeroCombatController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
             TriggerLightAttack();
 
-        animator.SetBool(BlockHash, Input.GetMouseButton(1));
+        SetBlocking(Input.GetMouseButton(1));
 
         if (Input.GetKeyDown(KeyCode.F))
             TriggerHeavyAttack();
@@ -99,6 +102,16 @@ public class MMHeroCombatController : MonoBehaviour
             else
                 animator.SetTrigger(DodgeFHash);
         }
+    }
+
+    void SetBlocking(bool value)
+    {
+        isBlocking = value;
+
+        if (animator &&
+            animator.runtimeAnimatorController &&
+            animator.isActiveAndEnabled)
+            animator.SetBool(BlockHash, value);
     }
 
     void TriggerLightAttack()
@@ -186,7 +199,13 @@ public class MMHeroCombatController : MonoBehaviour
                 continue;
 
             damaged.Add(health);
-            if (health.ApplyDamage(damage, gameObject))
+
+            MMCombatActor actor = health.GetComponent<MMCombatActor>();
+            bool applied = actor
+                ? actor.ReceiveDamage(damage, gameObject)
+                : health.ApplyDamage(damage, gameObject);
+
+            if (applied)
                 successfulHits++;
         }
 
@@ -236,7 +255,7 @@ public class MMHeroCombatController : MonoBehaviour
         animator.ResetTrigger(HitHash);
         animator.ResetTrigger(DeathHash);
         animator.ResetTrigger(CastHash);
-        animator.SetBool(BlockHash, false);
+        SetBlocking(false);
     }
 
 #if UNITY_EDITOR
@@ -247,6 +266,11 @@ public class MMHeroCombatController : MonoBehaviour
     {
         editorMeleeSwingCount = 0;
         editorMeleeTargetHitCount = 0;
+    }
+
+    public void EditorSetBlockingForQa(bool value)
+    {
+        SetBlocking(value);
     }
 
     public int EditorApplyMeleeHitForQa(

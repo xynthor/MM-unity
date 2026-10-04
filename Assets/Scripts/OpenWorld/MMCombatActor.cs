@@ -9,12 +9,18 @@ public class MMCombatActor : MonoBehaviour
     public bool disableCombatOnDeath = true;
     public bool disableCharacterControllerOnDeath;
 
+    [Header("Defense")]
+    [Range(0f, 1f)] public float blockDamageReduction = 0.70f;
+    [Range(0f, 180f)] public float blockArc = 120f;
+
     MMThirdPersonController movement;
     MMHeroCombatController combat;
+    bool suppressHitReaction;
 
 #if UNITY_EDITOR
     public int EditorHitReactionCount { get; private set; }
     public int EditorDeathReactionCount { get; private set; }
+    public int EditorBlockedHitCount { get; private set; }
 #endif
 
     static readonly int HitHash = Animator.StringToHash("Hit");
@@ -44,9 +50,51 @@ public class MMCombatActor : MonoBehaviour
         }
     }
 
+    public bool ReceiveDamage(float amount, GameObject source = null)
+    {
+        if (!health || health.IsDead || amount <= 0f)
+            return false;
+
+        bool blocked = IsBlockingAgainst(source);
+        float appliedAmount = blocked
+            ? amount * (1f - Mathf.Clamp01(blockDamageReduction))
+            : amount;
+
+        suppressHitReaction = blocked;
+        bool applied = health.ApplyDamage(appliedAmount, source);
+        suppressHitReaction = false;
+
+#if UNITY_EDITOR
+        if (applied && blocked)
+            EditorBlockedHitCount++;
+#endif
+
+        return applied;
+    }
+
+    bool IsBlockingAgainst(GameObject source)
+    {
+        if (!combat)
+            combat = GetComponent<MMHeroCombatController>();
+
+        if (!combat || !combat.IsBlocking || !source)
+            return false;
+
+        Vector3 toSource = source.transform.position - transform.position;
+        toSource.y = 0f;
+
+        if (toSource.sqrMagnitude < 0.0001f)
+            return true;
+
+        toSource.Normalize();
+        float halfArc = Mathf.Clamp(blockArc, 0f, 180f) * 0.5f;
+        float threshold = Mathf.Cos(halfArc * Mathf.Deg2Rad);
+        return Vector3.Dot(transform.forward, toSource) >= threshold;
+    }
+
     void OnDamaged(MMHealth value, float amount, GameObject source)
     {
-        if (value.IsDead)
+        if (value.IsDead || suppressHitReaction)
             return;
 
         if (CanTrigger(HitHash))
