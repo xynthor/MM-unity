@@ -19,6 +19,7 @@ public class MMInteractionController : MonoBehaviour
     public float promptBottomOffset = 82f;
 
     MMInteractable current;
+    MMDialogueController dialogue;
     GUIStyle promptStyle;
 
     public MMInteractable CurrentInteractable => current;
@@ -36,10 +37,21 @@ public class MMInteractionController : MonoBehaviour
 
         if (!playerCamera)
             playerCamera = Camera.main;
+
+        dialogue = GetComponent<MMDialogueController>();
     }
 
     void Update()
     {
+        if (!dialogue)
+            dialogue = GetComponent<MMDialogueController>();
+
+        if (dialogue && dialogue.IsActive)
+        {
+            current = null;
+            return;
+        }
+
         current = Scan();
 
         if (current &&
@@ -160,10 +172,29 @@ public static class MMInteractionBootstrap
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     static void EnsureController()
     {
-        MMThirdPersonController player =
-            Object.FindObjectsByType<MMThirdPersonController>(
-                    FindObjectsInactive.Exclude)
-                .FirstOrDefault(p => p.gameObject.activeInHierarchy);
+        MMThirdPersonController player = null;
+        MMThirdPersonController fallback = null;
+
+        foreach (MMThirdPersonController candidate in
+                 Object.FindObjectsByType<MMThirdPersonController>(
+                     FindObjectsInactive.Exclude))
+        {
+            if (!candidate || !candidate.gameObject.activeInHierarchy)
+                continue;
+
+            if (!fallback)
+                fallback = candidate;
+
+            if (candidate.transform.parent &&
+                candidate.transform.parent.name.Contains("Persistent Player"))
+            {
+                player = candidate;
+                break;
+            }
+        }
+
+        if (!player)
+            player = fallback;
 
         if (!player)
             return;
