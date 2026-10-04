@@ -22,6 +22,12 @@ public class MMThirdPersonController : MonoBehaviour
     public float turnAnticipationMaxSpeed = 0.35f;
     public float turnAnticipationCooldown = 0.55f;
 
+    [Header("Stop / Landing")]
+    public float runStopMinSpeed = 4.5f;
+    public float runStopCooldown = 0.70f;
+    public float hardLandingMinImpactSpeed = 9.5f;
+    public float hardLandingCooldown = 0.80f;
+
     [Header("Jump / Gravity")]
     public float jumpHeight = 1.4f;
     public float gravity = -24f;
@@ -58,6 +64,8 @@ public class MMThirdPersonController : MonoBehaviour
     float lastJumpPressedTime = -100f;
     float targetCameraDistance;
     float nextTurnAnticipationTime;
+    float nextRunStopTime;
+    float nextHardLandingTime;
     float baseCameraFov;
 
 #if UNITY_EDITOR
@@ -66,6 +74,9 @@ public class MMThirdPersonController : MonoBehaviour
     bool editorTestSprint;
     bool editorTestWalk;
     bool editorTestJumpPressed;
+    int editorRunStopTriggerCount;
+    int editorHardLandingTriggerCount;
+    int editorJumpTriggerCount;
 #endif
 
     static readonly int SpeedHash = Animator.StringToHash("Speed");
@@ -75,6 +86,8 @@ public class MMThirdPersonController : MonoBehaviour
     static readonly int GroundedHash = Animator.StringToHash("Grounded");
     static readonly int TurnLeftHash = Animator.StringToHash("TurnLeft");
     static readonly int TurnRightHash = Animator.StringToHash("TurnRight");
+    static readonly int RunStopHash = Animator.StringToHash("RunStop");
+    static readonly int HardLandHash = Animator.StringToHash("HardLand");
 
     void Awake()
     {
@@ -138,6 +151,7 @@ public class MMThirdPersonController : MonoBehaviour
         if (desiredDirection.sqrMagnitude > 1f) desiredDirection.Normalize();
 
         TryTurnAnticipation(desiredDirection, input.magnitude, groundedBeforeMove);
+        TryRunStop(input.magnitude, groundedBeforeMove);
 
         bool sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         bool walk = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
@@ -173,14 +187,19 @@ public class MMThirdPersonController : MonoBehaviour
         if (canCoyoteJump && hasBufferedJump)
         {
             verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+#if UNITY_EDITOR
+            editorJumpTriggerCount++;
+#endif
             lastJumpPressedTime = -100f;
             lastGroundedTime = -100f;
         }
 
         verticalVelocity += gravity * Time.deltaTime;
+        float impactVelocity = verticalVelocity;
         controller.Move((planarVelocity + Vector3.up * verticalVelocity) * Time.deltaTime);
 
         bool groundedAfterMove = controller.isGrounded;
+        TryHardLanding(groundedBeforeMove, groundedAfterMove, impactVelocity);
         if (groundedAfterMove && verticalVelocity < groundedForce)
             verticalVelocity = groundedForce;
 
@@ -288,6 +307,42 @@ public class MMThirdPersonController : MonoBehaviour
         nextTurnAnticipationTime = Time.time + turnAnticipationCooldown;
     }
 
+    void TryRunStop(float inputAmount, bool grounded)
+    {
+        if (!grounded ||
+            inputAmount > 0.08f ||
+            planarVelocity.magnitude < runStopMinSpeed ||
+            Time.time < nextRunStopTime ||
+            !animator ||
+            !animator.runtimeAnimatorController ||
+            !animator.isActiveAndEnabled)
+            return;
+
+        animator.SetTrigger(RunStopHash);
+#if UNITY_EDITOR
+        editorRunStopTriggerCount++;
+#endif
+        nextRunStopTime = Time.time + runStopCooldown;
+    }
+
+    void TryHardLanding(bool groundedBeforeMove, bool groundedAfterMove, float impactVelocity)
+    {
+        if (groundedBeforeMove ||
+            !groundedAfterMove ||
+            impactVelocity > -hardLandingMinImpactSpeed ||
+            Time.time < nextHardLandingTime ||
+            !animator ||
+            !animator.runtimeAnimatorController ||
+            !animator.isActiveAndEnabled)
+            return;
+
+        animator.SetTrigger(HardLandHash);
+#if UNITY_EDITOR
+        editorHardLandingTriggerCount++;
+#endif
+        nextHardLandingTime = Time.time + hardLandingCooldown;
+    }
+
     void UpdateAnimator(bool grounded)
     {
         if (!animator || !animator.runtimeAnimatorController || !animator.isActiveAndEnabled)
@@ -344,6 +399,16 @@ public class MMThirdPersonController : MonoBehaviour
 
     public Vector3 EditorPlanarVelocity => planarVelocity;
     public float EditorVerticalVelocity => verticalVelocity;
+    public int EditorRunStopTriggerCount => editorRunStopTriggerCount;
+    public int EditorHardLandingTriggerCount => editorHardLandingTriggerCount;
+    public int EditorJumpTriggerCount => editorJumpTriggerCount;
+
+    public void EditorResetMovementQaCounters()
+    {
+        editorRunStopTriggerCount = 0;
+        editorHardLandingTriggerCount = 0;
+        editorJumpTriggerCount = 0;
+    }
 #endif
 
     void HandleCursor()

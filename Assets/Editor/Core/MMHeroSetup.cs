@@ -420,7 +420,7 @@ public static class MMHeroSetup
         ac.AddParameter("Block", AnimatorControllerParameterType.Bool);
         foreach (string p in new[]{"Attack1","Attack2","Attack3","HeavyAttack","Kick",
                                    "DodgeForward","DodgeBackward","DodgeLeft","DodgeRight","Hit","Death","Cast",
-                                   "TurnLeft","TurnRight"})
+                                   "TurnLeft","TurnRight","RunStop","HardLand"})
             AddTrigger(ac,p);
 
         var sm = ac.layers[0].stateMachine;
@@ -509,6 +509,31 @@ public static class MMHeroSetup
         fromTurnRight.hasExitTime = true;
         fromTurnRight.exitTime = 0.72f;
         fromTurnRight.duration = 0.08f;
+
+        var runStop = sm.AddState("Run Stop");
+        runStop.motion = Clip("Action Adventure Pack","run to stop");
+        runStop.speed = 1.35f;
+        var toRunStop = locomotion.AddTransition(runStop);
+        toRunStop.hasExitTime = false;
+        toRunStop.duration = 0.03f;
+        toRunStop.AddCondition(AnimatorConditionMode.If,0f,"RunStop");
+        var fromRunStop = runStop.AddTransition(locomotion);
+        fromRunStop.hasExitTime = true;
+        fromRunStop.exitTime = 0.58f;
+        fromRunStop.duration = 0.08f;
+
+        var hardLanding = sm.AddState("Hard Landing");
+        hardLanding.motion = Clip("Action Adventure Pack","hard landing");
+        hardLanding.speed = 1.55f;
+        var toHardLanding = sm.AddAnyStateTransition(hardLanding);
+        toHardLanding.hasExitTime = false;
+        toHardLanding.duration = 0.04f;
+        toHardLanding.canTransitionToSelf = false;
+        toHardLanding.AddCondition(AnimatorConditionMode.If,0f,"HardLand");
+        var fromHardLanding = hardLanding.AddTransition(locomotion);
+        fromHardLanding.hasExitTime = true;
+        fromHardLanding.exitTime = 0.52f;
+        fromHardLanding.duration = 0.10f;
 
         var controllerLayers = ac.layers;
         controllerLayers[0].iKPass = true;
