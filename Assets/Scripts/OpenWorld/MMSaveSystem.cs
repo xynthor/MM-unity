@@ -325,6 +325,14 @@ public class MMSaveSystem : MonoBehaviour
             if (worldSwitch)
                 worldSwitch.ApplyPersistentState(worldState);
         }
+
+        foreach (MMLootContainer container in
+                 UnityEngine.Object.FindObjectsByType<MMLootContainer>(
+                     FindObjectsInactive.Include))
+        {
+            if (container)
+                container.ApplyPersistentState(worldState);
+        }
     }
 
     void RestoreTransform(MMSaveData data)
