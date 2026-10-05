@@ -9,6 +9,9 @@ public class MMDialogueInteractable : MMInteractable
 
     public int CompletedCount { get; private set; }
 
+    public event System.Action<GameObject> DialogueStarted;
+    public event System.Action<GameObject> DialogueCompleted;
+
     public override string Prompt =>
         string.IsNullOrWhiteSpace(prompt) || prompt == "Interact"
             ? "Talk"
@@ -36,12 +39,14 @@ public class MMDialogueInteractable : MMInteractable
         MMDialogueController dialogue =
             interactor.GetComponent<MMDialogueController>();
 
-        dialogue.StartDialogue(this);
+        if (dialogue.StartDialogue(this))
+            DialogueStarted?.Invoke(interactor);
     }
 
-    internal void NotifyCompleted()
+    internal void NotifyCompleted(GameObject interactor)
     {
         CompletedCount++;
+        DialogueCompleted?.Invoke(interactor);
     }
 }
 
@@ -149,7 +154,7 @@ public class MMDialogueController : MonoBehaviour
         {
             MMDialogueInteractable completed = source;
             EndDialogue(false);
-            completed.NotifyCompleted();
+            completed.NotifyCompleted(gameObject);
             return false;
         }
 
