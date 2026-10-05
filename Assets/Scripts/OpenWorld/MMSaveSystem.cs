@@ -31,6 +31,8 @@ public class MMSaveData
         new List<MMSavedInventoryItem>();
     public List<MMSavedQuest> quests =
         new List<MMSavedQuest>();
+    public List<string> worldFlags =
+        new List<string>();
     public string trackedQuestId;
     public float playerX;
     public float playerY;
@@ -55,6 +57,7 @@ public class MMSaveSystem : MonoBehaviour
 
     MMInventory inventory;
     MMQuestManager quests;
+    MMWorldState worldState;
 
     public string LastMessage { get; private set; }
     public string DefaultSavePath =>
@@ -126,6 +129,9 @@ public class MMSaveSystem : MonoBehaviour
             if (quests.TrackedQuest != null)
                 data.trackedQuestId = quests.TrackedQuest.id;
         }
+
+        if (worldState)
+            data.worldFlags.AddRange(worldState.Flags);
 
         if (savePlayerTransform)
         {
@@ -211,6 +217,12 @@ public class MMSaveSystem : MonoBehaviour
         if (quests)
             RestoreQuests(data.quests, data.trackedQuestId);
 
+        if (worldState)
+        {
+            worldState.ReplaceFlags(data.worldFlags);
+            ApplyPersistentWorldObjects();
+        }
+
         if (savePlayerTransform)
             RestoreTransform(data);
     }
@@ -288,6 +300,17 @@ public class MMSaveSystem : MonoBehaviour
             quests.TrackQuest(trackedQuestId);
     }
 
+    void ApplyPersistentWorldObjects()
+    {
+        foreach (MMItemPickup pickup in
+                 UnityEngine.Object.FindObjectsByType<MMItemPickup>(
+                     FindObjectsInactive.Include))
+        {
+            if (pickup)
+                pickup.ApplyPersistentState(worldState);
+        }
+    }
+
     void RestoreTransform(MMSaveData data)
     {
         CharacterController cc =
@@ -315,6 +338,8 @@ public class MMSaveSystem : MonoBehaviour
             inventory = GetComponent<MMInventory>();
         if (!quests)
             quests = GetComponent<MMQuestManager>();
+        if (!worldState)
+            worldState = GetComponent<MMWorldState>();
     }
 }
 
@@ -356,6 +381,8 @@ public static class MMSaveSystemBootstrap
             go.AddComponent<MMInventory>();
         if (!go.GetComponent<MMQuestManager>())
             go.AddComponent<MMQuestManager>();
+        if (!go.GetComponent<MMWorldState>())
+            go.AddComponent<MMWorldState>();
         if (!go.GetComponent<MMSaveSystem>())
             go.AddComponent<MMSaveSystem>();
     }
