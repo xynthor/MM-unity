@@ -188,7 +188,7 @@
 
                 // Northern reference climate: keep deep ocean dark while
                 // making shallow northern lakes, rivers and shelves colder.
-                float northMask=smoothstep(-1300,-1240,i.worldPos.x)*(1-smoothstep(760,815,i.worldPos.x))*smoothstep(635,735,i.worldPos.z);
+                float northMask=smoothstep(-1300,-1240,i.worldPos.x)*(1-smoothstep(760,815,i.worldPos.x))*smoothstep(775,835,i.worldPos.z);
                 float shallowIce=1-smoothstep(1.5,7.0,depth);
                 fixed3 iceShallow=fixed3(.30,.56,.63);
                 fixed3 iceMid=fixed3(.075,.22,.29);
