@@ -186,6 +186,20 @@
                 water.rgb=lerp(water.rgb,overviewColor,overview);
                 water.a=lerp(water.a,.985,overview*.98);
 
+                // Northern reference rebuild: keep Dragon Isle and the rest of
+                // Enroth on the normal ocean palette, but make the rebuilt
+                // northern band read decisively colder/icy in both gameplay
+                // and overview cameras.
+                float northX=smoothstep(-1320,-1240,i.worldPos.x)*(1-smoothstep(760,820,i.worldPos.x));
+                float northZ=smoothstep(620,760,i.worldPos.z);
+                float northIce=northX*northZ;
+                fixed3 icyShallow=fixed3(.16,.38,.43);
+                fixed3 icyDeep=fixed3(.025,.11,.18);
+                fixed3 icyWater=lerp(icyShallow,icyDeep,smoothstep(.08,1.0,saturate(depth/8.0)));
+                float icyStrength=northIce*lerp(.38,.26,depth01);
+                water.rgb=lerp(water.rgb,icyWater,icyStrength);
+                water.a=lerp(water.a,.97,northIce*.35);
+
                 UNITY_APPLY_FOG(i.fogCoord,water);
                 return water;
             }
