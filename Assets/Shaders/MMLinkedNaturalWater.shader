@@ -186,6 +186,16 @@
                 water.rgb=lerp(water.rgb,overviewColor,overview);
                 water.a=lerp(water.a,.985,overview*.98);
 
+                // Northern reference climate: keep deep ocean dark while
+                // making shallow northern lakes, rivers and shelves colder.
+                float northMask=smoothstep(-1300,-1240,i.worldPos.x)*(1-smoothstep(760,815,i.worldPos.x))*smoothstep(635,735,i.worldPos.z);
+                float shallowIce=1-smoothstep(1.5,7.0,depth);
+                fixed3 iceShallow=fixed3(.30,.56,.63);
+                fixed3 iceMid=fixed3(.075,.22,.29);
+                fixed3 iceTarget=lerp(iceMid,iceShallow,shallowIce);
+                float iceStrength=northMask*lerp(.16,.58,shallowIce);
+                water.rgb=lerp(water.rgb,iceTarget,iceStrength);
+
                 UNITY_APPLY_FOG(i.fogCoord,water);
                 return water;
             }
@@ -194,5 +204,6 @@
     }
     Fallback "Transparent/Diffuse"
 }
+
 
 
