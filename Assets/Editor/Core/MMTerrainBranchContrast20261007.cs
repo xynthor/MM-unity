@@ -34,7 +34,7 @@ public static class MMTerrainBranchContrast20261007
         foreach(var r in UnityEngine.Object.FindObjectsByType<MeshRenderer>())
         {
             if(!r.enabled||!r.gameObject.activeInHierarchy||!r.bounds.Intersects(area))continue;
-            string n=r.name.ToLower();bool water=r.sharedMaterial&&r.sharedMaterial.shader.name.Contains("Water");
+            if(r.GetComponentsInParent<Transform>().Any(a=>a.name.StartsWith("Architecture -"))){var footprint=r.bounds;footprint.Expand(new Vector3(24,100,24));list.Add(footprint);continue;} string n=r.name.ToLower();bool water=r.sharedMaterial&&r.sharedMaterial.shader.name.Contains("Water");
             // Inland elevated meshes are protected including banks; sea/low lakes are protected by elevation.
             if(water)continue;
             if(n.Contains("bridge")||n.Contains("castle")||n.Contains("building")||n.Contains("house")||n.Contains("tower")||n.Contains("temple")||n.Contains("gate")||n.Contains("road")){var b=r.bounds;if(b.size.x<150&&b.size.z<150){b.Expand(new Vector3(16,100,16));list.Add(b);}}
@@ -139,26 +139,6 @@ public static class MMTerrainBranchContrast20261007
             foreach(var item in meshCopies){item.Item1.sharedMesh=item.Item2;UnityEngine.Object.DestroyImmediate(item.Item3);}if(!saved){if(priorRock)priorRock.SetActive(true);foreach(var p in properties)if(p.Item1)p.Item1.position=p.Item2;if(worldRock){var m=worldRock.GetComponent<Renderer>().sharedMaterial;UnityEngine.Object.DestroyImmediate(worldRock.GetComponent<MeshFilter>().sharedMesh);UnityEngine.Object.DestroyImmediate(worldRock);if(!EditorUtility.IsPersistent(m))UnityEngine.Object.DestroyImmediate(m);}}
         }
     }
-    public static void FinishCanonicalDressing()
-    {
-        var scene=SceneManager.GetActiveScene();if(Application.isPlaying||scene.isDirty)throw new Exception("Expected saved Edit Mode");
-        var ts=Tiles();var lines=new List<string>();int boulders=0,trees=0;
-        foreach(var tr in UnityEngine.Object.FindObjectsByType<Transform>())
-        {
-            var p=tr.position;var t=ts.FirstOrDefault(a=>p.x>=a.transform.position.x&&p.x<a.transform.position.x+512&&p.z>=a.transform.position.z&&p.z<a.transform.position.z+512);if(!t)continue;
-            int index=Array.IndexOf(ts,t);if(!new[]{18,24,25,26,27,28}.Contains(index))continue;
-            if(tr.name.StartsWith("AuthoredBoulder_")||tr.name.StartsWith("DragonAuthoredBoulder_"))
-            {
-                var rs=tr.GetComponentsInChildren<Renderer>().Where(a=>a.enabled&&a.gameObject.activeInHierarchy).ToArray();if(rs.Length==0)continue;
-                float gap=rs.Min(a=>a.bounds.min.y)-t.SampleHeight(p)-t.transform.position.y;
-                if(gap>.75f){Undo.RecordObject(tr,"Ground authored boulder");tr.position-=Vector3.up*(gap+.2f);boulders++;lines.Add("Grounded "+tr.name+" delta="+(-gap-.2f));}
-            }
-            if((tr.name.StartsWith("AuthoredPine_")||tr.name.StartsWith("DragonAuthoredPine_")||tr.name.StartsWith("TransitionPine_"))&&tr.gameObject.activeInHierarchy&&t.terrainData.GetSteepness((p.x-t.transform.position.x)/512,(p.z-t.transform.position.z)/512)>38)
-            {Undo.RecordObject(tr.gameObject,"Disable conifer on cliff");tr.gameObject.SetActive(false);trees++;lines.Add("Disabled cliff tree "+tr.name);}
-        }
-        if(boulders+trees>0){EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);}
-        Directory.CreateDirectory("Validation/TerrainBranches20261007/CanonicalStrong");File.WriteAllLines("Validation/TerrainBranches20261007/CanonicalStrong/dressing.txt",lines);Debug.Log("CANONICAL_DRESSING groundedBoulders="+boulders+" disabledCliffConifers="+trees);
-    }
     public static void Capture(Terrain t,string dir)
     {
         var p=t.transform.position;float x=p.x+256,z=p.z+256;
@@ -167,11 +147,11 @@ public static class MMTerrainBranchContrast20261007
         MMNorthAuthoredTools20261007.Capture(dir,"transition",new Vector3(x+320,100,p.z-110),new Vector3(x,25,p.z+110),false);
     }
     const string WorldRockDir="Assets/World/WorldExtensions/Generated/NorthernWorldStyle20261007";
-    static GameObject RockSurface(Terrain t,float[,] roads)
+    public static GameObject RockSurface(Terrain t,float[,] roads)
     {
         var d=t.terrainData;var h=d.GetHeights(0,0,513,513);var n=new Vector3[513*513];var heights=new float[n.Length];
         for(int z=0;z<=512;z++)for(int x=0;x<=512;x++){int k=z*513+x;heights[k]=h[z,x]*320;float dx=(h[z,Mathf.Min(512,x+1)]-h[z,Mathf.Max(0,x-1)])*160,dz=(h[Mathf.Min(512,z+1),x]-h[Mathf.Max(0,z-1),x])*160;n[k]=new Vector3(-dx,1,-dz).normalized;}
-        int size=d.alphamapResolution;var al=d.GetAlphamaps(0,0,size,size);var slots=Enumerable.Range(0,d.terrainLayers.Length).Where(i=>d.terrainLayers[i]&&d.terrainLayers[i].name.ToLower().Contains("snow")).ToArray();
+        int size=d.alphamapResolution;var al=d.GetAlphamaps(0,0,size,size);var slots=Enumerable.Range(0,d.terrainLayers.Length).Where(i=>d.terrainLayers[i]&&(d.terrainLayers[i].name+" "+(d.terrainLayers[i].diffuseTexture?d.terrainLayers[i].diffuseTexture.name:"")).ToLower().Contains("snow")).ToArray();
         var vertices=new List<Vector3>();var normals=new List<Vector3>();var colors=new List<Color>();var tangents=new List<Vector4>();var tri=new List<int>();var remap=Enumerable.Repeat(-1,n.Length).ToArray();
         Func<int,int> vertex=k=>{if(remap[k]>=0)return remap[k];int x=k%513,z=k/513;remap[k]=vertices.Count;vertices.Add(new Vector3(x,heights[k]+.055f,z));normals.Add(n[k]);var tx=new Vector3(n[k].y,-n[k].x,0).normalized;tangents.Add(new Vector4(tx.x,tx.y,tx.z,-1));float snow=0;foreach(int slot in slots)snow+=al[Mathf.Min(size-1,z*size/512),Mathf.Min(size-1,x*size/512),slot];colors.Add(new Color(Mathf.Clamp01(snow),0,0,(1-S(.015f,.1f,roads[z,x]))*S(.2f,5,heights[k]-24)));return remap[k];};
         for(int z=0;z<512;z++)for(int x=0;x<512;x++){int a=z*513+x,b=a+1,c=a+513,e=c+1;if(Mathf.Min(Mathf.Min(heights[a],heights[b]),Mathf.Min(heights[c],heights[e]))<24.3f)continue;if(Mathf.Min(Mathf.Min(n[a].y,n[b].y),Mathf.Min(n[c].y,n[e].y))>.94f)continue;if(Mathf.Max(Mathf.Max(roads[z,x],roads[z,x+1]),Mathf.Max(roads[z+1,x],roads[z+1,x+1]))>.12f)continue;tri.Add(vertex(a));tri.Add(vertex(c));tri.Add(vertex(e));tri.Add(vertex(a));tri.Add(vertex(e));tri.Add(vertex(b));}
