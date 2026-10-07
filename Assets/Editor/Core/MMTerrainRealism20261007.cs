@@ -27,7 +27,7 @@ public static class MMTerrainRealism20261007
   var grid=new float[nz,nx];var mask=new float[nz,nx];for(int z=0;z<nz;z++)for(int x=0;x<nx;x++)mask[z,x]=1;
   var old=new Dictionary<Terrain,float[,]>();var next=new Dictionary<Terrain,float[,]>();
   foreach(var t in ts){var h=t.terrainData.GetHeights(0,0,513,513);old[t]=h;var road=MMTerrainBranchContrast20261007.Roads(t.terrainData);var water=MMTerrainBranchContrast20261007.WaterDistance(t);var zones=MMTerrainBranchContrast20261007.Protected(t);int tx=(int)t.transform.position.x-ox,tz=(int)t.transform.position.z-oz;
-   for(int z=0;z<=512;z++)for(int x=0;x<=512;x++){float y=h[z,x]*320-24,wx=x+tx+ox,wz=z+tz+oz;grid[z+tz,x+tx]=y;float w=S(realistic?2:12,realistic?16:28,y)*(1-S(.005f,.035f,road[z,x]))*S(9,65,water[z,x]);foreach(var b in zones){float dx=Mathf.Max(b.min.x-wx,Mathf.Max(0,wx-b.max.x)),dz=Mathf.Max(b.min.z-wz,Mathf.Max(0,wz-b.max.z));w*=S(0,42,Mathf.Sqrt(dx*dx+dz*dz));}if(!realistic)w*=S(768,890,wz)*S(-1280,-1190,wx)*(1-S(678,768,wx));mask[z+tz,x+tx]=Mathf.Min(mask[z+tz,x+tx],w);}
+   for(int z=0;z<=512;z++)for(int x=0;x<=512;x++){float y=h[z,x]*320-24,wx=x+tx+ox,wz=z+tz+oz;grid[z+tz,x+tx]=y;float w=S(realistic?2:12,realistic?16:28,y)*(1-S(.005f,.035f,road[z,x]))*S(9,65,water[z,x]);foreach(var b in zones){float dx=Mathf.Max(b.min.x-wx,Mathf.Max(0,wx-b.max.x)),dz=Mathf.Max(b.min.z-wz,Mathf.Max(0,wz-b.max.z));w*=S(0,42,Mathf.Sqrt(dx*dx+dz*dz));}if(!realistic){bool extension=(t.transform.position.z==768&&t.transform.position.x>=-1280&&t.transform.position.x<=256)||(t.transform.position.x==-1792&&t.transform.position.z>=256)||(t.transform.position.z==-1280&&t.transform.position.x>=256);if(!extension)w=0;else {if(t.transform.position.z==768&&t.transform.position.x>=-1280)w*=S(0,110,z);if(t.transform.position.x==-1792&&t.transform.position.z==256)w*=1-S(402,512,x);if(t.transform.position.z==-1280)w*=1-S(402,512,z);}}mask[z+tz,x+tx]=Mathf.Min(mask[z+tz,x+tx],w);}
   }
   var fine=Blur(Blur(grid,10),10);var broad=Blur(Blur(grid,32),32);var massif=realistic?Blur(Blur(grid,64),64):Blur(Blur(grid,48),48);var target=new float[nz,nx];
   for(int z=0;z<nz;z++)for(int x=0;x<nx;x++){
@@ -75,8 +75,3 @@ public static class MMTerrainRealism20261007
   foreach(var m in cache.Values.Distinct()){EditorUtility.SetDirty(m);AssetDatabase.SaveAssetIfDirty(m);}var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);Directory.CreateDirectory(Root+mode);File.WriteAllText(Root+mode+"/snow_trees.txt","trees="+trees+" renderers="+renderers+" materials="+cache.Count+" minimumGroundSnow=.32 shaderErrors=False");Capture(mode);Debug.Log("SNOW_TREES="+trees+" renderers="+renderers+" materials="+cache.Count);
  }
 }
-
-
-
-
-

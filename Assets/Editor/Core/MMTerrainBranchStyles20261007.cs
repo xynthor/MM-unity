@@ -34,7 +34,7 @@ public static class MMTerrainBranchStyles20261007
         foreach(var r in UnityEngine.Object.FindObjectsByType<MeshRenderer>())
         {
             if(!r.enabled||!r.gameObject.activeInHierarchy||!r.bounds.Intersects(area))continue;
-            string n=r.name.ToLower();bool water=r.sharedMaterial&&r.sharedMaterial.shader.name.Contains("Water");
+            if(r.GetComponentsInParent<Transform>().Any(a=>a.name.StartsWith("Architecture -"))){var footprint=r.bounds;footprint.Expand(new Vector3(24,100,24));list.Add(footprint);continue;} string n=r.name.ToLower();bool water=r.sharedMaterial&&r.sharedMaterial.shader.name.Contains("Water");
             // Inland elevated meshes are protected including banks; sea/low lakes are protected by elevation.
             if(water)continue;
             if(n.Contains("bridge")||n.Contains("castle")||n.Contains("building")||n.Contains("house")||n.Contains("tower")||n.Contains("temple")||n.Contains("gate")||n.Contains("road")){var b=r.bounds;if(b.size.x<150&&b.size.z<150){b.Expand(new Vector3(16,100,16));list.Add(b);}}
