@@ -20,6 +20,7 @@
         _FresnelPower("Fresnel Power", Range(1,8))=4.2
         _ReflectionStrength("Reflection Strength", Range(0,1))=0.52
         _SpecularStrength("Specular Strength", Range(0,1))=0.42
+        _CoastalSurf("Coastal Surf", Range(0,1))=0.75
     }    SubShader
     {
         Tags { "Queue"="Transparent" "RenderType"="Transparent" }
@@ -39,12 +40,16 @@
 
             sampler2D _EnrothWaterGrab;
             sampler2D _NormalTex;
+            sampler2D _MMPlanarReflection;
+            float4x4 _MMPlanarVP;
+            float _MMPlanarAvailable, _MMRenderingReflection, _MMPlanarLevel;
             UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
             float4 _CameraDepthTexture_TexelSize;
             fixed4 _ShallowColor,_MidColor,_DeepColor,_FoamColor,_ReflectionColor;
             float _DepthRange,_FoamDepth,_WaveAmp,_WaveAmp2,_WaveScale,_WaveScale2;
             float4 _WaveSpeed;
             float _NormalStrength,_Distortion,_FresnelPower,_ReflectionStrength,_SpecularStrength;
+            float _CoastalSurf;
 
             struct appdata { float4 vertex:POSITION; float3 normal:NORMAL; };
             struct v2f
@@ -98,6 +103,7 @@
 
             fixed4 frag(v2f i):SV_Target
             {
+                clip(.5-_MMRenderingReflection);
                 float surfaceDepth=i.eyeDepth;
                 float2 depthUv=i.screen.xy/max(i.screen.w,.0001);
                 float centerDepth=WaterDepthAt(depthUv,surfaceDepth);
@@ -133,7 +139,14 @@
                 float p2=(-i.worldPos.x*.46+i.worldPos.z*.89)*_WaveScale2-t*_WaveSpeed.y;
                 float dx=cos(p1)*_WaveAmp*_WaveScale*.78+cos(p2)*_WaveAmp2*_WaveScale2*(-.46);
                 float dz=cos(p1)*_WaveAmp*_WaveScale*.63+cos(p2)*_WaveAmp2*_WaveScale2*.89;
-                float3 n=normalize(float3(-dx+ripple.x,1,-dz+ripple.y));
+                // Per-pixel swell keeps the sparse connected mesh level at banks.
+                float swellA=dot(i.worldPos.xz,float2(.94,.342))*.19-t*.92;
+                float swellB=dot(i.worldPos.xz,float2(-.36,.933))*.31-t*1.18;
+                float swellC=dot(i.worldPos.xz,float2(.73,.683))*.071-t*.53;
+                float2 swellSlope=float2(.94,.342)*cos(swellA)*.095
+                                 +float2(-.36,.933)*cos(swellB)*.045
+                                 +float2(.73,.683)*cos(swellC)*.055;
+                float3 n=normalize(float3(-dx+ripple.x-swellSlope.x,1,-dz+ripple.y-swellSlope.y));
 
                 float3 perspectiveView=normalize(_WorldSpaceCameraPos-i.worldPos);
                 float3 viewDir=normalize(lerp(perspectiveView,UNITY_MATRIX_V[2].xyz,unity_OrthoParams.w));
@@ -141,7 +154,11 @@
 
                 float2 suv=i.grab.xy/i.grab.w;
                 float refrScale=_Distortion*saturate(depth*.5)*(1-depth01*.72);
-                fixed3 refr=tex2D(_EnrothWaterGrab,suv+n.xz*refrScale).rgb;
+                float2 refrOffset=n.xz*refrScale;
+                // Do not drag foreground cliffs into the refracted seabed.
+                float refrRaw=SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture,depthUv+refrOffset);
+                refrOffset*=step(surfaceDepth,SceneEyeDepthFromRaw(refrRaw));
+                fixed3 refr=tex2D(_EnrothWaterGrab,suv+refrOffset).rgb;
 
                 float mid01=saturate(depth/max(_DepthRange*.34,.001));
                 fixed4 water=lerp(_ShallowColor,_MidColor,mid01);
@@ -153,7 +170,14 @@
                 fixed4 envRaw=UNITY_SAMPLE_TEXCUBE(unity_SpecCube0,reflDir);
                 fixed3 env=DecodeHDR(envRaw,unity_SpecCube0_HDR);
                 env=lerp(_ReflectionColor.rgb,env,saturate(dot(env,env)*.8));
-                water.rgb=lerp(water.rgb,env,fresnel*_ReflectionStrength);                float3 l=normalize(_WorldSpaceLightPos0.xyz);
+                float4 reflectionPos=mul(_MMPlanarVP,float4(i.worldPos,1));
+                float2 reflectionUV=reflectionPos.xy/max(reflectionPos.w,.0001)*.5+.5;
+                float2 reflectionDistortion=n.xz*.018*saturate(depth*.3);
+                fixed3 planar=tex2D(_MMPlanarReflection,saturate(reflectionUV+reflectionDistortion)).rgb;
+                env=lerp(env,planar,_MMPlanarAvailable*(1-step(.1,abs(i.worldPos.y-_MMPlanarLevel))));
+                float physicalFresnel=.02+.98*pow(1-saturate(dot(n,viewDir)),5);
+                water.rgb=lerp(water.rgb,env,physicalFresnel*lerp(.6,1,_ReflectionStrength));
+                float3 l=normalize(_WorldSpaceLightPos0.xyz);
                 float3 h=normalize(l+viewDir);
                 float spec=pow(saturate(dot(n,h)),64)*saturate(dot(n,l));
                 water.rgb+=_LightColor0.rgb*spec*_SpecularStrength;
@@ -162,8 +186,16 @@
                 float shore=(1-smoothstep(.025,_FoamDepth,verticalDepth))*smoothstep(0,.04,verticalDepth);
                 float noise=saturate(n1.x*.5+n2.y*.5+.5);
                 float crest=saturate((1-n.y)*7.5-.03);
-                float foam=saturate(shore*noise*.48);
-                water.rgb=lerp(water.rgb,_FoamColor.rgb,foam*.50);
+                // Depth contours form advancing breakers; crossed normal detail
+                // breaks up their edges instead of painting a solid white rim.
+                float shoreDepth=centerDepth*max(.02,abs(viewDir.y));
+                float surfZone=(1-smoothstep(.35,2.8,shoreDepth))*smoothstep(.015,.12,shoreDepth);
+                float breakerPhase=shoreDepth*7.0-t*1.7+n1.x*.7+n2.y*.45;
+                float breaker=pow(saturate(.5+.5*sin(breakerPhase)),7);
+                float lace=smoothstep(.28,.72,noise);
+                float wash=shore*(.35+.65*lace)*(.65+.35*sin(t*.9+noise*5));
+                float foam=saturate(shore*noise*.24+_CoastalSurf*(surfZone*breaker*lace*.85+wash*.55));
+                water.rgb=lerp(water.rgb,_FoamColor.rgb,foam);
                 water.a=saturate(lerp(_ShallowColor.a,_DeepColor.a,depth01)+fresnel*.10+foam*.06);
 
                 // World-map / top-down views must read as one connected ocean.
@@ -197,6 +229,9 @@
                 water.rgb=lerp(water.rgb,iceTarget,iceStrength);
 
                 UNITY_APPLY_FOG(i.fogCoord,water);
+                // Refraction above already includes the background. Blending it
+                // a second time makes overlapping connected-water patches visible.
+                water.a=1;
                 return water;
             }
             ENDCG
