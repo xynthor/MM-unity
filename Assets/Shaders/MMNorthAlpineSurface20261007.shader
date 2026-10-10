@@ -39,10 +39,9 @@ Shader "MMUnity/NorthAlpineSurface20261007"
             snowCover*=smoothstep(2,16,p.y);
             o.Albedo=lerp(rock,snow,snowCover);
             o.Metallic=0;o.Smoothness=lerp(.19,.09,snowCover);
-            float cliff=1-smoothstep(.64,.88,n.y);
-            float alpine=smoothstep(55,85,p.y);
-            float shore=(1-smoothstep(7,17,p.y))*smoothstep(815,855,p.z);
-            o.Alpha=max(max(cliff,alpine),shore)*smoothstep(780,825,p.z);
+            float breakup=(noise(p*.045)-.5)*.10+(noise(p*.11)-.5)*.04;
+            float cliff=1-smoothstep(.60+breakup,.86+breakup,n.y);
+            o.Alpha=cliff*smoothstep(780,825,p.z);
             float3 weights=pow(abs(n),4);weights/=max(dot(weights,1),.0001);
             float3 nx=UnpackNormal(tex2D(_RockNormal,p.zy*.055));
             float3 ny=UnpackNormal(tex2D(_RockNormal,p.xz*.055));
