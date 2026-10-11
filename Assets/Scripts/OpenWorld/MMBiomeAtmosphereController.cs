@@ -144,13 +144,15 @@ public class MMBiomeAtmosphereController : MonoBehaviour
 
     public static AtmosphereProfile Frozen()
     {
+        // Lower-key winter light retains snow surface detail and cool shaded
+        // slopes while introducing warmer directional contrast at game height.
         return NewProfile(
             "Frozen",
-            new Color(0.72f, 0.80f, 0.86f), 650f, 1850f,
-            new Color(0.64f, 0.75f, 0.88f),
-            new Color(0.47f, 0.56f, 0.64f),
-            new Color(0.24f, 0.28f, 0.31f), 1.02f,
-            new Color(0.86f, 0.92f, 1.00f), 1.00f);
+            new Color(0.65f, 0.69f, 0.78f), 150f, 700f,
+            new Color(0.48f, 0.56f, 0.68f),
+            new Color(0.38f, 0.45f, 0.52f),
+            new Color(0.18f, 0.22f, 0.31f), 0.86f,
+            new Color(1.00f, 0.90f, 0.74f), 1.08f);
     }
 
     public static AtmosphereProfile ColdHighland()
