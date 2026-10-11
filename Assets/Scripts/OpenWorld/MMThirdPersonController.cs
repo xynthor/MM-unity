@@ -21,6 +21,11 @@ public class MMThirdPersonController : MonoBehaviour
     public float terrainSlopeLimit = 52f;
     public float structureSlopeLimit = 56f;
 
+    [Header("Sea Wading Boundary")]
+    public bool limitDeepSeaWading = true;
+    public float seaSurfaceY = 0.12f;
+    public float maximumWadingDepth = 0.65f;
+
     [Header("Turn Anticipation")]
     public float turnAnticipationAngle = 65f;
     public float turnAnticipationMaxSpeed = 0.35f;
@@ -182,6 +187,7 @@ public class MMThirdPersonController : MonoBehaviour
         float control = groundedBeforeMove ? 1f : airControl;
         float rate = desiredVelocity.sqrMagnitude > planarVelocity.sqrMagnitude ? acceleration : deceleration;
         planarVelocity = Vector3.MoveTowards(planarVelocity, desiredVelocity, rate * control * Time.deltaTime);
+        ConstrainDeepSeaWading(ref planarVelocity);
 
         if (desiredDirection.sqrMagnitude > 0.001f)
         {
@@ -361,6 +367,66 @@ public class MMThirdPersonController : MonoBehaviour
         if (visualRenderers == null) return;
         foreach (Renderer r in visualRenderers)
             if (r) r.forceRenderingOff = false;
+    }
+
+    // Until swimming is implemented, keep ordinary grounded movement in shallow
+    // seawater. Only sample terrain under the actor, not deep ground under bridges.
+    void ConstrainDeepSeaWading(ref Vector3 velocity)
+    {
+        if (!limitDeepSeaWading || velocity.sqrMagnitude < 0.0001f)
+            return;
+
+        Vector3 here = transform.position;
+        if (!TrySampleTerrainSurface(here, out float currentHeight) ||
+            here.y - currentHeight > 0.75f)
+            return;
+
+        float safeHeight = seaSurfaceY - Mathf.Max(0f, maximumWadingDepth);
+        Vector3 step = velocity * Time.deltaTime;
+        if (!TrySampleTerrainSurface(here + step, out float nextHeight) ||
+            nextHeight >= safeHeight)
+            return;
+
+        // If loaded or placed underwater, permit moving back uphill toward shore.
+        if (currentHeight < safeHeight)
+        {
+            if (nextHeight <= currentHeight + 0.001f)
+                velocity = Vector3.zero;
+            return;
+        }
+
+        // Limit the actual controller step as well as desired input; otherwise
+        // acceleration/inertia can carry the player through the depth boundary.
+        float low = 0f;
+        float high = 1f;
+        for (int i = 0; i < 10; i++)
+        {
+            float middle = (low + high) * 0.5f;
+            if (TrySampleTerrainSurface(here + step * middle, out float height) &&
+                height >= safeHeight)
+                low = middle;
+            else
+                high = middle;
+        }
+        velocity *= low;
+    }
+
+    static bool TrySampleTerrainSurface(Vector3 position, out float height)
+    {
+        foreach (Terrain terrain in Terrain.activeTerrains)
+        {
+            Vector3 origin = terrain.transform.position;
+            Vector3 size = terrain.terrainData.size;
+            if (position.x < origin.x || position.x >= origin.x + size.x ||
+                position.z < origin.z || position.z >= origin.z + size.z)
+                continue;
+
+            height = terrain.SampleHeight(position) + origin.y;
+            return true;
+        }
+
+        height = 0f;
+        return false;
     }
 
     void ConstrainSteepSlope(ref Vector3 desiredVelocity)
