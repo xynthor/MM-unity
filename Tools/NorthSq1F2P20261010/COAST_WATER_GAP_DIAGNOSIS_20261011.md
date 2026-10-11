@@ -27,3 +27,14 @@ All three test methods demonstrate why raw vertex counts or simply extending the
 If addressing the actual shoreline, build a **single integrated, triangulated replacement for only the affected water polygon portion** plus smooth coastal terrain, preserving the original ocean mesh everywhere else, with shared boundary vertices and no water overlap/Z-fighting. Prefer to reconstruct an irregular 2D coastline contour with a continuous triangle surface rather than detached 1m cells or extended long polygons. Independently compare water coverage, original neighboring 30 terrains/49 seams, all legacy terrain assets, current ice/lake, and top/sea/low/oblique art before saving. An alternative could retain existing water exactly and make a purely local natural rock-cliff face mask, but not procedural rectangular trimming.
 
 **No new production commit should be made until a candidate visibly improves the coast and passes those checks.**
+
+
+## Subsequent connected water-strip preview, also NOT accepted
+
+A more promising third water approach cloned the existing ocean mesh **without moving any of its original 28,142 vertices**. Along 48 eligible coastal boundary edges only, it appended short triangulated strips at roughly 1.5m increments:
+- 9m maximum boundary extension: **392 appended triangles**, average local edge extension 5.80m;
+- 16m maximum: **480 appended triangles**, average extension 7.01m.
+
+This improved continuity from the seaward view compared with both the detached 1m supplemental grid and the severe original-boundary stretching. However the **overhead view still shows dark abrupt polygonal cutoffs**, and the original long straight rock/terrain shelf remains unchanged. It was **NOT accepted** as the user's requested realistic coastline. Neither the original sea mesh asset nor the scene was saved; the clone was destroyed, and Unity reported `sceneDirty=False`.
+
+Local-only diagnostic `Assets/Editor/Diagnostics/MMNorthSq01OceanConnectedStripPreview20261011.cs`; same-camera images `Preview/NorthSq01OceanConnectedStrip20261011/{baseline,strip_9,strip_16}/{top,sea,low}.png`, report `Validation/NorthSq01OceanConnectedStrip20261011/preview.txt`. Do not run the candidate as a production apply.
