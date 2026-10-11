@@ -107,6 +107,7 @@ public class MMThirdPersonController : MonoBehaviour
         visualRenderers = visualRoot ? visualRoot.GetComponentsInChildren<Renderer>(true) : new Renderer[0];
         targetCameraDistance = Mathf.Clamp(cameraDistance, minCameraDistance, maxCameraDistance);
         EnsureFootIK();
+        EnsureFoliageCameraOcclusion();
 
         if (playerCamera)
         {
@@ -537,6 +538,14 @@ public class MMThirdPersonController : MonoBehaviour
         footIK.animator = animator;
         footIK.characterRoot = transform;
         footIK.characterController = controller;
+    }
+
+    void EnsureFoliageCameraOcclusion()
+    {
+        if (!playerCamera) return;
+        var occlusion = GetComponent<MMCameraFoliageOcclusion>();
+        if (!occlusion) occlusion = gameObject.AddComponent<MMCameraFoliageOcclusion>();
+        occlusion.playerCamera = playerCamera;
     }
 
 #if UNITY_EDITOR
