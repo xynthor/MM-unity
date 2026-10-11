@@ -45,3 +45,16 @@ These ignored local outputs are *not* portable committed game assets. The source
 Do a bounded **two-tile coastline material/rock overlay seam audit** before any more height sculpting. Compare the terrain layer/alphamap edge and the two rock materials/triangulation over X≈-850..-680, Z≈1165..1225. Isolate the precise cause of the rectangular line by rendering both tile overlays jointly disabled and inspecting adjacent painted layers. Then design an integrated **geometry + material transition** (not a rectangular mask, not hard triangle deletion), with external borders preserved and inland water kept intact. Require clear improvement in joint top, sea, low and oblique previews before ever saving. A numerical zero seam alone is not artistic approval.
 
 The accepted F2P source remains published on the private feature branch and is not to be reverted or regenerated.
+
+
+## Read-only terrain/material seam audit, 2026-10-11
+
+The Unity inspector `MMNorthSq01CoastLayerAudit20261011.cs` opened the saved scene in a separate clean batch process and examined Square 0/1 terrain layers, alpha weights and rock-overlay materials. Output is local ignored `Validation/NorthSq01CoastMaterialSeam20261011/audit.txt` (98 lines). Its follow-up confirmed:
+
+- Both terrain tiles use `Nature/Terrain/Standard`, 512×512 alphamaps, **20** terrain layers. On the shared seam around Z1188–1196, **snow coverage agrees to the reported precision** (0.992 at Z1188, 0.988 at Z1192, 0.980 at Z1196), but it is supplied from different slots (Sq0 slot 19 vs Sq1 slot 18) and separate TerrainLayer instances; both reference the same `Snow02_SeamlessAlbedoSmoothness` diffuse asset, tile size 8×8 and tile offset 0.
+- Both live Square 0 and Square 1 alpine overlay materials share shader `MMUnity/NorthAlpineSurface20261007`, identical `cold_rock` rock texture, `Snow02_SeamlessAlbedoSmoothness` snow texture, `rock_boulder_cracked_n` normal texture, and 1×1 zero-offset texture scale/offset settings.
+- Reported terrain normals at the seam at Z1192 are equal to four decimal places. Explicit temporary stitching of the two rock-overlay seam normals in K2 **did not** remove the visible sharp vertical edge.
+
+Thus neither a gross terrain height seam, nor simply differing diffuse texture tiling, nor a first-order normal discontinuity is established as the sole cause. Possible remaining differences to audit before authoring any further geometry are the TerrainLayer normal/mask/smoothness properties (different instances and slots), rock overlay texture tangent basis, terrain-versus-overlay transparent shading and LOD/stitching at the per-Terrain object boundary.
+
+**No surface, alphamap or material changes were saved.** The parent F2P production world remains clean at source feature commit `c6ee47d` prior to this read-only material audit documentation. New failed terrain proposals remain local preview-only.
