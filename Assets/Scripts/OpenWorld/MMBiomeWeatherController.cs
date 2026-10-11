@@ -25,6 +25,11 @@ public class MMBiomeWeatherController : MonoBehaviour
     [Header("Transition")]
     [Min(0.1f)] public float transitionSeconds = 2.5f;
 
+    [Header("Northern Snow Gusts")]
+    public bool enableNorthernSnowGusts = true;
+    [Min(6f)] public float snowGustCycleSeconds = 17f;
+    [Range(0f, 1f)] public float snowGustIntensity = 0.7f;
+
     ParticleSystem weather;
     ParticleSystemRenderer weatherRenderer;
     Material runtimeMaterial;
@@ -36,6 +41,8 @@ public class MMBiomeWeatherController : MonoBehaviour
     public string CurrentWeatherId => current.id;
     public float CurrentEmissionRate => current.emissionRate;
     public int AliveParticleCount => weather ? weather.particleCount : 0;
+    public float CurrentGustFactor { get; private set; }
+    public float AppliedEmissionRate { get; private set; }
     public string RuntimeShaderName =>
         runtimeMaterial && runtimeMaterial.shader ? runtimeMaterial.shader.name : "None";
 
@@ -79,7 +86,9 @@ public class MMBiomeWeatherController : MonoBehaviour
 
         float k = 1f - Mathf.Exp(-Time.deltaTime / Mathf.Max(0.1f, transitionSeconds));
         current = Lerp(current, desired, k);
-        Apply(current);
+        WeatherProfile presentation = current;
+        ApplyNorthernSnowGust(ref presentation);
+        Apply(presentation);
     }
 
     void CreateWeatherSystem()
@@ -156,8 +165,30 @@ public class MMBiomeWeatherController : MonoBehaviour
         weather.Play();
     }
 
+    // Runtime-only wind variation, limited to pre-existing snowy profiles.
+    // Nothing here edits weather assets, terrain, materials or scene lighting.
+    void ApplyNorthernSnowGust(ref WeatherProfile p)
+    {
+        CurrentGustFactor = 0f;
+        if (!enableNorthernSnowGusts || snowGustIntensity <= 0f ||
+            (p.id != "Snow" && p.id != "Flurries"))
+            return;
+
+        float phase = Time.time * (Mathf.PI * 2f) / Mathf.Max(6f, snowGustCycleSeconds);
+        float wave = 0.5f + 0.5f * Mathf.Sin(phase);
+        float gust = Mathf.SmoothStep(0f, 1f, wave) * snowGustIntensity;
+        CurrentGustFactor = gust;
+
+        // A softer lull builds into a drifting lateral gust, then subsides.
+        p.emissionRate *= Mathf.Lerp(0.85f, 1.65f, gust);
+        p.velocity += new Vector3(2.35f * gust, 0f, 0.55f * gust);
+        p.noiseStrength += 0.30f * gust;
+        p.noiseFrequency += 0.09f * gust;
+    }
+
     void Apply(WeatherProfile p)
     {
+        AppliedEmissionRate = Mathf.Max(0f, p.emissionRate);
         if (!weather) return;
 
         weather.transform.localPosition = new Vector3(0f, p.emitterHeight, 0f);
