@@ -54,7 +54,7 @@ public static class MMFrozenGroveAgeLayer
             .ToArray();
 
         var groupRoot = new GameObject(RootName);
-        groupRoot.hideFlags = HideFlags.DontSave;
+        // Keep a normal Play Mode root: DontSave can leave stale grove clones in Edit Mode.
         RuntimeRoot = groupRoot;
         var placed = new List<Vector2>();
         var random = new System.Random(17767);
