@@ -13,7 +13,8 @@ public sealed class MMFrozenPackedSnowPresentation : MonoBehaviour
     const string RootName = "MM_FrozenPackedSnowPresentation";
     const int TextureResolution = 1024;
     const int ExistingSnowIndex = 18;
-    const int VariantSnowIndex = 17;
+    // The new snow texture needs its own runtime layer, not an existing source slot.
+    const int VariantSnowIndex = 19;
 
     public static MMFrozenPackedSnowPresentation Instance { get; private set; }
     public static string LastInitializationError { get; private set; }
@@ -67,15 +68,24 @@ public sealed class MMFrozenPackedSnowPresentation : MonoBehaviour
             runtimeData.hideFlags = HideFlags.DontSave;
 
             TerrainLayer[] layers = runtimeData.terrainLayers;
-            packedSnow = Instantiate(layers[VariantSnowIndex]);
+            // Frozen North presently has 19 layers. Refuse an unexpected layout
+            // rather than overwrite a populated texture slot anywhere on the tile.
+            if (layers.Length != VariantSnowIndex)
+                throw new InvalidOperationException("Frozen snow source layer count changed");
+
+            packedSnow = Instantiate(layers[ExistingSnowIndex]);
             packedSnow.name = "Frozen wind-packed snow (runtime)";
             packedSnow.hideFlags = HideFlags.DontSave;
             packedSnow.diffuseTexture = BuildPackedSnowAlbedo(layers[ExistingSnowIndex].diffuseTexture);
             packedSnow.normalMapTexture = layers[ExistingSnowIndex].normalMapTexture;
             packedSnow.tileSize = new Vector2(8f, 8f);
             packedSnow.smoothness = .045f;
-            layers[VariantSnowIndex] = packedSnow;
-            runtimeData.terrainLayers = layers;
+            var expandedLayers = new TerrainLayer[layers.Length + 1];
+            Array.Copy(layers, expandedLayers, layers.Length);
+            expandedLayers[VariantSnowIndex] = packedSnow;
+            runtimeData.terrainLayers = expandedLayers;
+            if (runtimeData.alphamapLayers != expandedLayers.Length)
+                throw new InvalidOperationException("Runtime snow alphamap expansion failed");
 
             ApplyLocalVariation();
             // Heightmaps and collision profiles are exactly the same; the
