@@ -1,5 +1,7 @@
 # MM Unity
 
+**Git LFS recovery (October 2026):** GitHub's monthly LFS quota is exhausted. A normal `git lfs pull` will fail until the quota resets. The 10 current binary assets are securely available in [the recovery release](https://github.com/xynthor/MM-unity/releases/tag/lfs-assets-20261030). See [LFS-RECOVERY.md](LFS-RECOVERY.md) for the verified recovery process.
+
 A fan-made Unity recreation/port project inspired by the classic Might and Magic games.
 
 > This is a non-commercial fan project. Might and Magic and related original game assets are the property of their respective rights holders.
@@ -28,9 +30,10 @@ Directional and edge-world extension scenes live in:
 
 ```powershell
 git lfs install
+$env:GIT_LFS_SKIP_SMUDGE = "1"
 git clone https://github.com/xynthor/MM-unity.git
 cd MM-unity
-git lfs pull
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Restore-LFS-From-Release.ps1
 ```
 
 Open the cloned repository in Unity Hub with Unity 6000.5.6f1, or on Windows run:
@@ -125,11 +128,13 @@ Some development/reference assets are deliberately not redistributed. A clean cl
 
 ## Git LFS
 
-Large canonical world assets are stored with Git LFS. If a large scene appears as a small text pointer after cloning, run:
+Large canonical world assets are stored with Git LFS. While the current monthly LFS quota is exhausted, use the verified [release recovery script](Restore-LFS-From-Release.ps1) instead of `git lfs pull`:
 
 ```powershell
-git lfs pull
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Restore-LFS-From-Release.ps1
 ```
+
+Once GitHub LFS uploads and downloads resume, normal `git lfs pull` can be used again.
 
 ## Development notes
 
