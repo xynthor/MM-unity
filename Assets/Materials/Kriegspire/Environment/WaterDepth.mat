@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepth
+  m_Shader: {fileID: 4800000, guid: 9ff6b09316e7cdc43b294dacaf5718a2, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _DepthRange: 11
+    - _FoamDepth: 0.55
+    - _Glossiness: 0.18
+    - _Metallic: 0.05
+    - _WaveScale: 0.12
+    m_Colors:
+    - _DeepColor: {r: 0.02, g: 0.16, b: 0.3, a: 0.84}
+    - _FoamColor: {r: 0.78, g: 0.93, b: 0.88, a: 0.75}
+    - _ShallowColor: {r: 0.08, g: 0.58, b: 0.67, a: 0.5}
+    - _WaveSpeed: {r: 0.035, g: 0.02, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

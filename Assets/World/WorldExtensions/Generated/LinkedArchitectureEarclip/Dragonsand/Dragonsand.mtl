@@ -1,0 +1,419 @@
+newmtl bdksh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/bdksh16a.bmp
+
+newmtl bemob1b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/bemob1b.bmp
+
+newmtl bemstrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/bemstrt1.bmp
+
+newmtl bemsv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/bemsv16a.bmp
+
+newmtl ch1bakb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1bakb.bmp
+
+newmtl ch1bkle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1bkle.bmp
+
+newmtl ch1bkre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1bkre.bmp
+
+newmtl ch1frle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1frle.bmp
+
+newmtl ch1frntb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1frntb.bmp
+
+newmtl ch1frre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1frre.bmp
+
+newmtl ch1side
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1side.bmp
+
+newmtl ch1topb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1topb.bmp
+
+newmtl ch1tople
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1tople.bmp
+
+newmtl ch1topre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/ch1topre.bmp
+
+newmtl crdflr3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/crdflr3.bmp
+
+newmtl crflr2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/crflr2.bmp
+
+newmtl crflr3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/crflr3.bmp
+
+newmtl desrf1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/desrf1.bmp
+
+newmtl desrf3a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/desrf3a.bmp
+
+newmtl egybigb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egybigb.bmp
+
+newmtl egydrlgl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egydrlgl.bmp
+
+newmtl egyflorf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egyflorf.bmp
+
+newmtl egymedb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egymedb.bmp
+
+newmtl egytrmc
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egytrmc.bmp
+
+newmtl egywalg1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egywalg1.bmp
+
+newmtl egywalhb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egywalhb.bmp
+
+newmtl egywla
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egywla.bmp
+
+newmtl egywlb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egywlb.bmp
+
+newmtl egywlbl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egywlbl.bmp
+
+newmtl egywlbr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egywlbr.bmp
+
+newmtl egywld
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/egywld.bmp
+
+newmtl granite
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/granite.bmp
+
+newmtl mystrya
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/mystrya.bmp
+
+newmtl stc1le
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc1le.bmp
+
+newmtl stc1re
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc1re.bmp
+
+newmtl stc2128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc2128.bmp
+
+newmtl stc2dr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc2dr.bmp
+
+newmtl stc2le
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc2le.bmp
+
+newmtl stc2lea
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc2lea.bmp
+
+newmtl stc2re
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc2re.bmp
+
+newmtl stc2rea
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc2rea.bmp
+
+newmtl stc2trm
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc2trm.bmp
+
+newmtl stc2wdw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stc2wdw.bmp
+
+newmtl stcwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stcwal1.bmp
+
+newmtl stcwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/stcwal2.bmp
+
+newmtl t1d3e
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/t1d3e.bmp
+
+newmtl t1f1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/t1f1.bmp
+
+newmtl t1f4
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/t1f4.bmp
+
+newmtl t1trima
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/t1trima.bmp
+
+newmtl t1wl8ctb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/t1wl8ctb.bmp
+
+newmtl tentdor1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentdor1.bmp
+
+newmtl tentdor2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentdor2.bmp
+
+newmtl tentdor3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentdor3.bmp
+
+newmtl tentrf1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentrf1.bmp
+
+newmtl tentrf2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentrf2.bmp
+
+newmtl tentrf3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentrf3.bmp
+
+newmtl tentwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentwal1.bmp
+
+newmtl tentwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentwal2.bmp
+
+newmtl tentwal3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/tentwal3.bmp
+
+newmtl wtrtyl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Dragonsand/Bitmaps/wtrtyl.bmp
