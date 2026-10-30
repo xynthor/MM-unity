@@ -1,0 +1,713 @@
+newmtl 6wtrtyl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/6wtrtyl.bmp
+
+newmtl armormid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/armormid.bmp
+
+newmtl bdksh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bdksh16a.bmp
+
+newmtl bdksh32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bdksh32b.bmp
+
+newmtl bdksv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bdksv16a.bmp
+
+newmtl bdksv16c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bdksv16c.bmp
+
+newmtl bdksv32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bdksv32b.bmp
+
+newmtl bemdord
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemdord.bmp
+
+newmtl bemh32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemh32a.bmp
+
+newmtl bemhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemhwal.bmp
+
+newmtl bemhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemhwal1.bmp
+
+newmtl bemob1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemob1.bmp
+
+newmtl bemob1b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemob1b.bmp
+
+newmtl bemob2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemob2.bmp
+
+newmtl bemob2b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemob2b.bmp
+
+newmtl bemstarb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemstarb.bmp
+
+newmtl bemstra1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemstra1.bmp
+
+newmtl bemstrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemstrt1.bmp
+
+newmtl bemsv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemsv16a.bmp
+
+newmtl bemtila
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemtila.bmp
+
+newmtl bemv
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemv.bmp
+
+newmtl bemvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/bemvwal1.bmp
+
+newmtl blksmmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/blksmmid.bmp
+
+newmtl cbmxbrck
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/cbmxbrck.bmp
+
+newmtl cedhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/cedhwal1.bmp
+
+newmtl cedhwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/cedhwal2.bmp
+
+newmtl cedvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/cedvwal1.bmp
+
+newmtl cedvwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/cedvwal2.bmp
+
+newmtl ch3bakb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/ch3bakb.bmp
+
+newmtl ch3frle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/ch3frle.bmp
+
+newmtl ch3frntb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/ch3frntb.bmp
+
+newmtl ch3frre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/ch3frre.bmp
+
+newmtl ch3side
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/ch3side.bmp
+
+newmtl ch3tople
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/ch3tople.bmp
+
+newmtl ch3topre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/ch3topre.bmp
+
+newmtl ch3tpbv
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/ch3tpbv.bmp
+
+newmtl cr64
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/cr64.bmp
+
+newmtl crside
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/crside.bmp
+
+newmtl csbr128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/csbr128.bmp
+
+newmtl cstr256
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/cstr256.bmp
+
+newmtl d2ceil2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/d2ceil2.bmp
+
+newmtl dknkrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/dknkrf.bmp
+
+newmtl dkwbwl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/dkwbwl.bmp
+
+newmtl gldorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gldorb.bmp
+
+newmtl glstrde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/glstrde.bmp
+
+newmtl granite
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/granite.bmp
+
+newmtl gstrdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrdr.bmp
+
+newmtl gstrle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrle.bmp
+
+newmtl gstrlew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrlew.bmp
+
+newmtl gstrre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrre.bmp
+
+newmtl gstrrew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrrew.bmp
+
+newmtl gstrrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrrf.bmp
+
+newmtl gstrsbw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrsbw.bmp
+
+newmtl gstrst
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrst.bmp
+
+newmtl gstrwde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrwde.bmp
+
+newmtl gstrwn1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/gstrwn1.bmp
+
+newmtl magicpor
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/magicpor.bmp
+
+newmtl mystrya
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/mystrya.bmp
+
+newmtl pbroof
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/pbroof.bmp
+
+newmtl pxshings
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/pxshings.bmp
+
+newmtl roof
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/roof.bmp
+
+newmtl roof1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/roof1.bmp
+
+newmtl sign11
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/sign11.bmp
+
+newmtl solid09
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/solid09.bmp
+
+newmtl solid10
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/solid10.bmp
+
+newmtl straw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/straw.bmp
+
+newmtl strctclm
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/strctclm.bmp
+
+newmtl strctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/strctr.bmp
+
+newmtl strdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/strdr.bmp
+
+newmtl strle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/strle.bmp
+
+newmtl strre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/strre.bmp
+
+newmtl strroof1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/strroof1.bmp
+
+newmtl strwin2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/strwin2.bmp
+
+newmtl tav128wl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tav128wl.bmp
+
+newmtl tavctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavctr.bmp
+
+newmtl tavgobln
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavgobln.bmp
+
+newmtl tavle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavle.bmp
+
+newmtl tavlgdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavlgdr.bmp
+
+newmtl tavmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavmid.bmp
+
+newmtl tavre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavre.bmp
+
+newmtl tavrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavrf.bmp
+
+newmtl tavsmdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavsmdr.bmp
+
+newmtl tavwctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavwctr.bmp
+
+newmtl tavwle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavwle.bmp
+
+newmtl tavwre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tavwre.bmp
+
+newmtl tentdor1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentdor1.bmp
+
+newmtl tentdor2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentdor2.bmp
+
+newmtl tentdor3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentdor3.bmp
+
+newmtl tentdor7
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentdor7.bmp
+
+newmtl tentdor7a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentdor7a.bmp
+
+newmtl tentrf1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentrf1.bmp
+
+newmtl tentrf2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentrf2.bmp
+
+newmtl tentrf3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentrf3.bmp
+
+newmtl tentwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentwal1.bmp
+
+newmtl tentwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentwal2.bmp
+
+newmtl tentwal3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentwal3.bmp
+
+newmtl tentwal7a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentwal7a.bmp
+
+newmtl tentwal7b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/tentwal7b.bmp
+
+newmtl training
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/training.bmp
+
+newmtl trim
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/trim.bmp
+
+newmtl wood012
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/wood012.bmp
+
+newmtl wood013
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/BootlegBay/Bitmaps/wood013.bmp

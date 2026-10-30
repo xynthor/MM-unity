@@ -1,0 +1,580 @@
+newmtl 6wtrtyl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/6wtrtyl.bmp
+
+newmtl bdksh32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bdksh32b.bmp
+
+newmtl bdksv32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bdksv32c.bmp
+
+newmtl bemdk2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bemdk2.bmp
+
+newmtl bemhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bemhwal.bmp
+
+newmtl bemhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bemhwal1.bmp
+
+newmtl bemob2b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bemob2b.bmp
+
+newmtl bemstara
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bemstara.bmp
+
+newmtl bemstra1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bemstra1.bmp
+
+newmtl bemstrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bemstrt1.bmp
+
+newmtl bmsctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsctr.bmp
+
+newmtl bmsctr1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsctr1.bmp
+
+newmtl bmsctrw1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsctrw1.bmp
+
+newmtl bmsde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsde.bmp
+
+newmtl bmsde1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsde1.bmp
+
+newmtl bmsle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsle.bmp
+
+newmtl bmsle1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsle1.bmp
+
+newmtl bmslgdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmslgdr.bmp
+
+newmtl bmsre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsre.bmp
+
+newmtl bmsre1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmsre1.bmp
+
+newmtl bmssmdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/bmssmdr.bmp
+
+newmtl brxcntr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxcntr.bmp
+
+newmtl brxdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxdr.bmp
+
+newmtl brxend
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxend.bmp
+
+newmtl brxendwn
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxendwn.bmp
+
+newmtl brxlft
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxlft.bmp
+
+newmtl brxlwn
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxlwn.bmp
+
+newmtl brxrt
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxrt.bmp
+
+newmtl brxrwn
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxrwn.bmp
+
+newmtl brxwn
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/brxwn.bmp
+
+newmtl cedhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/cedhwal.bmp
+
+newmtl cedhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/cedhwal1.bmp
+
+newmtl cedhwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/cedhwal2.bmp
+
+newmtl cedvwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/cedvwal.bmp
+
+newmtl cedvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/cedvwal1.bmp
+
+newmtl cr64
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/cr64.bmp
+
+newmtl crside
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/crside.bmp
+
+newmtl mystrya
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/mystrya.bmp
+
+newmtl pbdorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/pbdorb.bmp
+
+newmtl pbroof
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/pbroof.bmp
+
+newmtl solid10
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/solid10.bmp
+
+newmtl swpcnr1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpcnr1.bmp
+
+newmtl swpcnr2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpcnr2.bmp
+
+newmtl swpdr1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpdr1.bmp
+
+newmtl swpdr1a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpdr1a.bmp
+
+newmtl swpdr3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpdr3.bmp
+
+newmtl swpdr3a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpdr3a.bmp
+
+newmtl swpend1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpend1.bmp
+
+newmtl swpend3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpend3.bmp
+
+newmtl swplft1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swplft1.bmp
+
+newmtl swplft1a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swplft1a.bmp
+
+newmtl swplft3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swplft3.bmp
+
+newmtl swplft3a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swplft3a.bmp
+
+newmtl swprf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swprf.bmp
+
+newmtl swprrf1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swprrf1.bmp
+
+newmtl swprrf2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swprrf2.bmp
+
+newmtl swprrf3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swprrf3.bmp
+
+newmtl swprt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swprt1.bmp
+
+newmtl swprt1a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swprt1a.bmp
+
+newmtl swprt3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swprt3.bmp
+
+newmtl swprt3a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swprt3a.bmp
+
+newmtl swpwin1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpwin1.bmp
+
+newmtl swpwin3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/swpwin3.bmp
+
+newmtl tavpoor1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/tavpoor1.bmp
+
+newmtl tentdor3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/tentdor3.bmp
+
+newmtl tentdor7
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/tentdor7.bmp
+
+newmtl tentdor7a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/tentdor7a.bmp
+
+newmtl tentrf3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/tentrf3.bmp
+
+newmtl tentwal3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/tentwal3.bmp
+
+newmtl tentwal7a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/tentwal7a.bmp
+
+newmtl tentwal7b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/tentwal7b.bmp
+
+newmtl trim
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/trim.bmp
+
+newmtl whcntr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whcntr.bmp
+
+newmtl whcntr1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whcntr1.bmp
+
+newmtl whdor
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whdor.bmp
+
+newmtl whend
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whend.bmp
+
+newmtl whft
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whft.bmp
+
+newmtl whlftw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whlftw.bmp
+
+newmtl whrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whrf.bmp
+
+newmtl whrt
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whrt.bmp
+
+newmtl whrtw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whrtw.bmp
+
+newmtl whtrim
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whtrim.bmp
+
+newmtl whwin
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/MireOfTheDamned/Bitmaps/whwin.bmp

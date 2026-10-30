@@ -1,0 +1,398 @@
+newmtl 6wtrtyl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/6wtrtyl.bmp
+
+newmtl armorrch
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/armorrch.bmp
+
+newmtl bdksv32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bdksv32b.bmp
+
+newmtl bemh16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemh16b.bmp
+
+newmtl bemh32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemh32a.bmp
+
+newmtl bemhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemhwal.bmp
+
+newmtl bemob2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemob2.bmp
+
+newmtl bemstra1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemstra1.bmp
+
+newmtl bemstrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemstrt1.bmp
+
+newmtl bemsv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemsv16a.bmp
+
+newmtl bemtila
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemtila.bmp
+
+newmtl bemv
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemv.bmp
+
+newmtl bemv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemv16a.bmp
+
+newmtl bemv32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemv32a.bmp
+
+newmtl bemv32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/bemv32b.bmp
+
+newmtl cbmxbrck
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/cbmxbrck.bmp
+
+newmtl ch2bakb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/ch2bakb.bmp
+
+newmtl ch2frle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/ch2frle.bmp
+
+newmtl ch2frntb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/ch2frntb.bmp
+
+newmtl ch2frre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/ch2frre.bmp
+
+newmtl ch2side
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/ch2side.bmp
+
+newmtl ch2topb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/ch2topb.bmp
+
+newmtl ch2tople
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/ch2tople.bmp
+
+newmtl ch2topre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/ch2topre.bmp
+
+newmtl descnr1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/descnr1.bmp
+
+newmtl descnr2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/descnr2.bmp
+
+newmtl descnr3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/descnr3.bmp
+
+newmtl desdr1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desdr1.bmp
+
+newmtl desdr1a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desdr1a.bmp
+
+newmtl desdr2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desdr2.bmp
+
+newmtl desdr3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desdr3.bmp
+
+newmtl desend1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desend1.bmp
+
+newmtl deslft1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deslft1.bmp
+
+newmtl deslft2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deslft2.bmp
+
+newmtl deslft3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deslft3.bmp
+
+newmtl desrf1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desrf1.bmp
+
+newmtl desrf2a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desrf2a.bmp
+
+newmtl desrf3a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desrf3a.bmp
+
+newmtl desrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desrt1.bmp
+
+newmtl desrt2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desrt2.bmp
+
+newmtl desrt3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/desrt3.bmp
+
+newmtl deswin1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deswin1.bmp
+
+newmtl deswin1a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deswin1a.bmp
+
+newmtl deswin1b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deswin1b.bmp
+
+newmtl deswin2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deswin2.bmp
+
+newmtl deswin3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deswin3.bmp
+
+newmtl deswin3a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deswin3a.bmp
+
+newmtl deswin3b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/deswin3b.bmp
+
+newmtl magicpor
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/magicpor.bmp
+
+newmtl mystrya
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/mystrya.bmp
+
+newmtl tavrich
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/tavrich.bmp
+
+newmtl tentdor3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/tentdor3.bmp
+
+newmtl tentwal3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/tentwal3.bmp
+
+newmtl training
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/training.bmp
+
+newmtl trim
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/trim.bmp
+
+newmtl vh1trima
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/vh1trima.bmp
+
+newmtl wood013
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/ParadiseValley/Bitmaps/wood013.bmp
