@@ -1,0 +1,1056 @@
+newmtl 6wtrtyl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/6wtrtyl.bmp
+
+newmtl armormid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/armormid.bmp
+
+newmtl bank
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bank.bmp
+
+newmtl bdksh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bdksh16a.bmp
+
+newmtl bdksh16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bdksh16b.bmp
+
+newmtl bdksh16c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bdksh16c.bmp
+
+newmtl bdksh32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bdksh32b.bmp
+
+newmtl bdksv16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bdksv16b.bmp
+
+newmtl bdksv16c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bdksv16c.bmp
+
+newmtl bdksv32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bdksv32b.bmp
+
+newmtl bdksv32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bdksv32c.bmp
+
+newmtl bemdk2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemdk2.bmp
+
+newmtl bemdord
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemdord.bmp
+
+newmtl bemh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemh16a.bmp
+
+newmtl bemh16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemh16b.bmp
+
+newmtl bemh32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemh32a.bmp
+
+newmtl bemhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemhwal.bmp
+
+newmtl bemhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemhwal1.bmp
+
+newmtl bemob1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemob1.bmp
+
+newmtl bemob1b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemob1b.bmp
+
+newmtl bemob2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemob2.bmp
+
+newmtl bemob2b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemob2b.bmp
+
+newmtl bemsh16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemsh16b.bmp
+
+newmtl bemsh32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemsh32b.bmp
+
+newmtl bemstara
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemstara.bmp
+
+newmtl bemstarb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemstarb.bmp
+
+newmtl bemstra1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemstra1.bmp
+
+newmtl bemstrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemstrt1.bmp
+
+newmtl bemsv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemsv16a.bmp
+
+newmtl bemsv16c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemsv16c.bmp
+
+newmtl bemtila
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemtila.bmp
+
+newmtl bemv
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemv.bmp
+
+newmtl bemv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemv16a.bmp
+
+newmtl bemv16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemv16b.bmp
+
+newmtl bemv16c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemv16c.bmp
+
+newmtl bemv32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemv32c.bmp
+
+newmtl bemvwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemvwal.bmp
+
+newmtl bemvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bemvwal1.bmp
+
+newmtl blksmmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/blksmmid.bmp
+
+newmtl bmdk16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bmdk16a.bmp
+
+newmtl bmplnk
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/bmplnk.bmp
+
+newmtl cbmxbrck
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cbmxbrck.bmp
+
+newmtl cbsm
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cbsm.bmp
+
+newmtl cedhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cedhwal.bmp
+
+newmtl cedhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cedhwal1.bmp
+
+newmtl cedhwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cedhwal2.bmp
+
+newmtl cedvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cedvwal1.bmp
+
+newmtl cedvwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cedvwal2.bmp
+
+newmtl ch4bakb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4bakb.bmp
+
+newmtl ch4bakle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4bakle.bmp
+
+newmtl ch4frle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4frle.bmp
+
+newmtl ch4frntb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4frntb.bmp
+
+newmtl ch4frre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4frre.bmp
+
+newmtl ch4side
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4side.bmp
+
+newmtl ch4top
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4top.bmp
+
+newmtl ch4tplev
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4tplev.bmp
+
+newmtl ch4tprev
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/ch4tprev.bmp
+
+newmtl crdflr3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/crdflr3.bmp
+
+newmtl csaro128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/csaro128.bmp
+
+newmtl csbr128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/csbr128.bmp
+
+newmtl csde128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/csde128.bmp
+
+newmtl csdoor
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/csdoor.bmp
+
+newmtl csle128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/csle128.bmp
+
+newmtl csle128w
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/csle128w.bmp
+
+newmtl csre128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/csre128.bmp
+
+newmtl csre128w
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/csre128w.bmp
+
+newmtl cstr128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cstr128.bmp
+
+newmtl cstr256
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cstr256.bmp
+
+newmtl cswdw128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cswdw128.bmp
+
+newmtl cswl128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cswl128.bmp
+
+newmtl cvceil1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cvceil1.bmp
+
+newmtl cvceil3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/cvceil3.bmp
+
+newmtl dkdorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkdorb.bmp
+
+newmtl dkwbwl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwbwl.bmp
+
+newmtl dkwdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwdr.bmp
+
+newmtl dkwle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwle.bmp
+
+newmtl dkwlew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwlew.bmp
+
+newmtl dkwmt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwmt1.bmp
+
+newmtl dkwre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwre.bmp
+
+newmtl dkwrew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwrew.bmp
+
+newmtl dkwrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwrf.bmp
+
+newmtl dkwsde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwsde.bmp
+
+newmtl dkwsmbwl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwsmbwl.bmp
+
+newmtl dkwst
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwst.bmp
+
+newmtl dkwwn
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwwn.bmp
+
+newmtl dkwwnde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/dkwwnde.bmp
+
+newmtl elem-all
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/elem-all.bmp
+
+newmtl gbrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/gbrf.bmp
+
+newmtl granite
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/granite.bmp
+
+newmtl gset02
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/gset02.bmp
+
+newmtl gstrle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/gstrle.bmp
+
+newmtl gstrre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/gstrre.bmp
+
+newmtl gstrrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/gstrrf.bmp
+
+newmtl gstrsbw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/gstrsbw.bmp
+
+newmtl gstrst
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/gstrst.bmp
+
+newmtl magicrch
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/magicrch.bmp
+
+newmtl mercmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/mercmid.bmp
+
+newmtl mystrya
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/mystrya.bmp
+
+newmtl pbwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/pbwal.bmp
+
+newmtl pxshings
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/pxshings.bmp
+
+newmtl rblrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/rblrf.bmp
+
+newmtl roof1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/roof1.bmp
+
+newmtl sdkdorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkdorb.bmp
+
+newmtl sdknkrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdknkrf.bmp
+
+newmtl sdkwbwl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwbwl.bmp
+
+newmtl sdkwdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwdr.bmp
+
+newmtl sdkwle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwle.bmp
+
+newmtl sdkwlew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwlew.bmp
+
+newmtl sdkwre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwre.bmp
+
+newmtl sdkwrew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwrew.bmp
+
+newmtl sdkwsde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwsde.bmp
+
+newmtl sdkwst
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwst.bmp
+
+newmtl sdkwwn
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwwn.bmp
+
+newmtl sdkwwn1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwwn1.bmp
+
+newmtl sdkwwnde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sdkwwnde.bmp
+
+newmtl sgldorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgldorb.bmp
+
+newmtl sglstrde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sglstrde.bmp
+
+newmtl sgstrdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrdr.bmp
+
+newmtl sgstrle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrle.bmp
+
+newmtl sgstrlew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrlew.bmp
+
+newmtl sgstrre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrre.bmp
+
+newmtl sgstrrew
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrrew.bmp
+
+newmtl sgstrrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrrf.bmp
+
+newmtl sgstrsbw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrsbw.bmp
+
+newmtl sgstrst
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrst.bmp
+
+newmtl sgstrwde
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrwde.bmp
+
+newmtl sgstrwn1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sgstrwn1.bmp
+
+newmtl sign11
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/sign11.bmp
+
+newmtl smalldr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/smalldr.bmp
+
+newmtl solid10
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/solid10.bmp
+
+newmtl stables
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/stables.bmp
+
+newmtl storemid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/storemid.bmp
+
+newmtl straw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/straw.bmp
+
+newmtl t1f3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/t1f3.bmp
+
+newmtl t1swbd
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/t1swbd.bmp
+
+newmtl t1swbu
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/t1swbu.bmp
+
+newmtl tavmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tavmid.bmp
+
+newmtl tavpoor2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tavpoor2.bmp
+
+newmtl tdoorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tdoorb.bmp
+
+newmtl tdoorc
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tdoorc.bmp
+
+newmtl tdortrim
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tdortrim.bmp
+
+newmtl tdortrm2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tdortrm2.bmp
+
+newmtl tentdor3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tentdor3.bmp
+
+newmtl tentrf3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tentrf3.bmp
+
+newmtl tentwal3
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/tentwal3.bmp
+
+newmtl training
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/training.bmp
+
+newmtl vh1trima
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/vh1trima.bmp
+
+newmtl vh2trimb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/vh2trimb.bmp
+
+newmtl wood012
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/wood012.bmp
+
+newmtl wood013
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/wood013.bmp
+
+newmtl yindark
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/FrozenHighlands/Bitmaps/yindark.bmp

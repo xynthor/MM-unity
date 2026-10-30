@@ -1,0 +1,860 @@
+newmtl 6wtrtyl
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/6wtrtyl.bmp
+
+newmtl armorpor
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/armorpor.bmp
+
+newmtl bdksh16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bdksh16a.bmp
+
+newmtl bdksh16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bdksh16b.bmp
+
+newmtl bdksh32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bdksh32b.bmp
+
+newmtl bdksv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bdksv16a.bmp
+
+newmtl bdksv16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bdksv16b.bmp
+
+newmtl bdksv16c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bdksv16c.bmp
+
+newmtl bdksv32b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bdksv32b.bmp
+
+newmtl bdksv32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bdksv32c.bmp
+
+newmtl bemdk2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemdk2.bmp
+
+newmtl bemdorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemdorb.bmp
+
+newmtl bemdord
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemdord.bmp
+
+newmtl bemh16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemh16b.bmp
+
+newmtl bemh32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemh32c.bmp
+
+newmtl bemhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemhwal.bmp
+
+newmtl bemob1b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemob1b.bmp
+
+newmtl bemob2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemob2.bmp
+
+newmtl bemob2b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemob2b.bmp
+
+newmtl bemstara
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemstara.bmp
+
+newmtl bemstra1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemstra1.bmp
+
+newmtl bemstrt1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemstrt1.bmp
+
+newmtl bemsv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemsv16a.bmp
+
+newmtl bemtila
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemtila.bmp
+
+newmtl bemv
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemv.bmp
+
+newmtl bemv16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemv16a.bmp
+
+newmtl bemv16b
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemv16b.bmp
+
+newmtl bemv32a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemv32a.bmp
+
+newmtl bemv32c
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemv32c.bmp
+
+newmtl bemvwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bemvwal.bmp
+
+newmtl blksmmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/blksmmid.bmp
+
+newmtl bmdk16
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bmdk16.bmp
+
+newmtl bmdk16a
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bmdk16a.bmp
+
+newmtl bmdk16e
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/bmdk16e.bmp
+
+newmtl cbsm
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/cbsm.bmp
+
+newmtl cedhwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/cedhwal.bmp
+
+newmtl cedhwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/cedhwal1.bmp
+
+newmtl cedhwal2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/cedhwal2.bmp
+
+newmtl cedvwal
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/cedvwal.bmp
+
+newmtl cedvwal1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/cedvwal1.bmp
+
+newmtl ch1bakb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1bakb.bmp
+
+newmtl ch1bkle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1bkle.bmp
+
+newmtl ch1bkre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1bkre.bmp
+
+newmtl ch1frle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1frle.bmp
+
+newmtl ch1frntb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1frntb.bmp
+
+newmtl ch1frre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1frre.bmp
+
+newmtl ch1side
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1side.bmp
+
+newmtl ch1topb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1topb.bmp
+
+newmtl ch1tople
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1tople.bmp
+
+newmtl ch1topre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/ch1topre.bmp
+
+newmtl csbr128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/csbr128.bmp
+
+newmtl cstr128
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/cstr128.bmp
+
+newmtl dkwrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/dkwrf.bmp
+
+newmtl gbcnt
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/gbcnt.bmp
+
+newmtl granite
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/granite.bmp
+
+newmtl magicrch
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/magicrch.bmp
+
+newmtl mystrya
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/mystrya.bmp
+
+newmtl oceil
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/oceil.bmp
+
+newmtl orair64
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/orair64.bmp
+
+newmtl oraltmrb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/oraltmrb.bmp
+
+newmtl orceil
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/orceil.bmp
+
+newmtl orwtr32
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/orwtr32.bmp
+
+newmtl orwtr64
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/orwtr64.bmp
+
+newmtl sdknkrf
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/sdknkrf.bmp
+
+newmtl sdkwdr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/sdkwdr.bmp
+
+newmtl sdkwle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/sdkwle.bmp
+
+newmtl sdkwre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/sdkwre.bmp
+
+newmtl sdkwst
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/sdkwst.bmp
+
+newmtl sdkwwn
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/sdkwwn.bmp
+
+newmtl stables
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/stables.bmp
+
+newmtl tavmid
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tavmid.bmp
+
+newmtl tdoorb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tdoorb.bmp
+
+newmtl tdoore
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tdoore.bmp
+
+newmtl tdortrim
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tdortrim.bmp
+
+newmtl teunq2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/teunq2.bmp
+
+newmtl tewd
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tewd.bmp
+
+newmtl tewls
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tewls.bmp
+
+newmtl tewm
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tewm.bmp
+
+newmtl tewrd
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tewrd.bmp
+
+newmtl tewrs
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tewrs.bmp
+
+newmtl tews
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tews.bmp
+
+newmtl tewsw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/tewsw.bmp
+
+newmtl training
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/training.bmp
+
+newmtl vh1ctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh1ctr.bmp
+
+newmtl vh1dor
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh1dor.bmp
+
+newmtl vh1le
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh1le.bmp
+
+newmtl vh1re
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh1re.bmp
+
+newmtl vh1roof
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh1roof.bmp
+
+newmtl vh1trima
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh1trima.bmp
+
+newmtl vh1winle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh1winle.bmp
+
+newmtl vh1winlg
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh1winlg.bmp
+
+newmtl vh2ctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2ctr.bmp
+
+newmtl vh2ctrw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2ctrw.bmp
+
+newmtl vh2door
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2door.bmp
+
+newmtl vh2le
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2le.bmp
+
+newmtl vh2re
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2re.bmp
+
+newmtl vh2roof2
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2roof2.bmp
+
+newmtl vh2trima
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2trima.bmp
+
+newmtl vh2trimb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2trimb.bmp
+
+newmtl vh2winle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2winle.bmp
+
+newmtl vh2winlg
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2winlg.bmp
+
+newmtl vh2winre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh2winre.bmp
+
+newmtl vh3ctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh3ctr.bmp
+
+newmtl vh3door
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh3door.bmp
+
+newmtl vh3le
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh3le.bmp
+
+newmtl vh3re
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh3re.bmp
+
+newmtl vh3roofb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh3roofb.bmp
+
+newmtl vh3trimb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh3trimb.bmp
+
+newmtl vh4ctr
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4ctr.bmp
+
+newmtl vh4ctrw
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4ctrw.bmp
+
+newmtl vh4door
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4door.bmp
+
+newmtl vh4le
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4le.bmp
+
+newmtl vh4re
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4re.bmp
+
+newmtl vh4roof
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4roof.bmp
+
+newmtl vh4trimb
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4trimb.bmp
+
+newmtl vh4trimc
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4trimc.bmp
+
+newmtl vh4winle
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4winle.bmp
+
+newmtl vh4winlg
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4winlg.bmp
+
+newmtl vh4winre
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4winre.bmp
+
+newmtl vh4wnlex
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4wnlex.bmp
+
+newmtl vh4wnrex
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/vh4wnrex.bmp
+
+newmtl wood012
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/wood012.bmp
+
+newmtl wood013
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.05 0.05 0.05
+Ns 8
+map_Kd ../../../MMOriginal/Kriegspire/Bitmaps/wood013.bmp

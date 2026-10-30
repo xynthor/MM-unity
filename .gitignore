@@ -1,0 +1,124 @@
+# Unity generated/local state
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+MemoryCaptures/
+Recordings/
+
+# IDE/editor generated files
+.vs/
+.idea/
+.gradle/
+*.csproj
+*.sln
+*.unityproj
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# MMUnityPort local/generated/reference data
+Backups/
+Preview/
+Validation/
+Imports/
+Extract/
+TmpExtractTest/
+.mixamo_browser/
+NVIDIA Corporation/
+OpenEnroth/
+openmm/
+Rust/
+mmarch/
+ThirdParty/
+External/
+References/
+UnityProject/
+
+# Do not redistribute proprietary/reference asset packs
+Assets/MMOriginal/
+Assets/TerrainDemoScene_HDRP/
+Assets/Art/
+Assets/Environment/
+Assets/EnvironmentAssets/
+Assets/Textures/
+Assets/Previews/
+Assets/Validation/
+Assets/TempDragonTemplate/
+Assets/TempDragonRework/
+
+# Misc local artifacts
+*.log
+*.bak
+*.presavebak
+.DS_Store
+Thumbs.db
+
+# Additional generated/third-party Unity content
+Assets/Optimization/
+Assets/Player/
+Assets/ThirdParty/
+Assets/Scenes/Forest_EnvironmentSample/
+Assets/Scenes/RestoreBackups/
+Assets/Scenes/_Recovery_*
+Assets/_TerrainAutoUpgrade/
+
+# Snapshot/vendor content not suitable for the public repo
+Blueprints/
+Assets/Shaders/BotD/
+
+# Directly extracted MM map/object source data (kept local)
+Assets/World/*/Objects/
+Assets/World/*/Data/
+Assets/World/*/*.obj
+Assets/World/*/*.obj.meta
+*.presavebak.meta
+
+# Disposable Unity/sample artifacts
+DisabledScripts/
+Assets/Scenes/AssetLibrary/
+Assets/Scenes/Forest_EnvironmentSample_Profiles/
+Assets/Scenes/HDTemplateDefaultResources/
+Assets/Scenes/__PREVIEW_*.unity
+Assets/Scenes/__PREVIEW_*.unity.meta
+Assets/Scenes/*.brush
+Assets/Scenes/*.brush.meta
+*_preview.png
+
+# Meta files for intentionally excluded asset folders
+Assets/Art.meta
+Assets/EditorDisabled.meta
+Assets/Environment.meta
+Assets/EnvironmentAssets.meta
+Assets/MMOriginal.meta
+Assets/Optimization.meta
+Assets/Optimization 1.meta
+Assets/Player.meta
+Assets/Previews.meta
+Assets/TempDragonRework.meta
+Assets/TempDragonTemplate.meta
+Assets/TerrainDemoScene_HDRP.meta
+Assets/Textures.meta
+Assets/ThirdParty.meta
+Assets/Validation.meta
+Assets/_TerrainAutoUpgrade.meta
+Assets/Scenes/Forest_EnvironmentSample.meta
+Assets/Scenes/RestoreBackups.meta
+
+# Publicly redistributable MIT dependency required by editor tooling
+!Assets/ThirdParty/
+Assets/ThirdParty/*
+!Assets/ThirdParty.meta
+!Assets/ThirdParty/UnityMeshSimplifier/
+!Assets/ThirdParty/UnityMeshSimplifier/**
